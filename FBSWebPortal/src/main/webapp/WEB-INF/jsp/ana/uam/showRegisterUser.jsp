@@ -24,7 +24,7 @@
   <div class="row-fluid">
     <div class="block-center span12">
        <form:form method="POST" id="registerForm" name="registerForm" commandName="command" 
-            action="saveNewUser.action" class="form-horizontal" enctype="multipart/form-data" autocomplete="off">
+            action="saveNewUser.action" class="form-horizontal" autocomplete="off">
             
           <h1>Registration For New User</h1>
           <form:hidden path="modulus" value="${modulus}"/>

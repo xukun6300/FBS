@@ -13,7 +13,7 @@
       <property name="status" column="STATUS" not-null="true"></property>
       <property name="salutation" column="SALUTATION" not-null="true"></property>
       <property name="name" column="NAME" not-null="true"></property>
-      <property name="loginid" column="LOGINID" not-null="true"></property>
+      <property name="loginId" column="LOGINID" not-null="true"></property>
       <property name="gender" column="GENDER"></property>
       <property name="dateOfBirth" column="DATEOFBIRTH" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"></property>
       <property name="officeTel" column="OFFICETEL"></property>

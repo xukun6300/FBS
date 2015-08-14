@@ -96,6 +96,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		Cipher cipher = null;
 		
 		try {
+
 			cipher = Cipher.getInstance(userPasswordTransportEncryptionAlg, getJCEProvider());
 		} catch (Exception e) {
 			throw new CryptoConfigException(e.getMessage(), e);
@@ -104,7 +105,6 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		try {
 			cipher.init(Cipher.DECRYPT_MODE, key);
 			byte[] plainText = cipher.doFinal(encryptedHash);
-			
 			plainText = Hex.decodeHex(new String(plainText).toCharArray());
 			return plainText;
 		} catch (Exception e) {
@@ -143,6 +143,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		Cipher cipher = null;
 		
 		try {
+			
 			cipher = Cipher.getInstance(alg, getJCEProvider());
 		} catch (Exception e) {
 			throw new CryptoConfigException(e.getMessage(), e);

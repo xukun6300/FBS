@@ -18,7 +18,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
 
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fenctype_005fcommandName_005fclass_005fautocomplete_005faction;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fcommandName_005fclass_005fautocomplete_005faction;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fhidden_0026_005fvalue_005fpath_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fmaxlength_005fid_005fclass_005fnobody;
@@ -46,7 +46,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
   public void _jspInit() {
     _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fenctype_005fcommandName_005fclass_005fautocomplete_005faction = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fcommandName_005fclass_005fautocomplete_005faction = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005fhidden_0026_005fvalue_005fpath_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fmaxlength_005fid_005fclass_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -70,7 +70,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
   public void _jspDestroy() {
     _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.release();
     _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.release();
-    _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fenctype_005fcommandName_005fclass_005fautocomplete_005faction.release();
+    _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fcommandName_005fclass_005fautocomplete_005faction.release();
     _005fjspx_005ftagPool_005fform_005fhidden_0026_005fvalue_005fpath_005fnobody.release();
     _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.release();
     _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fmaxlength_005fid_005fclass_005fnobody.release();
@@ -161,7 +161,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("    <div class=\"block-center span12\">\r\n");
       out.write("       ");
       //  form:form
-      org.springframework.web.servlet.tags.form.FormTag _jspx_th_form_005fform_005f0 = (org.springframework.web.servlet.tags.form.FormTag) _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fenctype_005fcommandName_005fclass_005fautocomplete_005faction.get(org.springframework.web.servlet.tags.form.FormTag.class);
+      org.springframework.web.servlet.tags.form.FormTag _jspx_th_form_005fform_005f0 = (org.springframework.web.servlet.tags.form.FormTag) _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fcommandName_005fclass_005fautocomplete_005faction.get(org.springframework.web.servlet.tags.form.FormTag.class);
       _jspx_th_form_005fform_005f0.setPageContext(_jspx_page_context);
       _jspx_th_form_005fform_005f0.setParent(null);
       // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(26,7) name = method type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
@@ -173,11 +173,9 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
       // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(26,7) name = commandName type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_form_005fform_005f0.setCommandName("command");
       // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(26,7) name = action type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-      _jspx_th_form_005fform_005f0.setAction("saveUser.action");
+      _jspx_th_form_005fform_005f0.setAction("saveNewUser.action");
       // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(26,7) null
       _jspx_th_form_005fform_005f0.setDynamicAttribute(null, "class", new String("form-horizontal"));
-      // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(26,7) name = enctype type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-      _jspx_th_form_005fform_005f0.setEnctype("multipart/form-data");
       // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(26,7) name = autocomplete type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_form_005fform_005f0.setAutocomplete("off");
       int[] _jspx_push_body_count_form_005fform_005f0 = new int[] { 0 };
@@ -837,7 +835,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
         _jspx_th_form_005fform_005f0.doCatch(_jspx_exception);
       } finally {
         _jspx_th_form_005fform_005f0.doFinally();
-        _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fenctype_005fcommandName_005fclass_005fautocomplete_005faction.reuse(_jspx_th_form_005fform_005f0);
+        _005fjspx_005ftagPool_005fform_005fform_0026_005fname_005fmethod_005fid_005fcommandName_005fclass_005fautocomplete_005faction.reuse(_jspx_th_form_005fform_005f0);
       }
       out.write("   \r\n");
       out.write("    </div>\r\n");

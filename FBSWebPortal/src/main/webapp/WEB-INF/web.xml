@@ -50,11 +50,13 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 		<url-pattern>*.action</url-pattern>
 	</filter-mapping> 
 
+<!-- 
+    temporary comment this listened because it will cause request parameter map become empty 
     <listener>
        <listener-class>
           sg.com.fbs.validator.web.servlet.ValidationListener
        </listener-class>
-    </listener>
+    </listener> -->
 
 
 

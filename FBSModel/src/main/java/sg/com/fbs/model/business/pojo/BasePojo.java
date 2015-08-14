@@ -18,7 +18,8 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import sg.com.fbs.model.annotation.JsonSkipField;
 import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
-import sg.com.fbs.user.User;
+import sg.com.fbs.model.system.security.User;
+
 
 
 

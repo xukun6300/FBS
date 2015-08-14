@@ -165,7 +165,6 @@ public abstract class BaseWebController extends MultiActionController{
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{   
-		
 		long startTime = System.currentTimeMillis();
 		System.out.println("----------------In BaseWebController--------------");		
 		ModelAndView modelAndView = null;			
@@ -189,6 +188,10 @@ public abstract class BaseWebController extends MultiActionController{
 			if(commandForm!=null){
 				commandForm.setCrudMode(getCrudMode());
 			}		
+			
+			/**
+			 * this will map http parameters to form bean, and then copy form properties to model bean
+			 */
 			mapFormToModel(modelAndView, commandForm, request);			
 			executeCRUDOperation(modelAndView, commandForm, request, methodName, extraMap);
 			overrideModuleContext(modelAndView);
@@ -275,6 +278,8 @@ public abstract class BaseWebController extends MultiActionController{
 	
 	// will bind all form value to command object
 	private void getFormValues(HttpServletRequest request, Object obj, ModelAndView modelView) throws Exception{
+		//request.getParameterMap();
+		
 		ServletRequestDataBinder binder = createControllerBinder(request, obj);
 		if(binder!=null){
 			// Bind the parameters of the given request to this binder's target obj
@@ -446,7 +451,7 @@ public abstract class BaseWebController extends MultiActionController{
 	}
 	
 	private ServletRequestDataBinder createControllerBinder(HttpServletRequest request, Object obj) throws Exception{
-		ServletRequestDataBinder binder = createBinder(request, obj);
+		ServletRequestDataBinder binder = super.createBinder(request, obj);
 		return binder;
 	}
 

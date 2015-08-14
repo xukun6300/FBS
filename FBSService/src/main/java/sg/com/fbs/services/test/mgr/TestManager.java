@@ -20,14 +20,14 @@ public class TestManager extends CommonFacade {
 	
 	public ResponseCRUD saveUser(TestUserRequest testUserRequest){
 		ResponseCRUD responseCRUD = new ResponseCRUD();
-		User user = new User();
+		/*User user = new User();
 		user.setId(testUserRequest.getId());
 		user.setName(testUserRequest.getName());
 		user.setPassword(testUserRequest.getPassword());
 		
-		/*user.setName("jones");
+		user.setName("jones");
 		user.setPassword("james");
-		*/
+		
 		
 		try {
 			new BaseDao().insert(user);
@@ -36,7 +36,7 @@ public class TestManager extends CommonFacade {
 			e.printStackTrace();
 		}
 		
-		responseCRUD.setCrudResult(user);
+		responseCRUD.setCrudResult(user);*/
 		return responseCRUD;
 	}
 	
@@ -45,7 +45,7 @@ public class TestManager extends CommonFacade {
 	public ResponseCRUD searchUsers(CriteriaIF criteria){
 		ResponseCRUD responseCRUD = new ResponseCRUD();
 		try {
-			responseCRUD = (ResponseCRUD) new BaseDao().search(User.class, criteria);
+			//responseCRUD = (ResponseCRUD) new BaseDao().search(User.class, criteria);
 		} catch (DataAccessObjectException e) {
 		}
 
