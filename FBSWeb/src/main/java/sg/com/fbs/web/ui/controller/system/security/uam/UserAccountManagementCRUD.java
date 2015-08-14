@@ -6,6 +6,9 @@ import sg.com.fbs.core.techinfra.exception.CRUDException;
 import sg.com.fbs.core.techinfra.web.WebCRUDIF;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
+import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
+import sg.com.fbs.services.system.security.uam.mgr.UserAccountManagerBD;
+import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
 
 /**
  * @Author Frank Xu $
@@ -31,8 +34,16 @@ public class UserAccountManagementCRUD implements WebCRUDIF{
 	@Override
 	public IResponseCRUD<?> insert(BasePojoRequest pojoRequest, Object form,
 			HttpServletRequest request) throws CRUDException {
-		// TODO Auto-generated method stub
-		return null;
+		IResponseCRUD<?> response = null;
+		UserAccountManagerBD userAccountManagerBD = new UserAccountManagerBD();
+		
+		if(pojoRequest instanceof RegisterUserRequest){
+			RegisterUserForm formBean = (RegisterUserForm)form;
+			RegisterUserRequest registerUserRequest = (RegisterUserRequest) pojoRequest;
+			response = userAccountManagerBD.
+		}
+		
+		return response;
 	}
 
 	@Override

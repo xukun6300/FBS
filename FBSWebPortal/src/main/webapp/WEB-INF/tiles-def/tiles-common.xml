@@ -24,10 +24,14 @@
 	
 	<!-- User Account Management -->
 	<definition name="useraccountmanagement/showRegisterUser" extends="base.definition">
-	    <put-attribute name="title" value="publicUser"/>
+	    <put-attribute name="title" value="Register User"/>
 	    <put-attribute name="body" value="/WEB-INF/jsp/ana/uam/showRegisterUser.jsp"/>
 	</definition>
- 
+    
+    <definition name="useraccountmanagement/uamConfirmation" extends="base.definition">
+        <put-attribute name="title" value="Confirmation Page"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/ana/uam/uamConfirmation.jsp"/>
+    </definition>
    
 
 </tiles-definitions>

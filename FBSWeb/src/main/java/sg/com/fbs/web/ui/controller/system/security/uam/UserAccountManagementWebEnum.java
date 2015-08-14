@@ -24,6 +24,13 @@ public enum UserAccountManagementWebEnum implements WebDropDownListIF{
 		}
 	},
 	
+	UAM_CONFIRMATION {
+		@Override
+		public String toString() {
+			return "uamConfirmation";
+		}
+	},
+	
 	PLEASE_SELECT {
 		@Override
 		public String toString() {

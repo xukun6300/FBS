@@ -13,6 +13,7 @@ import sg.com.fbs.core.techinfra.web.BaseWebController;
 import sg.com.fbs.core.techinfra.web.DefaultRefDataSource;
 import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
+import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
 
@@ -24,7 +25,7 @@ import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
 public class UserAccountManagementController extends BaseWebController {
 
 	@Resource
-	private PasswordServices passwordServices;
+	private PasswordServices passwordServices; 
 	
 	@Override
 	public String getModuleWebContext() {
@@ -70,15 +71,39 @@ public class UserAccountManagementController extends BaseWebController {
 		setCrudMode(WebCRUDEnum.NONE);
 		setValidationErrorPage(UserAccountManagementWebEnum.SHOW_REGISTER_USER.toString());
 		Mvc mvc = new Mvc(registerUserForm, UserAccountManagementWebEnum.SHOW_REGISTER_USER.toString());
-		//System.out.println(passwordServices.encodePasswordWithBCrypt("a"));
-		
-	/*	CryptoServicesClientManager cry = new CryptoServicesClientManager();
-		cry.getTransportRSAKeyExponent();
-		CryptoOperationsManager aCryptoOperationsManager = new CryptoOperationsManager();
-		aCryptoOperationsManager.getTransportKeyModulus();*/
+
 		return mvc;
 	}
 
+	public ModelAndView saveNewUser(HttpServletRequest request, HttpServletResponse response) {
+		RegisterUserForm registerUserForm = new RegisterUserForm();
+		registerUserForm.setModulus(passwordServices.getTransportRSAKeyModulus());
+		registerUserForm.setExponent(passwordServices.getTransportRSAKeyExponent());
+		
+		RegisterUserRequest registerUserRequest = new RegisterUserRequest();
+		
+		setCrudMode(WebCRUDEnum.INSERT_MODE);
+		setCRUDOperation(UserAccountManagementCRUD.class);
+		setValidationErrorPage(UserAccountManagementWebEnum.SHOW_REGISTER_USER.toString());
+		
+		Mvc mvc = new Mvc(registerUserForm, UserAccountManagementWebEnum.UAM_CONFIRMATION.toString(), registerUserRequest);		
+		mvc.addObject("backBtnAction", "/authentication/showLogin.action");
+		
+		return mvc;
+	}
+	
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
