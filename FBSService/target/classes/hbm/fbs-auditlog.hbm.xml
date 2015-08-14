@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true" default-lazy="true">
+
+ <class name="sg.com.fbs.model.system.datalog.DataLog" table="AUDITLOG_TB">
+   <id name="id" column="ID">
+     <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+       <param name="sequence">AUDITLOG_SEQ</param>
+     </generator>
+   </id>
+   <property name="objType" column="OBJ_TYPE" />
+   <property name="objId" column="OBJ_ID" />
+   <property name="auditTransaction" column="TRANSACTION_TYPE" />
+   <property name="oldValue" column="OLD_VALUE" />
+   <property name="newValue" column="NEW_VALUE" />
+   <property name="modifiedby" column="MODIFIEDBY" /> 
+   <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" />
+   <property name="createdby" column="CREATEDBY" update="false" /> 
+   <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false" /> 
+   <property name="activeStatus" column="ACTIVE_IND" />
+ </class>
+
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+        
+        
+   <!-- Parent bean define in spring-fbs-validator.xml -->
+	<bean name="fbs/validator/required" id="fbs.validator.required"
+		parent="fbs/validator" class="sg.com.fbs.validator.validation.validators.RequiredValidator"
+		scope="prototype" />
+
+	<bean name="fbs/validator/length" id="fbs.validator.length"
+		parent="fbs/validator" class="sg.com.fbs.validator.validation.validators.LengthValidator"
+		scope="prototype" />
+
+   
+   
+        
+        
+</beans>

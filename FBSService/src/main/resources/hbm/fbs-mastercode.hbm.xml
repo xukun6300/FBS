@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- auto-import: specifies whether we can use unqualified class names of classes in this mapping in the query language. default true -->		
+<hibernate-mapping auto-import="true" default-lazy="false">
+
+  <class name="sg.com.fbs.model.domain.mastercode.MasterCodeType" table="MASTER_CODETYPE_TB">
+    <id name="id" column="MASTERCODETYPEID">
+       <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+          <param name="sequence">MASTER_CODETYPE_SEQ</param>
+       </generator>
+    </id>
+    <property name="code" column="CODE" not-null="true"/>
+    <property name="name" column="NAME" not-null="true"/>
+    <property name="sortOrder" column="SORTORDER" not-null="true"/>
+    <property name="version" column="VERSION" not-null="true"/>
+    <property name="effectiveDate" column="EFFECTIVEDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
+    <property name="expiryDate" column="EXPIRYDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
+    <set name="masterCodes" table="MASTER_CODEVALUE_TB" inverse="true" cascade="all" fetch="select" order-by="sequenceNo" where="ACTIVE_IND='Y'">  <!-- Since inverse="true" so masterCodes is the relationship owner and it will update the relationship, false is default value-->
+       <key column="MASTERCODETYPEID"/>
+       <one-to-many class="sg.com.fbs.model.domain.mastercode.MasterCode"/>  
+    </set>
+    <property name="modifiedby" column="MODIFIEDBY" />
+    <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
+    <property name="createdby" column="CREATEDBY" update="false"/>
+    <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
+    <property name="activeStatus" column="ACTIVE_IND" not-null="true"/>
+  </class>
+
+  <class name="sg.com.fbs.model.domain.mastercode.MasterCode" table="MASTER_CODEVALUE_TB">
+     <id name="id" column="MASTERCODEID">
+        <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+           <param name="sequence">MASTER_CODEVALUE_SEQ</param>
+        </generator>
+     </id> 
+     <property name="description" column="DESCRIPTION" not-null="true"/>
+     <property name="remarks" column="REMARKS"/>
+     <property name="codeValue" column="CODEVALUE" not-null="true"/>
+     <property name="sequenceNo" column="SEQUENCENO"/>
+     <property name="effectiveDate" column="EFFECTIVEDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
+     <property name="expiryDate" column="EXPIRYDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
+     <many-to-one name="masterCodeType" class="sg.com.fbs.model.domain.mastercode.MasterCodeType" column="MASTERCODETYPEID" cascade="save-update" not-found="ignore"/>
+     <property name="modifiedby" column="MODIFIEDBY" />
+     <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
+     <property name="createdby" column="CREATEDBY" update="false"/>
+     <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
+     <property name="activeStatus" column="ACTIVE_IND" not-null="true"/>
+  </class>
+
+
+  <query name="findMasterCodeType">
+    <![CDATA[from MasterCodeType where code=:codeType and activeStatus='Y' order by name]]>
+  </query>
+
+
+
+</hibernate-mapping>		

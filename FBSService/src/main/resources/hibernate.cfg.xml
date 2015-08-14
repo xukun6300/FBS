@@ -1,0 +1,32 @@
+<!DOCTYPE hibernate-configuration 
+PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+  <session-factory>
+
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:FBS</property>
+		<property name="hibernate.connection.username">sys as sysdba</property>
+		<property name="hibernate.connection.password">Xukun1988</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+		
+		<property name="hibernate.show_sql">true</property>
+		
+		<!-- Retrieve the Spring-managed Session for the current thread, if any. -->
+		<property name="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</property>
+		
+		<property name="connection.release_mode">auto</property>	
+	    <property name="transaction.auto_close_session">false</property>
+		<property name="transaction.flush_before_completion">true</property>
+		
+	
+        <mapping resource="hbm/user.hbm.xml"/>
+        <mapping resource="hbm/fbs-auditlog.hbm.xml"/>
+        <mapping resource="hbm/fbs-activity.hbm.xml"/>
+        <mapping resource="hbm/fbs-mastercode.hbm.xml"/>
+  </session-factory>
+
+</hibernate-configuration>
+

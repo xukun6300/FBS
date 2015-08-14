@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+   <property name="defaultEncoding" value="UTF-8"/>
+   <property name="basenames">
+     <list>
+       <value>WEB-INF/ui/common/webui</value>
+       <value>classpath:core-errors</value>
+       <value>classpath:fbs-core</value>
+     </list>
+   </property>
+</bean>
+  
+<bean id="exceptionMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+  <property name="basenames">
+     <list>
+       <value>classpath:core-errors</value>
+     </list>
+   </property> 
+</bean>   
+   
+<bean id="coreResBundle" class="sg.com.fbs.core.techinfra.util.ResourceBundleUtil">
+  <property name="vCoreMessageSource" ref="messageSource"/>
+  <property name="exceptionMessageSource" ref="exceptionMessageSource"/>
+</bean>   
+   
+<bean id="resourceBundleLocator" class="sg.com.fbs.validator.web.spring.support.SpringResourceBundleLocator"/>   
+
+<!-- Validation Configuration -->
+<bean abstract="true" name = "fbs/validator" id="fbs.validator" class="sg.com.fbs.validator.validation.validators.AbstractValidator">
+  <property name="resourceBundleLocator" ref="resourceBundleLocator"></property>
+</bean>
+  
+<import resource="classpath:rules/validation-rules-common.xml"/>   
+
+</beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+		
+<hibernate-mapping auto-import="true" default-lazy="true">
+
+     <class name="sg.com.fbs.model.system.activity.ActivityLog" table="ACTIVITY_LOG_TB">  
+       <id name="id" column="ACTIVITYLOGID">
+           <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+        		<param name="sequence">ACTIVITY_LOG_SEQ</param>
+    	   </generator>
+    	</id>
+        <property name="action" column="ACTION"/>
+        <property name="controller" column="CONTROLLER"/>
+        <property name="modifiedby" column="MODIFIEDBY" />
+        <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" />
+        <property name="createdby" column="CREATEDBY" update="false" />
+        <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false" />
+        <property name="activeStatus" column="ACTIVE_IND" not-null="true" />
+      </class>
+
+</hibernate-mapping>
