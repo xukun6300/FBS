@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true" default-lazy="true">
+   <class name="sg.com.fbs.model.system.security.User" table="USER_TB" lazy="true">
+      <id name="id" column="USERID">
+         <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+            <param name="sequence">USER_SEQ</param>
+         </generator>
+      </id>
+      <property name="password" column="PASSWORD"></property>
+      <property name="status" column="STATUS" not-null="true"></property>
+      <property name="salutation" column="SALUTATION" not-null="true"></property>
+      <property name="name" column="NAME" not-null="true"></property>
+      <property name="loginid" column="LOGINID" not-null="true"></property>
+      <property name="gender" column="GENDER"></property>
+      <property name="dateOfBirth" column="DATEOFBIRTH" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"></property>
+      <property name="officeTel" column="OFFICETEL"></property>
+      <property name="mobileNum" column="MOBILENUM"></property>
+      <property name="preferredContactMode" column="PREFERREDCONTACTMODE"></property>
+      <property name="passwordLastUpdateDate" column="PASSWORDLASTUPDATEDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
+      <property name="lastSuccessLoginDate" column="LASTSUCCESSLOGINDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
+      <property name="lastFailedLoginDate" column="LASTFAILEDLOGINDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
+      
+      <property name="modifiedby" column="MODIFIEDBY" />
+      <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
+      <property name="createdby" column="CREATEDBY" update="false"/>
+      <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
+      <property name="activeStatus" column="ACTIVE_IND" not-null="true"/>
+   </class>
+
+
+</hibernate-mapping>		
+		
+		

@@ -23,6 +23,11 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		
 	
         <mapping resource="hbm/user.hbm.xml"/>
+        
+        <!-- Security -->
+        <mapping resource="hbm/fbs-user.hbm.xml"/>
+        
+        
         <mapping resource="hbm/fbs-auditlog.hbm.xml"/>
         <mapping resource="hbm/fbs-activity.hbm.xml"/>
         <mapping resource="hbm/fbs-mastercode.hbm.xml"/>

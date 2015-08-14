@@ -67,8 +67,7 @@ public class UserAccountManager extends CommonFacade{
 		user = (User) userAccountManagementDAO.insert(user);
 		
 		// sent notification
-		if (user != null) {
-			
+		if (user != null) {			
 			response.setCrudResult(user);
 		}
 		
