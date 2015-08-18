@@ -33,6 +33,7 @@ public class UserAccountManager extends CommonFacade{
 		ResponseCRUD response = new ResponseCRUD();
 		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
 		passwordServices = (PasswordServices) ServiceLocator.getService("passwordServices");
+		restClient = (CryptoServicesClientIF)ServiceLocator.getService("cryptoServicesClient");
 		
 	    User user = new User();
 		user.setLoginId(registerUserRequest.getEmail().toLowerCase());
@@ -55,15 +56,20 @@ public class UserAccountManager extends CommonFacade{
 		
 		String password = registerUserRequest.getPassword();
 		String confirmPassword = registerUserRequest.getConfirmPassword();
+		String salt = registerUserRequest.getSalt();
+		
 		String encryptedPassword = null;
-
+        String encryptSalt = null;
+        
 		if(password!=null){
 			if(!password.equals(confirmPassword)){
 				throw new BadCredentialsException("Password and confirm password mismatch.");
 			}
 			
 			encryptedPassword = passwordServices.decryptPassword(password);
+			encryptSalt = restClient.encryptSalt(salt);
 			user.setPassword(encryptedPassword);
+			user.setSalt(encryptSalt);	
 		}
 		
 		user = (User) userAccountManagementDAO.insert(user);
