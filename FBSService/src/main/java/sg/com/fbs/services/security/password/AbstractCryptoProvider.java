@@ -187,7 +187,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		
 		try {
 			//cipher.init(Cipher.ENCRYPT_MODE, key, iv);
-			cipher.init(Cipher.ENCRYPT_MODE, key);
+			cipher.init(Cipher.ENCRYPT_MODE, key); 
 			byte[] cipherText = cipher.doFinal(clearText);
 			return cipherText;
 		} catch (Exception e) {
