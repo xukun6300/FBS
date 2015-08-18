@@ -27,6 +27,7 @@
             action="saveNewUser.action" class="form-horizontal" autocomplete="off">
             
           <h1>Registration For New User</h1>
+          <form:hidden path="salt"/>
           <form:hidden path="modulus" value="${modulus}"/>
           <form:hidden path="exponent" value="${exponent}"/> 
            <!-- Person Details -->

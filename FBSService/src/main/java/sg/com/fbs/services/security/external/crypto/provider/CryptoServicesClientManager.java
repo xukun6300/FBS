@@ -27,6 +27,12 @@ public class CryptoServicesClientManager implements CryptoServicesClientIF {
 		return cryptoOperations.decryptHashedPassword(password);
 	}
 
+	@Override
+	public String getSalt() {
+		return cryptoOperations.getSalt();
+	}
+
+
 }
 
 

@@ -67,7 +67,7 @@ public class UserAccountManagementController extends BaseWebController {
 		RegisterUserForm registerUserForm = new RegisterUserForm();
 		registerUserForm.setModulus(passwordServices.getTransportRSAKeyModulus());
 		registerUserForm.setExponent(passwordServices.getTransportRSAKeyExponent());
-		
+		registerUserForm.setSalt(passwordServices.getSalt());
 		setCrudMode(WebCRUDEnum.NONE);
 		setValidationErrorPage(UserAccountManagementWebEnum.SHOW_REGISTER_USER.toString());
 		Mvc mvc = new Mvc(registerUserForm, UserAccountManagementWebEnum.SHOW_REGISTER_USER.toString());
@@ -79,7 +79,7 @@ public class UserAccountManagementController extends BaseWebController {
 		RegisterUserForm registerUserForm = new RegisterUserForm();
 		registerUserForm.setModulus(passwordServices.getTransportRSAKeyModulus());
 		registerUserForm.setExponent(passwordServices.getTransportRSAKeyExponent());
-		
+		registerUserForm.setSalt(passwordServices.getSalt());
 		RegisterUserRequest registerUserRequest = new RegisterUserRequest();
 		
 		setCrudMode(WebCRUDEnum.INSERT_MODE);

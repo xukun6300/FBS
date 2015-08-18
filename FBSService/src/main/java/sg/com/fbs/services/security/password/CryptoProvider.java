@@ -7,6 +7,8 @@ package sg.com.fbs.services.security.password;
  */
 public interface CryptoProvider {
 
+	byte[] getSalt();
+ 	
 	byte[] encryptCredentials(byte[] hash);
 	
 	byte[] getDataTransportationPublicKey();

@@ -3,9 +3,11 @@ package sg.com.fbs.services.security.password;
 import java.security.Key;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
+import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.Properties;
 
+import javax.annotation.Generated;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 
@@ -40,6 +42,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	
 	private IvParameterSpec iv; 
 	
+	private static final int passwordSaltLength = 16;
 	
 	public AbstractCryptoProvider(Properties properties){
 		userPasswordTransportEncryptionAlg = properties.getProperty(USER_PASSWORD_TRANSPORT_ENCRYPTION_ALG);
@@ -78,6 +81,18 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		return certificate;
 	}
 	
+	private byte[] generateRandom(int length){
+		SecureRandom secureRandom = new SecureRandom();
+		byte[] randomBytes = new byte[length];
+		secureRandom.nextBytes(randomBytes);
+		return randomBytes;
+	}
+	
+	@Override
+	public byte[] getSalt() {
+		return generateRandom(passwordSaltLength);
+	}
+	
 	@Override
 	public byte[] encryptCredentials(byte[] clearText) {
 		return encryptAesCbc(clearText, userPasswordTransportEncryptionAlias, userPasswordTransportEncryptionAlg);
@@ -96,7 +111,6 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		Cipher cipher = null;
 		
 		try {
-
 			cipher = Cipher.getInstance(userPasswordTransportEncryptionAlg, getJCEProvider());
 		} catch (Exception e) {
 			throw new CryptoConfigException(e.getMessage(), e);
@@ -150,7 +164,8 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		}
 		
 		try {
-			cipher.init(Cipher.ENCRYPT_MODE, key, iv);
+			//cipher.init(Cipher.ENCRYPT_MODE, key, iv);
+			cipher.init(Cipher.ENCRYPT_MODE, key);
 			byte[] cipherText = cipher.doFinal(clearText);
 			return cipherText;
 		} catch (Exception e) {

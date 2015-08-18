@@ -14,7 +14,7 @@
 		   
 		   <div class="alert alert-success">
 		      <button type="button" class="close" data-dismiss="alert"></button>
-		      <h4><spring:message code="fbs.common.ui.message.success"/></h4>  
+		      <h4><spring:message code="fbs.common.registeruser.ui.label.success"/></h4>  
 		   </div>
 		   
 		   <button id="btnBack" name="btnBack" class="bt" type="button" onclick="javascript:location.href='<c:url value="${backBtnAction}"/>'">Go Back To Home</button>

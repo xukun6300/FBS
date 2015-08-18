@@ -2,9 +2,12 @@ package sg.com.fbs.services.security.external.crypto.provider;
 
 import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
+
 import javax.annotation.Resource;
+
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
+
 import sg.com.fbs.services.security.password.CryptoProvider;
 import sg.com.fbs.services.security.password.CryptoUtil;
 
@@ -48,9 +51,13 @@ public class CryptoOperationsManager implements CryptoOperationsIF{
 			throw new IllegalArgumentException(e.getMessage(), e);
 		}
         
-        byte[] decryptedPassword = cryptoProvider.decryptHashedPassword(password);
-        
+        byte[] decryptedPassword = cryptoProvider.decryptHashedPassword(password);      
         return Hex.encodeHexString(cryptoProvider.encryptCredentials(decryptedPassword));
+	}
+
+	@Override
+	public String getSalt() {
+		return Hex.encodeHexString(cryptoProvider.getSalt());
 	}
 	
 	

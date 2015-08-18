@@ -29,4 +29,11 @@ public interface PasswordServices {
 	 * @return HEX encoded encrypted hashed password string
 	 */
 	String decryptPassword(String password);
+	
+	/**
+	 * Retrieve random generated salt from HSM via RESTful call
+	 * @return HEX encoded random generated salt
+	 */
+	String getSalt();
+	
 }

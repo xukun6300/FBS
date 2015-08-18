@@ -51,6 +51,11 @@ public class PasswordServicesManager implements PasswordServices{
 		return restClient.decryptPassword(password);
 	}
 
+	@Override
+	public String getSalt() {
+		return restClient.getSalt();
+	}
+
 	
 	
 

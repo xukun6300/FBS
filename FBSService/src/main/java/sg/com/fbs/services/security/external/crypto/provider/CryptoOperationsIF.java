@@ -13,4 +13,5 @@ public interface CryptoOperationsIF {
 	
 	String decryptHashedPassword(String cipherText);
 	
+	String getSalt();
 }
