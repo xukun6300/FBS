@@ -3,12 +3,15 @@ package sg.com.fbs.services.security.password;
 import java.security.Key;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.Properties;
 
 import javax.annotation.Generated;
 import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 
 import org.apache.commons.codec.DecoderException;
@@ -29,12 +32,20 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	public static final String USER_PASSWORD_TRANSPORT_ENCRYPTION_ALG = "user.password.transport.encryption.alg";
 	public static final String USER_PASSWORD_TRANSPORT_ENCRYPTION_ALIAS= "user.password.transport.encryption.alias";
 	
+	// stored user data encryption settings
+	public static final String USER_DATA_ENCRYPTION_ALIAS = "user.data.encryption.alias";
+	public static final String USER_DATA_ENCRYPTION_ALG = "user.data.encryption.alg";
+	
 	// IV settings
 	public static final String IV ="iv";
 	
 	private KeyStore ks;
 	
 	private String keyStoreType;
+	
+	private String userDataEncryptionAlg;
+	
+	private String userDataEncryptionAlias;
 	
 	private String userPasswordTransportEncryptionAlg;
 	
@@ -45,6 +56,8 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	private static final int passwordSaltLength = 16;
 	
 	public AbstractCryptoProvider(Properties properties){
+		userDataEncryptionAlg = properties.getProperty(USER_DATA_ENCRYPTION_ALG);
+		userDataEncryptionAlias = properties.getProperty(USER_DATA_ENCRYPTION_ALIAS);
 		userPasswordTransportEncryptionAlg = properties.getProperty(USER_PASSWORD_TRANSPORT_ENCRYPTION_ALG);
 		userPasswordTransportEncryptionAlias = properties.getProperty(USER_PASSWORD_TRANSPORT_ENCRYPTION_ALIAS);
 		keyStoreType = properties.getProperty(KEYSTORE_TYPE);
@@ -86,6 +99,16 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		byte[] randomBytes = new byte[length];
 		secureRandom.nextBytes(randomBytes);
 		return randomBytes;
+	}
+	
+	@Override
+	public byte[] encryptUserData(byte[] clearText) {
+		return encryptAesCbc(clearText, userDataEncryptionAlias, userDataEncryptionAlg);
+	}
+	
+	@Override
+	public byte[] decryptUserData(byte[] cipherText) {
+		return decryptAesCbc(cipherText, userDataEncryptionAlias, userDataEncryptionAlg); 
 	}
 	
 	@Override
@@ -152,8 +175,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	}
 	
 	private byte[] encryptAesCbc(byte[] clearText, String alias, String alg){
-		Key key = getKey(alias);
-		
+		Key key = getKey(alias);	
 		Cipher cipher = null;
 		
 		try {
@@ -172,6 +194,26 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 			throw new CryptoConfigException(e.getMessage(), e);
 		} 
 		
+	}
+	
+	private byte[] decryptAesCbc(byte[] cipherText, String alias, String alg){
+		Key key = getKey(alias);
+		Cipher cipher = null;
+		
+		try {
+			cipher = Cipher.getInstance(alg, getJCEProvider());
+		} catch (Exception e) {
+			throw new CryptoConfigException(e.getMessage(), e);
+		} 
+		
+		try {
+			cipher.init(Cipher.DECRYPT_MODE, key);
+			byte[] clearText = cipher.doFinal(cipherText);
+			return clearText;
+		} catch (Exception e) {
+			throw new CryptoConfigException(e.getMessage(), e);
+		}
+
 	}
 
 	

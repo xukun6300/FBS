@@ -14,4 +14,8 @@ public interface CryptoServicesClientIF {
 	String decryptPassword(String password);
 	
 	String getSalt();
+	
+	String encryptSalt(String salt);
+	
+	String decryptSalt(String salt);
 }

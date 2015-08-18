@@ -59,6 +59,40 @@ public class CryptoOperationsManager implements CryptoOperationsIF{
 	public String getSalt() {
 		return Hex.encodeHexString(cryptoProvider.getSalt());
 	}
+
+	@Override
+	public String encryptSalt(String dataHex) {
+		return encryptUserData(dataHex);
+	}
+
+	@Override
+	public String decryptSalt(String saltHex) {
+		return decryptUserData(saltHex);
+	}
+
+	@Override
+	public String encryptUserData(String dataHex) {
+		byte[] data = null;
+		try {
+			data = Hex.decodeHex(dataHex.toCharArray());
+		} catch (DecoderException e) {
+			throw new IllegalArgumentException(e.getMessage(), e);
+		}
+		return Hex.encodeHexString(cryptoProvider.encryptUserData(data));
+	}
+
+	@Override
+	public String decryptUserData(String dataHex) {
+		byte[] data = null;
+		
+		try {
+			data = Hex.decodeHex(dataHex.toCharArray());
+		} catch (DecoderException e) {
+			throw new IllegalArgumentException(e.getMessage(), e);
+		}
+		
+		return Hex.encodeHexString(cryptoProvider.decryptUserData(data));	
+	}
 	
 	
 	

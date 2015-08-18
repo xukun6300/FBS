@@ -14,4 +14,8 @@ public interface CryptoProvider {
 	byte[] getDataTransportationPublicKey();
 	
 	byte[] decryptHashedPassword(byte[] encryptedHash);
+	
+	byte[] encryptUserData(byte[] clearText);
+	
+	byte[] decryptUserData(byte[] cipherText);
 }

@@ -22,7 +22,7 @@
       <property name="passwordLastUpdateDate" column="PASSWORDLASTUPDATEDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
       <property name="lastSuccessLoginDate" column="LASTSUCCESSLOGINDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
       <property name="lastFailedLoginDate" column="LASTFAILEDLOGINDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
-      
+      <property name="salt" column="SALT"/>
       <property name="modifiedby" column="MODIFIEDBY" />
       <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
       <property name="createdby" column="CREATEDBY" update="false"/>

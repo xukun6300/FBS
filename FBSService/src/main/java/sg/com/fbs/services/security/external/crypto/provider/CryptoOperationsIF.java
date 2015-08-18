@@ -14,4 +14,12 @@ public interface CryptoOperationsIF {
 	String decryptHashedPassword(String cipherText);
 	
 	String getSalt();
+	
+	String encryptSalt(String dataHex);
+	
+	String decryptSalt(String saltHex);
+	
+	String encryptUserData(String dataHex);
+	
+	String decryptUserData(String dataHex);
 }

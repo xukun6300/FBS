@@ -23,8 +23,8 @@ function registerNewUser(a){
 				if(validateCPIN(pwd, confirmPwd)){ // validate pwd and confirmPwd matching
 					if(validatePIN2(email, pwd)){ //validate pwd not same with email addr
 						if(validatePINStren(pwd)){ //validate pwd strength
-							//var salt = document.registerForm.salt.value;
-							var salt = 'b37f612e1eff484f22768b72733daf89';
+							var salt = document.registerForm.salt.value;
+						//	var salt = 'b37f612e1eff484f22768b72733daf89';
 							salt = hexToByteArray(salt);
 							
 							//derive PBKDF2 hash of new password

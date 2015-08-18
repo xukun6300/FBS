@@ -62,8 +62,8 @@ public class SpringMVCBridgeMetaDataDrivenValidator implements Validator {
 	}
                                // object: TestUserForm
 	private void validateObject(final Object object, final Errors errors){
-		System.out.println("in validateObject() method");
-		System.out.println(object.toString());
+/*		System.out.println("in validateObject() method");
+		System.out.println(object.toString());*/
 		List<PropertyDescriptor> fieldsToValidate = getFieldsToValidate(object); //get all fields for command form exclude class
 		Map<String, Object> objectPropertiesAsMap = validatorPropertiesUtil.getObjectPropertiesAsMap(object);
 		ValidationWebContext validationWebContext = ValidationWebContext.getInstance();
