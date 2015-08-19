@@ -15,6 +15,8 @@ import org.springframework.security.authentication.BadCredentialsException;
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.businfra.facade.ServiceLocator;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.SecurityQuestions;
 import sg.com.fbs.model.system.security.User;
@@ -23,6 +25,7 @@ import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
 import sg.com.fbs.services.security.external.crypto.provider.CryptoServicesClientIF;
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.services.system.security.uam.dao.UserAccountManagementDAO;
+import sg.com.fbs.services.system.security.uam.dao.UserAccountManagementDaoException;
 
 /**
  * @Author Frank Xu $
@@ -61,8 +64,7 @@ public class UserAccountManager extends CommonFacade{
 		}
 		user.setStatus(RegisterUserEnum.PENDING_ACTIVATION.toString());
 		
-		//String[] secQuestionIds = {registerUserRequest.getSecurityQuestion1(), registerUserRequest.getSecurityQuestion2()};
-		String[] secQuestionIds = {"1000","1001"};
+		String[] secQuestionIds = {registerUserRequest.getSecurityQuestion1(), registerUserRequest.getSecurityQuestion2()};
 		String[] answer = {registerUserRequest.getEncryptedAnswer1(), registerUserRequest.getEncryptedAnswer2()};
 		
 		Long[] longSecQuestionIds = new Long[secQuestionIds.length];
@@ -119,6 +121,18 @@ public class UserAccountManager extends CommonFacade{
 	}
 	
 	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchSecurityQuestion(CriteriaIF criteria) throws UserAccountManagementDaoException {
+		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
+		
+		IResponseCRUD response;
+		try {
+			response = userAccountManagementDAO.searchSecurityQuestion(criteria);
+		} catch (UserAccountManagementDaoException e) {
+			throw new UserAccountManagementDaoException("fbs.common.ana.exception.message.get.securityQuestions", e);
+		}
+		return response;
+	}
 	
 }
 

@@ -29,6 +29,8 @@ public class RegisterUserForm extends BusinessQueryWebForm{
 	
 	public static final String PRIMARYCONTACT_TYPE = "primaryContactType";
 	
+	public static final String SECURITY_QUESTION = "securityQuestion";
+	
 	@Setter
 	@Getter
 	private String name;

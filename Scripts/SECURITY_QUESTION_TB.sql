@@ -18,3 +18,17 @@ CREATE SEQUENCE SECURITY_QUESTION_SEQ
  CACHE 20 ;
 
 COMMIT;
+
+
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000001, 'What is your pet name?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000002, 'What was your childhood nickname?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000003, 'What is the name of your favorite childhood friend?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000004, 'In what city or town was your first job?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000005, 'What was the name of your elementary / primary school?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000006, 'What is the name of the company of your first job?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000007, 'What is the name of your favorite childhood teacher?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000008, 'What was your favorite place to visit as a child?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000009, 'What was the color of your first car?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000010, 'What is your favorite team?',null,null,0,sysdate,'Y');
+INSERT INTO SECURITY_QUESTION_TB  VALUES (1508191500000011, 'What is your favorite sport?',null,null,0,sysdate,'Y');
+COMMIT;

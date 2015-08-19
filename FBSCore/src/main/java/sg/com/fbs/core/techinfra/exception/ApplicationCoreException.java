@@ -2,8 +2,15 @@ package sg.com.fbs.core.techinfra.exception;
 
 import sg.com.fbs.core.techinfra.util.ResourceBundleUtil;
 
+/**
+ * @Author Frank Xu $
+ * @Created 4:01:12 pm 19 Aug, 2015 $
+ * Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
+ */
 public class ApplicationCoreException extends Exception{
 
+	private static final long serialVersionUID = 3817483780746658825L;
+	
 	private String messageCode;
 	private String messageStr;
 	private StringBuffer fullMessage = new StringBuffer();

@@ -22,11 +22,11 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		<property name="transaction.flush_before_completion">true</property>
 		
 	
-       <!--  <mapping resource="hbm/user.hbm.xml"/>
-         -->
+
         <!-- Security -->
         <mapping resource="hbm/fbs-user.hbm.xml"/>
         <mapping resource="hbm/fbs-security-question.hbm.xml"/>
+        
         
         <mapping resource="hbm/fbs-auditlog.hbm.xml"/>
         <mapping resource="hbm/fbs-activity.hbm.xml"/>

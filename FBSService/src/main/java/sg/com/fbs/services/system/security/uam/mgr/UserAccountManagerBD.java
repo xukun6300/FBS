@@ -1,9 +1,9 @@
 package sg.com.fbs.services.system.security.uam.mgr;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
 import sg.com.fbs.services.system.security.uam.exception.UserAccountManagementException;
@@ -26,4 +26,12 @@ public class UserAccountManagerBD extends BusinessDelegate{
 		}
 	}
 	
+	public ResponseCRUD searchSecurityQuestion(CriteriaIF criteria) throws UserAccountManagementException{
+		try {
+			Object obj = new UserAccountManager().run(criteria);
+			return (ResponseCRUD) obj;
+		} catch (ApplicationCoreException e) {
+			throw new UserAccountManagementException(e.getMessageCode(), e);
+		}
+	}
 }
