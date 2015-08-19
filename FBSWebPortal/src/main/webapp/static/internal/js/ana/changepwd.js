@@ -86,8 +86,21 @@ function registerNewUser(a){
 	}*/
 }
 
+function formatAns(form, obj, answerField){
+	var hashed = formatSecAns(obj.value);
+	
+	var mod = form.modulus.value;
+	var exp = form.exponent.value;
+	var rsa = new RSAKey();
+	rsa.setPublic(mod, exp);
+	
+	document.getElementById(answerField).value = rsa.encrypt(hashed);
+}
 
-
+function formatSecAns(a){
+	//regex is to remove all space
+	return hex_sha1(a.toLowerCase().replace(/\s+/g,""));
+}
 
 
 

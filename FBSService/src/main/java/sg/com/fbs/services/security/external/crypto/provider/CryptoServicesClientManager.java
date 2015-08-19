@@ -1,5 +1,8 @@
 package sg.com.fbs.services.security.external.crypto.provider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 /**
@@ -42,6 +45,31 @@ public class CryptoServicesClientManager implements CryptoServicesClientIF {
 		return cryptoOperations.decryptSalt(salt);
 	}
 
+	@Override
+	public List<String> decryptSecurityAnswers(List<String> securityAnswers) {
+
+		if(securityAnswers.isEmpty()){
+			throw new IllegalArgumentException("security answer is empty.");
+		}
+
+		List<SecurityAnswerComparisonToken> tokens = new ArrayList<SecurityAnswerComparisonToken>();
+		
+		for (String securityAnswer : securityAnswers) {
+			tokens.add(new SecurityAnswerComparisonToken(securityAnswer.toCharArray(), null));
+		}
+		
+		SecurityAnswerComparisonTokenList list = new SecurityAnswerComparisonTokenList(tokens);		
+		SecurityAnswerComparisonTokenList encryptSecurityAnswer = cryptoOperations.decryptHashedSecurityAnswers(list);	
+		List<String> encryptAnswers = new ArrayList<String>();
+		
+		for (SecurityAnswerComparisonToken securityAnswerComparisonToken : encryptSecurityAnswer.getTokens()) {
+			encryptAnswers.add(new String(securityAnswerComparisonToken.getAnswer()));
+		}
+		
+		return encryptAnswers;
+	}
+
+	
 
 }
 

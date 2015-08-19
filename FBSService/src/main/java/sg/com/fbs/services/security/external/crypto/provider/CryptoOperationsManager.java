@@ -2,11 +2,14 @@ package sg.com.fbs.services.security.external.crypto.provider;
 
 import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
+import org.hibernate.mapping.Array;
 
 import sg.com.fbs.services.security.password.CryptoProvider;
 import sg.com.fbs.services.security.password.CryptoUtil;
@@ -92,6 +95,29 @@ public class CryptoOperationsManager implements CryptoOperationsIF{
 		}
 		
 		return Hex.encodeHexString(cryptoProvider.decryptUserData(data));	
+	}
+
+	@Override
+	public SecurityAnswerComparisonTokenList decryptHashedSecurityAnswers(SecurityAnswerComparisonTokenList list) {
+
+		byte[] password = null;
+		byte[] decryptedSecurityAnswer = null;
+
+		List<SecurityAnswerComparisonToken> securityAnswers = new ArrayList<SecurityAnswerComparisonToken>();
+		List<SecurityAnswerComparisonToken> tokens = list.getTokens();
+		
+		for (SecurityAnswerComparisonToken token : tokens) {
+			try {
+				password = Hex.decodeHex(token.getAnswer());
+			} catch (DecoderException e) {
+				throw new IllegalArgumentException(e.getMessage(), e);
+			}
+			decryptedSecurityAnswer = cryptoProvider.decryptHashedPassword(password);
+			SecurityAnswerComparisonToken securityAnswer = new SecurityAnswerComparisonToken(Hex.encodeHex(cryptoProvider.encryptUserData(decryptedSecurityAnswer)), null);
+			securityAnswers.add(securityAnswer);
+		}
+
+		return new SecurityAnswerComparisonTokenList(securityAnswers);
 	}
 	
 	

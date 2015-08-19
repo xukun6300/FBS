@@ -1,5 +1,7 @@
 package sg.com.fbs.services.security.password;
 
+import java.util.List;
+
 /**
  * @Author Frank Xu $
  * @Created 11:52:04 am 11 Aug, 2015 $
@@ -19,7 +21,7 @@ public interface PasswordServices {
 	 */
 	String getTransportRSAKeyExponent();
 	
-	String encodePasswordWithBCrypt(String rawPassword);
+	//String encodePasswordWithBCrypt(String rawPassword);
 	
 	/**
 	 * Decrypt HEX encoded encrypted hashed password and re-encrypt using symmetric key with cryptographic services
@@ -35,5 +37,14 @@ public interface PasswordServices {
 	 * @return HEX encoded random generated salt
 	 */
 	String getSalt();
+	
+	/**
+	 * Decrypt HEX encoded encrypted hashed password and re-encrypt using symmetric key with cryptographic services
+	 * via RESTful call.
+	 * 
+	 * @param securityAnswers HEX encoded encrypted hashed security answer list
+	 * @return HEX encoded encrypted hashed security answer list in same order as securityAnswers argument
+	 */
+	List<String> decryptSecurityAnswers(List<String> securityAnswers);
 	
 }

@@ -1,5 +1,7 @@
 package sg.com.fbs.services.security.external.crypto.provider;
 
+import java.util.List;
+
 /**
  * @Author Frank Xu $
  * @Created 9:45:48 am 11 Aug, 2015 $
@@ -18,4 +20,6 @@ public interface CryptoServicesClientIF {
 	String encryptSalt(String salt);
 	
 	String decryptSalt(String salt);
+	
+	List<String> decryptSecurityAnswers(List<String> securityAnswers);
 }

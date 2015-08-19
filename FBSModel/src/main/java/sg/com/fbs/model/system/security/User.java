@@ -1,6 +1,7 @@
 package sg.com.fbs.model.system.security;
 
 import java.util.Map;
+import java.util.Set;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -72,7 +73,9 @@ public class User extends BaseLogPojo implements TransactionLogIF,DataLogIF{
 	@Setter
 	@Getter
 	private String salutationDescription;
-	
+	@Setter
+	@Getter
+	private Set<UserSecurityQuestion> UserSecurityQuestion;
 	
 	
 	

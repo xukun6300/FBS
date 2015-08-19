@@ -129,12 +129,12 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	
 	@Override
 	public byte[] decryptHashedPassword(byte[] encryptedHash) {
-		Key key = getKey(userPasswordTransportEncryptionAlias);
+		Key key = getKey(userPasswordTransportEncryptionAlias);  //"rsa"
 		
 		Cipher cipher = null;
 		
 		try {
-			cipher = Cipher.getInstance(userPasswordTransportEncryptionAlg, getJCEProvider());
+			cipher = Cipher.getInstance(userPasswordTransportEncryptionAlg, getJCEProvider()); //"RSA/NONE/PKCS1Padding"
 		} catch (Exception e) {
 			throw new CryptoConfigException(e.getMessage(), e);
 		} 
@@ -142,7 +142,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		try {
 			cipher.init(Cipher.DECRYPT_MODE, key);
 			byte[] plainText = cipher.doFinal(encryptedHash);
-			plainText = Hex.decodeHex(new String(plainText).toCharArray());
+			plainText = Hex.decodeHex(new String(plainText).toCharArray());  //??
 			return plainText;
 		} catch (Exception e) {
 			throw new CryptoConfigException(e.getMessage(), e);
@@ -178,8 +178,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		Key key = getKey(alias);	
 		Cipher cipher = null;
 		
-		try {
-			
+		try {		
 			cipher = Cipher.getInstance(alg, getJCEProvider());
 		} catch (Exception e) {
 			throw new CryptoConfigException(e.getMessage(), e);

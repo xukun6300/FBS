@@ -1,5 +1,7 @@
 package sg.com.fbs.services.security.password;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,24 +38,29 @@ public class PasswordServicesManager implements PasswordServices{
 		return transportRSAKeyExponent;
 	}
 	
-	@Override
+/*	@Override
 	public String encodePasswordWithBCrypt(String rawPassword) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String password =passwordEncoder.encode(rawPassword);
 		return password;
-	}
+	}*/
 
-	/*
-	 * decrypt encrypted hmac and encrypt using symmetric alg using crypto services
-	 */
+
 	@Override
 	public String decryptPassword(String password) {
+		//decrypt encrypted hmac and encrypt using symmetric alg using crypto services
 		return restClient.decryptPassword(password);
 	}
 
 	@Override
 	public String getSalt() {
 		return restClient.getSalt();
+	}
+
+	@Override
+	public List<String> decryptSecurityAnswers(List<String> securityAnswers) {
+		// decrypt encrypted hmac  and encrypt using symmetric alg using crypto services
+		return restClient.decryptSecurityAnswers(securityAnswers);
 	}
 
 	
