@@ -2,12 +2,13 @@ var g_key="";
 
 function deriveKey(a, b){
 	a = new PBKDF2(a, b, 100, 16);
+	//status callback 
 	function d(e){
 		
 	}
+	//result call back
 	function c(e){
 		g_key = hexToByteArray(e);
-		//alert(g_key);
 	}
 	a.deriveKey(d, c);
 }

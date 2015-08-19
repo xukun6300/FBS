@@ -322,12 +322,22 @@ function byteArrayToHex(a) {
 }
 function hexToByteArray(a) {
 	var b = "";
-	if (a.indexOf("0x") == 0 || a.indexOf("0X") == 0)
+	//start with 0x means hex
+	if (a.indexOf("0x") == 0 || a.indexOf("0X") == 0){
 		a = a.substr(2);
-	if (a.length % 2)
+	}  
+
+	//if(0) works as if(false)
+	//if(1) works as if(true)
+	if (a.length % 2){
 		a += "0";
-	for ( var d = 0; d < a.length; d += 2)
+	}
+		
+	for ( var d = 0; d < a.length; d += 2){
+		//convert unicode value to character
 		b += String.fromCharCode(parseInt(a.slice(d, d + 2), 16));
+	}
+		
 	
 	return b;
 }
