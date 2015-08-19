@@ -23,6 +23,10 @@
       <property name="lastSuccessLoginDate" column="LASTSUCCESSLOGINDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
       <property name="lastFailedLoginDate" column="LASTFAILEDLOGINDATE" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>
       <property name="salt" column="SALT"/>
+      <set name="userSecurityQuestion" table="USER_SECURITY_QUESTION_TB" cascade="all">
+        <key column="USERID" not-null="true"></key>
+        <one-to-many class="sg.com.fbs.model.system.security.UserSecurityQuestion"/>
+      </set>
       <property name="modifiedby" column="MODIFIEDBY" />
       <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
       <property name="createdby" column="CREATEDBY" update="false"/>

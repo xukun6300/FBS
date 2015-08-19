@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true" default-lazy="true">
+
+  <class name="sg.com.fbs.model.system.security.SecurityQuestions" table="SECURITY_QUESTION_TB">
+     <id name="id" column="SECURITYQUESTIONID">
+        <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+           <param name="sequence">SECURITY_QUESTION_SEQ</param>
+        </generator>
+     </id>
+     <property name="question" column="QUESTION"/>
+     <property name="modifiedby" column="MODIFIEDBY" />
+     <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
+     <property name="createdby" column="CREATEDBY" update="false"/>
+     <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
+     <property name="activeStatus" column="ACTIVE_IND" not-null="true"/> 
+  </class>
+  
+  <class name="sg.com.fbs.model.system.security.UserSecurityQuestion" table="USER_SECURITY_QUESTION_TB">
+     <id name="id" column="USERSECURITYQUESTIONID">
+        <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+          <param name="sequence">USER_SECURITY_QUESTION_SEQ</param>
+        </generator>
+     </id>
+     <many-to-one name="users" column="USERID" class="sg.com.fbs.model.system.security.User" fetch="select" insert="false" update="false"></many-to-one>
+     <many-to-one name="questionId" column="SECURITYQUESTIONID" class="sg.com.fbs.model.system.security.SecurityQuestions"/>
+     <property name="answer" column="ANSWER"/>
+     <property name="modifiedby" column="MODIFIEDBY" />
+     <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
+     <property name="createdby" column="CREATEDBY" update="false"/>
+     <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
+     <property name="activeStatus" column="ACTIVE_IND" not-null="true"/> 
+  </class>
+
+
+
+</hibernate-mapping>
