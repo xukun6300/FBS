@@ -26,7 +26,8 @@
     <context:annotation-config /> <!-- for enable @AutoWired those annotation -->
   	<mvc:annotation-driven /> 
   	
-	<context:component-scan base-package="sg.com.fbs.core.techinfra.web.exportdata"></context:component-scan>
+	<context:component-scan base-package="sg.com.fbs.core.techinfra.web.exportdata"/>
+	<context:component-scan base-package="sg.com.fbs.web.ui.controller"/>
 
     <bean class="sg.com.fbs.web.ui.controller.test.TestController" scope="request"/> 
     <bean class="sg.com.fbs.web.ui.controller.system.security.uam.UserAccountManagementController" scope="request"/> 

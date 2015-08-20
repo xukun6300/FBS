@@ -4,6 +4,7 @@ import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.security.SecurityQuestions;
+import sg.com.fbs.model.system.security.User;
 import sg.com.fbs.techinfra.persistence.dao.BaseDao;
 
 /**
@@ -13,7 +14,17 @@ import sg.com.fbs.techinfra.persistence.dao.BaseDao;
  */
 public class UserAccountManagementDAO extends BaseDao{
 
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchUser(CriteriaIF criteria) throws UserAccountManagementDaoException{
+		try {
+			IResponseCRUD response = search(User.class, criteria);
+			return response;
+		} catch (DataAccessObjectException e) {
+			throw new UserAccountManagementDaoException(e.getMessageCode(), e);
+		}
+	}
 	
+	@SuppressWarnings("rawtypes")
 	public IResponseCRUD searchSecurityQuestion(CriteriaIF criteria) throws UserAccountManagementDaoException{
 		try {
 			IResponseCRUD response = search(SecurityQuestions.class, criteria);
@@ -22,4 +33,6 @@ public class UserAccountManagementDAO extends BaseDao{
 			throw new UserAccountManagementDaoException(e.getMessageCode(), e);
 		}
 	}
+	
+	
 }

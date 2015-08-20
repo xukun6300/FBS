@@ -24,6 +24,7 @@ public class User extends BaseLogPojo implements TransactionLogIF,DataLogIF{
 
 	private static final long serialVersionUID = -835444054128876618L;
 
+	public static final String LOGINID = "loginId";
 	
 	@Setter
 	@Getter

@@ -1,6 +1,32 @@
 $(document).ready(function(){
+	$("#btnCheckEmailId").click(emailCheck);
 	$('#dob').dobDatePicker('#dob_btn');
+	
 });
+
+function emailCheck(){
+	$("#email\\.errors").html('');
+	
+	if($("#email").val().length==0){
+		$("#message").html("<div class=blue>Please enter a valid Email Address</div>");
+		return false;
+	}else{
+		$.ajax({
+			type:'GET',
+			url:'../useraccountmanagementajax/validateEmailId.action',
+			data:{
+				email:$("#email").val()
+			},
+			dataType:'text',
+			success:function(response){
+				$('#message').css('color','blue');
+				$('#message').addClass('blue');
+				$('#message').html(response);
+				return true;
+			}
+		})
+	}
+}
 
 
 function submitForm(){
@@ -51,3 +77,4 @@ function chooseGender(){
 		}
 	}
 }
+

@@ -15,7 +15,9 @@ import org.springframework.security.authentication.BadCredentialsException;
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.businfra.facade.ServiceLocator;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.SecurityQuestions;
@@ -133,6 +135,28 @@ public class UserAccountManager extends CommonFacade{
 		}
 		return response;
 	}
+	
+	
+	@SuppressWarnings("rawtypes")
+	public Boolean checkEmailIdExsit(String userId) throws UserAccountManagementDaoException{
+		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
+		
+		CriteriaIF searchCriteria = new Criteria();
+		Criterion[] criterions = {new Criterion(User.LOGINID, userId, true)};
+		searchCriteria.setCriterion(criterions);
+		searchCriteria.setFetchAll(true);
+		
+		IResponseCRUD response = userAccountManagementDAO.searchUser(searchCriteria);
+		
+		return response.getQueryResult().size()>0;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }
 

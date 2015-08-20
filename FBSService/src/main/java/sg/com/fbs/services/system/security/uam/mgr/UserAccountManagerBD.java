@@ -26,10 +26,20 @@ public class UserAccountManagerBD extends BusinessDelegate{
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public ResponseCRUD searchSecurityQuestion(CriteriaIF criteria) throws UserAccountManagementException{
 		try {
 			Object obj = new UserAccountManager().run(criteria);
 			return (ResponseCRUD) obj;
+		} catch (ApplicationCoreException e) {
+			throw new UserAccountManagementException(e.getMessageCode(), e);
+		}
+	}
+	
+	public Boolean checkEmailIdExsit(String userId) throws UserAccountManagementException{
+		try {
+			Object obj = new UserAccountManager().run(userId);
+			return (Boolean) obj;
 		} catch (ApplicationCoreException e) {
 			throw new UserAccountManagementException(e.getMessageCode(), e);
 		}
