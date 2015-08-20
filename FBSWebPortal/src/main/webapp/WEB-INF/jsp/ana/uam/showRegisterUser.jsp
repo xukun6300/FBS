@@ -18,7 +18,7 @@
 <script type="text/javascript" src="${contextPath}/static/internal/js/ana/prng4.js"></script>
 <script type="text/javascript" src="${contextPath}/static/internal/js/ana/rng.js"></script>
 <script type="text/javascript" src="${contextPath}/static/internal/js/ana/rsa.js"></script>
-
+<%-- <script type="text/javascript" src="${contextPath}/static/internal/js/jQuery.Plugins.js"></script>  --%> <!-- for date picker, no need, it includes in include-scripts.jsp in main.jsp -->
 
 <div class="container-fluid">
   <div class="row-fluid">
@@ -71,7 +71,7 @@
            <div class="control-group">
               <label class="control-label" for="genderTypeTDesc"><strong><spring:message code="fbs.common.registeruser.ui.label.gender"></spring:message></strong> </label>       
               <div class="controls control-radio-checkbox">
-                <%--  <form:radiobuttons path="genderTypeTDesc" items="${genderType}" onclick="chooseGender()"></form:radiobuttons> --%>
+                 <form:radiobuttons path="genderTypeTDesc" items="${genderType}" onclick="chooseGender()"></form:radiobuttons> 
                  <form:errors path="genderTypeTDesc" cssClass="mandatory" element="div"></form:errors>      
               </div>       
            </div>
@@ -133,7 +133,7 @@
                <label class="control-label" for="securityQuestion1"><spring:message code="fbs.common.registeruser.ui.label.securityquestions.question1" /></label>
                <div class="controls" id="select2">
                   <form:select path="securityQuestion1" id="securityQuestion1" class="input-xlarge">
-                    <%-- <form:options items="${securityQuestion}"></form:options> --%>
+                    <form:options items="${securityQuestion}"></form:options> 
                   </form:select>
                   <form:input id="ans1" path="ans1" class="input-large" onchange="formatAns(this.form, this, 'encryptedAnswer1')"></form:input>
                   <form:hidden path="encryptedAnswer1"/>
@@ -148,7 +148,7 @@
                <label class="control-label" for="securityQuestion2"><spring:message code="fbs.common.registeruser.ui.label.securityquestions.question2" /></label>
                <div class="controls" id="select2">
                   <form:select path="securityQuestion2" id="securityQuestion2" class="input-xlarge">
-                    <%-- <form:options items="${securityQuestion}"></form:options> --%>
+                    <form:options items="${securityQuestion}"></form:options> 
                   </form:select>
                   <form:input id="ans2" path="ans2" class="input-large" onchange="formatAns(this.form, this, 'encryptedAnswer2')"></form:input>
                   <form:hidden path="encryptedAnswer2"/>

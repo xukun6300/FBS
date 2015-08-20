@@ -38,3 +38,21 @@ $.fn.myDatePicker = function(btnName){
 	});
 	
 };
+
+
+$.fn.dobDatePicker = function(btnName) {
+    var _self = this;
+    $(this).datepicker({
+           dateFormat: 'dd/mm/yy',
+           changeMonth: true,
+           changeYear: true,
+           yearRange: "-100:+0",
+           showButtonPanel: true,
+           maxDate: '0'   //base on todays date. force user chose date not later than today
+    });
+    if (btnName!=null && btnName!='') {
+       $(btnName).click(function() {
+          $(_self).datepicker('show');
+       });
+    }
+};

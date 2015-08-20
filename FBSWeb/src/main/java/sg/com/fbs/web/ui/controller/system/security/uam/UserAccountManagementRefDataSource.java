@@ -12,8 +12,10 @@ import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.core.techinfra.web.WebDropDownListIF;
 import sg.com.fbs.core.techinfra.web.WebRefDataSourceIF;
 import sg.com.fbs.core.techinfra.web.WebRefDataSourceImpl;
+import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.model.system.persistence.query.CriterionIF;
 import sg.com.fbs.model.system.persistence.query.Order;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
@@ -48,19 +50,15 @@ public class UserAccountManagementRefDataSource extends WebRefDataSourceImpl imp
 	@SuppressWarnings("unchecked")
 	public Map<String, String> getGenderType(String listName, ModelAndView modelview, Map extraParams) throws ApplicationCoreException{
 		Map<String, String> genderTypes = new LinkedHashMap<String, String>();
-	    genderTypes.put(UserAccountManagementWebEnum.DEFAULT_VALUE.toString(), UserAccountManagementWebEnum.PLEASE_SELECT.toString());
 	    GenderTypeControlSource genderTypeControlSource = new GenderTypeControlSource();
-	    genderTypes.putAll(genderTypeControlSource.getControlSourceValues(genderTypes));
-	    return genderTypes;
+	    return genderTypeControlSource.getControlSourceValues(genderTypes);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public Map<String, String> getSecurityQuestion(String listName, ModelAndView modelview, Map extraParams) throws ApplicationCoreException{
 		UserAccountManagerBD userAccountManagerBD = new UserAccountManagerBD();
 		CriteriaIF searchCriteria = new Criteria();
-		List<CriteriaIF> criterias = new ArrayList<CriteriaIF>();
-		CriterionIF[] criterion = criterias.toArray(new CriterionIF[criterias.size()]);
-		
+		CriterionIF[] criterion = {new Criterion(SecurityQuestions.ACT_IND, ActiveStatusEnum.YES.toString())};
 		Order order = new Order(SecurityQuestions.ID, true);
 		Order[] orders = {order};
 		

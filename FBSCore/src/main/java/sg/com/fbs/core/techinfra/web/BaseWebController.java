@@ -178,8 +178,7 @@ public abstract class BaseWebController extends MultiActionController{
 			BaseWebBindingInitializer initializer = new BaseWebBindingInitializer();
 			setWebBindingInitializer(initializer);			
 			preLoad(extraMap, request, response);
-			//Method[] methods = super.getClass().getMethods();
-	    	//Method method = methods[0];
+
 			/** This will invoke module controller handler method, since it will extend BaseWebController**/
 			modelAndView = invokeNamedMethod(methodName, request, response);		
 			

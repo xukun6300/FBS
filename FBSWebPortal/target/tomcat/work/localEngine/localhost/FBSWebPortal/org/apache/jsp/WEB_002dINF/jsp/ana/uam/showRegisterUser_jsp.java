@@ -27,6 +27,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fonchange_005fmaxlength_005fid_005fclass;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fonkeypress_005fonPaste_005fmaxlength_005fid_005fclass_005fnobody;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fradiobuttons_0026_005fpath_005fonclick_005fitems_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005finput_0026_005fstyle_005freadonly_005fpath_005fmaxlength_005fid_005fclass_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fonchange_005fid_005fclass_005fnobody;
@@ -55,6 +56,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fonchange_005fmaxlength_005fid_005fclass = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fonkeypress_005fonPaste_005fmaxlength_005fid_005fclass_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fform_005fradiobuttons_0026_005fpath_005fonclick_005fitems_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005finput_0026_005fstyle_005freadonly_005fpath_005fmaxlength_005fid_005fclass_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fonchange_005fid_005fclass_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -79,6 +81,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fonchange_005fmaxlength_005fid_005fclass.release();
     _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody.release();
     _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fonkeypress_005fonPaste_005fmaxlength_005fid_005fclass_005fnobody.release();
+    _005fjspx_005ftagPool_005fform_005fradiobuttons_0026_005fpath_005fonclick_005fitems_005fnobody.release();
     _005fjspx_005ftagPool_005fform_005finput_0026_005fstyle_005freadonly_005fpath_005fmaxlength_005fid_005fclass_005fnobody.release();
     _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass.release();
     _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fonchange_005fid_005fclass_005fnobody.release();
@@ -154,7 +157,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("<script type=\"text/javascript\" src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("/static/internal/js/ana/rsa.js\"></script>\r\n");
-      out.write("\r\n");
+      out.write(" <!-- for date picker, no need, it includes in include-scripts.jsp in main.jsp -->\r\n");
       out.write("\r\n");
       out.write("<div class=\"container-fluid\">\r\n");
       out.write("  <div class=\"row-fluid\">\r\n");
@@ -339,8 +342,10 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
               return;
             out.write("</strong> </label>       \r\n");
             out.write("              <div class=\"controls control-radio-checkbox\">\r\n");
-            out.write("                ");
-            out.write("\r\n");
+            out.write("                 ");
+            if (_jspx_meth_form_005fradiobuttons_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
+              return;
+            out.write(" \r\n");
             out.write("                 ");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f3 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
@@ -1317,6 +1322,37 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     return false;
   }
 
+  private boolean _jspx_meth_form_005fradiobuttons_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fform_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fform_005f0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  form:radiobuttons
+    org.springframework.web.servlet.tags.form.RadioButtonsTag _jspx_th_form_005fradiobuttons_005f0 = (org.springframework.web.servlet.tags.form.RadioButtonsTag) _005fjspx_005ftagPool_005fform_005fradiobuttons_0026_005fpath_005fonclick_005fitems_005fnobody.get(org.springframework.web.servlet.tags.form.RadioButtonsTag.class);
+    _jspx_th_form_005fradiobuttons_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_form_005fradiobuttons_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(74,17) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_form_005fradiobuttons_005f0.setPath("genderTypeTDesc");
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(74,17) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_form_005fradiobuttons_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${genderType}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(74,17) name = onclick type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_form_005fradiobuttons_005f0.setOnclick("chooseGender()");
+    int[] _jspx_push_body_count_form_005fradiobuttons_005f0 = new int[] { 0 };
+    try {
+      int _jspx_eval_form_005fradiobuttons_005f0 = _jspx_th_form_005fradiobuttons_005f0.doStartTag();
+      if (_jspx_th_form_005fradiobuttons_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_form_005fradiobuttons_005f0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_form_005fradiobuttons_005f0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_form_005fradiobuttons_005f0.doFinally();
+      _005fjspx_005ftagPool_005fform_005fradiobuttons_0026_005fpath_005fonclick_005fitems_005fnobody.reuse(_jspx_th_form_005fradiobuttons_005f0);
+    }
+    return false;
+  }
+
   private boolean _jspx_meth_spring_005fmessage_005f6(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fform_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fform_005f0)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -1630,7 +1666,9 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
         do {
           out.write("\r\n");
           out.write("                    ");
-          out.write("\r\n");
+          if (_jspx_meth_form_005foptions_005f1(_jspx_th_form_005fselect_005f1, _jspx_page_context, _jspx_push_body_count_form_005fselect_005f1))
+            return true;
+          out.write(" \r\n");
           out.write("                  ");
           int evalDoAfterBody = _jspx_th_form_005fselect_005f1.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -1647,6 +1685,33 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     } finally {
       _jspx_th_form_005fselect_005f1.doFinally();
       _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass.reuse(_jspx_th_form_005fselect_005f1);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_form_005foptions_005f1(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fselect_005f1, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fselect_005f1)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  form:options
+    org.springframework.web.servlet.tags.form.OptionsTag _jspx_th_form_005foptions_005f1 = (org.springframework.web.servlet.tags.form.OptionsTag) _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody.get(org.springframework.web.servlet.tags.form.OptionsTag.class);
+    _jspx_th_form_005foptions_005f1.setPageContext(_jspx_page_context);
+    _jspx_th_form_005foptions_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f1);
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(136,20) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_form_005foptions_005f1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${securityQuestion}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
+    int[] _jspx_push_body_count_form_005foptions_005f1 = new int[] { 0 };
+    try {
+      int _jspx_eval_form_005foptions_005f1 = _jspx_th_form_005foptions_005f1.doStartTag();
+      if (_jspx_th_form_005foptions_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_form_005foptions_005f1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_form_005foptions_005f1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_form_005foptions_005f1.doFinally();
+      _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody.reuse(_jspx_th_form_005foptions_005f1);
     }
     return false;
   }
@@ -1759,7 +1824,9 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
         do {
           out.write("\r\n");
           out.write("                    ");
-          out.write("\r\n");
+          if (_jspx_meth_form_005foptions_005f2(_jspx_th_form_005fselect_005f2, _jspx_page_context, _jspx_push_body_count_form_005fselect_005f2))
+            return true;
+          out.write(" \r\n");
           out.write("                  ");
           int evalDoAfterBody = _jspx_th_form_005fselect_005f2.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -1776,6 +1843,33 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     } finally {
       _jspx_th_form_005fselect_005f2.doFinally();
       _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass.reuse(_jspx_th_form_005fselect_005f2);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_form_005foptions_005f2(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fselect_005f2, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fselect_005f2)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  form:options
+    org.springframework.web.servlet.tags.form.OptionsTag _jspx_th_form_005foptions_005f2 = (org.springframework.web.servlet.tags.form.OptionsTag) _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody.get(org.springframework.web.servlet.tags.form.OptionsTag.class);
+    _jspx_th_form_005foptions_005f2.setPageContext(_jspx_page_context);
+    _jspx_th_form_005foptions_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f2);
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(151,20) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_form_005foptions_005f2.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${securityQuestion}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
+    int[] _jspx_push_body_count_form_005foptions_005f2 = new int[] { 0 };
+    try {
+      int _jspx_eval_form_005foptions_005f2 = _jspx_th_form_005foptions_005f2.doStartTag();
+      if (_jspx_th_form_005foptions_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_form_005foptions_005f2[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_form_005foptions_005f2.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_form_005foptions_005f2.doFinally();
+      _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody.reuse(_jspx_th_form_005foptions_005f2);
     }
     return false;
   }

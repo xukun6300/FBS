@@ -44,3 +44,5 @@ Temporary Items
 *.class
 *.class
 *.class
+*.class
+FBSWeb/target/classes/sg/com/fbs/web/ui/controller/system/security/uam/UserAccountManagementRefDataSource.class
