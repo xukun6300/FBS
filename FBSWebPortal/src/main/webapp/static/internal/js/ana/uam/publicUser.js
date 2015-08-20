@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$("#btnCheckEmailId").click(emailCheck);
 	$('#dob').dobDatePicker('#dob_btn');
-	
+	choosePrimaryContact();
 });
 
 function emailCheck(){
@@ -77,4 +77,33 @@ function chooseGender(){
 		}
 	}
 }
+
+function choosePrimaryContact(){
+	var checked = $("input[name=primaryContactTypeT]:checked + label").text();
+	if(checked.indexOf("Office")!=-1){
+		$("#officeTelNo").addClass("required");
+		$("#mobileNo").removeClass("required");
+	}else if(checked.indexOf("Mobile")!=-1){
+		$("#mobileNo").addClass("required");
+		$("#officeTelNo").removeClass("required");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

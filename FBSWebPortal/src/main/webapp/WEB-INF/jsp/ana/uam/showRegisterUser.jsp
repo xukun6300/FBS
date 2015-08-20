@@ -63,7 +63,7 @@
             <div class="control-group required">
                <label class="control-label"> <spring:message code="fbs.common.ana.registeruser.ui.label.namefbsid"></spring:message> </label>
                <div class="controls">
-                  <form:input id="name" path="name" class="input-xlarge" maxlength="50" onkeypress="return restrictInput(this, event, usernameOnly);" onPaste="return false"></form:input>
+                  <form:input id="name" path="name" class="input-xlarge" maxlength="50"  onPaste="return false"></form:input>
                   <form:errors path="name" cssClass="mandatory" element="div"></form:errors>
                </div>
             </div>
@@ -97,7 +97,7 @@
            <div class="control-group required">
               <label class="control-label" for="primaryContactTypeT"><spring:message code="fbs.common.ana.registeruser.ui.label.primarycontact"></spring:message></label>
               <div class="controls control-radio-checkbox">
-                 <%-- <form:radiobuttons path="primaryContactTypeT" items="${primaryContactType}" onclick="choosePrimaryContact()"></form:radiobuttons>  --%>
+                 <form:radiobuttons path="primaryContactTypeT" items="${primaryContactType}" onclick="choosePrimaryContact()"></form:radiobuttons> 
                  <form:errors path="primaryContactTypeT" cssClass="mandatory" element="div"></form:errors>
               </div>
            </div>
@@ -138,7 +138,7 @@
                   <form:input id="ans1" path="ans1" class="input-large" onchange="formatAns(this.form, this, 'encryptedAnswer1')"></form:input>
                   <form:hidden path="encryptedAnswer1"/>
                   <div class="controls" style="margin-left:1px;">
-                    <form:errors path="encryptedAnswer1" cssClass="mandatory" element="div"/>
+                    <form:errors path="securityQuestion1" cssClass="mandatory" element="div"/>
                     <form:errors path="ans1" cssClass="mandatory" element="div" style="margin-left:40%;"/>
                   </div>                
                </div>
@@ -153,7 +153,7 @@
                   <form:input id="ans2" path="ans2" class="input-large" onchange="formatAns(this.form, this, 'encryptedAnswer2')"></form:input>
                   <form:hidden path="encryptedAnswer2"/>
                   <div class="controls" style="margin-left:1px;">
-                    <form:errors path="encryptedAnswer2" cssClass="mandatory" element="div"/>
+                    <form:errors path="securityQuestion2" cssClass="mandatory" element="div"/>
                     <form:errors path="ans2" cssClass="mandatory" element="div" style="margin-left:40%;"/>
                   </div>
                </div>

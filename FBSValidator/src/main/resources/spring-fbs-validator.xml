@@ -14,6 +14,7 @@
    <property name="basenames">
      <list>
        <value>WEB-INF/ui/common/webui</value>
+       <value>WEB-INF/ui/common/messages</value>
        <value>classpath:core-errors</value>
        <value>classpath:fbs-core</value>
      </list>

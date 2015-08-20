@@ -53,9 +53,9 @@ public class UserAccountManager extends CommonFacade{
 		user.setPassword(registerUserRequest.getPassword());
 		user.setSalutation(registerUserRequest.getSalutationTypeTId());
 		user.setName(registerUserRequest.getName());
-		//user.setGender(registerUserRequest.getGenderTypeTDesc());
+		user.setGender(registerUserRequest.getGenderTypeTDesc());
 	    user.setDateOfBirth(registerUserRequest.getDob());
-		//user.setPreferredContactMode(registerUserRequest.getPrimaryContactTypeT());
+		user.setPreferredContactMode(registerUserRequest.getPrimaryContactTypeT());
 
 		if(!StringUtils.isEmpty(registerUserRequest.getOfficeTelNo())){
 			user.setOfficeTel(registerUserRequest.getOfficeTelNo());

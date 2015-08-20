@@ -60,8 +60,7 @@ public class UserAccountManagementController extends BaseWebController {
 
 	@Override
 	public Validator getCustomValidator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new UserAccountManagementValidator();
 	}
 	
 	public ModelAndView showRegisterUser(HttpServletRequest request, HttpServletResponse response){

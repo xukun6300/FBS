@@ -21,6 +21,7 @@ import sg.com.fbs.model.system.persistence.query.Order;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.SecurityQuestions;
 import sg.com.fbs.services.controlsource.GenderTypeControlSource;
+import sg.com.fbs.services.controlsource.PrimaryContactModeControlSource;
 import sg.com.fbs.services.controlsource.SalutationControlSource;
 import sg.com.fbs.services.system.security.uam.mgr.UserAccountManagerBD;
 
@@ -80,6 +81,14 @@ public class UserAccountManagementRefDataSource extends WebRefDataSourceImpl imp
 		return securityQuestionsMap;
 	}
 
+	public Map<String, String> getPrimaryContactType(String listName, ModelAndView modelview, Map extraParams) throws ApplicationCoreException{
+		Map<String, String> primaryContactTypes = new LinkedHashMap<String, String>();
+		PrimaryContactModeControlSource primaryContactModeControlSource = new PrimaryContactModeControlSource();
+		return primaryContactModeControlSource.getControlSourceValues(primaryContactTypes);
+	}
+	
+	
+	
 }
 
 

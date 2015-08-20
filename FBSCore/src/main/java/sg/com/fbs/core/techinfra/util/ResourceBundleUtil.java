@@ -14,9 +14,9 @@ public class ResourceBundleUtil {  //this bean is configured in spring-fbs-valid
 
 	private static Logger logger = Logger.getLogger(ResourceBundleUtil.class);
 	
-	private static ReloadableResourceBundleMessageSource vCoreMessageSource;  //autowired 
+	private static ReloadableResourceBundleMessageSource vCoreMessageSource;  //wired in xml
 	
-	private static ReloadableResourceBundleMessageSource exceptionMessageSource; //autowired
+	private static ReloadableResourceBundleMessageSource exceptionMessageSource; //wired in xml
 	
 	public void setvCoreMessageSource(ReloadableResourceBundleMessageSource vCoreMessageSource){
 		ResourceBundleUtil.vCoreMessageSource = vCoreMessageSource;
