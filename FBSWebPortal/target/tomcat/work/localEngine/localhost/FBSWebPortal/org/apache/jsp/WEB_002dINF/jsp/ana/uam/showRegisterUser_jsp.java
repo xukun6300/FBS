@@ -807,8 +807,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
             out.write("\r\n");
             out.write("               </div>               \r\n");
             out.write("            </div>\r\n");
-            out.write("            \r\n");
-            out.write("            <!-- captcha will implement later -->\r\n");
+            out.write("\r\n");
             out.write("           ");
             out.write("\r\n");
             out.write("               <div class=\"control-group required\">\r\n");
@@ -831,6 +830,32 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
             out.write("\t\t\t\t      </td>\r\n");
             out.write("\t\t\t\t    </tr>\r\n");
             out.write("\t\t\t\t  </table>\r\n");
+            out.write("\t\t\t\t  ");
+            //  form:errors
+            org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f14 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
+            _jspx_th_form_005ferrors_005f14.setPageContext(_jspx_page_context);
+            _jspx_th_form_005ferrors_005f14.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
+            // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(202,6) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            _jspx_th_form_005ferrors_005f14.setPath("captchaResponse");
+            // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(202,6) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            _jspx_th_form_005ferrors_005f14.setCssClass("mandatory");
+            // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(202,6) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            _jspx_th_form_005ferrors_005f14.setElement("div");
+            int[] _jspx_push_body_count_form_005ferrors_005f14 = new int[] { 0 };
+            try {
+              int _jspx_eval_form_005ferrors_005f14 = _jspx_th_form_005ferrors_005f14.doStartTag();
+              if (_jspx_th_form_005ferrors_005f14.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+                return;
+              }
+            } catch (Throwable _jspx_exception) {
+              while (_jspx_push_body_count_form_005ferrors_005f14[0]-- > 0)
+                out = _jspx_page_context.popBody();
+              _jspx_th_form_005ferrors_005f14.doCatch(_jspx_exception);
+            } finally {
+              _jspx_th_form_005ferrors_005f14.doFinally();
+              _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f14);
+            }
+            out.write("\r\n");
             out.write("\t\t\t\t</div>\r\n");
             out.write("\t\t\t   </div> \r\n");
             out.write("           ");
@@ -2212,7 +2237,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f18 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f18.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f18.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(193,34) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(192,34) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f18.setCode("fbs.common.registeruser.ui.label.captcha");
     int[] _jspx_push_body_count_spring_005fmessage_005f18 = new int[] { 0 };
     try {
@@ -2239,9 +2264,9 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f2 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
     _jspx_th_c_005fset_005f2.setPageContext(_jspx_page_context);
     _jspx_th_c_005fset_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(195,6) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(194,6) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f2.setVar("captchaUrl");
-    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(195,6) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(194,6) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}/captcha/showCaptcha.action", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     int _jspx_eval_c_005fset_005f2 = _jspx_th_c_005fset_005f2.doStartTag();
     if (_jspx_th_c_005fset_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -2261,9 +2286,9 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     org.apache.jasper.runtime.AnnotationHelper.postConstruct(_jsp_annotationprocessor, _jspx_th_captcha_005fcaptcha_005f0);
     _jspx_th_captcha_005fcaptcha_005f0.setJspContext(_jspx_page_context);
     _jspx_th_captcha_005fcaptcha_005f0.setParent(_jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(199,14) name = captchaImageUrl type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(198,14) name = captchaImageUrl type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_captcha_005fcaptcha_005f0.setCaptchaImageUrl((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${captchaUrl}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(199,14) name = captchaRefreshImageUrl type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(198,14) name = captchaRefreshImageUrl type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_captcha_005fcaptcha_005f0.setCaptchaRefreshImageUrl((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}/images/refresh.gif", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
     _jspx_th_captcha_005fcaptcha_005f0.doTag();
     org.apache.jasper.runtime.AnnotationHelper.preDestroy(_jsp_annotationprocessor, _jspx_th_captcha_005fcaptcha_005f0);

@@ -100,7 +100,9 @@ public class RegisterUserForm extends BusinessQueryWebForm{
 	@Setter
 	@Getter
 	private String exponent;
-
+	
+	
+	
 	@Override
 	public Map<String, Map<String, Object>> getDefaultValues() {
 		

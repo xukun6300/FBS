@@ -14,12 +14,12 @@
 		<constructor-arg index="0">
 			<list>
 				<bean class="com.octo.captcha.image.gimpy.GimpyFactory">
-					<constructor-arg>
+					<constructor-arg index="0">
 					 	<bean class="com.octo.captcha.component.word.wordgenerator.RandomWordGenerator">
 							<constructor-arg value="0123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz@#$%*" />
 						</bean>					
 					</constructor-arg>
-					<constructor-arg ref="wordToImage"/>
+					<constructor-arg index="1" ref="wordToImage"/>
 				</bean>
 			</list>
 		</constructor-arg>

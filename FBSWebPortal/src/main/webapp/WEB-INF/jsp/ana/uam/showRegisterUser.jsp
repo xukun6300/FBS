@@ -186,8 +186,7 @@
                  <form:errors path="confirmPassword" cssClass="mandatory" element="div" style="margin-left:1px;"></form:errors>
                </div>               
             </div>
-            
-            <!-- captcha will implement later -->
+
            <%--  <c:if test="${captchaFlag eq 'Y'}"> --%>
                <div class="control-group required">
 				<label class="control-label"> <spring:message code="fbs.common.registeruser.ui.label.captcha" /></label>
@@ -200,9 +199,10 @@
 				      </td>
 				    </tr>
 				  </table>
+				  <form:errors path="captchaResponse" cssClass="mandatory" element="div"/>
 				</div>
 			   </div> 
-           <%--  </c:if> --%>
+           <%-- </c:if> --%>
 
          </div>  
   

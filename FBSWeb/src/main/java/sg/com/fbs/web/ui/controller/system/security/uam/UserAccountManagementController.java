@@ -5,7 +5,9 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,6 +16,7 @@ import sg.com.fbs.core.techinfra.web.DefaultRefDataSource;
 import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
 import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
+import sg.com.fbs.services.security.captcha.CaptchaService;
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
 
@@ -26,6 +29,9 @@ public class UserAccountManagementController extends BaseWebController {
 
 	@Resource
 	private PasswordServices passwordServices; 
+	
+	@Autowired
+	private CaptchaService captchaService;
 	
 	@Override
 	public String getModuleWebContext() {
@@ -80,6 +86,9 @@ public class UserAccountManagementController extends BaseWebController {
 		registerUserForm.setModulus(passwordServices.getTransportRSAKeyModulus());
 		registerUserForm.setExponent(passwordServices.getTransportRSAKeyExponent());
 		registerUserForm.setSalt(passwordServices.getSalt());
+		
+		Boolean captchaValidationRlt = captchaValidation(request);
+		registerUserForm.setCaptchaValidationRtl(String.valueOf(captchaValidationRlt));
 		RegisterUserRequest registerUserRequest = new RegisterUserRequest();
 		
 		setCrudMode(WebCRUDEnum.INSERT_MODE);
@@ -92,6 +101,11 @@ public class UserAccountManagementController extends BaseWebController {
 		return mvc;
 	}
 	
+	private boolean captchaValidation(HttpServletRequest request){
+		HttpSession session = request.getSession(false);
+		System.out.println("*********************************"+request.getParameter("captchaResponse"));
+		return captchaService.validateResponseForID(session.getId(), request.getParameter("captchaResponse"));
+	}
 	
 	
 }

@@ -111,6 +111,9 @@ public class UserAccountManagementValidator implements Validator{
 				errors.rejectValue("salutationTypeTId", "fbs.common.errors.required", new String[]{"Salutation"}, "Mandatory field: Salutation");
 			}
 			
+			if("false".equalsIgnoreCase(registerUserForm.getCaptchaValidationRtl())){
+				errors.rejectValue("captchaResponse", "fbs.common.errors.registerpublicuser.captcha");
+			}
 			
 			
 			
