@@ -50,7 +50,7 @@ public final class BCCryptoProvider extends AbstractCryptoProvider{
 		
 		keyStoreFile = targetFilename;
 		
-		keyStorePwd = properties.getProperty(AbstractCryptoProvider.KEYSTORE_PASSWORD).toCharArray();
+		keyStorePwd = properties.getProperty("keystore.password").toCharArray();
 		
 		init();
 	}

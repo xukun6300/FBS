@@ -9,6 +9,8 @@ public interface CryptoProvider {
 
 	byte[] getSalt();
  	
+	byte[] getNonce();
+	
 	byte[] encryptCredentials(byte[] hash);
 	
 	byte[] getDataTransportationPublicKey();

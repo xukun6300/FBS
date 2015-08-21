@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import sg.com.fbs.services.security.captcha.CaptchaService;
 
+/**
+ * @Author Frank Xu $
+ * @Created 3:39:16 pm 21 Aug, 2015 $
+ * Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
+ */
 @Controller
 @RequestMapping("/captcha")
 public class CaptchaController {
@@ -37,9 +42,9 @@ public class CaptchaController {
 			logger.error("I/O exception occured.", e);
 		}
 		
-		response.setHeader("Cache-Control", "no-store");
-	    response.setHeader("Pragma", "no-cache");
-	    response.setDateHeader("Expires", 0);
+		response.setHeader("Cache-Control", "no-store"); //Http 1.1
+	    response.setHeader("Pragma", "no-cache"); //Http 1.0
+	    response.setDateHeader("Expires", 0);  //Proxies
 	    response.setContentType("image/jpeg");
 	    
 	    try {
@@ -53,3 +58,13 @@ public class CaptchaController {
 	
 	
 }
+
+
+
+
+
+
+
+
+
+

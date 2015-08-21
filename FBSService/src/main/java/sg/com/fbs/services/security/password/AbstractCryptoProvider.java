@@ -24,20 +24,6 @@ import org.apache.commons.codec.binary.Hex;
  */
 public abstract class AbstractCryptoProvider implements CryptoProvider{
 	
-	// key store settings
-	public static final String KEYSTORE_PASSWORD = "keystore.password";
-	public static final String KEYSTORE_TYPE = "keystore.storetype";
-	
-	// transport password encryption settings
-	public static final String USER_PASSWORD_TRANSPORT_ENCRYPTION_ALG = "user.password.transport.encryption.alg";
-	public static final String USER_PASSWORD_TRANSPORT_ENCRYPTION_ALIAS= "user.password.transport.encryption.alias";
-	
-	// stored user data encryption settings
-	public static final String USER_DATA_ENCRYPTION_ALIAS = "user.data.encryption.alias";
-	public static final String USER_DATA_ENCRYPTION_ALG = "user.data.encryption.alg";
-	
-	// IV settings
-	public static final String IV ="iv";
 	
 	private KeyStore ks;
 	
@@ -51,22 +37,26 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	
 	private String userPasswordTransportEncryptionAlias;
 	
-	private IvParameterSpec iv; 
+	//private IvParameterSpec iv; 
 	
-	private static final int passwordSaltLength = 16;
+	private int passwordSaltLength ;
+	
+	private int passwordNonceLength;
 	
 	public AbstractCryptoProvider(Properties properties){
-		userDataEncryptionAlg = properties.getProperty(USER_DATA_ENCRYPTION_ALG);
-		userDataEncryptionAlias = properties.getProperty(USER_DATA_ENCRYPTION_ALIAS);
-		userPasswordTransportEncryptionAlg = properties.getProperty(USER_PASSWORD_TRANSPORT_ENCRYPTION_ALG);
-		userPasswordTransportEncryptionAlias = properties.getProperty(USER_PASSWORD_TRANSPORT_ENCRYPTION_ALIAS);
-		keyStoreType = properties.getProperty(KEYSTORE_TYPE);
+		userDataEncryptionAlg = properties.getProperty("user.data.encryption.alg");
+		userDataEncryptionAlias = properties.getProperty("user.data.encryption.alias");
+		userPasswordTransportEncryptionAlg = properties.getProperty("user.password.transport.encryption.alg");
+		userPasswordTransportEncryptionAlias = properties.getProperty("user.password.transport.encryption.alias");
+		keyStoreType = properties.getProperty("keystore.storetype");
+		passwordSaltLength = Integer.parseInt(properties.getProperty("password.salt.length"));
+		passwordNonceLength = Integer.parseInt(properties.getProperty("password.nonce.length"));
 		
-		try {
+		/*try {
 			iv = new IvParameterSpec(Hex.decodeHex(properties.getProperty(IV).toCharArray()));
 		} catch (DecoderException e) {
 			throw new IllegalArgumentException(e.getMessage(), e);
-		}
+		}*/
 	}
 	
 	protected void setKeyStore(KeyStore ks) {
@@ -114,6 +104,11 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	@Override
 	public byte[] getSalt() {
 		return generateRandom(passwordSaltLength);
+	}
+	
+	@Override
+	public byte[] getNonce() {
+		return generateRandom(passwordNonceLength);
 	}
 	
 	@Override

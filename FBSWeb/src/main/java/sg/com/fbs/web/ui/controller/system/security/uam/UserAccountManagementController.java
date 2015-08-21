@@ -103,7 +103,6 @@ public class UserAccountManagementController extends BaseWebController {
 	
 	private boolean captchaValidation(HttpServletRequest request){
 		HttpSession session = request.getSession(false);
-		System.out.println("*********************************"+request.getParameter("captchaResponse"));
 		return captchaService.validateResponseForID(session.getId(), request.getParameter("captchaResponse"));
 	}
 	
