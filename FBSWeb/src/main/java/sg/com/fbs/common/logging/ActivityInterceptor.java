@@ -5,14 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.joda.time.DateTime;
 import org.springframework.aop.framework.Advised;
-import org.springframework.batch.support.MethodResolver;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver;
 import org.springframework.web.servlet.mvc.multiaction.MethodNameResolver;
-import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-import sg.com.fbs.core.techinfra.security.util.PrincipalSecUtil;
 import sg.com.fbs.model.system.activity.ActivityLog;
 import sg.com.fbs.techinfra.persistence.dao.BaseDao;
 
@@ -33,7 +30,7 @@ public class ActivityInterceptor extends HandlerInterceptorAdapter{
 			if(handler instanceof HandlerMethod){
 				activity.setController(((HandlerMethod)handler).getMethod().getDeclaringClass().getSimpleName());
 			}else if (handler instanceof Advised) {
-				activity.setController(((Advised)handler).getTargetClass().getSimpleName());
+			//	activity.setController(((Advised)handler).getTargetClass().getSimpleName());
 			}else {
 				activity.setController(handler.getClass().getSimpleName());
 			}

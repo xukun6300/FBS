@@ -74,7 +74,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
         <taglib-uri>/tags/netui</taglib-uri>
         <taglib-location>/WEB-INF/tags/netui.tld</taglib-location>
       </taglib>
-   
+      
    </jsp-config>
 
 </web-app>

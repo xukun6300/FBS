@@ -7,6 +7,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="joda" uri="http://www.joda.org/joda/time/tags"%>
 <%@ taglib prefix="netui" uri="/tags/netui"%>
+<%@ taglib prefix="captcha" uri="/WEB-INF/tags/captcha.tld" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <script type="text/javascript" src="<spring:url value="/static/internal/js/ana/uam/publicUser.js" />"></script>
@@ -187,19 +188,21 @@
             </div>
             
             <!-- captcha will implement later -->
-            <c:if test="${captchaFlag eq 'Y'}">
+           <%--  <c:if test="${captchaFlag eq 'Y'}"> --%>
                <div class="control-group required">
 				<label class="control-label"> <spring:message code="fbs.common.registeruser.ui.label.captcha" /></label>
 				<div class="controls">
-				  <c:set var="captchaUrl" value="${contextPath}/icaptcha/showCaptcha.action"></c:set>
+				  <c:set var="captchaUrl" value="${contextPath}/captcha/showCaptcha.action"></c:set>
 				  <table>
 				    <tr>
-				      <td class="formField" colspan="2"></td>
+				      <td class="formField" colspan="2">
+				          <captcha:captcha captchaImageUrl="${captchaUrl}" captchaRefreshImageUrl="${contextPath}/images/refresh.gif" />
+				      </td>
 				    </tr>
 				  </table>
 				</div>
-			   </div>
-            </c:if>
+			   </div> 
+           <%--  </c:if> --%>
 
          </div>  
   

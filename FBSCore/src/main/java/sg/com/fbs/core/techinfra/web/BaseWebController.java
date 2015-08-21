@@ -190,6 +190,7 @@ public abstract class BaseWebController extends MultiActionController{
 			
 			/**
 			 * this will map http parameters to form bean, and then copy form properties to model bean
+			 * also will call validator to validate form bean
 			 */
 			mapFormToModel(modelAndView, commandForm, request);			
 			executeCRUDOperation(modelAndView, commandForm, request, methodName, extraMap);
@@ -276,10 +277,9 @@ public abstract class BaseWebController extends MultiActionController{
 	}
 	
 	// will bind all form value to command object
-	private void getFormValues(HttpServletRequest request, Object obj, ModelAndView modelView) throws Exception{
-		//request.getParameterMap();
+	private void getFormValues(HttpServletRequest request, Object form, ModelAndView modelView) throws Exception{
 		
-		ServletRequestDataBinder binder = createControllerBinder(request, obj);
+		ServletRequestDataBinder binder = createControllerBinder(request, form);
 		if(binder!=null){
 			// Bind the parameters of the given request to this binder's target obj
 			binder.bind(request);
@@ -288,9 +288,9 @@ public abstract class BaseWebController extends MultiActionController{
 		if(this.getValidators()!=null && WebCRUDEnum.NONE!=this.getCrudMode() && WebCRUDEnum.DETAILS_MODE!=this.getCrudMode()){
 			
 			for (Validator validator : this.getValidators()) {
-				if(validator.supports(obj.getClass())){
+				if(validator.supports(form.getClass())){
 					//pass the command form as target object to validate
-					ValidationUtils.invokeValidator(validator, obj, binder.getBindingResult());
+					ValidationUtils.invokeValidator(validator, form, binder.getBindingResult());
 				}
 			}
 		}
@@ -305,7 +305,7 @@ public abstract class BaseWebController extends MultiActionController{
 			//??
 			BaseWebFormIF commandForm = (BaseWebFormIF) binder.getBindingResult().getModel().get(BaseWebEnum.COMMAND_FORM.toString());
 			
-			//get response from seesion????
+			//get response from session????
 			if(request.getSession().getAttribute(RESPONSE_CRUD)!=null){
 				commandForm.setCrudResponse((ResponseCRUD)request.getSession().getAttribute(RESPONSE_CRUD));
 			}

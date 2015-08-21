@@ -18,7 +18,7 @@ import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
 public class UserAccountManagementValidator implements Validator{
 
 	@Override
-	public boolean supports(Class<?> clazz) {
+	public boolean supports(Class clazz) {
 		return true;
 	}
 
@@ -116,5 +116,9 @@ public class UserAccountManagementValidator implements Validator{
 			
 		}
 	}
+
+	
+
+	
 
 }
