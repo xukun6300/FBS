@@ -4,8 +4,15 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
+
+
+import sg.com.fbs.model.system.security.User;
+import sg.com.fbs.model.system.security.UserCredentials;
 import sg.com.fbs.services.security.external.crypto.provider.CryptoServicesClientIF;
 
 /**
@@ -15,6 +22,8 @@ import sg.com.fbs.services.security.external.crypto.provider.CryptoServicesClien
  */
 public class PasswordServicesManager implements PasswordServices{
 
+	private static final Logger logger = Logger.getLogger(PasswordServicesManager.class);
+	
 	@Resource
 	private CryptoServicesClientIF restClient;
 
@@ -66,6 +75,34 @@ public class PasswordServicesManager implements PasswordServices{
 	@Override
 	public String getNonce() {
 		return restClient.getNonce();
+	}
+
+	@Override
+	public UserCredentials getUserCredentials(User user) {
+		UserCredentials userCredentials = null;
+		UserCredentials decryptedUserCredentials = null;
+		
+		try {
+			userCredentials = new UserCredentials();
+			
+			if(user!=null){
+				if(!StringUtils.isEmpty(user.getPassword())){
+					userCredentials.setPassword(user.getPassword().toCharArray());
+				}
+				
+				if(!StringUtils.isEmpty(user.getSalt())){
+					userCredentials.setSalt(user.getSalt().toCharArray());
+				}
+			}
+			
+			String decryptedSalt = restClient.decryptSalt(new String(userCredentials.getSalt()));
+			decryptedUserCredentials = new UserCredentials(userCredentials.getPassword(), decryptedSalt.toCharArray());
+			
+		} catch (Exception e) {
+			logger.error("Exception happened while decypting User credentials");
+		}
+		
+		return decryptedUserCredentials;
 	}
 
 	

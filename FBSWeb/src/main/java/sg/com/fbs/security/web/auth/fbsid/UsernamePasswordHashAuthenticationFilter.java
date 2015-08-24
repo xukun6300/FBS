@@ -18,6 +18,8 @@ import org.springframework.util.StringUtils;
 import com.octo.captcha.service.multitype.MultiTypeCaptchaService;
 
 import sg.com.fbs.model.system.security.User;
+import sg.com.fbs.model.system.security.UserCredentials;
+import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.services.system.security.uam.mgr.UserAccountManagerBD;
 
@@ -96,11 +98,65 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 				return false;
 			}
 			
-			
-			
+			String status = user.getStatus();
+			AccountStatusEnum accountStatusEnum = AccountStatusEnum.getEnumFromValue(status);
+			switch (accountStatusEnum) {
+			case ACTIVE:
+				break;
+			case INACTIVE:
+				write(response, ERROR+"Account is not activated.");
+				cleanup(session, null);
+				return false;
+			case REJECTED:
+				write(response, ERROR+"Your account is rejected");
+				cleanup(session, null);
+				return false;
+			default:
+				break;
+			}
+						
 		} catch (Exception e) {
-			
+			write(response, ERROR+ ERROR_MSG_BAD_CREDENTIALS);
+			cleanup(session, null);
+			return false;
 		}
+		
+		// if this is the first request for login, send back nonce and return (for frontierID)
+		String nonce = (String) session.getAttribute(SESSION_NONCE_ATTR);
+		
+		if(!StringUtils.hasLength(nonce)){
+			String nonceHex = "";
+			try {
+				nonceHex = passwordServices.getNonce();
+			} catch (Exception e) {
+				write(response, ERROR+ERROR_MSG_BAD_CREDENTIALS);
+				cleanup(session, null);
+				return false;
+			}
+			
+			UserCredentials decryptedUserCredentials = null;
+			
+			try {
+				decryptedUserCredentials = passwordServices.getUserCredentials(user);
+				session.setAttribute(SESSION_NONCE_ATTR, nonceHex);
+				session.setAttribute(SESSION_PWD_HASH_ATTR, decryptedUserCredentials.getPassword());
+						
+				StringBuilder sb = new StringBuilder();
+				sb.append(decryptedUserCredentials.getSalt());
+				sb.append(nonceHex);
+				write(response, sb.toString());
+				
+			} catch (Exception e) {
+				write(response, ERROR+ERROR_MSG_BAD_CREDENTIALS);
+				cleanup(session, null);
+				return false;
+			}
+			
+			return false;
+		}
+		
+		return true;
+		
 	}
 	
 	private void write(HttpServletResponse response, String message){

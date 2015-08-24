@@ -2,6 +2,9 @@ package sg.com.fbs.services.security.password;
 
 import java.util.List;
 
+import sg.com.fbs.model.system.security.User;
+import sg.com.fbs.model.system.security.UserCredentials;
+
 /**
  * @Author Frank Xu $
  * @Created 11:52:04 am 11 Aug, 2015 $
@@ -53,5 +56,10 @@ public interface PasswordServices {
 	 */
 	List<String> decryptSecurityAnswers(List<String> securityAnswers);
 	
-	
+	/**
+	 * Load credentials from repository
+	 * @param user
+	 * @return credentials of a user
+	 */
+	UserCredentials getUserCredentials(User user);
 }
