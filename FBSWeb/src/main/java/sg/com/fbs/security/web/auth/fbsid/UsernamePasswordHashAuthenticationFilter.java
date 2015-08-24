@@ -20,6 +20,7 @@ import com.octo.captcha.service.multitype.MultiTypeCaptchaService;
 import sg.com.fbs.model.system.security.User;
 import sg.com.fbs.model.system.security.UserCredentials;
 import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
+import sg.com.fbs.security.web.auth.constants.AppConstants;
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.services.system.security.uam.mgr.UserAccountManagerBD;
 
@@ -41,6 +42,8 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 	//private final String REQUEST_CAPTCHA_ATTR = "captcha";
 	
 	private final String SUPPORTED_HTTP_METHOD = "POST";
+	
+	private final String PWD_VALIDATION_STATUS_ATTR = "pv";
 	
 	private final String ERROR = "Error: ";
 	
@@ -81,9 +84,58 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 		
 		username = username.trim().toLowerCase();
 		
+		if(!StringUtils.hasLength(nonce)){
+			if(!attemptAuthenticationFBS(username, response, session)){
+				return null;
+			}
+		}
+		
+		String password = obtainPassword(request);
+		if(!StringUtils.hasLength(password)){
+			cleanup(session, null);
+			write(response, ERROR+ ERROR_MSG_BAD_CREDENTIALS);
+			return null;
+		}
+		
+		password = password.trim();
+		
+		//do authentication
+		char[] serverPasswordHash = (char[]) session.getAttribute(SESSION_PWD_HASH_ATTR);
+		String validatePassword = request.getParameter(PWD_VALIDATION_STATUS_ATTR);
+
+		if (validatePassword == null) {
+			try {
+				if(!passwordServices.comparePassword(serverPasswordHash, password.toCharArray(), nonce.toCharArray())){
+					//failed login activity log will implement later
+					
+					return null;
+				}
+				
+				
+				
+			} catch (Exception e) {
+				cleanup(session, authentication);
+				write(response, ERROR+ ERROR_MSG_BAD_CREDENTIALS);
+				return null;
+			}
+			
+		} else {
+			FbsIdAuthenticationToken authRequest = new FbsIdAuthenticationToken(username, password, serverPasswordHash, nonce);
+			
+			setDetails(request, authRequest); // Allow subclasses to set the "details" property
+			request.setAttribute(AppConstants.REQUEST_USER_ID, username);
+
+			try {
+				authentication = this.getAuthenticationManager().authenticate(authRequest);
+			} catch (Exception e) {
+				write(response, ERROR + ERROR_MSG_BAD_CREDENTIALS);
+			} finally {
+				cleanup(session, authentication);
+			}
+		}
 		
 		
-		return super.attemptAuthentication(request, response);
+		return authentication;
 	}
 	
 	private boolean attemptAuthenticationFBS(String username, HttpServletResponse response, HttpSession session){
@@ -121,7 +173,7 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 			return false;
 		}
 		
-		// if this is the first request for login, send back nonce and return (for frontierID)
+		// if this is the first request for login, send back nonce and return (for FBSID)
 		String nonce = (String) session.getAttribute(SESSION_NONCE_ATTR);
 		
 		if(!StringUtils.hasLength(nonce)){

@@ -26,4 +26,7 @@ public interface CryptoOperationsIF {
 	String decryptUserData(String dataHex);
 	
 	SecurityAnswerComparisonTokenList decryptHashedSecurityAnswers(SecurityAnswerComparisonTokenList tokens);
+	
+	boolean comparePassword(PasswordComparisonToken token);
+	
 }

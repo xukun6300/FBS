@@ -105,6 +105,11 @@ public class PasswordServicesManager implements PasswordServices{
 		return decryptedUserCredentials;
 	}
 
+	@Override
+	public boolean comparePassword(char[] serverHashedPassword, char[] userHashedPassword, char[] nonce) {
+		return restClient.comparePassword(serverHashedPassword, userHashedPassword, nonce);
+	}
+
 	
 	
 

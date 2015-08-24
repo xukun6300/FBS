@@ -62,4 +62,13 @@ public interface PasswordServices {
 	 * @return credentials of a user
 	 */
 	UserCredentials getUserCredentials(User user);
+	
+	/**
+	 * 
+	 * @param serverHashedPassword
+	 * @param userHashedPassword
+	 * @param nonce
+	 * @return
+	 */
+	boolean comparePassword(char[] serverHashedPassword, char[] userHashedPassword, char[] nonce);
 }

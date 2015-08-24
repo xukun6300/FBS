@@ -24,4 +24,6 @@ public interface CryptoServicesClientIF {
 	String decryptSalt(String salt);
 	
 	List<String> decryptSecurityAnswers(List<String> securityAnswers);
+	
+	boolean comparePassword(char[] serverHashedPassword, char[] userHashedPassword, char[] nonce);
 }

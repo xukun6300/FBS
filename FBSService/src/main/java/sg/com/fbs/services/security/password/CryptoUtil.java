@@ -6,6 +6,9 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -17,7 +20,10 @@ public class CryptoUtil {
 
 	private static  Logger logger = Logger.getLogger(CryptoUtil.class);
 	
+	// algorithms
 	public static final String ALG_RSA = "RSA";
+	
+	public static final String ALG_HMAC_SHA1 = "HmacSHA1";
 	
 	public static PublicKey generatePublicKey(byte[] bytes){
 		
@@ -40,6 +46,27 @@ public class CryptoUtil {
 		}
 
 	}
+	
+	public static byte[] computeHmac(byte[] key, byte[] salt){
+		SecretKeySpec hmacKey = new SecretKeySpec(key, ALG_HMAC_SHA1);
+		
+	    Mac hmac = null;
+	    
+	    try {
+			hmac = Mac.getInstance(ALG_HMAC_SHA1);
+			hmac.init(hmacKey);
+			
+			return hmac.doFinal(salt);
+		} catch (Exception e) {
+			logger.error("Error in computing hmac", e);
+			throw new CryptoConfigException(e.getMessage(), e);
+		}
+		
+	}
+	
+	
+	
+	
 }
 
 

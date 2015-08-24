@@ -74,6 +74,13 @@ public class CryptoServicesClientManager implements CryptoServicesClientIF {
 		return cryptoOperations.getNonce();
 	}
 
+	@Override
+	public boolean comparePassword(char[] serverHashedPassword, char[] userHashedPassword, char[] nonce) {
+		
+		
+		return false;
+	}
+
 	
 
 }

@@ -3,6 +3,7 @@ package sg.com.fbs.services.security.external.crypto.provider;
 import java.security.PublicKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -123,6 +124,45 @@ public class CryptoOperationsManager implements CryptoOperationsIF{
 	@Override
 	public String getNonce() {
 		return Hex.encodeHexString(cryptoProvider.getNonce());
+	}
+
+	@Override
+	public boolean comparePassword(PasswordComparisonToken token) {
+		//decrypt client side password hash
+		byte[] authPasswordHashBytes = null;
+		
+		try {
+			authPasswordHashBytes = Hex.decodeHex(token.getAuthPassword());
+		} catch (DecoderException e) {
+			throw new IllegalArgumentException(e.getMessage(), e);
+		}
+		
+		byte[] clientHmacBytes = cryptoProvider.decryptHashedPassword(authPasswordHashBytes);
+		
+		//decrypt server side password hash
+		byte[] serverHashPasswordBytes = null;
+		
+		try {
+			serverHashPasswordBytes = Hex.decodeHex(token.getPassword());
+		} catch (DecoderException e) {
+			throw new IllegalArgumentException(e.getMessage(), e);
+		}
+		
+		byte[] serverPasswordHash = cryptoProvider.decryptCredentials(serverHashPasswordBytes);
+		
+		// compute hmac using password hash and nonce
+		
+		byte[] serverHmacBytes = null;
+		
+		try {
+			serverHmacBytes = CryptoUtil.computeHmac(serverPasswordHash, Hex.decodeHex(token.getNonce()));
+		} catch (DecoderException e) {
+			throw new IllegalArgumentException(e.getMessage(), e);
+		}
+		
+		boolean match = Arrays.equals(clientHmacBytes, serverHmacBytes);
+	
+		return match;
 	}
 	
 	

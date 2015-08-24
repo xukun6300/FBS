@@ -117,6 +117,11 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	}
 	
 	@Override
+	public byte[] decryptCredentials(byte[] cipherText) {	
+		return decryptAesCbc(cipherText, userPasswordTransportEncryptionAlias, userPasswordTransportEncryptionAlg);
+	}
+	
+	@Override
 	public byte[] getDataTransportationPublicKey() {
 		X509Certificate certificate = getCertificate(userPasswordTransportEncryptionAlias);
 		return certificate.getPublicKey().getEncoded();
