@@ -1134,9 +1134,61 @@ public class BaseDao extends AbstractBaseDao{
     	return createSQLQuery(sqlQuery).setCacheable(cacheable).list();
     }
     
+    public Object findObject(Class clz, String name, Object val, boolean cacheable) throws DataAccessObjectException{
+    	Collection coll = find(clz, name, val, cacheable);
+    	if(coll.isEmpty()){
+    		return null;
+    	}else {
+			List list = (List) coll;
+			return list.get(0);
+		}
+    }
     
+    public Object findObject(Class clz, String name, Object val) throws DataAccessObjectException{
+    	return findObject(clz, name, val, false);
+    }
     
+    public Object findObject(String entityName, String name, Object val, boolean cacheable) throws DataAccessObjectException{
+    	Collection coll = find(entityName, name, val, cacheable);
+    	if(coll.isEmpty()){
+    		return null;
+    	}else {
+			List list = (List) coll;
+			return list.get(0);
+		}
+    }
     
+    public Object findObject(String entityName, String name, Object val) throws DataAccessObjectException{
+    	return findObject(entityName, name, val, false);
+    }
+    
+    public Object findObject(Class clz, String property1, Object value1, String property2, Object value2, boolean cacheable) throws DataAccessObjectException{
+    	Collection coll = find(clz, property1, value1, property2, value2, cacheable);
+    	if(coll.isEmpty()){
+    		return null;
+    	}else{
+    		List list = (List) coll;
+    		return list.get(0);
+    	}
+    }
+    
+    public Object findObject(Class clz, String property1, Object value1, String property2, Object value2) throws DataAccessObjectException{
+    	return findObject(clz, property1, value1, property2, value2, false);
+    }
+    
+    public Object findObject(String entityName, String property1, Object value1, String property2, Object value2, boolean cacheable) throws DataAccessObjectException{
+    	Collection coll = find(entityName, property1, value1, property2, value2, cacheable);
+    	if(coll.isEmpty()){
+    		return null;
+    	}else{
+    		List list = (List) coll;
+    		return list.get(0);
+    	}
+    }
+    
+    public Object findObject(String entityName, String property1, Object value1, String property2, Object value2) throws DataAccessObjectException{
+    	return findObject(entityName, property1, value1, property2, value2, false);
+    }
     
     
     

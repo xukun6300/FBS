@@ -119,6 +119,11 @@ public class CryptoOperationsManager implements CryptoOperationsIF{
 
 		return new SecurityAnswerComparisonTokenList(securityAnswers);
 	}
+
+	@Override
+	public String getNonce() {
+		return Hex.encodeHexString(cryptoProvider.getNonce());
+	}
 	
 	
 	

@@ -34,5 +34,14 @@ public class UserAccountManagementDAO extends BaseDao{
 		}
 	}
 	
+	@Override
+	public Object findObject(Class clz, String name, Object val) throws UserAccountManagementDaoException {
+		try {
+			return super.findObject(clz, name, val, true);
+		} catch (DataAccessObjectException e) {
+			throw new UserAccountManagementDaoException("fbs.common.ana.registeruser.dao.error.record.noobjectfound", e);
+		}
+	}
+	
 	
 }

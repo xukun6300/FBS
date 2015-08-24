@@ -15,6 +15,8 @@ public interface CryptoOperationsIF {
 	
 	String getSalt();
 	
+	String getNonce();
+	
 	String encryptSalt(String dataHex);
 	
 	String decryptSalt(String saltHex);

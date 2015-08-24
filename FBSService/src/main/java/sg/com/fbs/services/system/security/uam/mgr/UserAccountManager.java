@@ -152,7 +152,10 @@ public class UserAccountManager extends CommonFacade{
 	}
 	
 	
-	
+	public User getUserByLoginId(String loginId) throws UserAccountManagementDaoException{
+		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
+		return (User) userAccountManagementDAO.findObject(User.class, User.LOGINID, loginId.toLowerCase());
+	}
 	
 	
 	

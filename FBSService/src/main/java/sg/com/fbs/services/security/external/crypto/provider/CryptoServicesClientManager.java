@@ -69,6 +69,11 @@ public class CryptoServicesClientManager implements CryptoServicesClientIF {
 		return encryptAnswers;
 	}
 
+	@Override
+	public String getNonce() {
+		return cryptoOperations.getNonce();
+	}
+
 	
 
 }

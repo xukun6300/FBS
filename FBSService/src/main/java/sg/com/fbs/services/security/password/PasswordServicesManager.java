@@ -63,6 +63,11 @@ public class PasswordServicesManager implements PasswordServices{
 		return restClient.decryptSecurityAnswers(securityAnswers);
 	}
 
+	@Override
+	public String getNonce() {
+		return restClient.getNonce();
+	}
+
 	
 	
 

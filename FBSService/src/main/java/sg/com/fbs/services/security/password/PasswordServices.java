@@ -39,6 +39,12 @@ public interface PasswordServices {
 	String getSalt();
 	
 	/**
+	 * Retrieve random generated nonce from HSM via RESTful call
+	 * @return HEX encoded random generated nonce
+	 */
+	String getNonce();
+	
+	/**
 	 * Decrypt HEX encoded encrypted hashed password and re-encrypt using symmetric key with cryptographic services
 	 * via RESTful call.
 	 * 
@@ -46,5 +52,6 @@ public interface PasswordServices {
 	 * @return HEX encoded encrypted hashed security answer list in same order as securityAnswers argument
 	 */
 	List<String> decryptSecurityAnswers(List<String> securityAnswers);
+	
 	
 }

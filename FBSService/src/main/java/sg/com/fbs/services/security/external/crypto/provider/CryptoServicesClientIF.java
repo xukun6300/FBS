@@ -17,6 +17,8 @@ public interface CryptoServicesClientIF {
 	
 	String getSalt();
 	
+	String getNonce();
+	
 	String encryptSalt(String salt);
 	
 	String decryptSalt(String salt);
