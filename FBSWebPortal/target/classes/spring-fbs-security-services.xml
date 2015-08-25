@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+    		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+    		
+<!-- Form Authentication -->
+<bean id="usernamePasswordAuthenticationFilter" class="sg.com.fbs.security.web.auth.fbsid.UsernamePasswordHashAuthenticationFilter">
+   <property name="authenticationManager" ref="authenticationManager"/>
+   <!-- authenticationFailureHandler -->
+   <!-- authenticationSuccessHandler -->
+   <!-- sessionAuthenticationStrategy -->
+   <property name="usernameParameter" value="u"/>
+   <property name="passwordParameter" value="f"/>
+   <property name="filterProcessesUrl" value="/authentication/authenticate.action"/>
+   
+</bean>
+
+<bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
+   <constructor-arg>
+      <list>
+        <!-- <ref bean="fbsIdAuthenticationProvider"/> -->
+        <ref bean="authenticationProvider"/>
+      </list>
+   </constructor-arg>
+   <property name="authenticationEventPublisher" value="defaultAuthEventPublisher"/>
+</bean>    
+
+<bean id="authenticationProvider" class="org.springframework.security.authentication.AuthenticationProvider"/>
+<bean id="fbsIdAuthenticationProvider" class="sg.com.fbs.security.web.auth.fbsid.FbsIdAuthenticationProvider"/>
+
+<bean id="defaultAuthEventPublisher" class="org.springframework.security.authentication.DefaultAuthenticationEventPublisher"/>		
+    		
+</beans>
