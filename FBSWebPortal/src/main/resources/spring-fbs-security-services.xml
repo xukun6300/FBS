@@ -14,20 +14,22 @@
    <property name="usernameParameter" value="u"/>
    <property name="passwordParameter" value="f"/>
    <property name="filterProcessesUrl" value="/authentication/authenticate.action"/>
-   
 </bean>
 
 <bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
    <constructor-arg>
       <list>
-        <!-- <ref bean="fbsIdAuthenticationProvider"/> -->
-        <ref bean="authenticationProvider"/>
+        <ref bean="fbsIdAuthenticationProvider"/> 
       </list>
    </constructor-arg>
-   <property name="authenticationEventPublisher" value="defaultAuthEventPublisher"/>
+   <property name="authenticationEventPublisher" ref="defaultAuthEventPublisher"/>
 </bean>    
 
-<bean id="authenticationProvider" class="org.springframework.security.authentication.AuthenticationProvider"/>
+<bean id="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+	<property name="loginFormUrl" value="/authenticate.action" />
+</bean>
+
+<!-- <bean id="authenticationProvider" class="org.springframework.security.authentication.AuthenticationProvider"/> -->
 <bean id="fbsIdAuthenticationProvider" class="sg.com.fbs.security.web.auth.fbsid.FbsIdAuthenticationProvider"/>
 
 <bean id="defaultAuthEventPublisher" class="org.springframework.security.authentication.DefaultAuthenticationEventPublisher"/>		

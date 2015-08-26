@@ -37,27 +37,28 @@ public class FbsIdAuthenticationProvider implements AuthenticationProvider{
 			throw new BadCredentialsException("Empty Username");
 		}
 		
-		FbsIdAuthenticationToken authToken = (FbsIdAuthenticationToken) authentication;
+		//FbsIdAuthenticationToken authToken = (FbsIdAuthenticationToken) authentication;
 		
 		User user =null;
 		Map<String, Object> map = new Hashtable<String, Object>();
 		UserAccountManagerBD userAccountManagerBD = new UserAccountManagerBD();
 		try {
-			userAccountManagerBD.getUserByLoginId(username);
+			user = userAccountManagerBD.getUserByLoginId(username);
 		} catch (UserAccountManagementException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
-		return null;
+		UsernamePasswordAuthenticationToken result = new UsernamePasswordAuthenticationToken(user, password);
+		result.setDetails(authentication.getDetails());
+		return result;
 	}
 
 	@Override
 	public boolean supports(Class<?> authentication) {
 	
 		
-		return false;
+		return true;
 	}
 
 }

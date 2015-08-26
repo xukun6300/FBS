@@ -36,7 +36,9 @@
 <import resource="classpath:spring-fbs-common-webui.xml"/>
 <import resource="classpath:spring-fbs-transactions.xml"/> 
 <import resource="classpath:spring-fbs-validator.xml"/>
+<import resource="classpath:spring-fbs-security.xml"/>
 <import resource="classpath:spring-fbs-security-crypto-services.xml"/>
 <import resource="classpath:spring-fbs-security-captcha.xml"/>
+<import resource="classpath:spring-fbs-security-services.xml"/>
 
 </beans>

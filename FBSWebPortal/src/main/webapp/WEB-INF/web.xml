@@ -59,6 +59,18 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
     </listener> -->
 
 
+   <!--  Spring Security Config -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!--  Spring Security Config -->
 
    <filter>
       <filter-name>ValidationWebContextFilter</filter-name>
@@ -68,6 +80,9 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
       <filter-name>ValidationWebContextFilter</filter-name>
       <url-pattern>/*</url-pattern>
    </filter-mapping>
+   
+   
+   
    
    <jsp-config>
       <taglib>

@@ -27,3 +27,49 @@ function checkFormat(a){
 	}
 	return true;
 }
+
+function showDiv(a, b) {
+	if (document.getElementById) {
+		a = document.getElementById(a);
+		a.style.display = b ? "inline" : "none";
+	}
+}
+
+function toggleSpinner(a, b){
+	return showDiv(a, b);
+}
+
+function displayMessage(a){
+	var splitString = a.split(":");
+	var errorMsg = splitString[1]!=null?splitString[1]:"";
+	
+	if($("#statusbar")!=null){
+		$("#statusbar").show();
+		if(errorMsg!=''&&errorMsg.length>0){
+			$("#statusbar").html(errorMsg);
+		}else{
+			$("#statusbar").html(a);
+		}
+	}
+	
+	return false;
+}
+
+function validateID(a, b){
+	a = trim(a);
+	if(a==""){
+		alert(b+" is empty.");
+		return false;
+	}
+	return true;
+}
+
+
+
+
+
+
+
+
+
+
