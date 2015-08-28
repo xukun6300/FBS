@@ -10,6 +10,11 @@
    <property name="authenticationManager" ref="authenticationManager"/>
    <!-- authenticationFailureHandler -->
    <!-- authenticationSuccessHandler -->
+   <property name="authenticationSuccessHandler">
+		<bean class="sg.com.fbs.security.web.auth.fbsid.FbsSavedRequestAwareAuthenticationSuccessHandler">
+	     	<property name="defaultTargetUrl" value="/useraccountprofile/profile.action"/>
+		</bean>		
+	</property>
    <!-- sessionAuthenticationStrategy -->
    <property name="usernameParameter" value="u"/>
    <property name="passwordParameter" value="f"/>

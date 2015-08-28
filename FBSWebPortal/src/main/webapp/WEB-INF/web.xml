@@ -60,6 +60,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 
 
    <!--  Spring Security Config -->
+   <!-- Spring's DelegatingFilterProxy provides the link between web.xml and the application context. -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -69,7 +70,6 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
 	<!--  Spring Security Config -->
 
    <filter>

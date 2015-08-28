@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPublicKey;
 import java.util.Properties;
 
 import javax.annotation.Generated;
@@ -16,6 +17,7 @@ import javax.crypto.spec.IvParameterSpec;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
+import org.bouncycastle.crypto.params.RSAKeyParameters;
 
 /**
  * @Author Frank Xu $
@@ -37,7 +39,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	
 	private String userPasswordTransportEncryptionAlias;
 	
-	//private IvParameterSpec iv; 
+	private IvParameterSpec iv = null; 
 	
 	private int passwordSaltLength ;
 	
@@ -53,7 +55,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		passwordNonceLength = Integer.parseInt(properties.getProperty("password.nonce.length"));
 		
 		/*try {
-			iv = new IvParameterSpec(Hex.decodeHex(properties.getProperty(IV).toCharArray()));
+			iv = new IvParameterSpec(Hex.decodeHex(properties.getProperty("iv").toCharArray()));
 		} catch (DecoderException e) {
 			throw new IllegalArgumentException(e.getMessage(), e);
 		}*/
@@ -117,8 +119,35 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 	}
 	
 	@Override
-	public byte[] decryptCredentials(byte[] cipherText) {	
-		return decryptAesCbc(cipherText, userPasswordTransportEncryptionAlias, userPasswordTransportEncryptionAlg);
+	public byte[] decryptCredentials(byte[] cipherText) {
+		Key key = getKey(userPasswordTransportEncryptionAlias);
+		Cipher cipher = null;
+		
+		//RSAKeyParameters rsaKeyParameters = new RSAKeyParameters(false, ((RSAPublicKey)key).getModulus(), ((RSAPublicKey)key).getPublicExponent());
+		try {
+			cipher = Cipher.getInstance(userPasswordTransportEncryptionAlg, getJCEProvider());
+		} catch (Exception e) {
+			throw new CryptoConfigException(e.getMessage(), e);
+		} 
+		
+		try {
+			iv=null;
+			cipher.init(Cipher.DECRYPT_MODE, key,iv);
+			System.out.println("---- in decryptCredentials--"+cipherText);
+			byte[] plainText = cipher.doFinal(cipherText);
+			//plainText = Hex.decodeHex(new String(plainText).toCharArray());  //??
+			return plainText;
+			
+			//cipher.init(Cipher.DECRYPT_MODE, key);
+			/*cipher.init(Cipher.DECRYPT_MODE, key, iv);
+			byte[] clearText = cipher.doFinal(cipherText);
+			return clearText;*/ 
+		} catch (Exception e) {
+			
+			throw new CryptoConfigException(e.getMessage(), e);
+		}
+		
+		//return decryptAesCbc(cipherText, userPasswordTransportEncryptionAlias, userPasswordTransportEncryptionAlg);
 	}
 	
 	@Override
@@ -141,6 +170,7 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		
 		try {
 			cipher.init(Cipher.DECRYPT_MODE, key);
+			System.out.println("-----in decryptHashedPassword--"+encryptedHash);
 			byte[] plainText = cipher.doFinal(encryptedHash);
 			plainText = Hex.decodeHex(new String(plainText).toCharArray());  //??
 			return plainText;
@@ -179,14 +209,15 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		Cipher cipher = null;
 		
 		try {		
+			//cipher = Cipher.getInstance(alg);
 			cipher = Cipher.getInstance(alg, getJCEProvider());
 		} catch (Exception e) {
 			throw new CryptoConfigException(e.getMessage(), e);
 		}
 		
-		try {
-			//cipher.init(Cipher.ENCRYPT_MODE, key, iv);
-			cipher.init(Cipher.ENCRYPT_MODE, key); 
+		try {			
+			cipher.init(Cipher.ENCRYPT_MODE, key, iv);
+			//cipher.init(Cipher.ENCRYPT_MODE, key); 
 			byte[] cipherText = cipher.doFinal(clearText);
 			return cipherText;
 		} catch (Exception e) {
@@ -206,7 +237,20 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		} 
 		
 		try {
-			cipher.init(Cipher.DECRYPT_MODE, key);
+			
+			/*cipher.init(Cipher.DECRYPT_MODE, key);
+			byte[] plainText = cipher.doFinal(cipherText);
+			plainText = Hex.decodeHex(new String(plainText).toCharArray());  //??
+			return plainText;*/
+			
+			//cipher.init(Cipher.DECRYPT_MODE, key);
+			try {
+				iv = new IvParameterSpec(Hex.decodeHex("00010203040506070809101112131415".toCharArray()));
+			} catch (DecoderException e) {
+				throw new IllegalArgumentException(e.getMessage(), e);
+			}
+
+			cipher.init(Cipher.DECRYPT_MODE, key, iv);
 			byte[] clearText = cipher.doFinal(cipherText);
 			return clearText;
 		} catch (Exception e) {

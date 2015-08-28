@@ -76,9 +76,8 @@ public class CryptoServicesClientManager implements CryptoServicesClientIF {
 
 	@Override
 	public boolean comparePassword(char[] serverHashedPassword, char[] userHashedPassword, char[] nonce) {
-		
-		
-		return false;
+		PasswordComparisonToken token = new PasswordComparisonToken(serverHashedPassword, userHashedPassword, nonce);
+		return cryptoOperations.comparePassword(token);
 	}
 
 	

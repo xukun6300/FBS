@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.joda.time.DateTime;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.businfra.facade.ServiceLocator;
@@ -118,7 +119,10 @@ public class UserAccountManager extends CommonFacade{
 		if (user != null) {			
 			response.setCrudResult(user);
 		}
-		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String pwd = encoder.encode("123456");
+		System.out.println(pwd);
+		System.out.println(new BCryptPasswordEncoder().matches("123456", pwd));
 		return response;
 	}
 	
@@ -156,8 +160,6 @@ public class UserAccountManager extends CommonFacade{
 		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
 		return (User) userAccountManagementDAO.findObject(User.class, User.LOGINID, loginId.toLowerCase());
 	}
-	
-	
 	
 	
 	

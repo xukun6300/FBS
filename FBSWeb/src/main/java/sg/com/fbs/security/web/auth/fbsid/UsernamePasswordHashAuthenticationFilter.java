@@ -22,6 +22,7 @@ import sg.com.fbs.model.system.security.UserCredentials;
 import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
 import sg.com.fbs.security.web.auth.constants.AppConstants;
 import sg.com.fbs.services.security.password.PasswordServices;
+import sg.com.fbs.services.system.security.uam.exception.UserAccountManagementException;
 import sg.com.fbs.services.system.security.uam.mgr.UserAccountManagerBD;
 
 /**
@@ -101,17 +102,21 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 		
 		//do authentication
 		char[] serverPasswordHash = (char[]) session.getAttribute(SESSION_PWD_HASH_ATTR);
-		String validatePassword = request.getParameter(PWD_VALIDATION_STATUS_ATTR);
+		String validatePassword = request.getParameter(PWD_VALIDATION_STATUS_ATTR);//pv
 
 		if (validatePassword == null) {
 			try {
-				if(!passwordServices.comparePassword(serverPasswordHash, password.toCharArray(), nonce.toCharArray())){
+				/*if(!passwordServices.comparePassword(serverPasswordHash, password.toCharArray(), nonce.toCharArray())){
 					//failed login activity log will implement later
 					
 					return null;
-				}
+				}*/
 				
+				//return null;
 				
+				cleanup(session, authentication);
+				write(response, ERROR+ ERROR_MSG_BAD_CREDENTIALS);
+				return null;
 				
 			} catch (Exception e) {
 				cleanup(session, authentication);
@@ -141,8 +146,13 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 	private boolean attemptAuthenticationFBS(String username, HttpServletResponse response, HttpSession session){
 		User user = null;
 		
-		try {
-			user = userAccountManagerBD.getUserByLoginId(username);
+		//try {
+			try {
+				user = userAccountManagerBD.getUserByLoginId(username);
+			} catch (UserAccountManagementException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			if(user==null){
 				cleanup(session, null);
@@ -167,11 +177,11 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 				break;
 			}
 						
-		} catch (Exception e) {
+		/*} catch (Exception e) {
 			write(response, ERROR+ ERROR_MSG_BAD_CREDENTIALS);
 			cleanup(session, null);
 			return false;
-		}
+		}*/
 		
 		// if this is the first request for login, send back nonce and return (for FBSID)
 		String nonce = (String) session.getAttribute(SESSION_NONCE_ATTR);

@@ -72,6 +72,22 @@
 	<version>1.0-RC6</version>
 </dependency>  
 
+<!-- <dependency>
+	<groupId>bouncycastle</groupId>
+	<artifactId>bcprov-jdk15</artifactId>
+	<version>145</version>
+</dependency> -->
+<dependency>
+	<groupId>org.bouncycastle</groupId>
+	<artifactId>bcprov-jdk15</artifactId>
+	<version>1.45</version>
+</dependency>
+
+<!-- <dependency>
+   <groupId>bouncycastle</groupId>
+   <artifactId>bouncycastle-jce-jdk13</artifactId>
+   <version>112</version>
+</dependency> -->
 
     <dependency>
 		<groupId>sg.com.fbs</groupId>

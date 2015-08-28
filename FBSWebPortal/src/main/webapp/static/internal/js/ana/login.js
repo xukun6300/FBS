@@ -42,7 +42,6 @@ function fidLogin(a){
 			if(validatePIN(d)){
 				
 				c = sendRequest("u="+b);
-				alert(c);
 				if(c.indexOf("Error:")!=-1){
 					displayMessage(c);
 					toggleSpinner("spinner",0);
@@ -86,7 +85,7 @@ function fidLogin(a){
 			document.submitForm.pv.value = "no";
 			
             c = sendRequest("u=" + b + "&f=" + f);
-            
+            alert(c);
             document.submitForm.pv.value = "yes";
             
             if(c.indexOf("Error:")!=-1){
