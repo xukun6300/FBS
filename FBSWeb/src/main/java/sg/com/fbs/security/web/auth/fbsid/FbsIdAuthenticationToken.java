@@ -14,39 +14,34 @@ public class FbsIdAuthenticationToken extends UsernamePasswordAuthenticationToke
 
 	private static final long serialVersionUID = -7833267793451585116L;
 
-	private String nonceHex;
+	//private String nonceHex;
 	
-	private char[] passwordHash;
+	private String passwordHash;
 	
 	
 	public FbsIdAuthenticationToken(Object principal, Object credentials) {
 		super(principal, credentials);
 	}
 
-	public FbsIdAuthenticationToken(Object principal, Object credentials, char[] passwordHash, String nonceHex) {
+	public FbsIdAuthenticationToken(Object principal, Object credentials, String passwordHash) {
 		super(principal, credentials);
-		this.nonceHex = nonceHex;
-		if(passwordHash!=null){
-			this.passwordHash = Arrays.copyOf(passwordHash, passwordHash.length);
-		}
+		//this.nonceHex = nonceHex;
+		this.passwordHash = passwordHash;
 	}
 	
-	public String getNonceHex() {
+	/*public String getNonceHex() {
 		return nonceHex;
 	}
 	
 	public void setNonceHex(String nonceHex) {
 		this.nonceHex = nonceHex;
-	}
+	}*/
 	
-	public char[] getPasswordHash() {
+	public String getPasswordHash() {
 		return passwordHash;
 	}
 	
-	public void setPasswordHash(char[] passwordHash) {
-		if(passwordHash!=null){
-			this.passwordHash = Arrays.copyOf(passwordHash, passwordHash.length);
-		}
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
 	}
-	
 }

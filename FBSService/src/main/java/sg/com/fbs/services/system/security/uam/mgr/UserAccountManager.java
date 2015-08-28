@@ -107,10 +107,14 @@ public class UserAccountManager extends CommonFacade{
 				throw new BadCredentialsException("Password and confirm password mismatch.");
 			}
 			
-			encryptedPassword = passwordServices.decryptPassword(password);
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			encryptedPassword = encoder.encode(password);
+			user.setPassword(encryptedPassword);
+			
+			/*encryptedPassword = passwordServices.decryptPassword(password);
 			encryptSalt = restClient.encryptSalt(salt);
 			user.setPassword(encryptedPassword);
-			user.setSalt(encryptSalt);	
+			user.setSalt(encryptSalt);	*/
 		}
 		
 		user = (User) userAccountManagementDAO.insert(user);

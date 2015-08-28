@@ -47,12 +47,11 @@
 <form name="submitForm" method="post" action="authenticate.action">
    <input name="u" type="hidden"/>
    <input name="f" type="hidden"/>
-   <input name="at" type="hidden"/>
+<!--    <input name="at" type="hidden"/>
    <input name="bt" type="hidden"/>
    <input name="en" type="hidden"/>
-   <input name="pv" type="hidden"/>
-</form>
-
+   <input name="pv" type="hidden"/> -->
+</form> 
 
 
 

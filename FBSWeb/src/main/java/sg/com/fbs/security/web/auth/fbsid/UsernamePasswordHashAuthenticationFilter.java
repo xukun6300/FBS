@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.util.StringUtils;
 
@@ -72,9 +73,7 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 			write(response, ERROR+"User Session Expired.");
 			return null;
 		}
-		
-		String nonce = (String) session.getAttribute(SESSION_NONCE_ATTR);
-		
+
 		String username = obtainUsername(request);
 		//username empty
 		if(!StringUtils.hasLength(username)){
@@ -84,11 +83,9 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 		}
 		
 		username = username.trim().toLowerCase();
-		
-		if(!StringUtils.hasLength(nonce)){
-			if(!attemptAuthenticationFBS(username, response, session)){
-				return null;
-			}
+
+		if(!attemptAuthenticationFBS(username, response, session)){
+			return null;
 		}
 		
 		String password = obtainPassword(request);
@@ -101,22 +98,25 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 		password = password.trim();
 		
 		//do authentication
-		char[] serverPasswordHash = (char[]) session.getAttribute(SESSION_PWD_HASH_ATTR);
-		String validatePassword = request.getParameter(PWD_VALIDATION_STATUS_ATTR);//pv
-
-		if (validatePassword == null) {
+		//char[] serverPasswordHash = (char[]) session.getAttribute(SESSION_PWD_HASH_ATTR);
+		//String validatePassword = request.getParameter(PWD_VALIDATION_STATUS_ATTR);//pv
+		String serverPasswordHash = (String)session.getAttribute(SESSION_PWD_HASH_ATTR);
+		//if (validatePassword == null) {
 			try {
+				
+				//Compare password
+				BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+				if(!encoder.matches(password, serverPasswordHash)){
+					cleanup(session, authentication);
+					write(response, ERROR+ ERROR_MSG_BAD_CREDENTIALS);
+					return null;
+				}
 				/*if(!passwordServices.comparePassword(serverPasswordHash, password.toCharArray(), nonce.toCharArray())){
 					//failed login activity log will implement later
 					
 					return null;
 				}*/
 				
-				//return null;
-				
-				cleanup(session, authentication);
-				write(response, ERROR+ ERROR_MSG_BAD_CREDENTIALS);
-				return null;
 				
 			} catch (Exception e) {
 				cleanup(session, authentication);
@@ -124,9 +124,9 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 				return null;
 			}
 			
-		} else {
-			FbsIdAuthenticationToken authRequest = new FbsIdAuthenticationToken(username, password, serverPasswordHash, nonce);
-			
+		//} else {
+			FbsIdAuthenticationToken authRequest = new FbsIdAuthenticationToken(username, password, serverPasswordHash);
+	    	//FbsIdAuthenticationToken authRequest = new FbsIdAuthenticationToken(username, password, serverPasswordHash, nonce);
 			setDetails(request, authRequest); // Allow subclasses to set the "details" property
 			request.setAttribute(AppConstants.REQUEST_USER_ID, username);
 
@@ -137,7 +137,7 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 			} finally {
 				cleanup(session, authentication);
 			}
-		}
+	//	}
 		
 		
 		return authentication;
@@ -146,19 +146,15 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 	private boolean attemptAuthenticationFBS(String username, HttpServletResponse response, HttpSession session){
 		User user = null;
 		
-		//try {
-			try {
-				user = userAccountManagerBD.getUserByLoginId(username);
-			} catch (UserAccountManagementException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+		try {
+			user = userAccountManagerBD.getUserByLoginId(username);
 			
 			if(user==null){
 				cleanup(session, null);
 				write(response, ERROR + ERROR_MSG_BAD_CREDENTIALS);
 				return false;
 			}
+			session.setAttribute(SESSION_PWD_HASH_ATTR, user.getPassword());
 			
 			String status = user.getStatus();
 			AccountStatusEnum accountStatusEnum = AccountStatusEnum.getEnumFromValue(status);
@@ -177,14 +173,14 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 				break;
 			}
 						
-		/*} catch (Exception e) {
+		} catch (Exception e) {
 			write(response, ERROR+ ERROR_MSG_BAD_CREDENTIALS);
 			cleanup(session, null);
 			return false;
-		}*/
+		}
 		
 		// if this is the first request for login, send back nonce and return (for FBSID)
-		String nonce = (String) session.getAttribute(SESSION_NONCE_ATTR);
+		/*String nonce = (String) session.getAttribute(SESSION_NONCE_ATTR);
 		
 		if(!StringUtils.hasLength(nonce)){
 			String nonceHex = "";
@@ -215,7 +211,7 @@ public final class UsernamePasswordHashAuthenticationFilter extends UsernamePass
 			}
 			
 			return false;
-		}
+		}*/
 		
 		return true;
 		

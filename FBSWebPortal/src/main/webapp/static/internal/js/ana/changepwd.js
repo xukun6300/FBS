@@ -24,12 +24,10 @@ function registerNewUser(a){
 				if(validateCPIN(pwd, confirmPwd)){ // validate pwd and confirmPwd matching
 					if(validatePIN2(email, pwd)){ //validate pwd not same with email addr
 						if(validatePINStren(pwd)){ //validate pwd strength
-							var salt = document.registerForm.salt.value;
-						//	var salt = 'b37f612e1eff484f22768b72733daf89';
-							salt = hexToByteArray(salt);
-							
+							//var salt = document.registerForm.salt.value;
+							//salt = hexToByteArray(salt);		
 							//derive PBKDF2 hash of new password
-							deriveKey(pwd, salt);
+							//deriveKey(pwd, salt);
 							setTimeout("registerNewUser(false)", 100);  //call it after 0.1 second 
 						}
 					}
@@ -37,10 +35,8 @@ function registerNewUser(a){
 			}
 		}
 		
-	}else if(!a && !g_key){
-		setTimeout("registerNewUser(false)", 100);
 	}else{
-		var mod = document.registerForm.modulus.value;
+	/*	var mod = document.registerForm.modulus.value;
 		var exp = document.registerForm.exponent.value;
 		
 		var gkeyHex = binb2hex(str2binb(g_key));
@@ -50,7 +46,7 @@ function registerNewUser(a){
 		
 		var f = rsa.encrypt(gkeyHex);
 		document.registerForm.password.value = f;
-		document.registerForm.confirmPassword.value = f;
+		document.registerForm.confirmPassword.value = f;*/
 	//	alert(f);
 		document.registerForm.submit();		
 	}

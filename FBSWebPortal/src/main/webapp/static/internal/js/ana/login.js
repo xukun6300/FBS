@@ -36,8 +36,42 @@ function fidLogin(a){
 		toggleSpinner("spinner", 1);
 	}
 	
-
-	if (a && !g_key) {
+	if(a){
+		if(validateID(b, "User Id")){
+			if(validatePIN(d)){
+				c = sendRequest("u=" + b + "&f=" + d);
+				//c = sendRequest("u="+b);
+				if(c.indexOf("Error:")!=-1){
+					displayMessage(c);
+					toggleSpinner("spinner",0);
+					return false;
+				}
+				
+				document.submitForm.u.value = b;
+				document.submitForm.f.value = d;
+				document.submitForm.submit();
+			    toggleSpinner("spinner",0);
+			}else{
+				toggleSpinner("spinner", 0);
+			}
+		}else{
+			toggleSpinner("spinner", 0);
+		}
+		
+	}/*else{
+		c = sendRequest("u=" + b + "&f=" + d);
+       
+        if(c.indexOf("Error:")!=-1){
+        	displayMessage(c);
+        	toggleSpinner("spinner",0);
+        	return false;
+        }       
+        document.login.submit();
+        toggleSpinner("spinner",0);
+	}
+    */
+	
+	/*if (a && !g_key) {
 		if(validateID(b, "User Id")){
 			if(validatePIN(d)){
 				
@@ -98,9 +132,7 @@ function fidLogin(a){
             toggleSpinner("spinner",0);
             
 		}
-		
-		
-	}
+	}*/
 	
 	
 }
