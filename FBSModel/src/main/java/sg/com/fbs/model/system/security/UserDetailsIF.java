@@ -15,5 +15,9 @@ public interface UserDetailsIF extends UserDetails{
 	@Override
 	public String getUsername();
 	
+	String getLoginId();
+	
+	String getName();
+	
 	long getUserId();
 }

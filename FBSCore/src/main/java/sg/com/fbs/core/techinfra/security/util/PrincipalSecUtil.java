@@ -1,12 +1,7 @@
 package sg.com.fbs.core.techinfra.security.util;
 
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import sg.com.fbs.model.system.security.UserDetailsIF;
 
@@ -34,13 +29,6 @@ public class PrincipalSecUtil {
 		if(userDetail!=null){
 			userId = userDetail.getUserId();
 		}	
-		BCryptPasswordEncoder bCryptPasswordEncoder  = new BCryptPasswordEncoder();
-		Authentication authentication ;
-		AuthenticationProvider anAuthenticationProvider;
-		UserDetailsService userDetailsService;
-		UsernamePasswordAuthenticationFilter u;
-		 
-		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken;
 		return userId;
 	}
 	
