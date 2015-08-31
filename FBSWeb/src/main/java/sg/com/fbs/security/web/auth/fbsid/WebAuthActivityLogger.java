@@ -1,6 +1,8 @@
 package sg.com.fbs.security.web.auth.fbsid;
 
 import org.apache.log4j.Logger;
+import org.hibernate.cfg.annotations.Nullability;
+import org.joda.time.DateTime;
 
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
@@ -12,7 +14,12 @@ import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.model.system.persistence.query.CriterionIF;
 import sg.com.fbs.model.system.persistence.query.RestrictionType;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
+import sg.com.fbs.model.system.security.User;
+import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
 import sg.com.fbs.services.common.activity.mgr.ActivityMgrBD;
+import sg.com.fbs.services.logging.mgr.ActivityLogMgrBD;
+import sg.com.fbs.services.system.security.uam.exception.UserAccountManagementException;
+import sg.com.fbs.services.system.security.uam.mgr.UserAccountManagerBD;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -23,6 +30,8 @@ import sg.com.fbs.services.common.activity.mgr.ActivityMgrBD;
 public class WebAuthActivityLogger {
 
 	private static final Logger logger = Logger.getLogger(WebAuthActivityLogger.class);
+	
+	private static final int MAX_LOGIN_ATTEMPTS = 3;
 	
 	private long successfulLoginActivityId;
 	
@@ -65,6 +74,54 @@ public class WebAuthActivityLogger {
 	
 	public void logSuccessfulLogin(long userId, String sessionId){
 		ActivityLog activityLog = createActivityLog(WebAuthenticationAction.LOGIN_SUCCESS, userId, sessionId);
+		
+		try {
+			new ActivityLogMgrBD().saveActivityLog(activityLog);
+		} catch (ApplicationCoreException e) {
+			logger.error("Error in saving successful login activity log.", e);
+		}
+		
+	}
+	
+	public AccountStatusEnum logFailedLogin(String loginId, String details){
+		UserAccountManagerBD userAccountManagerBD = new UserAccountManagerBD();
+		ActivityLogMgrBD activityLogMgrBD = new ActivityLogMgrBD();
+		User createdByUser = null;
+		ActivityLog activityLog = null;
+		try {
+			createdByUser = userAccountManagerBD.getUserByLoginId(loginId);
+			
+			if(createdByUser!=null){
+				activityLog = createActivityLog(WebAuthenticationAction.LOGIN_FAIL, createdByUser.getId(), details);
+			}else {
+				return null;
+			}
+			
+		} catch (UserAccountManagementException e) {
+			logger.error("Error in getting user details for failed login for " + loginId, e);
+			return null;
+		}
+		
+		if(createdByUser.getFailedLoginAttempt()>=MAX_LOGIN_ATTEMPTS){
+			createdByUser.setStatus(AccountStatusEnum.LOCKED.getDescription());
+			createdByUser.setFailedLoginAttempt(0);
+			
+			//Email Notification for Account Locked 
+			
+		}else {
+			createdByUser.setFailedLoginAttempt(createdByUser.getFailedLoginAttempt()+1);
+		}
+		
+		createdByUser.setLastFailedLoginDate(DateTime.now());
+		
+		try {
+			activityLogMgrBD.saveActivityLog(activityLog);
+			activityLogMgrBD.updateUser(createdByUser);
+		} catch (ApplicationCoreException e) {
+			logger.error("Error in saving failed login activity log for " + loginId, e);
+		}
+		
+		return AccountStatusEnum.getEnumFromValue(createdByUser.getStatus());
 	}
 	
 	

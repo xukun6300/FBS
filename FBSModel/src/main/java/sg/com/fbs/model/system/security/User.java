@@ -61,6 +61,9 @@ public class User extends BaseLogPojo implements TransactionLogIF,DataLogIF{
 	private String preferredContactMode;
 	@Setter
 	@Getter
+	private int failedLoginAttempt;
+	@Setter
+	@Getter
     private DateTime passwordLastUpdateDate;
 	@Setter
 	@Getter
