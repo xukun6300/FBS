@@ -1,6 +1,8 @@
 package sg.com.fbs.services.system.security.uam.mgr;
 
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
@@ -54,4 +56,20 @@ public class UserAccountManagerBD extends BusinessDelegate{
 			throw new UserAccountManagementException(e.getMessageCode(), e);
 		}
 	}
+	
+	public User getUser(String name, Object value) throws UserAccountManagementException{
+		try {
+			Object obj = new UserAccountManager().run(name, value);
+			return (User)obj;
+		} catch (ApplicationCoreException e) {
+			throw new UserAccountManagementException(e.getMessageCode(), e);
+		}
+		
+	}
 }
+
+
+
+
+
+

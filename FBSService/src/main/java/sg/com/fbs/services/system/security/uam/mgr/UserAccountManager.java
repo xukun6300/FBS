@@ -165,7 +165,11 @@ public class UserAccountManager extends CommonFacade{
 		return (User) userAccountManagementDAO.findObject(User.class, User.LOGINID, loginId.toLowerCase());
 	}
 	
-	
+	public User getUser(String name, Object value) throws DataAccessObjectException{
+		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
+		User user = (User) userAccountManagementDAO.find(User.class, name, value, true);
+		return user;
+	}
 	
 }
 
