@@ -7,6 +7,8 @@
     		
 <!-- Form Authentication -->
 <bean id="usernamePasswordAuthenticationFilter" class="sg.com.fbs.security.web.auth.fbsid.UsernamePasswordHashAuthenticationFilter">
+
+   <!-- Here will set Authentication object principal and cridential value -->
    <property name="authenticationManager" ref="authenticationManager"/>
    <!-- authenticationFailureHandler -->
    <!-- authenticationSuccessHandler -->
@@ -15,7 +17,10 @@
 	     	<property name="defaultTargetUrl" value="/useraccountprofile/profile.action"/>
 		</bean>		
 	</property>
+	
    <!-- sessionAuthenticationStrategy -->
+   <property name="sessionAuthenticationStrategy" ref="concurrentSessionManager"/>
+   
    <property name="usernameParameter" value="u"/>
    <property name="passwordParameter" value="f"/>
    <property name="filterProcessesUrl" value="/authentication/authenticate.action"/>
@@ -38,5 +43,23 @@
 <bean id="fbsIdAuthenticationProvider" class="sg.com.fbs.security.web.auth.fbsid.FbsIdAuthenticationProvider"/>
 
 <bean id="defaultAuthEventPublisher" class="org.springframework.security.authentication.DefaultAuthenticationEventPublisher"/>		
-    		
+
+<bean id="securityLogger" class="sg.com.fbs.security.web.auth.fbsid.WebAuthActivityLogger">
+    <constructor-arg index="0" value="login"/>
+    <constructor-arg index="1" value="failedLogin"/>
+    <constructor-arg index="2" value="logout"/>
+    <constructor-arg index="3" value="timeout"/>
+    <constructor-arg index="4" value="exceededMaxSessions"/>
+</bean>    		
 </beans>
+
+
+
+
+
+
+
+
+
+
+
