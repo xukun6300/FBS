@@ -124,6 +124,32 @@ public class WebAuthActivityLogger {
 		return AccountStatusEnum.getEnumFromValue(createdByUser.getStatus());
 	}
 	
+	public void logLogout(long createdBy, String sessionId){
+		ActivityLog activityLog = createActivityLog(WebAuthenticationAction.LOGOUT, createdBy, sessionId);
+		try {
+			new ActivityLogMgrBD().saveActivityLog(activityLog);
+		} catch (ApplicationCoreException e) {
+			logger.error("Error in saving logout activity log", e);
+		}
+	}
+	
+	public void logTimeout(long createdBy, String sessionId){
+		ActivityLog activityLog = createActivityLog(WebAuthenticationAction.TIME_OUT, createdBy, sessionId);
+		try {
+			new ActivityLogMgrBD().saveActivityLog(activityLog);
+		} catch (ApplicationCoreException e) {
+			logger.error("Error in saving timeout activity log", e);
+		}
+	}
+	
+	public void logExceededMaxSessions(long createdBy, String sessionId){
+		ActivityLog activityLog = createActivityLog(WebAuthenticationAction.EXCEED_SESSION, createdBy, sessionId);
+		try {
+			new ActivityLogMgrBD().saveActivityLog(activityLog);
+		} catch (ApplicationCoreException e) {
+			logger.error("Error in saving exceed max session activity log", e);
+		}
+	}
 	
 	private ActivityLog createActivityLog(WebAuthenticationAction action, long createdBy, String sessionId){
 		ActivityLog activityLog = new ActivityLog();
