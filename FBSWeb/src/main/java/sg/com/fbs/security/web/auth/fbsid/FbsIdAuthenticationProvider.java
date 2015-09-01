@@ -49,6 +49,7 @@ public class FbsIdAuthenticationProvider implements AuthenticationProvider{
 			e.printStackTrace();
 		}
 		
+		/** Here will set Authentication object principal and cridential value **/
 		UsernamePasswordAuthenticationToken result = new UsernamePasswordAuthenticationToken(user, password);
 		result.setDetails(authentication.getDetails());
 		return result;
