@@ -7,7 +7,8 @@
     		
 <!-- Form Authentication -->
 <bean id="usernamePasswordAuthenticationFilter" class="sg.com.fbs.security.web.auth.fbsid.UsernamePasswordHashAuthenticationFilter">
-
+   
+   <!-- the user is first authenticated by the AuthenticationManager -->
    <!-- Here will set Authentication object principal and cridential value -->
    <property name="authenticationManager" ref="authenticationManager"/>
    
@@ -21,8 +22,8 @@
 
    <property name="sessionAuthenticationStrategy" ref="concurrentSessionManager"/>
    
-   <property name="usernameParameter" value="u"/>
-   <property name="passwordParameter" value="f"/>
+   <property name="usernameParameter" value="u"/> <!-- input name in login.jsp submitForm (default is j_username)--> 
+   <property name="passwordParameter" value="f"/> <!-- default is j_password -->
    <property name="filterProcessesUrl" value="/authentication/authenticate.action"/>
 </bean>
 

@@ -17,7 +17,7 @@ public class PrincipalSecUtil {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
 		if(authentication!=null){
-			Object principal = authentication.getPrincipal();
+			Object principal = authentication.getPrincipal();  // User obj
 			if(principal!=null && principal instanceof UserDetailsIF){
 				return (UserDetailsIF)principal;
 			}
