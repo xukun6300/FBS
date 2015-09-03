@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceAware;
 import org.springframework.context.support.MessageSourceAccessor;
@@ -15,6 +16,8 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.web.authentication.session.SessionAuthenticationException;
 import org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy;
 import org.springframework.util.Assert;
+
+import sg.com.fbs.core.techinfra.util.SessionUtil;
 
 
 
@@ -55,6 +58,10 @@ public class FbsConcurrentSessionControlStrategy extends SessionFixationProtecti
 		
 		sessionRegistry.registerNewSession(request.getSession().getId(), authentication.getPrincipal());
 		
+		if(sessionRegistry instanceof FbsSessionRegistryImpl){
+			FbsSessionRegistryImpl fbsSessionRegistry = (FbsSessionRegistryImpl) sessionRegistry;
+			fbsSessionRegistry.updateSessionInformation(request.getSession().getId(), SessionUtil.getIpAddress(request), SessionUtil.getUserAgent(request));
+		}
 		
 	}
 	
@@ -131,6 +138,28 @@ public class FbsConcurrentSessionControlStrategy extends SessionFixationProtecti
 		}
 		leastRecentlyUsed.expireNow();
 		((FbsSessionInformation)leastRecentlyUsed).setMaxSessions(true);
+	}
+	
+	
+	@Override
+	public void setAlwaysCreateSession(boolean alwaysCreateSession) {
+		if(!alwaysCreateSession){
+			throw new IllegalArgumentException("Cannot set alwaysCreateSession to false when concurrent session control is required");
+		}
+	}
+	
+	public void setExceptionIfMaximumExceeded(boolean exceptionIfMaximumExceeded) {
+		this.exceptionIfMaximumExceeded = exceptionIfMaximumExceeded;
+	}
+	
+	/**
+     * Sets the <tt>maxSessions</tt> property. The default value is 1. Use -1 for unlimited sessions.
+     *
+     * @param maximumSessions the maximimum number of permitted sessions a user can have open simultaneously.
+     */
+	public void setMaximumSessions(int maximumSessions) {
+		Assert.isTrue(maximumSessions!=0, "MaximumLogins must be either -1 to allow unlimited logins, or a positive integer to specify a maximum");
+		this.maximumSessions = maximumSessions;
 	}
 	
 }

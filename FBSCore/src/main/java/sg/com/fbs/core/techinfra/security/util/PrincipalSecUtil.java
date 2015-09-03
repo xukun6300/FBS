@@ -13,7 +13,9 @@ import sg.com.fbs.model.system.security.UserDetailsIF;
 public class PrincipalSecUtil {
 
 	public static UserDetailsIF getUserDetail(){
+		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
 		if(authentication!=null){
 			Object principal = authentication.getPrincipal();
 			if(principal!=null && principal instanceof UserDetailsIF){
@@ -21,6 +23,16 @@ public class PrincipalSecUtil {
 			}
 		}		
 		return null;
+	}
+	
+	public static String getName(){
+		UserDetailsIF userDetails = getUserDetail();
+		String name = "";
+		if(userDetails!=null){
+			name = userDetails.getName();
+		}
+		
+		return name;
 	}
 	
 	public static long getUserId(){

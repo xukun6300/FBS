@@ -46,12 +46,12 @@ public class WebAuthActivityLogger {
 
 	public WebAuthActivityLogger(String successfulLoginActivityId, String failedLoginActivityId, String logoutActivityId, 
 			String timeoutActivityId, String exceededMaxSessionsActivityId) throws ApplicationCoreException{
-		
-		this.successfulLoginActivityId = getActivityId(successfulLoginActivityId);
+		//comment temporarily
+		/*this.successfulLoginActivityId = getActivityId(successfulLoginActivityId);
 		this.failedLoginActivityId = getActivityId(failedLoginActivityId);
 		this.logoutActivityId = getActivityId(logoutActivityId);
 		this.timeoutActivityId = getActivityId(timeoutActivityId);
-		this.exceededMaxSessionsActivityId = getActivityId(exceededMaxSessionsActivityId);
+		this.exceededMaxSessionsActivityId = getActivityId(exceededMaxSessionsActivityId);*/
 	}
 	
 	private enum WebAuthenticationAction{

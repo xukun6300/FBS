@@ -40,5 +40,6 @@
 <import resource="classpath:spring-fbs-security-crypto-services.xml"/>
 <import resource="classpath:spring-fbs-security-captcha.xml"/>
 <import resource="classpath:spring-fbs-security-services.xml"/>
+<import resource="classpath:spring-fbs-security-session.xml"/>
 
 </beans>
