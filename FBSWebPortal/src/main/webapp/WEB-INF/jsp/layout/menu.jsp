@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="security" uri="/tags/security" %>
 <%-- <%@ taglib prefix="netui" uri="/tags/netui" %>
 <%@ taglib prefix="menu" uri="/tags/menu" %>
 <%@ taglib prefix="sec" uri="/tags/securityACL" %>
@@ -15,7 +16,7 @@
 	  <!-- <a class="brand" href="#">Biz</a> -->
 	  <div class="btn-group pull-right">
 		<a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
-		  <i class="icon-user icon-white"></i>Frank Xu Kun
+		  <i class="icon-user icon-white"></i><security:username/>
 		  <span class="caret"></span>
 		</a>
 		<ul class="dropdown-menu">

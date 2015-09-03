@@ -10,15 +10,15 @@
 
    <!-- Here will set Authentication object principal and cridential value -->
    <property name="authenticationManager" ref="authenticationManager"/>
+   
    <!-- authenticationFailureHandler -->
-   <!-- authenticationSuccessHandler -->
+
    <property name="authenticationSuccessHandler">
 		<bean class="sg.com.fbs.security.web.auth.fbsid.FbsSavedRequestAwareAuthenticationSuccessHandler">
-	     	<property name="defaultTargetUrl" value="/useraccountprofile/profile.action"/>
+	     	<property name="defaultTargetUrl" value="/useraccountmanagement/showRegisterUser.action"/>
 		</bean>		
-	</property>
-	
-   <!-- sessionAuthenticationStrategy -->
+   </property>
+
    <property name="sessionAuthenticationStrategy" ref="concurrentSessionManager"/>
    
    <property name="usernameParameter" value="u"/>

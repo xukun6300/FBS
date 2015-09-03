@@ -11,6 +11,13 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList(1);
+    _jspx_dependants.add("/WEB-INF/tags/security.tld");
+  }
+
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody;
+
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
 
@@ -19,11 +26,13 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
+    _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
   }
 
   public void _jspDestroy() {
+    _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -58,13 +67,17 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<div class=\"navbar\">\r\n");
       out.write("  <div class=\"navbar-inner\">\r\n");
       out.write("\t<div class=\"container_new\">\r\n");
       out.write("\t  <!-- <a class=\"brand\" href=\"#\">Biz</a> -->\r\n");
       out.write("\t  <div class=\"btn-group pull-right\">\r\n");
       out.write("\t\t<a class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\r\n");
-      out.write("\t\t  <i class=\"icon-user icon-white\"></i>Frank Xu Kun\r\n");
+      out.write("\t\t  <i class=\"icon-user icon-white\"></i>");
+      if (_jspx_meth_security_005fusername_005f0(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("\t\t  <span class=\"caret\"></span>\r\n");
       out.write("\t\t</a>\r\n");
       out.write("\t\t<ul class=\"dropdown-menu\">\r\n");
@@ -145,5 +158,22 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_security_005fusername_005f0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  security:username
+    sg.com.fbs.core.techinfra.web.tag.security.acl.UserInfoTag _jspx_th_security_005fusername_005f0 = (sg.com.fbs.core.techinfra.web.tag.security.acl.UserInfoTag) _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody.get(sg.com.fbs.core.techinfra.web.tag.security.acl.UserInfoTag.class);
+    _jspx_th_security_005fusername_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_security_005fusername_005f0.setParent(null);
+    int _jspx_eval_security_005fusername_005f0 = _jspx_th_security_005fusername_005f0.doStartTag();
+    if (_jspx_th_security_005fusername_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody.reuse(_jspx_th_security_005fusername_005f0);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody.reuse(_jspx_th_security_005fusername_005f0);
+    return false;
   }
 }

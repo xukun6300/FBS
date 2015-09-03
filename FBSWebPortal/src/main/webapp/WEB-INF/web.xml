@@ -90,6 +90,12 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
         <taglib-location>/WEB-INF/tags/netui.tld</taglib-location>
       </taglib>
       
+      <taglib>
+         <taglib-uri>/tags/security</taglib-uri>
+         <taglib-location>/WEB-INF/tags/security.tld</taglib-location>
+      </taglib>
+      
+      
    </jsp-config>
 
 </web-app>

@@ -1,5 +1,6 @@
 package sg.com.fbs.model.system.security;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,6 +10,7 @@ import lombok.Setter;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.joda.time.DateTime;
+import org.springframework.security.core.GrantedAuthority;
 
 import sg.com.fbs.model.business.pojo.BaseLogPojo;
 import sg.com.fbs.model.system.datalog.DataLogIF;
@@ -20,7 +22,7 @@ import sg.com.fbs.model.system.transactionlog.TransactionLogIF;
  * @Created 5:25:40 pm 30 Jul, 2015 $
  * Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
  */
-public class User extends BaseLogPojo implements TransactionLogIF,DataLogIF{
+public class User extends BaseLogPojo implements UserDetailsIF, TransactionLogIF,DataLogIF{
 
 	private static final long serialVersionUID = -835444054128876618L;
 
@@ -129,6 +131,42 @@ public class User extends BaseLogPojo implements TransactionLogIF,DataLogIF{
 
 	@Override
 	public Map<String, String> getColumnsMap() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getUsername() {
 		// TODO Auto-generated method stub
 		return null;
 	}
