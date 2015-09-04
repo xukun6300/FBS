@@ -17,6 +17,18 @@
 <script type="text/javascript" src="${contextPath}/static/internal/js/ana/rng.js"></script>
 <script type="text/javascript" src="${contextPath}/static/internal/js/ana/rsa.js"></script>
 
+<%
+
+	if(request.getUserPrincipal() !=null)
+	{
+		%>
+		<script type="text/javascript">
+			window.top.location.href = '<c:url value="/authentication/showSessionExpired.action"/>';
+		</script> 
+<%	
+	}
+%>
+
 <div id="popupBottom" class="popover bottom in" aria-hidden="false" style="top: 100px; left:10px;max-width:345px;max-height:250px; display: block; z-index: 1050; ">
       <div class="arrow"></div>     
       <a class="close" data-dismiss="modal" style="margin-right:5px">x</a>

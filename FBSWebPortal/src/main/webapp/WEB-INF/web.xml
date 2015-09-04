@@ -58,7 +58,18 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
        </listener-class>
     </listener> -->
 
+   <listener>
+	<listener-class>
+	org.springframework.security.web.session.HttpSessionEventPublisher
+	</listener-class>
+   </listener>
 
+   <session-config>
+      <session-timeout>1</session-timeout>  <!-- in minutes -->
+      <tracking-mode>COOKIE</tracking-mode>
+   </session-config>
+   
+   
    <!--  Spring Security Config -->
    <!-- Spring's DelegatingFilterProxy provides the link between web.xml and the application context. -->
 	<filter>

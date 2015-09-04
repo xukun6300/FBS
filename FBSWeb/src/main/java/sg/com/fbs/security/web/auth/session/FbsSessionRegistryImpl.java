@@ -9,14 +9,18 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CopyOnWriteArraySet;
+
 import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.session.SessionInformation;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionDestroyedEvent;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.util.Assert;
+
 import sg.com.fbs.model.system.security.User;
 import sg.com.fbs.security.web.auth.constants.AppConstants;
 import sg.com.fbs.security.web.auth.fbsid.WebAuthActivityLogger;
@@ -28,7 +32,7 @@ import sg.com.fbs.security.web.auth.fbsid.WebAuthActivityLogger;
  * 
  */
 public class FbsSessionRegistryImpl implements SessionRegistry, ApplicationListener<SessionDestroyedEvent>{
-
+  
 	protected final Logger logger = Logger.getLogger(FbsSessionRegistryImpl.class);
 	
 	/** <principal:Object,SessionIdSet> */
@@ -177,7 +181,7 @@ public class FbsSessionRegistryImpl implements SessionRegistry, ApplicationListe
 				activityLogger.logLogout(userId, session.getId());
 			}else {
 				if(!maxSessions){
-					activityLogger.logTimeout(userId, session.getId());
+					activityLogger.logTimeout(userId, session.getId());				
 				}else {
 					activityLogger.logExceededMaxSessions(userId, session.getId());
 				}
