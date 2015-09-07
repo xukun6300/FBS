@@ -113,7 +113,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("}\r\n");
       out.write("#login .form-wrap {\r\n");
       out.write("    width: 30%;\r\n");
-      out.write("    margin: 0 auto;\r\n");
+      out.write("    margin: 150px auto 0 auto;\r\n");
       out.write("}\r\n");
       out.write("#login h1 {\r\n");
       out.write("    color: #1fa67b;\r\n");
@@ -290,7 +290,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"row\">\r\n");
       out.write("            <div class=\"col-xs-12\">\r\n");
       out.write("                <p>Page © - 2015</p>\r\n");
-      out.write("                <p>Powered by <strong><a href=\"https://sg.linkedin.com/pub/frank-xu-kun/63/62a/314\" target=\"_blank\">Frank Xu</a></strong></p>\r\n");
+      out.write("                <p>Powered by <strong><a href=\"https://sg.linkedin.com/pub/frank-xu-kun/63/62a/314\" target=\"_blank\">Frank</a></strong></p>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
       out.write("    </div>\r\n");
