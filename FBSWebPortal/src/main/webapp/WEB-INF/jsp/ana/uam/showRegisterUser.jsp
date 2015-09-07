@@ -21,15 +21,6 @@
 <script type="text/javascript" src="${contextPath}/static/internal/js/ana/rsa.js"></script>
 <%-- <script type="text/javascript" src="${contextPath}/static/internal/js/jQuery.Plugins.js"></script>  --%> <!-- for date picker, no need, it includes in include-scripts.jsp in main.jsp -->
 
-<% if (request.getUserPrincipal() == null) { %>   
-  
-  <script type="text/javascript">
-  alert(12412215);
-  	window.top.location.href = '<c:url value="/authentication/showSessionExpired.action"/>';
-  </script>  
-<% } %>
-
-
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="block-center span12">

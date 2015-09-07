@@ -15,20 +15,18 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp"/> 
 	</definition>
+	
 
-<!--     <definition name="login.definition" template="/WEB-INF/jsp/layout/main.jsp">
+    <definition name="login.definition" template="/WEB-INF/jsp/layout/loginTemplate.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp"/>
-		<put-attribute name="menu" value="/WEB-INF/jsp/layout/menu.jsp" />
-		<put-attribute name="leftMenu" value=""/>
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp"/> 
-	</definition> -->
+		<put-attribute name="footer" value=""/> 
+	</definition> 
 
-	<definition name="test/hello" extends="base.definition">
+<!-- 	<definition name="test/hello" extends="base.definition">
 		<put-attribute name="title" value="Hello World" />
 		<put-attribute name="body" value="/WEB-INF/jsp/hello.jsp" />
-	</definition>
+	</definition> -->
 	
 	<!-- User Account Management -->
 	<definition name="useraccountmanagement/showRegisterUser" extends="base.definition">
@@ -41,7 +39,7 @@
         <put-attribute name="body" value="/WEB-INF/jsp/ana/uam/uamConfirmation.jsp"/>
     </definition>
    
-    <definition name="security/showLogin" extends="base.definition">
+    <definition name="security/showLogin" extends="login.definition">
         <put-attribute name="title" value="Login Page"/>
         <put-attribute name="body" value="/WEB-INF/jsp/security/login.jsp"/>
     </definition>
