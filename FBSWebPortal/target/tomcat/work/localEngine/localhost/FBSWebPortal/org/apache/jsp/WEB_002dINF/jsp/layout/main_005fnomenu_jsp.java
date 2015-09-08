@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class main_005fnomenu_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -90,11 +90,6 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write('	');
       if (_jspx_meth_tiles_005finsertAttribute_005f2(_jspx_page_context))
         return;
-      out.write('\r');
-      out.write('\n');
-      out.write('	');
-      if (_jspx_meth_tiles_005finsertAttribute_005f3(_jspx_page_context))
-        return;
       out.write("\r\n");
       out.write(" </div>\r\n");
       out.write("</body>\r\n");
@@ -119,9 +114,9 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.tiles.jsp.taglib.InsertAttributeTag _jspx_th_tiles_005finsertAttribute_005f0 = new org.apache.tiles.jsp.taglib.InsertAttributeTag();
     org.apache.jasper.runtime.AnnotationHelper.postConstruct(_jsp_annotationprocessor, _jspx_th_tiles_005finsertAttribute_005f0);
     _jspx_th_tiles_005finsertAttribute_005f0.setJspContext(_jspx_page_context);
-    // /WEB-INF/jsp/layout/main.jsp(14,7) name = name type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/main_nomenu.jsp(14,7) name = name type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_tiles_005finsertAttribute_005f0.setName("title");
-    // /WEB-INF/jsp/layout/main.jsp(14,7) name = ignore type = boolean reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/main_nomenu.jsp(14,7) name = ignore type = boolean reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_tiles_005finsertAttribute_005f0.setIgnore(true);
     _jspx_th_tiles_005finsertAttribute_005f0.doTag();
     org.apache.jasper.runtime.AnnotationHelper.preDestroy(_jsp_annotationprocessor, _jspx_th_tiles_005finsertAttribute_005f0);
@@ -136,7 +131,7 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f0 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
     _jspx_th_c_005fimport_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fimport_005f0.setParent(null);
-    // /WEB-INF/jsp/layout/main.jsp(16,0) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/main_nomenu.jsp(16,0) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fimport_005f0.setUrl("include.jsp");
     int[] _jspx_push_body_count_c_005fimport_005f0 = new int[] { 0 };
     try {
@@ -163,7 +158,7 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ImportTag _jspx_th_c_005fimport_005f1 = (org.apache.taglibs.standard.tag.rt.core.ImportTag) _005fjspx_005ftagPool_005fc_005fimport_0026_005furl_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.ImportTag.class);
     _jspx_th_c_005fimport_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fimport_005f1.setParent(null);
-    // /WEB-INF/jsp/layout/main.jsp(17,0) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/main_nomenu.jsp(17,0) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fimport_005f1.setUrl("include-scripts.jsp");
     int[] _jspx_push_body_count_c_005fimport_005f1 = new int[] { 0 };
     try {
@@ -190,8 +185,8 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.tiles.jsp.taglib.InsertAttributeTag _jspx_th_tiles_005finsertAttribute_005f1 = new org.apache.tiles.jsp.taglib.InsertAttributeTag();
     org.apache.jasper.runtime.AnnotationHelper.postConstruct(_jsp_annotationprocessor, _jspx_th_tiles_005finsertAttribute_005f1);
     _jspx_th_tiles_005finsertAttribute_005f1.setJspContext(_jspx_page_context);
-    // /WEB-INF/jsp/layout/main.jsp(21,1) name = name type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_tiles_005finsertAttribute_005f1.setName("menu");
+    // /WEB-INF/jsp/layout/main_nomenu.jsp(21,1) name = name type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_tiles_005finsertAttribute_005f1.setName("body");
     _jspx_th_tiles_005finsertAttribute_005f1.doTag();
     org.apache.jasper.runtime.AnnotationHelper.preDestroy(_jsp_annotationprocessor, _jspx_th_tiles_005finsertAttribute_005f1);
     return false;
@@ -205,25 +200,10 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.tiles.jsp.taglib.InsertAttributeTag _jspx_th_tiles_005finsertAttribute_005f2 = new org.apache.tiles.jsp.taglib.InsertAttributeTag();
     org.apache.jasper.runtime.AnnotationHelper.postConstruct(_jsp_annotationprocessor, _jspx_th_tiles_005finsertAttribute_005f2);
     _jspx_th_tiles_005finsertAttribute_005f2.setJspContext(_jspx_page_context);
-    // /WEB-INF/jsp/layout/main.jsp(22,1) name = name type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_tiles_005finsertAttribute_005f2.setName("body");
+    // /WEB-INF/jsp/layout/main_nomenu.jsp(22,1) name = name type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_tiles_005finsertAttribute_005f2.setName("footer");
     _jspx_th_tiles_005finsertAttribute_005f2.doTag();
     org.apache.jasper.runtime.AnnotationHelper.preDestroy(_jsp_annotationprocessor, _jspx_th_tiles_005finsertAttribute_005f2);
-    return false;
-  }
-
-  private boolean _jspx_meth_tiles_005finsertAttribute_005f3(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  tiles:insertAttribute
-    org.apache.tiles.jsp.taglib.InsertAttributeTag _jspx_th_tiles_005finsertAttribute_005f3 = new org.apache.tiles.jsp.taglib.InsertAttributeTag();
-    org.apache.jasper.runtime.AnnotationHelper.postConstruct(_jsp_annotationprocessor, _jspx_th_tiles_005finsertAttribute_005f3);
-    _jspx_th_tiles_005finsertAttribute_005f3.setJspContext(_jspx_page_context);
-    // /WEB-INF/jsp/layout/main.jsp(23,1) name = name type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_tiles_005finsertAttribute_005f3.setName("footer");
-    _jspx_th_tiles_005finsertAttribute_005f3.doTag();
-    org.apache.jasper.runtime.AnnotationHelper.preDestroy(_jsp_annotationprocessor, _jspx_th_tiles_005finsertAttribute_005f3);
     return false;
   }
 }

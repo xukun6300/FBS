@@ -31,7 +31,7 @@
 }
 #login h1 {
     color: #1fa67b;
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
     font-weight: bold;
     padding-bottom: 20px;

@@ -18,7 +18,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody;
 
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
@@ -29,14 +28,12 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
   }
 
   public void _jspDestroy() {
     _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.release();
-    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -105,9 +102,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<link rel=\"stylesheet\" href=\"//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css\">\r\n");
       out.write("<!-- <link rel=\"stylesheet\" href=\"http://bootsnipp.com/dist/bootsnipp.min.css?ver=70eabcd8097cd299e1ba8efe436992b7\"> -->\r\n");
       out.write("<style>\r\n");
-      out.write("/*    --------------------------------------------------\r\n");
-      out.write("\t:: Login Section\r\n");
-      out.write("\t-------------------------------------------------- */\r\n");
       out.write("#login {\r\n");
       out.write("    padding-top: 50px\r\n");
       out.write("}\r\n");
@@ -117,7 +111,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("}\r\n");
       out.write("#login h1 {\r\n");
       out.write("    color: #1fa67b;\r\n");
-      out.write("    font-size: 18px;\r\n");
+      out.write("    font-size: 20px;\r\n");
       out.write("    text-align: center;\r\n");
       out.write("    font-weight: bold;\r\n");
       out.write("    padding-bottom: 20px;\r\n");
@@ -167,9 +161,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\tdisplay: block;\r\n");
       out.write("}\r\n");
       out.write("\r\n");
-      out.write("/*    --------------------------------------------------\r\n");
-      out.write("\t:: Inputs & Buttons\r\n");
-      out.write("\t-------------------------------------------------- */\r\n");
       out.write(".form-control {\r\n");
       out.write("    color: #212121;\r\n");
       out.write("}\r\n");
@@ -182,9 +173,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    color: #fff;\r\n");
       out.write("}\r\n");
       out.write("\r\n");
-      out.write("/*    --------------------------------------------------\r\n");
-      out.write("    :: Footer\r\n");
-      out.write("\t-------------------------------------------------- */\r\n");
       out.write("#footer {\r\n");
       out.write("    color: #6d6d6d;\r\n");
       out.write("    font-size: 12px;\r\n");
@@ -199,34 +187,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("</style>\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-
-
-	if(request.getUserPrincipal() !=null)
-	{
-		
-      out.write("\r\n");
-      out.write("\t\t<script type=\"text/javascript\">\r\n");
-      out.write("\t\t\twindow.top.location.href = '");
-      if (_jspx_meth_c_005furl_005f0(_jspx_page_context))
-        return;
-      out.write("';\r\n");
-      out.write("\t\t</script> \r\n");
-	
-	}
-
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
       out.write("<form name=\"submitForm\" method=\"post\" action=\"authenticate.action\">\r\n");
       out.write("   <input name=\"u\" type=\"hidden\"/>\r\n");
       out.write("   <input name=\"f\" type=\"hidden\"/>\r\n");
-      out.write("<!--    <input name=\"at\" type=\"hidden\"/>\r\n");
-      out.write("   <input name=\"bt\" type=\"hidden\"/>\r\n");
-      out.write("   <input name=\"en\" type=\"hidden\"/>\r\n");
-      out.write("   <input name=\"pv\" type=\"hidden\"/> -->\r\n");
       out.write("</form> \r\n");
       out.write("\r\n");
       out.write("\t   \r\n");
@@ -330,25 +293,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_005furl_005f0(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
-    _jspx_th_c_005furl_005f0.setParent(null);
-    // /WEB-INF/jsp/security/login.jsp(126,31) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f0.setValue("/authentication/showSessionExpired.action");
-    int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
-    if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f0);
-      return true;
-    }
-    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f0);
     return false;
   }
 }

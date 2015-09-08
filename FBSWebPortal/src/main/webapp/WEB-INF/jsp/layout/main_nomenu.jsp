@@ -18,7 +18,6 @@
 </head>
 <body>
  <div class="container" style="max-width: 1200px;">
-	<tiles:insertAttribute name="menu" />
 	<tiles:insertAttribute name="body" />
 	<tiles:insertAttribute name="footer" />
  </div>

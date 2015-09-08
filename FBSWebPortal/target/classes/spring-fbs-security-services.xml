@@ -27,6 +27,23 @@
    <property name="filterProcessesUrl" value="/authentication/authenticate.action"/>
 </bean>
 
+<bean id="logoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
+	<constructor-arg>
+		<bean class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler">
+			<property name="defaultTargetUrl" value="/authentication/showLogout.action" />
+		</bean>
+	</constructor-arg>
+
+	<constructor-arg>
+		<list>
+			<bean class="sg.com.fbs.security.web.auth.logout.FbsSecurityContextLogoutHandler"/>
+		</list>
+	</constructor-arg>
+	<property name="filterProcessesUrl" value="/authentication/logout.action"/>
+</bean>
+
+
+
 <bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
    <constructor-arg>
       <list>

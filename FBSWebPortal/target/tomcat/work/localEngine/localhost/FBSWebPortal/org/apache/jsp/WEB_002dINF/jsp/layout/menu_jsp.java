@@ -17,6 +17,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody;
 
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
@@ -27,12 +28,14 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
   }
 
   public void _jspDestroy() {
     _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody.release();
+    _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -83,7 +86,10 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<ul class=\"dropdown-menu\">\r\n");
       out.write("          <li><a href=\"#\">Manage Profile</a></li> \r\n");
       out.write("\t\t  <li class=\"divider\"></li>\t\t  \r\n");
-      out.write("\t\t  <li><a href=\"#\">Sign Out</a></li>\r\n");
+      out.write("\t\t  <li><a href=\"");
+      if (_jspx_meth_spring_005furl_005f0(_jspx_page_context))
+        return;
+      out.write("\">Sign Out</a></li>\r\n");
       out.write("\t\t </ul>\r\n");
       out.write("\t  </div>\r\n");
       out.write("\t  <!-- menu start -->\r\n");
@@ -174,6 +180,33 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _005fjspx_005ftagPool_005fsecurity_005fusername_005fnobody.reuse(_jspx_th_security_005fusername_005f0);
+    return false;
+  }
+
+  private boolean _jspx_meth_spring_005furl_005f0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  spring:url
+    org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_005furl_005f0 = (org.springframework.web.servlet.tags.UrlTag) _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.get(org.springframework.web.servlet.tags.UrlTag.class);
+    _jspx_th_spring_005furl_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_spring_005furl_005f0.setParent(null);
+    // /WEB-INF/jsp/layout/menu.jsp(25,17) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_spring_005furl_005f0.setValue("/authentication/logout.action");
+    int[] _jspx_push_body_count_spring_005furl_005f0 = new int[] { 0 };
+    try {
+      int _jspx_eval_spring_005furl_005f0 = _jspx_th_spring_005furl_005f0.doStartTag();
+      if (_jspx_th_spring_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_spring_005furl_005f0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_spring_005furl_005f0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_spring_005furl_005f0.doFinally();
+      _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_spring_005furl_005f0);
+    }
     return false;
   }
 }

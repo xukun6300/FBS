@@ -58,6 +58,12 @@ public class AuthenticationController extends BaseWebController {
 		return mvc;
 	}
 	
+	public ModelAndView showLogout(HttpServletRequest request, HttpServletResponse response){
+		setCrudMode(WebCRUDEnum.NONE);
+		Mvc mvc = new Mvc(AuthenticationWebEnum.SHOW_LOGOUT_JSP.toString());
+		return mvc;
+	}
+	
 	
 	
 	

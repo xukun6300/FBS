@@ -22,7 +22,7 @@
 		<ul class="dropdown-menu">
           <li><a href="#">Manage Profile</a></li> 
 		  <li class="divider"></li>		  
-		  <li><a href="#">Sign Out</a></li>
+		  <li><a href="<spring:url value="/authentication/logout.action"/>">Sign Out</a></li>
 		 </ul>
 	  </div>
 	  <!-- menu start -->

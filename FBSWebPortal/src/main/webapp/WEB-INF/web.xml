@@ -65,7 +65,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
    </listener>
 
    <session-config>
-      <session-timeout>1</session-timeout>  <!-- in minutes -->
+      <session-timeout>40</session-timeout>  <!-- in minutes -->
       <tracking-mode>COOKIE</tracking-mode>
    </session-config>
    

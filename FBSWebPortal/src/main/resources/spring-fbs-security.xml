@@ -11,7 +11,7 @@
 	<http auto-config="false" entry-point-ref="loginUrlAuthenticationEntryPoint" use-expressions="true" access-denied-page="/authentication/showLogin.action" disable-url-rewriting="true" >
 	    <custom-filter ref="concurrencyFilter" position="CONCURRENT_SESSION_FILTER"/>
 		<custom-filter ref="usernamePasswordAuthenticationFilter" position="FORM_LOGIN_FILTER"/>
-		
+		<custom-filter ref="logoutFilter" position="LOGOUT_FILTER"/>
 		<session-management session-authentication-strategy-ref="concurrentSessionManager" invalid-session-url="/"/>
 	</http>
 

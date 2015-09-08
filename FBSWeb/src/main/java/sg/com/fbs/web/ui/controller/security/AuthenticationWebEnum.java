@@ -21,6 +21,13 @@ public enum AuthenticationWebEnum implements WebDropDownListIF{
 		public String toString() {
 			return "showLogin";
 		}
+	},
+	
+	SHOW_LOGOUT_JSP{
+		@Override
+		public String toString() {
+			return "showLogout";
+		}
 	}
 	
 }
