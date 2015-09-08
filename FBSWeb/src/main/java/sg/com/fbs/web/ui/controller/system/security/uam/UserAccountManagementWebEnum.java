@@ -31,6 +31,13 @@ public enum UserAccountManagementWebEnum implements WebDropDownListIF{
 		}
 	},
 	
+	USER_SEARCH {
+		@Override
+		public String toString() {
+			return "userSearch";
+		}
+	},
+	
 	PLEASE_SELECT {
 		@Override
 		public String toString() {

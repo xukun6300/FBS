@@ -2601,7 +2601,7 @@ h2 {
 }
 
 .ftable td{
-	border-bottom: 1px solid #ccc;
+	/* border-bottom: 1px solid #ccc; */
 	color: #444;
 	padding: 5px;
 	min-height: 30px;

@@ -19,6 +19,7 @@ import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
 import sg.com.fbs.services.security.captcha.CaptchaService;
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
+import sg.com.fbs.web.ui.form.system.security.uam.UserSearchForm;
 
 /**
  * @Author Frank Xu $
@@ -100,6 +101,15 @@ public class UserAccountManagementController extends BaseWebController {
 		
 		return mvc;
 	}
+	
+	public ModelAndView searchUser(HttpServletRequest request, HttpServletResponse response){
+		UserSearchForm userSearchForm = new UserSearchForm();
+		setCrudMode(WebCRUDEnum.NONE);
+		Mvc mvc = new Mvc(userSearchForm,UserAccountManagementWebEnum.USER_SEARCH.toString());
+		return mvc;
+	}
+	
+	
 	
 	private boolean captchaValidation(HttpServletRequest request){
 		HttpSession session = request.getSession(false);
