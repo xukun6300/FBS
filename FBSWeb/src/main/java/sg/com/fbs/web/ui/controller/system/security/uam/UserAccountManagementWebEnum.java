@@ -17,21 +17,21 @@ public enum UserAccountManagementWebEnum implements WebDropDownListIF{
 		}
 	},
 
-	SHOW_REGISTER_USER {
+	SHOW_REGISTER_USER_JSP {
 		@Override
 		public String toString(){
 			return "showRegisterUser";
 		}
 	},
 	
-	UAM_CONFIRMATION {
+	UAM_CONFIRMATION_JSP {
 		@Override
 		public String toString() {
 			return "uamConfirmation";
 		}
 	},
 	
-	USER_SEARCH {
+	USER_SEARCH_JSP {
 		@Override
 		public String toString() {
 			return "userSearch";

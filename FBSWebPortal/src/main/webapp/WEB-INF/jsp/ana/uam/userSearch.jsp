@@ -92,6 +92,11 @@
 					<!-- User role field -->
 				  </tr>
 				  
+				  <tr>
+				     <td colspan="6">
+				        <button id="btnSearch" name="btnSearch" class="bt bt-pane b1" type="submit">Search</button>
+				     </td>
+				  </tr>
                </table>          
            </div>
          </form:form>	
@@ -103,13 +108,27 @@
                   <tr>
                      <th><spring:message code="fbs.common.ui.label.pagination.sn"/></th>
                      <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.search.namecontains.name" name="name"/></th>
-                     <th class="nowrap"><netui:gridSorting displayName="" name=""/></th>
-                     <th class="nowrap"><netui:gridSorting displayName="" name=""/></th>
-                     <th class="nowrap"><netui:gridSorting displayName="" name=""/></th>
+                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.salutation" name="salutation"/></th>
+                     <%-- <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.program" name="programme"/></th> --%>
+                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.email" name="loginId"/></th>
+                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.account.status" name="status"/></th>
+                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.last.success.login" name="lastSuccessLoginDate"/></th>
+                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.last.failed.login" name="lastFailedLoginDate"/></th>
                   </tr>
                </thead>
                <tbody>
-               
+                  <netui:gridRows>
+                     <tr>
+                        <td><netui:gridCurrentRowNum/></td>
+                        <td><netui:gridRowElement name="name"/></td>
+                        <td><netui:gridRowElement name="salutation"/></td>
+                        <%-- <td><netui:gridRowElement name="programme"/></td> --%>
+                        <td><netui:gridRowElement name="loginId"/></td>
+                        <td><netui:gridRowElement name="status"/></td>
+                        <td><netui:gridRowElement name="lastSuccessLoginDate" format="dd MMM yyyy"/></td>
+                        <td><netui:gridRowElement name="lastFailedLoginDate" format="dd MMM yyyy"/></td>
+                     </tr>
+                  </netui:gridRows>
                </tbody>
             </table>
          </netui:grid>

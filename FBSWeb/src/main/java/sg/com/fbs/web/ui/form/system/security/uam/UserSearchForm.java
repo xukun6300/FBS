@@ -5,7 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import lombok.Getter;
 import lombok.Setter;
 import sg.com.fbs.common.form.BusinessQueryWebForm;
+import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.query.Criterion;
+import sg.com.fbs.model.system.security.User;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -38,8 +41,9 @@ public class UserSearchForm extends BusinessQueryWebForm{
 	
 	@Override
 	public CriteriaIF getSearchCriteria(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+		CriteriaIF criteria = new Criteria();
+		criteria.appendCriterion(new Criterion(User.ACT_IND, "Y"));
+		return criteria;
 	}
 
 }

@@ -2002,7 +2002,7 @@ table {
 }
 
 .table {
-  width: 100%;
+  /* width: 100%; */  /**Commented for table overflow issue**/
   margin-bottom: 20px;
 }
 

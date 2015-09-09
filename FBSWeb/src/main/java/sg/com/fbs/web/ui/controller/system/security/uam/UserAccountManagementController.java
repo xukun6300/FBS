@@ -16,6 +16,7 @@ import sg.com.fbs.core.techinfra.web.DefaultRefDataSource;
 import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
 import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
+import sg.com.fbs.model.user.UserRequest;
 import sg.com.fbs.services.security.captcha.CaptchaService;
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
@@ -49,7 +50,7 @@ public class UserAccountManagementController extends BaseWebController {
 			UserAccountManagementWebEnum.SECURITY_QUESTION_LIST
 		};
 		
-		String[] views = {UserAccountManagementWebEnum.SHOW_REGISTER_USER.toString()};
+		String[] views = {UserAccountManagementWebEnum.SHOW_REGISTER_USER_JSP.toString()};
 		
 		for (String view : views) {
 			map.put(view, comboInitializer);
@@ -76,8 +77,8 @@ public class UserAccountManagementController extends BaseWebController {
 		registerUserForm.setExponent(passwordServices.getTransportRSAKeyExponent());
 		registerUserForm.setSalt(passwordServices.getSalt());
 		setCrudMode(WebCRUDEnum.NONE);
-		setValidationErrorPage(UserAccountManagementWebEnum.SHOW_REGISTER_USER.toString());
-		Mvc mvc = new Mvc(registerUserForm, UserAccountManagementWebEnum.SHOW_REGISTER_USER.toString());
+		setValidationErrorPage(UserAccountManagementWebEnum.SHOW_REGISTER_USER_JSP.toString());
+		Mvc mvc = new Mvc(registerUserForm, UserAccountManagementWebEnum.SHOW_REGISTER_USER_JSP.toString());
 
 		return mvc;
 	}
@@ -94,9 +95,9 @@ public class UserAccountManagementController extends BaseWebController {
 		
 		setCrudMode(WebCRUDEnum.INSERT_MODE);
 		setCRUDOperation(UserAccountManagementCRUD.class);
-		setValidationErrorPage(UserAccountManagementWebEnum.SHOW_REGISTER_USER.toString());
+		setValidationErrorPage(UserAccountManagementWebEnum.SHOW_REGISTER_USER_JSP.toString());
 		
-		Mvc mvc = new Mvc(registerUserForm, UserAccountManagementWebEnum.UAM_CONFIRMATION.toString(), registerUserRequest);		
+		Mvc mvc = new Mvc(registerUserForm, UserAccountManagementWebEnum.UAM_CONFIRMATION_JSP.toString(), registerUserRequest);		
 		mvc.addObject("backBtnAction", "/authentication/showLogin.action");
 		
 		return mvc;
@@ -104,8 +105,12 @@ public class UserAccountManagementController extends BaseWebController {
 	
 	public ModelAndView searchUser(HttpServletRequest request, HttpServletResponse response){
 		UserSearchForm userSearchForm = new UserSearchForm();
-		setCrudMode(WebCRUDEnum.NONE);
-		Mvc mvc = new Mvc(userSearchForm,UserAccountManagementWebEnum.USER_SEARCH.toString());
+		UserRequest userRequest = new UserRequest();
+		setCrudMode(WebCRUDEnum.QUERY_MODE);
+		setCRUDOperation(UserAccountManagementCRUD.class);
+		setValidationErrorPage(UserAccountManagementWebEnum.USER_SEARCH_JSP.toString());
+		
+		Mvc mvc = new Mvc(userSearchForm,UserAccountManagementWebEnum.USER_SEARCH_JSP.toString(),userRequest);
 		return mvc;
 	}
 	

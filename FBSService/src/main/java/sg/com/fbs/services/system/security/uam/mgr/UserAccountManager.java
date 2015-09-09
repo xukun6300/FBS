@@ -171,6 +171,13 @@ public class UserAccountManager extends CommonFacade{
 		return user;
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchUsers(CriteriaIF criteria) throws UserAccountManagementDaoException{
+		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
+		IResponseCRUD response = userAccountManagementDAO.searchUser(criteria);
+		return response;
+	}
+	
 }
 
 
