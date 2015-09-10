@@ -24,6 +24,7 @@ import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.SecurityQuestions;
 import sg.com.fbs.model.system.security.User;
 import sg.com.fbs.model.system.security.UserSecurityQuestion;
+import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
 import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
 import sg.com.fbs.services.security.external.crypto.provider.CryptoServicesClientIF;
 import sg.com.fbs.services.security.password.PasswordServices;
@@ -65,7 +66,8 @@ public class UserAccountManager extends CommonFacade{
 		if(!StringUtils.isEmpty(registerUserRequest.getMobileNo())){
 			user.setMobileNum(registerUserRequest.getMobileNo());
 		}
-		user.setStatus(RegisterUserEnum.PENDING_ACTIVATION.toString());
+		//user.setStatus(RegisterUserEnum.PENDING_ACTIVATION.toString());
+		user.setStatus(AccountStatusEnum.PENDINGACTIVATION.getAccountStatus());
 		
 		String[] secQuestionIds = {registerUserRequest.getSecurityQuestion1(), registerUserRequest.getSecurityQuestion2()};
 		String[] answer = {registerUserRequest.getEncryptedAnswer1(), registerUserRequest.getEncryptedAnswer2()};
@@ -124,9 +126,9 @@ public class UserAccountManager extends CommonFacade{
 			response.setCrudResult(user);
 		}
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String pwd = encoder.encode("123456");
+	/*	String pwd = encoder.encode("123456");
 		System.out.println(pwd);
-		System.out.println(new BCryptPasswordEncoder().matches("123456", pwd));
+		System.out.println(new BCryptPasswordEncoder().matches("123456", pwd));*/
 		return response;
 	}
 	

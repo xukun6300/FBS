@@ -7,11 +7,11 @@ package sg.com.fbs.model.system.security.uam;
  */
 public enum AccountStatusEnum {
 
-	ACTIVE("ACTIVE","ACTIVE"),
-	INACTIVE("INACTIVE","INACTIVE"),
-	LOCKED("LOCKED","LOCKED"),
-	PENDINGACTIVATION("PENDINGACTIVATION","PENDINGACTIVATION"),
-	REJECTED("REJECTED","REJECTED");
+	ACTIVE("ACTIVE","Active"),
+	INACTIVE("INACTIVE","Inactive"),
+	LOCKED("LOCKED","Locked"),
+	PENDINGACTIVATION("PENDINGACTIVATION","Pending Activation"),
+	REJECTED("REJECTED","Rejected");
 	
 	private String accountStatus;
 	

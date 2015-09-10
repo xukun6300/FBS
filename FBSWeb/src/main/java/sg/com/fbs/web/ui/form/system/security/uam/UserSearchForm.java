@@ -15,6 +15,7 @@ import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.model.system.persistence.query.Projection;
 import sg.com.fbs.model.system.security.User;
+import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
 import sg.com.fbs.model.user.UserRequest;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
 import sg.com.fbs.services.mastercode.mgr.MasterCodeMgrBD;
@@ -86,7 +87,10 @@ public class UserSearchForm extends BusinessQueryWebForm{
 					userRequest.setEmail(_result[2].toString());
 				}
 				if(_result[3]!=null){
-					userRequest.setAccountStatus(_result[3].toString());
+					AccountStatusEnum accountStatusEnum = AccountStatusEnum.getEnumFromValue(_result[3].toString());
+					if(accountStatusEnum!=null){
+						userRequest.setAccountStatus(accountStatusEnum.getDescription());
+					}	
 				}
 				if(_result[4]!=null){
 					userRequest.setLastSuccessLoginDate(_result[4].toString());
