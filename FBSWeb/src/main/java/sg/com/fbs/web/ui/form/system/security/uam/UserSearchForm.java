@@ -6,9 +6,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.joda.time.DateTime;
+
 import lombok.Getter;
 import lombok.Setter;
 import sg.com.fbs.common.form.BusinessQueryWebForm;
+import sg.com.fbs.core.techinfra.util.DateUtil;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
@@ -97,10 +100,12 @@ public class UserSearchForm extends BusinessQueryWebForm{
 					}	
 				}
 				if(_result[4]!=null){
-					userRequest.setLastSuccessLoginDate(_result[4].toString());
+					String lastSuccessLoginDate = DateUtil.convertDateToDateString((DateTime)_result[4], DateUtil.DEFAULT_DATETIME_FORMAT);
+					userRequest.setLastSuccessLoginDate(lastSuccessLoginDate);
 				}
 				if(_result[5]!=null){
-					userRequest.setLastFailedLoginDate(_result[5].toString());
+					String lastFailedLoginDate = DateUtil.convertDateToDateString((DateTime)_result[5], DateUtil.DEFAULT_DATETIME_FORMAT);
+					userRequest.setLastFailedLoginDate(lastFailedLoginDate);
 				}
 				
 				content.add(userRequest);

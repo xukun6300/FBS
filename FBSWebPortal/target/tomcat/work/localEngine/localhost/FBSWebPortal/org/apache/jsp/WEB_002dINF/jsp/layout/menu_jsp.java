@@ -85,7 +85,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t  <i class=\"icon-user icon-white\"></i>");
       if (_jspx_meth_security_005fusername_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
+      out.write("   <!-- Display User Name -->\r\n");
       out.write("\t\t  <span class=\"caret\"></span>\r\n");
       out.write("\t\t</a>\r\n");
       out.write("\t\t<ul class=\"dropdown-menu\">\r\n");
@@ -108,7 +108,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t        </a>\r\n");
       out.write("\t\t        <ul class=\"dropdown-menu\" role=\"menu\">\r\n");
       out.write("\t\t          <li><a href=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("/useraccountmanagement/searchUser.action\">User Account Management</a></li>\r\n");
       out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
       out.write("\t\t          <li><a href=\"#\">Something else here</a></li>\r\n");
@@ -181,9 +181,9 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
     _jspx_th_c_005fset_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fset_005f0.setParent(null);
-    // /WEB-INF/jsp/layout/menu.jsp(11,0) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/menu.jsp(8,0) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f0.setVar("contextPath");
-    // /WEB-INF/jsp/layout/menu.jsp(11,0) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/menu.jsp(8,0) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fset_005f0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     int _jspx_eval_c_005fset_005f0 = _jspx_th_c_005fset_005f0.doStartTag();
     if (_jspx_th_c_005fset_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -219,7 +219,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_005furl_005f0 = (org.springframework.web.servlet.tags.UrlTag) _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_spring_005furl_005f0.setParent(null);
-    // /WEB-INF/jsp/layout/menu.jsp(25,17) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/menu.jsp(22,17) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005furl_005f0.setValue("/authentication/logout.action");
     int[] _jspx_push_body_count_spring_005furl_005f0 = new int[] { 0 };
     try {

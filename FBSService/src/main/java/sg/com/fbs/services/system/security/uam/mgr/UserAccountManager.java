@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.businfra.facade.ServiceLocator;
+import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
@@ -30,6 +31,7 @@ import sg.com.fbs.services.security.external.crypto.provider.CryptoServicesClien
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.services.system.security.uam.dao.UserAccountManagementDAO;
 import sg.com.fbs.services.system.security.uam.dao.UserAccountManagementDaoException;
+import sg.com.fbs.services.system.security.uam.exception.UserAccountManagementException;
 
 /**
  * @Author Frank Xu $
@@ -161,6 +163,16 @@ public class UserAccountManager extends CommonFacade{
 		return response.getQueryResult().size()>0;
 	}
 	
+	public User getUserById(long id) throws UserAccountManagementException{
+		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
+		User user = null;
+		try {
+			user = (User) userAccountManagementDAO.findObject(User.class, User.ID, id);
+		} catch (UserAccountManagementDaoException e) {
+			throw new UserAccountManagementException("fbs.common.ana.exception.message.get.userByUserId");
+		}
+		return user;
+	}
 	
 	public User getUserByLoginId(String loginId) throws UserAccountManagementDaoException{
 		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
@@ -178,6 +190,28 @@ public class UserAccountManager extends CommonFacade{
 		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
 		IResponseCRUD response = userAccountManagementDAO.searchUser(criteria);
 		return response;
+	}
+	
+	/*public User updateUserSuccessLogin(long userId) throws ApplicationCoreException{
+		User user = getUserById(userId);
+		if(user!=null){
+			user.setFailedLoginAttempt(0);
+			user.setLastSuccessLoginDate(DateTime.now());
+			UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
+			userAccountManagementDAO.update(user);
+		}
+		return user;
+	}*/
+	
+	
+	public User updateUser(User user) throws UserAccountManagementException {
+		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
+		try {
+			userAccountManagementDAO.update(user);
+		} catch (DataAccessObjectException e) {
+			throw new UserAccountManagementException("fbs.common.ana.exception.message.update.status");
+		}
+		return user;
 	}
 	
 }

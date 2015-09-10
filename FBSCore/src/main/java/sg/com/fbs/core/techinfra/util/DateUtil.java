@@ -1,17 +1,30 @@
 package sg.com.fbs.core.techinfra.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
+import com.sun.tools.classfile.StackMap_attribute.stack_map_frame;
+
+/**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
+
+ * @Author Frank Xu $
+ * @Created 4:14:32 pm 10 Sep, 2015 $
+ * 
+ */
 public class DateUtil {
 
 	protected static Logger logger = Logger.getLogger(DateUtil.class);
 	
 	public static final String DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
+	
+	public static final String DEFAULT_DATETIME_FORMAT = "dd MMM yyyy HH:mm:ss";
 	
 	public static DateTime convertDateStringToDate(String dateStr, String format){
 		return DateTimeFormat.forPattern(format).parseDateTime(dateStr);
@@ -37,5 +50,7 @@ public class DateUtil {
 			return null;
 		}
 	}
+	
+	
 
 }

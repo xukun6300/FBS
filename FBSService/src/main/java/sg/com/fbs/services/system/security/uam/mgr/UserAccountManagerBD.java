@@ -73,9 +73,18 @@ public class UserAccountManagerBD extends BusinessDelegate{
 			return (User)obj;
 		} catch (ApplicationCoreException e) {
 			throw new UserAccountManagementException(e.getMessageCode(), e);
-		}
-		
+		}		
 	}
+	
+	public User updateUser(User user) throws UserAccountManagementException{
+		try {
+			Object obj = new UserAccountManager().run(user);
+			return (User) obj;
+		} catch (ApplicationCoreException e) {
+			throw new UserAccountManagementException(e.getMessageCode(), e);
+		}
+	}
+	
 }
 
 

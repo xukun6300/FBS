@@ -61,6 +61,8 @@
 <!-- <bean id="authenticationProvider" class="org.springframework.security.authentication.AuthenticationProvider"/> -->
 <bean id="fbsIdAuthenticationProvider" class="sg.com.fbs.security.web.auth.fbsid.FbsIdAuthenticationProvider"/>
 
+<bean id="authenticationListener" class="sg.com.fbs.security.web.auth.event.listener.AuthenticationEventListener"/>
+
 <bean id="defaultAuthEventPublisher" class="org.springframework.security.authentication.DefaultAuthenticationEventPublisher"/>		
 
 <bean id="securityLogger" class="sg.com.fbs.security.web.auth.fbsid.WebAuthActivityLogger">
