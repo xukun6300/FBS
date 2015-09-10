@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeType;
 import sg.com.fbs.techinfra.persistence.dao.BaseDao;
 
@@ -25,6 +26,11 @@ public class MasterCodeDAO extends BaseDao{
 			return (MasterCodeType)result.get(0);
 		}
 		return null;
+	}
+	
+	public MasterCode getMasterCodeValue(long codeId) throws DataAccessObjectException{
+		MasterCode masterCode = (MasterCode) super.getByPrimaryKey(MasterCode.class, codeId);
+		return masterCode;
 	}
 }
 

@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
+import org.hibernate.ObjectNotFoundException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.criterion.Criterion;
@@ -1190,6 +1191,28 @@ public class BaseDao extends AbstractBaseDao{
     	return findObject(entityName, property1, value1, property2, value2, false);
     }
     
+    public Object getByPrimaryKey(Class cls, long pk){
+    	try {
+    		
+    		Object obj = getSession().get(cls, pk);   	
+        	return obj;
+		} catch (Exception e) {
+			throw new ObjectNotFoundException(pk, cls.getName());
+		}
+    	
+    }
+
+
+    public Object getByPrimaryKey(String entityName, long pk){
+    	try {
+    		
+    		Object obj = getSession().get(entityName, pk);   	
+        	return obj;
+		} catch (Exception e) {
+			throw new ObjectNotFoundException(pk, entityName);
+		}
+    	
+    }
     
     
 }

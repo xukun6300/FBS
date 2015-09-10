@@ -6,10 +6,12 @@ import java.util.Map;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
+import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
 import sg.com.fbs.core.techinfra.util.ControlSourceIF;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeEnum;
 import sg.com.fbs.services.controlsource.CodeMaintenanceControlSource;
+import sg.com.fbs.services.mastercode.dao.MasterCodeDAO;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
 
 /**
@@ -53,7 +55,14 @@ public class MasterCodeManager extends CommonFacade{
 		return (Map<Object, String>)codeMaintenanceControlSource.getControlSourceValues(params);
 	}
 	
-	
+	public String getMasterCodeValue(long codeId) throws DataAccessObjectException{
+		MasterCode masterCode = new MasterCodeDAO().getMasterCodeValue(codeId);
+		String codeValue = null;
+		if(masterCode!=null){
+			codeValue = masterCode.getCodeValue();
+		}		
+		return codeValue;
+	}
 	
 	
 	

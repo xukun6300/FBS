@@ -12,6 +12,8 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.joda.time.DateTime;
 import org.springframework.security.core.GrantedAuthority;
 
+import com.sun.tools.classfile.StackMap_attribute.stack_map_frame;
+
 import sg.com.fbs.model.business.pojo.BaseLogPojo;
 import sg.com.fbs.model.system.datalog.DataLogIF;
 import sg.com.fbs.model.system.transactionlog.TransactionLogIF;
@@ -27,6 +29,16 @@ public class User extends BaseLogPojo implements UserDetailsIF, TransactionLogIF
 	private static final long serialVersionUID = -835444054128876618L;
 
 	public static final String LOGINID = "loginId";
+
+	public static final String NAME = "name";
+	
+	public static final String SALUTATION = "salutation";
+	
+	public static final String STATUS = "status";
+	
+	public static final String LAST_SUCCESS_LOGIN_DATE = "lastSuccessLoginDate";
+	
+	public static final String LAST_FAILED_LOGIN_DATE = "lastFailedLoginDate";
 	
 	@Setter
 	@Getter

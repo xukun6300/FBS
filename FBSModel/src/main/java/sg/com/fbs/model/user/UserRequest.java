@@ -14,11 +14,13 @@ public class UserRequest extends BasePojoRequest{
 
 	private static final long serialVersionUID = 4450419410821261614L;
 	
-	/**User Search Form**/
-	
 	@Setter
 	@Getter
 	private String name;
+	
+	@Setter
+	@Getter
+	private String salutation;
 	
 	@Setter
 	@Getter
@@ -32,7 +34,14 @@ public class UserRequest extends BasePojoRequest{
 	@Getter
 	private String userRole;
 	
-	/**User Search Form**/
+	@Setter
+	@Getter
+	private String lastSuccessLoginDate;
+	
+	@Setter
+	@Getter
+	private String lastFailedLoginDate;
+	
 	
 	
 	

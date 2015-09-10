@@ -67,6 +67,15 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		return (Map<String, String>)obj;
 	}
 	
+	public String getMasterCodeValue(long codeId) throws MasterCodeException{
+		try {
+			Object obj = new MasterCodeManager().run(codeId);
+			return (String) obj;
+		} catch (ApplicationCoreException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+	}
+	
 	
 }
 

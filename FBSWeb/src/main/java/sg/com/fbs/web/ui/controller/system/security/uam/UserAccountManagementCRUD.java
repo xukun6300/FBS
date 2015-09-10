@@ -1,5 +1,7 @@
 package sg.com.fbs.web.ui.controller.system.security.uam;
 
+import java.util.Collection;
+
 import javax.servlet.http.HttpServletRequest;
 
 import sg.com.fbs.core.techinfra.exception.CRUDException;
@@ -20,6 +22,7 @@ import sg.com.fbs.web.ui.form.system.security.uam.UserSearchForm;
  */
 public class UserAccountManagementCRUD implements WebCRUDIF{
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public IResponseCRUD<?> runQuery(BasePojoRequest pojoRequest, Object form, HttpServletRequest request) throws CRUDException {
 		
@@ -29,7 +32,9 @@ public class UserAccountManagementCRUD implements WebCRUDIF{
 		if(form instanceof UserSearchForm){
 			UserSearchForm userSearchForm = (UserSearchForm) form;
 			try {
-				response = userAccountManagerBD.searchUsers(userSearchForm.getSearchCriteria(request));
+				response = userAccountManagerBD.searchUsers(userSearchForm.getSearchCriteria(request));			
+				Collection pojoRequestResults = (Collection) userSearchForm.getCrudQueryResultMapper().mapQueryResult(response.getQueryResult());				
+				response.setQueryResult(pojoRequestResults);
 			} catch (UserAccountManagementException e) {
 				throw new CRUDException(e);
 			}
