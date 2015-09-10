@@ -3,12 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="security" uri="/tags/security" %>
-<%-- <%@ taglib prefix="netui" uri="/tags/netui" %>
-<%@ taglib prefix="menu" uri="/tags/menu" %>
-<%@ taglib prefix="sec" uri="/tags/securityACL" %>
-<%@ taglib prefix="security" uri="/tags/security" %> --%>
 
 
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 
 <div class="navbar">
   <div class="navbar-inner">
@@ -16,7 +13,7 @@
 	  <!-- <a class="brand" href="#">Biz</a> -->
 	  <div class="btn-group pull-right">
 		<a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
-		  <i class="icon-user icon-white"></i><security:username/>
+		  <i class="icon-user icon-white"></i><security:username/>   <!-- Display User Name -->
 		  <span class="caret"></span>
 		</a>
 		<ul class="dropdown-menu">
@@ -35,7 +32,7 @@
 		          Menu1 <span class="caret"></span>
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
-		          <li><a href="#">Action</a></li>
+		          <li><a href="${contextPath}/useraccountmanagement/searchUser.action">User Account Management</a></li>
 		          <li><a href="#">Another action</a></li>
 		          <li><a href="#">Something else here</a></li>
 		        <!--   <li class="divider"></li> -->

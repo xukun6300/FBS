@@ -61,9 +61,13 @@ public class UserSearchForm extends BusinessQueryWebForm{
 	
 	private class UserSearchFormQueryResultMapper implements ResponseCrudQueryResultMapper{
 
+		private static final long serialVersionUID = 1L;
+
 		@SuppressWarnings("rawtypes")
 		@Override
 		public Collection<BasePojoRequest> mapQueryResult(Object results) {
+			
+			//pojo request will be set to response query result
 			List<BasePojoRequest> content = new ArrayList<BasePojoRequest>();
 			
 			MasterCodeMgrBD masterCodeMgrBD = new MasterCodeMgrBD();
