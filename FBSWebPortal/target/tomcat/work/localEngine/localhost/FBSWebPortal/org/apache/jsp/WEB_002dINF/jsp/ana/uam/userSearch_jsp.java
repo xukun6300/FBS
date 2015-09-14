@@ -692,7 +692,7 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                     <th class=\"nowrap\">");
         if (_jspx_meth_netui_005fgridSorting_005f2(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
-        out.write("</th>\r\n");
+        out.write("</th>   <!-- name is property of User.java -->\r\n");
         out.write("                     <th class=\"nowrap\">");
         if (_jspx_meth_netui_005fgridSorting_005f3(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
@@ -830,7 +830,7 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
     // /WEB-INF/jsp/ana/uam/userSearch.jsp(115,40) name = displayName type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fgridSorting_005f2.setDisplayName("fbs.common.ana.ui.label.user.email");
     // /WEB-INF/jsp/ana/uam/userSearch.jsp(115,40) name = name type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_netui_005fgridSorting_005f2.setName("email");
+    _jspx_th_netui_005fgridSorting_005f2.setName("loginId");
     int _jspx_eval_netui_005fgridSorting_005f2 = _jspx_th_netui_005fgridSorting_005f2.doStartTag();
     if (_jspx_th_netui_005fgridSorting_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fnetui_005fgridSorting_0026_005fname_005fdisplayName_005fnobody.reuse(_jspx_th_netui_005fgridSorting_005f2);
@@ -851,7 +851,7 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
     // /WEB-INF/jsp/ana/uam/userSearch.jsp(116,40) name = displayName type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fgridSorting_005f3.setDisplayName("fbs.common.ana.ui.label.user.account.status");
     // /WEB-INF/jsp/ana/uam/userSearch.jsp(116,40) name = name type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_netui_005fgridSorting_005f3.setName("accountStatus");
+    _jspx_th_netui_005fgridSorting_005f3.setName("status");
     int _jspx_eval_netui_005fgridSorting_005f3 = _jspx_th_netui_005fgridSorting_005f3.doStartTag();
     if (_jspx_th_netui_005fgridSorting_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fnetui_005fgridSorting_0026_005fname_005fdisplayName_005fnobody.reuse(_jspx_th_netui_005fgridSorting_005f3);
@@ -938,7 +938,7 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                        <td>");
         if (_jspx_meth_netui_005fgridRowElement_005f2(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;
-        out.write("</td>\r\n");
+        out.write("</td>   <!-- name is property of pojo request class -->\r\n");
         out.write("                        <td>");
         if (_jspx_meth_netui_005fgridRowElement_005f3(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;

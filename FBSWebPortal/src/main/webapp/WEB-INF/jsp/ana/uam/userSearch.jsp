@@ -112,8 +112,8 @@
                      <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.search.namecontains.name" name="name"/></th>
                      <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.salutation" name="salutation"/></th>
                      <%-- <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.program" name="programme"/></th> --%>
-                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.email" name="email"/></th>
-                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.account.status" name="accountStatus"/></th>
+                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.email" name="loginId"/></th>   <!-- name is property of User.java -->
+                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.account.status" name="status"/></th>
                      <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.last.success.login" name="lastSuccessLoginDate"/></th>
                      <th class="nowrap"><netui:gridSorting displayName="fbs.common.ana.ui.label.user.last.failed.login" name="lastFailedLoginDate"/></th>
                   </tr>
@@ -125,7 +125,7 @@
                         <td><netui:gridRowElement name="name"/></td>
                         <td><netui:gridRowElement name="salutation"/></td>
                         <%-- <td><netui:gridRowElement name="programme"/></td> --%>
-                        <td><netui:gridRowElement name="email"/></td>
+                        <td><netui:gridRowElement name="email"/></td>   <!-- name is property of pojo request class -->
                         <td><netui:gridRowElement name="accountStatus"/></td>
                         <td><netui:gridRowElement name="lastSuccessLoginDate" format="dd MMM yyyy"/></td>
                         <td><netui:gridRowElement name="lastFailedLoginDate" format="dd MMM yyyy"/></td>

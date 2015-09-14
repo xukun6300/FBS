@@ -19,6 +19,7 @@ import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.model.system.persistence.query.CriterionIF;
+import sg.com.fbs.model.system.persistence.query.Order;
 import sg.com.fbs.model.system.persistence.query.Projection;
 import sg.com.fbs.model.system.security.User;
 import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
@@ -128,6 +129,19 @@ public class UserSearchForm extends BusinessQueryWebForm{
 	public CriteriaIF getSearchCriteria(HttpServletRequest request) {
 		CriteriaIF criteria = new Criteria();
 		criteria.setCriterion(getCriterion(request));
+		
+		Order[] orders = super.getOrder();
+		if(request.getParameter(IS_ASCENDING)!=null && request.getParameter(IS_ASCENDING).trim().length()>0 && request.getParameter(SORTING_PROPERTY)!=null && request.getParameter(SORTING_PROPERTY).trim().length()>0){
+			Order newOrder = new Order(request.getParameter(SORTING_PROPERTY), request.getParameter(IS_ASCENDING).equalsIgnoreCase("true") ? true : false);
+			Order[] newOrders = {newOrder};
+			orders = newOrders;
+		}else{
+			Order newOrder = new Order(User.NAME, true);
+			Order[] newOrders = {newOrder};
+			orders = newOrders;
+		}
+			
+		criteria.setOrder(orders);		
 		criteria.setProjection(getProjection());
 		criteria.setFetchAll(super.isFetchAll());
 		criteria.setRequestedPage(super.getRequestedPage());
