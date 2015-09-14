@@ -42,6 +42,11 @@
         <put-attribute name="body" value="/WEB-INF/jsp/ana/uam/userSearch.jsp"/>
     </definition>
     
+    <definition name="useraccountmanagement/userDetails" extends="base.definition">
+        <put-attribute name="title" value="User Details"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/ana/uam/userDetails.jsp"/>
+    </definition>
+    
     <definition name="security/showLogin" extends="login.definition">
         <put-attribute name="title" value="Login Page"/>
         <put-attribute name="body" value="/WEB-INF/jsp/security/login.jsp"/>

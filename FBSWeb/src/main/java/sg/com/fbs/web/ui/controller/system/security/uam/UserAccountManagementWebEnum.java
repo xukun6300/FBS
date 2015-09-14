@@ -39,6 +39,13 @@ public enum UserAccountManagementWebEnum implements WebDropDownListIF{
 		}
 	},
 	
+	USER_DETAILS_JSP {
+		@Override
+		public String toString() {
+			return "userDetails";
+		}
+	},
+	
 	PLEASE_SELECT {
 		@Override
 		public String toString() {

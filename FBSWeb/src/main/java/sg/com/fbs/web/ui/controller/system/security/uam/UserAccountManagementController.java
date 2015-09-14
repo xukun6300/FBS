@@ -20,6 +20,7 @@ import sg.com.fbs.model.user.UserRequest;
 import sg.com.fbs.services.security.captcha.CaptchaService;
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
+import sg.com.fbs.web.ui.form.system.security.uam.UserDetailsForm;
 import sg.com.fbs.web.ui.form.system.security.uam.UserSearchForm;
 
 /**
@@ -115,6 +116,16 @@ public class UserAccountManagementController extends BaseWebController {
 		setValidationErrorPage(UserAccountManagementWebEnum.USER_SEARCH_JSP.toString());
 		
 		Mvc mvc = new Mvc(userSearchForm,UserAccountManagementWebEnum.USER_SEARCH_JSP.toString(),userRequest);
+		return mvc;
+	}
+	
+	public ModelAndView showUserDetails(HttpServletRequest request, HttpServletResponse response){
+		UserDetailsForm userDetailsForm = new UserDetailsForm();
+		UserRequest userRequest = new UserRequest();
+		setCrudMode(WebCRUDEnum.DETAILS_MODE);
+		setCRUDOperation(UserAccountManagementCRUD.class);
+		setValidationErrorPage(UserAccountManagementWebEnum.USER_DETAILS_JSP.toString());
+		Mvc mvc = new Mvc(userDetailsForm, UserAccountManagementWebEnum.USER_DETAILS_JSP.toString(), userRequest);
 		return mvc;
 	}
 	

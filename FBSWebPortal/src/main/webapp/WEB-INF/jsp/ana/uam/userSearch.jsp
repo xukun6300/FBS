@@ -122,7 +122,7 @@
                   <netui:gridRows>
                      <tr>
                         <td><netui:gridCurrentRowNum/></td>
-                        <td><netui:gridRowElement name="name"/></td>
+                        <td><a href='showUserDetails.action?id=<netui:gridRowElement name="id"/>'><netui:gridRowElement name="name"/></a></td>
                         <td><netui:gridRowElement name="salutation"/></td>
                         <%-- <td><netui:gridRowElement name="programme"/></td> --%>
                         <td><netui:gridRowElement name="email"/></td>   <!-- name is property of pojo request class -->

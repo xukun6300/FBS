@@ -84,33 +84,38 @@ public class UserSearchForm extends BusinessQueryWebForm{
 			for (Object result : (Collection)results) {
 				Object[] _result = (Object[])result;
 				UserRequest userRequest = new UserRequest();
+				
 				if(_result[0]!=null){
-					userRequest.setName(_result[0].toString());
+					userRequest.setId(Long.parseLong(_result[0].toString()));
 				}
+				
 				if(_result[1]!=null){
+					userRequest.setName(_result[1].toString());
+				}
+				if(_result[2]!=null){
 					try {
-						Long codeId = Long.parseLong(_result[1].toString()); 
+						Long codeId = Long.parseLong(_result[2].toString()); 
 						userRequest.setSalutation(masterCodeMgrBD.getMasterCodeValue(codeId));
 					} catch (MasterCodeException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
-				if(_result[2]!=null){
-					userRequest.setEmail(_result[2].toString());
-				}
 				if(_result[3]!=null){
-					AccountStatusEnum accountStatusEnum = AccountStatusEnum.getEnumFromValue(_result[3].toString());
+					userRequest.setEmail(_result[3].toString());
+				}
+				if(_result[4]!=null){
+					AccountStatusEnum accountStatusEnum = AccountStatusEnum.getEnumFromValue(_result[4].toString());
 					if(accountStatusEnum!=null){
 						userRequest.setAccountStatus(accountStatusEnum.getDescription());
 					}	
 				}
-				if(_result[4]!=null){
-					String lastSuccessLoginDate = DateUtil.convertDateToDateString((DateTime)_result[4], DateUtil.DEFAULT_DATETIME_FORMAT);
+				if(_result[5]!=null){
+					String lastSuccessLoginDate = DateUtil.convertDateToDateString((DateTime)_result[5], DateUtil.DEFAULT_DATETIME_FORMAT);
 					userRequest.setLastSuccessLoginDate(lastSuccessLoginDate);
 				}
-				if(_result[5]!=null){
-					String lastFailedLoginDate = DateUtil.convertDateToDateString((DateTime)_result[5], DateUtil.DEFAULT_DATETIME_FORMAT);
+				if(_result[6]!=null){
+					String lastFailedLoginDate = DateUtil.convertDateToDateString((DateTime)_result[6], DateUtil.DEFAULT_DATETIME_FORMAT);
 					userRequest.setLastFailedLoginDate(lastFailedLoginDate);
 				}
 				
@@ -173,6 +178,7 @@ public class UserSearchForm extends BusinessQueryWebForm{
 	
 	public Projection[] getProjection(){
 		Projection[] projections = {
+				new Projection(Projection.SELECT_PROPERTY, User.ID),
 				new Projection(Projection.SELECT_PROPERTY, User.NAME),
 				new Projection(Projection.SELECT_PROPERTY, User.SALUTATION),
 				new Projection(Projection.SELECT_PROPERTY, User.LOGINID),
