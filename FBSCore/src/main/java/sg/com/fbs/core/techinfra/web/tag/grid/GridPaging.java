@@ -244,7 +244,7 @@ public class GridPaging extends GridComponent{
 					orderMap.put("isFetchAll", "true");
 				} else {  // top dropdown list paging
 
-					buf.append("<div class='form-inline'><select name='selectPages' class='input-medium' style='height:25px; margin-top:3px' onchange='javascript:document.location.href=(this.options[this.selectedIndex].value)'>");
+					buf.append("<div class='form-inline'><select name='selectPages' class='input-medium' style='height:25px; margin-top:3px; margin-left:20px' onchange='javascript:document.location.href=(this.options[this.selectedIndex].value)'>");
 				    
 					for (int i = 1; i <= totalPage; i++) {
 						String uri = TagUtils.createActionURL(pageContext.getRequest(), getAction(), i, map, orderMap);
@@ -302,7 +302,7 @@ public class GridPaging extends GridComponent{
 			if(isAjax()){
 				messageCode += colSize > 1 ? "s" : "";
 				
-				buf.append("<div class=\"pull-right\"><span class=\"nobr\" ><b><i id='"+actionArray[1]+"_totalRecordsDisplay'>"+ colSize +"</i></b>&nbsp;" 
+				buf.append("<div class=\"pull-right\"><span class=\"nobr\" style=\"margin-right:20px;\" ><b><i id='"+actionArray[1]+"_totalRecordsDisplay'>"+ colSize +"</i></b>&nbsp;" 
 				            + ResourceBundleUtil.getMessage(messageCode)+"</span></div><br/>");			
 			}else {
 				messageCode += dataContext.getTotalRecordFound() > 1 ? "s" : "";
@@ -311,7 +311,7 @@ public class GridPaging extends GridComponent{
 					buf.append("<div class=\"pull-left\" style=\"margin-left:25px; padding-top:20px;\"><span class=\"nowrap\"><b><i>"+dataContext.getTotalRecordFound()+"</i></b>&nbsp;"+
 					           ResourceBundleUtil.getMessage(messageCode) +"</span></div><br/>");
 				}else {
-					buf.append("<div class=\"pull-right\"><span class=\"nobr\"><b><i>" +dataContext.getTotalRecordFound()+"</i></b>&nbsp;" + 
+					buf.append("<div class=\"pull-right\"><span class=\"nobr\" style=\"margin-right:20px;\"><b><i>" +dataContext.getTotalRecordFound()+"</i></b>&nbsp;" + 
 				               ResourceBundleUtil.getMessage(messageCode)+"</span></div><br/><br/>");
 				}
 			}
