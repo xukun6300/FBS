@@ -61,6 +61,7 @@
 <!-- <bean id="authenticationProvider" class="org.springframework.security.authentication.AuthenticationProvider"/> -->
 <bean id="fbsIdAuthenticationProvider" class="sg.com.fbs.security.web.auth.fbsid.FbsIdAuthenticationProvider"/>
 
+<!-- listener to log last success/failure login time -->
 <bean id="authenticationListener" class="sg.com.fbs.security.web.auth.event.listener.AuthenticationEventListener"/>
 
 <bean id="defaultAuthEventPublisher" class="org.springframework.security.authentication.DefaultAuthenticationEventPublisher"/>		

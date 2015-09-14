@@ -1,11 +1,13 @@
 package sg.com.fbs.web.ui.form.system.security.uam;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.joda.time.DateTime;
 
 import lombok.Getter;
@@ -16,6 +18,7 @@ import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
+import sg.com.fbs.model.system.persistence.query.CriterionIF;
 import sg.com.fbs.model.system.persistence.query.Projection;
 import sg.com.fbs.model.system.security.User;
 import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
@@ -33,6 +36,8 @@ import sg.com.fbs.web.ui.form.mapper.ResponseCrudQueryResultMapper;
 public class UserSearchForm extends BusinessQueryWebForm{
 
 	private static final long serialVersionUID = 1L;
+	
+	public static final String ACCOUNT_STATUS = "accountStatus";
 	
 	@Setter
 	@Getter
@@ -122,12 +127,35 @@ public class UserSearchForm extends BusinessQueryWebForm{
 	@Override
 	public CriteriaIF getSearchCriteria(HttpServletRequest request) {
 		CriteriaIF criteria = new Criteria();
-		criteria.appendCriterion(new Criterion(User.ACT_IND, "Y"));
+		criteria.setCriterion(getCriterion(request));
 		criteria.setProjection(getProjection());
 		criteria.setFetchAll(super.isFetchAll());
 		criteria.setRequestedPage(super.getRequestedPage());
 		return criteria;
 	}
+	
+	public CriterionIF[] getCriterion(HttpServletRequest request){
+		CriterionIF[] criterion = super.getCriterion();
+		
+		if(criterion == null){
+			List<CriterionIF> criterionList = new ArrayList<CriterionIF>();
+			if(!StringUtils.isEmpty(name)){
+				criterionList.add(new Criterion(User.NAME, name));
+			}
+			
+			if(!StringUtils.isEmpty(email)){
+				criterionList.add(new Criterion(User.LOGINID, email));
+			}
+			
+			if(accountStatus!=null && !accountStatus.equals("-1")){
+				criterionList.add(new Criterion(User.STATUS, accountStatus));
+			}
+			criterionList.add(new Criterion(User.ACT_IND, "Y"));
+			criterion = criterionList.toArray(new CriterionIF[criterionList.size()]);
+		}
+		
+		return criterion;
+ 	}
 	
 	public Projection[] getProjection(){
 		Projection[] projections = {

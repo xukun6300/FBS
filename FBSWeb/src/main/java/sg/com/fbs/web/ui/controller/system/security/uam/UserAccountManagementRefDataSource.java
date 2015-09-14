@@ -20,6 +20,7 @@ import sg.com.fbs.model.system.persistence.query.CriterionIF;
 import sg.com.fbs.model.system.persistence.query.Order;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.SecurityQuestions;
+import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
 import sg.com.fbs.services.controlsource.GenderTypeControlSource;
 import sg.com.fbs.services.controlsource.PrimaryContactModeControlSource;
 import sg.com.fbs.services.controlsource.SalutationControlSource;
@@ -87,7 +88,16 @@ public class UserAccountManagementRefDataSource extends WebRefDataSourceImpl imp
 		return primaryContactModeControlSource.getControlSourceValues(primaryContactTypes);
 	}
 	
-	
+	public Map<String, String> getAccountStatus(String listName, ModelAndView modelAndView, Map exreaParams){
+		Map<String, String> accountStatusMap = new LinkedHashMap<String, String>();	
+		accountStatusMap.put(UserAccountManagementWebEnum.DEFAULT_VALUE.toString(), UserAccountManagementWebEnum.PLEASE_SELECT.toString());	
+		AccountStatusEnum[] accountStatusArr = AccountStatusEnum.getAccountTypeEnum();
+		
+		for (AccountStatusEnum accountStatus : accountStatusArr) {
+			accountStatusMap.put(accountStatus.getAccountStatus(), accountStatus.getDescription());
+		}
+		return accountStatusMap;
+	}
 	
 }
 

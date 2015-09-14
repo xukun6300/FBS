@@ -29,7 +29,7 @@ public class AuthenticationEventListener implements ApplicationListener<Abstract
 	private Logger logger = Logger.getLogger(AuthenticationEventListener.class);
 	
 	@Override
-	public void onApplicationEvent(AbstractAuthenticationEvent event) {
+	public void onApplicationEvent(AbstractAuthenticationEvent event) { //The ApplicationEvent's source will be the Authentication object.
 		
 		Object principal = event.getAuthentication().getPrincipal();
 		long userId = 0L;		

@@ -47,10 +47,14 @@ public class UserAccountManagementController extends BaseWebController {
 			UserAccountManagementWebEnum.SALUTATION_TYPE,
 			UserAccountManagementWebEnum.GENDER_TYPE_T_LIST,
 			UserAccountManagementWebEnum.PRIMARY_CONTACT_TYPE_T_LIST,
-			UserAccountManagementWebEnum.SECURITY_QUESTION_LIST
+			UserAccountManagementWebEnum.SECURITY_QUESTION_LIST,
+			UserAccountManagementWebEnum.ACCOUNT_STATUS_LIST
 		};
 		
-		String[] views = {UserAccountManagementWebEnum.SHOW_REGISTER_USER_JSP.toString()};
+		String[] views = {
+				UserAccountManagementWebEnum.SHOW_REGISTER_USER_JSP.toString(),
+				UserAccountManagementWebEnum.USER_SEARCH_JSP.toString()
+				};
 		
 		for (String view : views) {
 			map.put(view, comboInitializer);

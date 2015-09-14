@@ -68,7 +68,7 @@
 					<td style="width:250px;">
 						<div class="controls">
 							<form:select path="accountStatus" id="accountStatus" class="input-large">
-							    <%-- <form:options items="${ }"/> --%>
+							    <form:options items="${accountStatus }"/> 
 							</form:select>		
 						</div>
 			        </td>

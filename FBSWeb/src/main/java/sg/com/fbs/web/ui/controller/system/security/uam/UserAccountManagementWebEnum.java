@@ -2,6 +2,7 @@ package sg.com.fbs.web.ui.controller.system.security.uam;
 
 import sg.com.fbs.core.techinfra.web.WebDropDownListIF;
 import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
+import sg.com.fbs.web.ui.form.system.security.uam.UserSearchForm;
 
 /**
  * @Author Frank Xu $
@@ -79,6 +80,13 @@ public enum UserAccountManagementWebEnum implements WebDropDownListIF{
 			return RegisterUserForm.SECURITY_QUESTION;
 		}
 	},
+	
+	ACCOUNT_STATUS_LIST{
+		@Override
+		public String toString() {
+			return UserSearchForm.ACCOUNT_STATUS;
+		}
+	}
 }
 
 
