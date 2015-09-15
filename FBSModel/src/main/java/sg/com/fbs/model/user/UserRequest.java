@@ -42,7 +42,24 @@ public class UserRequest extends BasePojoRequest{
 	@Getter
 	private String lastFailedLoginDate;
 	
+	@Setter
+	@Getter
+	private String programme;
 	
+	@Setter
+	@Getter
+	private String dateOfBirth;
 	
+	@Setter
+	@Getter
+	private String gender;
+	
+	@Setter
+	@Getter
+	private String officeTel;
+	
+	@Setter
+	@Getter
+	private String mobileNum;
 	
 }

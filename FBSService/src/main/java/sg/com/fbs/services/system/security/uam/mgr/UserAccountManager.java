@@ -13,10 +13,13 @@ import org.joda.time.DateTime;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.sun.tools.classfile.Annotation.element_value;
+
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.businfra.facade.ServiceLocator;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.core.techinfra.util.DateUtil;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
@@ -27,6 +30,8 @@ import sg.com.fbs.model.system.security.User;
 import sg.com.fbs.model.system.security.UserSecurityQuestion;
 import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
 import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
+import sg.com.fbs.model.user.UserRequest;
+import sg.com.fbs.services.mastercode.mgr.MasterCodeManager;
 import sg.com.fbs.services.security.external.crypto.provider.CryptoServicesClientIF;
 import sg.com.fbs.services.security.password.PasswordServices;
 import sg.com.fbs.services.system.security.uam.dao.UserAccountManagementDAO;
@@ -214,6 +219,54 @@ public class UserAccountManager extends CommonFacade{
 		return user;
 	}
 	
+	public void loadUserDetails(UserRequest userRequest) throws UserAccountManagementException{
+		long userId = userRequest.getId();
+		User user = getUserById(userId);
+		MasterCodeManager masterCodeManager = new MasterCodeManager();
+		if(user!=null){
+			userRequest.setName(user.getName());
+			
+			AccountStatusEnum accountStatusEnum = AccountStatusEnum.getEnumFromValue(user.getStatus());
+			if(accountStatusEnum!=null){
+				userRequest.setAccountStatus(accountStatusEnum.getDescription());
+			}
+	
+			userRequest.setEmail(user.getLoginId());
+			if(user.getLastFailedLoginDate()!=null){
+				String lastFailedLoginDateStr = DateUtil.convertDateToDateString(user.getLastFailedLoginDate(), DateUtil.DEFAULT_DATETIME_FORMAT);
+				userRequest.setLastFailedLoginDate(lastFailedLoginDateStr);
+			}
+			
+			if(user.getLastSuccessLoginDate()!=null){
+				String lastSuccessLoginDateStr = DateUtil.convertDateToDateString(user.getLastSuccessLoginDate(), DateUtil.DEFAULT_DATETIME_FORMAT);
+				userRequest.setLastSuccessLoginDate(lastSuccessLoginDateStr);
+			}
+			
+			if(user.getSalutation()!=-1L){
+				try {
+					userRequest.setSalutation(masterCodeManager.getMasterCodeValue(user.getSalutation()));
+				} catch (DataAccessObjectException e) {
+					throw new UserAccountManagementException("fbs.common.ana.exception.message.load.user");
+				}
+			}
+			
+			userRequest.setUserRole("NA");
+			try {
+				userRequest.setGender(masterCodeManager.getMasterCodeValue(user.getGender()));
+			} catch (DataAccessObjectException e) {
+				throw new UserAccountManagementException("fbs.common.ana.exception.message.load.user");
+			}
+			if(user.getDateOfBirth()!=null){
+				String dateOfBirthStr = DateUtil.convertDateToDateString(user.getDateOfBirth(), DateUtil.DATE_FORMAT1);
+				userRequest.setDateOfBirth(dateOfBirthStr);
+			}
+			userRequest.setProgramme("NA");
+			
+			userRequest.setOfficeTel(user.getOfficeTel());
+			userRequest.setMobileNum(user.getMobileNum());
+		}
+		
+	}
 }
 
 

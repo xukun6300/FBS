@@ -9,7 +9,9 @@ import sg.com.fbs.core.techinfra.web.WebCRUDIF;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
+import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
+import sg.com.fbs.model.user.UserRequest;
 import sg.com.fbs.services.system.security.uam.exception.UserAccountManagementException;
 import sg.com.fbs.services.system.security.uam.mgr.UserAccountManagerBD;
 import sg.com.fbs.web.ui.form.system.security.uam.RegisterUserForm;
@@ -43,11 +45,23 @@ public class UserAccountManagementCRUD implements WebCRUDIF{
 		return response;
 	}
 
+
+	@SuppressWarnings({ "rawtypes" })
 	@Override
-	public IResponseCRUD<?> runDetails(BasePojoRequest pojoRequest,
-			Object form, HttpServletRequest request) throws CRUDException {
-		// TODO Auto-generated method stub
-		return null;
+	public IResponseCRUD<?> runDetails(BasePojoRequest pojoRequest, Object form, HttpServletRequest request) throws CRUDException {
+	    IResponseCRUD response = null;
+	    UserAccountManagerBD userAccountManagerBD = new UserAccountManagerBD();
+		try {
+			if (pojoRequest instanceof UserRequest) {
+				UserRequest userRequest = (UserRequest) pojoRequest;
+				userAccountManagerBD.loadUserDetails(userRequest);
+				response = new ResponseCRUD();
+				response.setCrudResult(userRequest);
+			}
+		} catch (UserAccountManagementException e) {
+			throw new CRUDException(e);
+		}
+		return response;
 	}
 
 	@Override

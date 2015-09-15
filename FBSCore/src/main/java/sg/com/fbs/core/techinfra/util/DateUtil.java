@@ -24,6 +24,8 @@ public class DateUtil {
 	
 	public static final String DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
 	
+	public static final String DATE_FORMAT1 = "dd MMM yyyy";
+	
 	public static final String DEFAULT_DATETIME_FORMAT = "dd MMM yyyy HH:mm:ss";
 	
 	public static DateTime convertDateStringToDate(String dateStr, String format){

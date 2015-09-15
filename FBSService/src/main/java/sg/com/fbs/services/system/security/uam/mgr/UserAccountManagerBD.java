@@ -9,6 +9,7 @@ import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.User;
 import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
+import sg.com.fbs.model.user.UserRequest;
 import sg.com.fbs.services.system.security.uam.exception.UserAccountManagementException;
 
 /**
@@ -80,6 +81,14 @@ public class UserAccountManagerBD extends BusinessDelegate{
 		try {
 			Object obj = new UserAccountManager().run(user);
 			return (User) obj;
+		} catch (ApplicationCoreException e) {
+			throw new UserAccountManagementException(e.getMessageCode(), e);
+		}
+	}
+	
+	public void loadUserDetails(UserRequest userRequest) throws UserAccountManagementException{
+		try {
+			new UserAccountManager().run(userRequest);
 		} catch (ApplicationCoreException e) {
 			throw new UserAccountManagementException(e.getMessageCode(), e);
 		}

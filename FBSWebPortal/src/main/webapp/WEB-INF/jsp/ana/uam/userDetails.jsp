@@ -11,6 +11,11 @@
 table td{
 padding-left : 20px
 }
+
+table tr{
+margin:20px;
+padding : 20px
+}
 </style>
 
 <fieldset>
@@ -22,21 +27,57 @@ padding-left : 20px
        
        <div class="clearfix">
            <fieldset>
-               <table style="margin-left:20px;">
+               <table style="margin-left:20px; width:100%">
                   <tr>
-                    <td width="25%" style="font-weight:bold">Name</td>
-                    <td width="25%" style="font-weight:bold">Email</td>
-                    <td width="25%" style="font-weight:bold">Birthday</td>
-                    <!-- <td width="25%" style="font-weight:bold">Role</td>  -->
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.name"/></td>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.salutation"/></td>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.program"/></td>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.role"/></td>
                   </tr>
-                   
                   <tr>
-                    <td>Frank</td> 
-                    <td>frankxukun@gmail.com</td> 
-                    <td>1988-09-29</td>
-                    <!-- <td>Admin</td> -->
+                    <td>${command.name}</td> 
+                    <td>${command.salutation}</td> 
+                    <td>${command.programme}</td>
+                    <td>${command.userRole}</td>
                   </tr>
-               
+                  <tr style="line-height:25px">
+                   	<td>&nbsp</td>
+                   	<td></td>
+                   	<td>&nbsp</td>
+                   	<td></td>
+	              </tr>
+                  <tr>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.email"/></td>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.account.status"/></td>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.dob"/></td>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.gender"/></td>
+                  </tr>
+                  <tr>
+                    <td>${command.email}</td> 
+                    <td>${command.accountStatus}</td> 
+                    <td>${command.dateOfBirth}</td>
+                    <td>${command.gender}</td>
+                  </tr>
+                  
+                  <tr style="line-height:25px">
+                   	<td>&nbsp</td>
+                   	<td></td>
+                   	<td>&nbsp</td>
+                   	<td></td>
+	              </tr>
+	              
+	              <tr>
+	                <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.office.tel"/></td>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.mobile.num"/></td>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.last.success.login"/></td>
+                    <td width="25%" style="font-weight:bold"><spring:message code="fbs.common.ana.ui.label.user.last.failed.login"/></td>
+                  </tr>
+                  <tr>
+                    <td>${command.officeTel}</td>
+                    <td>${command.mobileNum}</td> 
+                    <td>${command.lastSuccessLoginDate}</td> 
+                    <td>${command.lastFailedLoginDate}</td>   
+                  </tr>
                </table>
            
            </fieldset>
