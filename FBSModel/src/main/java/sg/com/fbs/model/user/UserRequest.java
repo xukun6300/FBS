@@ -62,4 +62,8 @@ public class UserRequest extends BasePojoRequest{
 	@Getter
 	private String mobileNum;
 	
+	@Setter
+	@Getter
+	private String selectedAccounts;
+	
 }

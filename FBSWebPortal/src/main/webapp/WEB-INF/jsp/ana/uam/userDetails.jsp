@@ -18,9 +18,45 @@ padding : 20px
 }
 </style>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#assignTo").click(function(){
+		
+		//alert($("#accountsLeft").find("option:selected").val());
+		$("#accountsLeft").find("option:selected").each(function(){
+			var newOption = $("<option/>").text($(this).text()).val($(this).val());
+			$("#accountsRight").append(newOption);
+		});
+		$("#accountsLeft").find("option:selected").remove();
+		
+		setSelectedAccountsVal();
+	});
+	
+	$("#assignBack").click(function(){
+		$("#accountsRight").find("option:selected").each(function(){
+			var newOption = $("<option/>").text($(this).text()).val($(this).val());
+			$("#accountsLeft").append(newOption);
+		});
+		$("#accountsRight").find("option:selected").remove();
+		setSelectedAccountsVal();
+	});
+	
+	function setSelectedAccountsVal(){
+		var selectedAccounts = [];
+		$("#accountsRight option").each(function(index){
+			selectedAccounts[index] = $(this).val();
+		})
+		//alert(selectedAccounts);
+		console.log(selectedAccounts);
+		$("#selectedAccounts").val(selectedAccounts);
+	}
+})
+
+
+</script>
+
 <fieldset>
    <legend class="section">User Details</legend>
-   <h2 class="expand"></h2>
    
    <form:form method="POST" id="userDetailsForm" commandName="command" action="updateUser.action" class="clearfix form-horizontal">
        <form:errors path="*" cssClass="error" element="div"/>
@@ -79,7 +115,39 @@ padding : 20px
                     <td>${command.lastFailedLoginDate}</td>   
                   </tr>
                </table>
+             
+           <br><hr/>
            
+           <table>
+           <tr>
+           <td>
+             <form:select path=""  multiple="true" style="height:100px" id="accountsLeft">
+              <form:option value="1" label="1"/>
+              <form:option value="2" label="2"/>
+              <form:option value="3" label="3"/>
+              <form:option value="4" label="4"/>
+              <form:option value="5" label="5"/>
+             </form:select>
+           </td>
+           <td>
+			<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+				<button id="assignTo" type="button" class="btn btn-info btn-arrow-right">Button</button>
+				<button id="assignBack" type="button" class="btn btn-info btn-arrow-right">Button</button>
+			</div> 
+			
+           </td>
+           <td>
+            <form:select path=""  multiple="true" style="height:100px" id="accountsRight">
+              <form:option value="11" label="11"/>
+              <form:option value="12" label="12"/>
+              <form:option value="13" label="13"/>
+              <form:option value="14" label="14"/>
+              <form:option value="15" label="15"/>
+           </form:select>
+           </td>
+           </tr>
+           </table>
+           <form:hidden path="selectedAccounts" id="selectedAccounts"/>
            </fieldset>
        
        </div>

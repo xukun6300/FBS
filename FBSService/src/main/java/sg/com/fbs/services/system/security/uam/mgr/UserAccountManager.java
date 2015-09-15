@@ -197,18 +197,6 @@ public class UserAccountManager extends CommonFacade{
 		return response;
 	}
 	
-	/*public User updateUserSuccessLogin(long userId) throws ApplicationCoreException{
-		User user = getUserById(userId);
-		if(user!=null){
-			user.setFailedLoginAttempt(0);
-			user.setLastSuccessLoginDate(DateTime.now());
-			UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
-			userAccountManagementDAO.update(user);
-		}
-		return user;
-	}*/
-	
-	
 	public User updateUser(User user) throws UserAccountManagementException {
 		UserAccountManagementDAO userAccountManagementDAO = new UserAccountManagementDAO();
 		try {

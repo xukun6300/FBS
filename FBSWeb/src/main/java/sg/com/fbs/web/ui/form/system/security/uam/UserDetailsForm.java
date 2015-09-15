@@ -65,6 +65,9 @@ public class UserDetailsForm extends BusinessQueryWebForm{
 	@Getter
 	private String mobileNum;
 	
+	@Setter
+	@Getter
+	private String selectedAccounts;
 	
 	@Override
 	public CriteriaIF getSearchCriteria(HttpServletRequest request) {
