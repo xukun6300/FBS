@@ -9,20 +9,19 @@
 
 <style>
 table td{
-padding-left : 20px
+padding-left : 20px;
 }
 
 table tr{
 margin:20px;
 padding : 20px
 }
+
 </style>
 
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#assignTo").click(function(){
-		
-		//alert($("#accountsLeft").find("option:selected").val());
 		$("#accountsLeft").find("option:selected").each(function(){
 			var newOption = $("<option/>").text($(this).text()).val($(this).val());
 			$("#accountsRight").append(newOption);
@@ -46,8 +45,7 @@ $(document).ready(function(){
 		$("#accountsRight option").each(function(index){
 			selectedAccounts[index] = $(this).val();
 		})
-		//alert(selectedAccounts);
-		console.log(selectedAccounts);
+		//console.log(selectedAccounts);
 		$("#selectedAccounts").val(selectedAccounts);
 	}
 })
@@ -118,7 +116,12 @@ $(document).ready(function(){
              
            <br><hr/>
            
-           <table>
+           <table style="margin-left:20px;">
+           <tr>
+           <td style="font-weight:bold;padding-bottom:15px">All Accounts</td>
+           <td></td>
+           <td style="font-weight:bold;padding-bottom:15px">Accounts Assigned To User</td>
+           </tr>
            <tr>
            <td>
              <form:select path=""  multiple="true" style="height:100px" id="accountsLeft">
@@ -131,12 +134,13 @@ $(document).ready(function(){
            </td>
            <td>
 			<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-				<button id="assignTo" type="button" class="btn btn-info btn-arrow-right">Button</button>
-				<button id="assignBack" type="button" class="btn btn-info btn-arrow-right">Button</button>
+				<button id="assignTo" type="button" class="btn btn-success" style="width:120px">Assign To >></button>
+				<button id="assignBack" type="button" class="btn btn-danger"style="width:120px"><< Assign Back</button>
 			</div> 
 			
            </td>
            <td>
+          
             <form:select path=""  multiple="true" style="height:100px" id="accountsRight">
               <form:option value="11" label="11"/>
               <form:option value="12" label="12"/>
