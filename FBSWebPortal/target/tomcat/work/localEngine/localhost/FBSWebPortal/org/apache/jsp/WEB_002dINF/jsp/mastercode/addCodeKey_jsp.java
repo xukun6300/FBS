@@ -279,9 +279,24 @@ public final class addCodeKey_jsp extends org.apache.jasper.runtime.HttpJspBase
             out.write("\r\n");
             out.write("\t\t\t   <button id=\"effectiveDateBtn\" type=\"button\" class=\"btn\"><i class=\"icon-calendar\"></i></button>\r\n");
             out.write("\t\t\t</div>\r\n");
-            out.write("\r\n");
             out.write("\t\t</div>   \r\n");
             out.write("         \r\n");
+            out.write("        <div class=\"control-group\">\r\n");
+            out.write("           <div class=\"controls\">\r\n");
+            out.write("            <button id=\"btnSave\" name=\"btnSave\" type=\"submit\" class=\"bt bt1\">");
+            if (_jspx_meth_spring_005fmessage_005f4(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
+              return;
+            out.write("</button>\r\n");
+            out.write("            <button id=\"btnReset\" name=\"btnReset\" type=\"button\" class=\"bt bt1\">");
+            if (_jspx_meth_spring_005fmessage_005f5(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
+              return;
+            out.write("</button>\r\n");
+            out.write("            <button id=\"btnBack\" name=\"btnBack\" type=\"button\" class=\"bt bt-back\">");
+            if (_jspx_meth_spring_005fmessage_005f6(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
+              return;
+            out.write("</button>\r\n");
+            out.write("           </div>\r\n");
+            out.write("        </div>\r\n");
             out.write("         \r\n");
             out.write("      </div>\r\n");
             out.write("   ");
@@ -618,6 +633,87 @@ public final class addCodeKey_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspx_th_netui_005fdateinput_005f0.doFinally();
       _005fjspx_005ftagPool_005fnetui_005fdateinput_0026_005fplaceholder_005fpath_005fmaxlength_005fid_005fcssClass_005fnobody.reuse(_jspx_th_netui_005fdateinput_005f0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_spring_005fmessage_005f4(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fform_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fform_005f0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  spring:message
+    org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f4 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
+    _jspx_th_spring_005fmessage_005f4.setPageContext(_jspx_page_context);
+    _jspx_th_spring_005fmessage_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
+    // /WEB-INF/jsp/mastercode/addCodeKey.jsp(56,77) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_spring_005fmessage_005f4.setCode("fbs.common.ui.button.save");
+    int[] _jspx_push_body_count_spring_005fmessage_005f4 = new int[] { 0 };
+    try {
+      int _jspx_eval_spring_005fmessage_005f4 = _jspx_th_spring_005fmessage_005f4.doStartTag();
+      if (_jspx_th_spring_005fmessage_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_spring_005fmessage_005f4[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_spring_005fmessage_005f4.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_spring_005fmessage_005f4.doFinally();
+      _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.reuse(_jspx_th_spring_005fmessage_005f4);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_spring_005fmessage_005f5(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fform_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fform_005f0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  spring:message
+    org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f5 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
+    _jspx_th_spring_005fmessage_005f5.setPageContext(_jspx_page_context);
+    _jspx_th_spring_005fmessage_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
+    // /WEB-INF/jsp/mastercode/addCodeKey.jsp(57,79) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_spring_005fmessage_005f5.setCode("fbs.common.ui.button.reset");
+    int[] _jspx_push_body_count_spring_005fmessage_005f5 = new int[] { 0 };
+    try {
+      int _jspx_eval_spring_005fmessage_005f5 = _jspx_th_spring_005fmessage_005f5.doStartTag();
+      if (_jspx_th_spring_005fmessage_005f5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_spring_005fmessage_005f5[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_spring_005fmessage_005f5.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_spring_005fmessage_005f5.doFinally();
+      _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.reuse(_jspx_th_spring_005fmessage_005f5);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_spring_005fmessage_005f6(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fform_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fform_005f0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  spring:message
+    org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f6 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
+    _jspx_th_spring_005fmessage_005f6.setPageContext(_jspx_page_context);
+    _jspx_th_spring_005fmessage_005f6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
+    // /WEB-INF/jsp/mastercode/addCodeKey.jsp(58,81) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_spring_005fmessage_005f6.setCode("fbs.common.ui.button.back");
+    int[] _jspx_push_body_count_spring_005fmessage_005f6 = new int[] { 0 };
+    try {
+      int _jspx_eval_spring_005fmessage_005f6 = _jspx_th_spring_005fmessage_005f6.doStartTag();
+      if (_jspx_th_spring_005fmessage_005f6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_spring_005fmessage_005f6[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_spring_005fmessage_005f6.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_spring_005fmessage_005f6.doFinally();
+      _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.reuse(_jspx_th_spring_005fmessage_005f6);
     }
     return false;
   }

@@ -49,9 +49,15 @@
 			   <netui:dateinput id="effectiveDate" path="effectiveDate" cssClass="input-medium" maxlength="10" placeholder="dd/MM/yyyy"/>
 			   <button id="effectiveDateBtn" type="button" class="btn"><i class="icon-calendar"></i></button>
 			</div>
-
 		</div>   
          
+        <div class="control-group">
+           <div class="controls">
+            <button id="btnSave" name="btnSave" type="submit" class="bt bt1"><spring:message code="fbs.common.ui.button.save"/></button>
+            <button id="btnReset" name="btnReset" type="button" class="bt bt1"><spring:message code="fbs.common.ui.button.reset"/></button>
+            <button id="btnBack" name="btnBack" type="button" class="bt bt-back"><spring:message code="fbs.common.ui.button.back"/></button>
+           </div>
+        </div>
          
       </div>
    </form:form>
