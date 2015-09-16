@@ -6,10 +6,14 @@ import java.util.Map;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
+import sg.com.fbs.core.techinfra.persistence.dao.DaoErrorCodesEnum;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
 import sg.com.fbs.core.techinfra.util.ControlSourceIF;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
+import sg.com.fbs.model.domain.mastercode.MasterCodeType;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeEnum;
+import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
+import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.controlsource.CodeMaintenanceControlSource;
 import sg.com.fbs.services.mastercode.dao.MasterCodeDAO;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
@@ -64,10 +68,49 @@ public class MasterCodeManager extends CommonFacade{
 		return codeValue;
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public ResponseCRUD saveCategoryType(MasterCodeTypeRequest masterCodeTypeRequest) throws MasterCodeException{
+		try {
+			if(checkIfExistsByCodeKey(masterCodeTypeRequest)){
+				throw new DataAccessObjectException(DaoErrorCodesEnum.DAO_RECORD_ALREADY_EXIST.toString());
+			}
+			
+			ResponseCRUD response = new ResponseCRUD();
+			MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+			
+			MasterCodeType masterCodeType = new MasterCodeType();
+			
+			masterCodeType.setVersion(1);
+			masterCodeType.setCodeKey(masterCodeTypeRequest.getCodeKey());
+			masterCodeType.setRemarks(masterCodeTypeRequest.getRemarks());
+			masterCodeType.setEffectiveDate(masterCodeTypeRequest.getEffectiveDate());
+			masterCodeType.setSortOrder(masterCodeTypeRequest.getSortOrder());
+			
+			masterCodeType = masterCodeDAO.insert(masterCodeType);
+			
+			if(masterCodeType.getId()>0){
+				masterCodeTypeRequest.setId(masterCodeType.getId());
+				response.setCrudResult(masterCodeTypeRequest);
+			}
+			
+			return response;
+		} catch (DataAccessObjectException e) {
+			throw new MasterCodeException(e.getMessageCode(), e.getCause());
+		}
+	}
 	
 	
-	
-	
+	private boolean checkIfExistsByCodeKey(MasterCodeTypeRequest masterCodeTypeRequest) throws DataAccessObjectException{
+		boolean exists = false;
+	    MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+	    MasterCodeType masterCodeType = (MasterCodeType) masterCodeDAO.findObject(MasterCodeType.class, MasterCodeType.CATEGORY_TYPE, masterCodeTypeRequest.getCodeKey());
+		
+	    if(masterCodeType!=null && masterCodeType.getId()!=masterCodeTypeRequest.getId()){
+	    	exists = true;
+	    }
+	    
+		return exists;
+	}
 	
 	
 	

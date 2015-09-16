@@ -57,6 +57,23 @@
         <put-attribute name="body" value="/WEB-INF/jsp/security/logout.jsp"/>
     </definition>
     
+    
+    <!-- Master Code Module -->
+    <definition name="mastercode/showAddCodeKey" extends="base.definition">
+        <put-attribute name="title" value="Master Code Maintenance"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/mastercode/addCodeKey.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="mastercode/addCodeKey" extends="base.definition">
+        <put-attribute name="title" value="Master Code Maintenance"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/mastercode/addCodeKey.jsp"></put-attribute>
+    </definition>
+
+    <definition name="mastercode/confirmCategoryType" extends="base.definition">
+        <put-attribute name="title" value="Master Code Maintenance"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/mastercode/confirmCategoryType.jsp"></put-attribute>
+    </definition>
+    
 </tiles-definitions>
 
 
