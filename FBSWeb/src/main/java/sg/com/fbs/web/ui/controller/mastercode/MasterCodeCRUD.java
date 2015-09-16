@@ -7,6 +7,7 @@ import sg.com.fbs.core.techinfra.web.WebCRUDIF;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
+import sg.com.fbs.services.mastercode.exception.MasterCodeException;
 import sg.com.fbs.services.mastercode.mgr.MasterCodeMgrBD;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -34,13 +35,18 @@ public class MasterCodeCRUD implements WebCRUDIF{
 	@Override
 	public IResponseCRUD<?> insert(BasePojoRequest pojoRequest, Object form,
 			HttpServletRequest request) throws CRUDException {
+		
 		IResponseCRUD<?> response = null;
 		MasterCodeMgrBD masterCodeMgrBD = new MasterCodeMgrBD();
-		
-		if(pojoRequest instanceof MasterCodeTypeRequest){
-			
+		try {
+			if (pojoRequest instanceof MasterCodeTypeRequest) {
+				
+				MasterCodeTypeRequest masterCodeTypeRequest = (MasterCodeTypeRequest) pojoRequest;
+				response = masterCodeMgrBD.saveCategoryType(masterCodeTypeRequest);
+			}
+		} catch (MasterCodeException e) {
+			throw new CRUDException(e.getMessageCode(), e);
 		}
-		
 		return response;
 	}
 

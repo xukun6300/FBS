@@ -15,6 +15,7 @@
      <list>
        <value>WEB-INF/ui/common/webui</value>
        <value>WEB-INF/ui/common/messages</value>
+       <value>WEB-INF/ui/common/exceptionmessages</value>
        <value>classpath:core-errors</value>
        <value>classpath:fbs-core</value>
      </list>

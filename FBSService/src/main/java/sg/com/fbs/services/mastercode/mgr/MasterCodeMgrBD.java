@@ -6,6 +6,8 @@ import java.util.Map;
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
+import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
+import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
 
 
@@ -76,7 +78,14 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		}
 	}
 	
-	
+	public ResponseCRUD saveCategoryType(MasterCodeTypeRequest masterCodeTypeRequest) throws MasterCodeException{
+		try {
+			Object obj = new MasterCodeManager().run(masterCodeTypeRequest);
+			return (ResponseCRUD) obj;
+		} catch (ApplicationCoreException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+	}
 }
 
 

@@ -46,7 +46,7 @@ public class MasterCodeTypeForm extends BusinessWebForm{
 		return remarks;
 	}
 	
-	@DateTimeFormat(pattern="dd/MM/yyyy")
+    @DateTimeFormat(pattern="dd/MM/yyyy")
 	@Required(detailMessage="{fbs.common.errors.effectivedate.required}",
 	          summaryMessage="{fbs.common.errors.effectivedate.required}")
 	public void setEffectiveDate(DateTime effectiveDate) {
