@@ -41,9 +41,10 @@ $.fn.codeGen = function(){
 		
 		if(allowedCharacters == undefined){
 			$.ajax({
-				url : jsBaseURL + '/common/codeAjax/getGeneratedCode.action',
+				//url : jsBaseURL + '/common/codeAjax/getGeneratedCode.action',
+				url :  'http://localhost:8080/FBSWebPortal/common/codeAjax/getGeneratedCode.action',				
 				dataType : 'text',
-				type : 'POST';
+				type : 'POST',
 			    data : {
 			    	name : value,
 			    	tbName : tableName

@@ -20,7 +20,7 @@ public class CodeGeneratorDAO extends BaseDao{
 	}
 	
 	public Collection findRecordsByCode(String tbName, Map<String, String> additionlWhere, String code) throws DataAccessObjectException{
-		if(additionlWhere!null && additionlWhere.size()==0){
+		if(additionlWhere!=null && additionlWhere.size()==0){
 			return findRecordsByCode(tbName, code);
 		}
 		
