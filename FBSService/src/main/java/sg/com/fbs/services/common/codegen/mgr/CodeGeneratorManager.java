@@ -76,6 +76,10 @@ public class CodeGeneratorManager extends CommonFacade{
 		getCurrentCodeMap().get(tbName).add(code);
 	}
 	
+	public String getGeneratedCode(String tbName, String name) throws ApplicationCoreException{
+		return getCurrentGeneratedCode(tbName, name);
+	}
+	
 	private String getCurrentGeneratedCode(String tbName, String name) throws ApplicationCoreException{
 		String code = getGeneratedCode(tbName, new HashMap<String, String>(), name, null);
 		int runningSequence = 2;
