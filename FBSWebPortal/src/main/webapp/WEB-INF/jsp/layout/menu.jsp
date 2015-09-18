@@ -26,7 +26,6 @@
 			
 			<ul class="nav nav-pills">
 		      <li role="presentation"><a href="#">Home</a></li>
-		      <li role="presentation"><a href="#">Help</a></li>
 		      <li role="presentation" class="dropdown">
 		        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">
 		          Menu1 <span class="caret"></span>
@@ -34,9 +33,9 @@
 		        <ul class="dropdown-menu" role="menu">
 		          <li><a href="${contextPath}/useraccountmanagement/searchUser.action">User Account Management</a></li>
 		          <li><a href="#">Another action</a></li>
-		          <li><a href="#">Something else here</a></li>
+		          <li><a href="#">Another action</a></li>
 		        <!--   <li class="divider"></li> -->
-		          <li><a href="#">Separated link</a></li>
+		          <li><a href="#">Another action</a></li>
 		        </ul>
 		      </li>
 		      
@@ -45,11 +44,11 @@
 		          Menu2 <span class="caret"></span>
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
-		          <li><a href="#">Action</a></li>
+		          <li><a href="${contextPath}/mastercode/showAddCodeKey.action">Add Code Key</a></li>
 		          <li><a href="#">Another action</a></li>
-		          <li><a href="#">Something else here</a></li>
+		          <li><a href="#">Another action</a></li>
 		        <!--   <li class="divider"></li> -->
-		          <li><a href="#">Separated link</a></li>
+		          <li><a href="#">Another action</a></li>
 		        </ul>
 		      </li>  
 		         

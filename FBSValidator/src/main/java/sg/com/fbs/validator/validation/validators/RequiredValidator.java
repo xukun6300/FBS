@@ -28,7 +28,7 @@ public class RequiredValidator extends AbstractValidator {
 		
 		if(fieldValue instanceof String){
 			
-			String string = (String)fieldLabel;
+			String string = (String)fieldValue;
 			boolean valid = string!=null && !string.trim().equals("");
 			if(!valid){ //if fieldLabel is null or ""
 				populateMessage(message, fieldLabel);

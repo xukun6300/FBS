@@ -48,6 +48,7 @@
 			<div class="controls">
 			   <netui:dateinput id="effectiveDate" path="effectiveDate" cssClass="input-medium" maxlength="10" placeholder="dd/MM/yyyy"/>
 			   <button id="effectiveDateBtn" type="button" class="btn"><i class="icon-calendar"></i></button>
+			   <form:errors path="effectiveDate" cssClass="mandatory" element="div"/>
 			</div>
 		</div>   
          
