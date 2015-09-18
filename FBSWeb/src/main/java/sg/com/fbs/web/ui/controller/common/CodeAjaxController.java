@@ -35,7 +35,7 @@ public class CodeAjaxController {
 			return generatedCode;
 		}
 		
-		generatedCode = new CodeGeneratorManagerBD().getGeneratedCode(tbEnum.getTableName(), tbName);
+		generatedCode = new CodeGeneratorManagerBD().getGeneratedCode(tbEnum.getTableName(), name);
 		
 		return generatedCode;
 	}
