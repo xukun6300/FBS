@@ -101,7 +101,6 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\r\n");
       out.write("\t\t\t<ul class=\"nav nav-pills\">\r\n");
       out.write("\t\t      <li role=\"presentation\"><a href=\"#\">Home</a></li>\r\n");
-      out.write("\t\t      <li role=\"presentation\"><a href=\"#\">Help</a></li>\r\n");
       out.write("\t\t      <li role=\"presentation\" class=\"dropdown\">\r\n");
       out.write("\t\t        <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" role=\"button\" aria-expanded=\"true\">\r\n");
       out.write("\t\t          Menu1 <span class=\"caret\"></span>\r\n");
@@ -111,9 +110,9 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("/useraccountmanagement/searchUser.action\">User Account Management</a></li>\r\n");
       out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
-      out.write("\t\t          <li><a href=\"#\">Something else here</a></li>\r\n");
+      out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
       out.write("\t\t        <!--   <li class=\"divider\"></li> -->\r\n");
-      out.write("\t\t          <li><a href=\"#\">Separated link</a></li>\r\n");
+      out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
       out.write("\t\t        </ul>\r\n");
       out.write("\t\t      </li>\r\n");
       out.write("\t\t      \r\n");
@@ -122,11 +121,13 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t          Menu2 <span class=\"caret\"></span>\r\n");
       out.write("\t\t        </a>\r\n");
       out.write("\t\t        <ul class=\"dropdown-menu\" role=\"menu\">\r\n");
-      out.write("\t\t          <li><a href=\"#\">Action</a></li>\r\n");
+      out.write("\t\t          <li><a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/mastercode/showAddCodeKey.action\">Add Code Key</a></li>\r\n");
       out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
-      out.write("\t\t          <li><a href=\"#\">Something else here</a></li>\r\n");
+      out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
       out.write("\t\t        <!--   <li class=\"divider\"></li> -->\r\n");
-      out.write("\t\t          <li><a href=\"#\">Separated link</a></li>\r\n");
+      out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
       out.write("\t\t        </ul>\r\n");
       out.write("\t\t      </li>  \r\n");
       out.write("\t\t         \r\n");
