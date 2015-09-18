@@ -59,6 +59,34 @@ public class CodeGeneratorManager extends CommonFacade{
 		return localCodeMap.get();
 	}
 	
+	private boolean isCurrentCodeExist(String tbName, String code){
+		boolean exist = false;
+		
+		if(getCurrentCodeMap().containsKey(tbName)){
+			exist = getCurrentCodeMap().get(tbName).contains(code);
+		}	
+		return exist;
+	}
+	
+	private void addCurrentCode(String tbName, String code){
+		if(!getCurrentCodeMap().containsKey(tbName)){
+			getCurrentCodeMap().put(tbName, new HashSet<String>());
+		}
+		
+		getCurrentCodeMap().get(tbName).add(code);
+	}
+	
+	private String getCurrentGeneratedCode(String tbName, String name) throws ApplicationCoreException{
+		String code = getGeneratedCode(tbName, new HashMap<String, String>(), name, null);
+		int runningSequence = 2;
+		while(isCurrentCodeExist(tbName, code)){
+			code = getRunningCode(getCodeFromName(name, null), runningSequence++);
+		}
+		
+		addCurrentCode(tbName, code);
+		return code;	
+	}
+	
 	public String getGeneratedCode(String tbName, Map<String, String> additionlWhere, String name, String allowedCharacters) throws ApplicationCoreException{
 		String baseCode = getCodeFromName(name, allowedCharacters);
 		IResponseCRUD crudEqual = findRecordsByCode(tbName, additionlWhere, baseCode);
