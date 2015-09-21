@@ -13,5 +13,12 @@ public enum DaoErrorCodesEnum {
 		public String toString() {
 			return "SYS0008";
 		}
-	}
+	},
+	
+	DAO_RECORD_NOT_FOUND {
+		@Override
+		public String toString() {
+			return "core.dao.error.record.not.found";
+		}
+	},
 }

@@ -43,5 +43,12 @@ public enum MasterCodeWebEnum implements WebDropDownListIF{
 		public String toString() {
 			return "showAddCodeValue";
 		}
+	},
+	
+	CONFIRM_ADD_CODE_VALUE_JSP {
+		@Override
+		public String toString() {
+			return "confirmCodeValue";
+		}
 	}
 }

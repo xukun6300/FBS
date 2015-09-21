@@ -37,6 +37,12 @@ public class MasterCodeDAO extends BaseDao{
 		masterCodeType = (MasterCodeType) super.insert(masterCodeType);
 		return masterCodeType;
 	}
+	
+	public MasterCode insert(MasterCode masterCode) throws DataAccessObjectException{
+		//add remove cache ,will implement later
+		masterCode = (MasterCode) super.insert(masterCode);
+		return masterCode;
+	}
 }
 
 

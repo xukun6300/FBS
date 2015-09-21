@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 
 import lombok.Getter;
 import lombok.Setter;
+import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.system.web.ValueLabelPair;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -12,8 +13,11 @@ import sg.com.fbs.model.system.web.ValueLabelPair;
  * @Created 11:52:58 am 16 Sep, 2015 $
  * 
  */
-public class MasterCodeRequest {
+public class MasterCodeRequest extends BasePojoRequest{
 	
+	private static final long serialVersionUID = -7795980426670039436L;
+
+
 	@Setter
 	@Getter
 	protected ValueLabelPair categoryType = new ValueLabelPair();

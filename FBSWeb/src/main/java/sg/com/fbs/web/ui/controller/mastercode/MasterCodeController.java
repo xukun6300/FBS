@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import sg.com.fbs.core.techinfra.web.BaseWebController;
 import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
+import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeForm;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeForm;
@@ -83,11 +84,25 @@ public class MasterCodeController extends BaseWebController{
 	 */
 	public ModelAndView showAddCodeValue(HttpServletRequest request, HttpServletResponse response){
 		MasterCodeForm masterCodeForm = new MasterCodeForm();
-		//setCrudMode(WebCRUDEnum.NONE);
 		Mvc mvc = new Mvc(masterCodeForm, MasterCodeWebEnum.SHOW_ADD_CODE_VALUE_JSP.toString());
 		return mvc;
 	}
 	
+	/**
+	 * Context /mastercode/addCodeValue.action
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView addCodeValue(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeForm masterCodeForm = new MasterCodeForm();
+		MasterCodeRequest masterCodeRequest = new MasterCodeRequest();
+		setCrudMode(WebCRUDEnum.INSERT_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		setValidationErrorPage(MasterCodeWebEnum.SHOW_ADD_CODE_VALUE_JSP.toString());
+		Mvc mvc = new Mvc(masterCodeForm, MasterCodeWebEnum.CONFIRM_ADD_CODE_VALUE_JSP.toString(), masterCodeRequest);
+		return mvc;
+	}
 	
 
 }

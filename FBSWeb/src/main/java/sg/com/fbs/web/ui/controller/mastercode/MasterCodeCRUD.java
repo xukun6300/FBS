@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import sg.com.fbs.core.techinfra.exception.CRUDException;
 import sg.com.fbs.core.techinfra.web.WebCRUDIF;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
+import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
@@ -43,6 +44,9 @@ public class MasterCodeCRUD implements WebCRUDIF{
 				
 				MasterCodeTypeRequest masterCodeTypeRequest = (MasterCodeTypeRequest) pojoRequest;
 				response = masterCodeMgrBD.saveCategoryType(masterCodeTypeRequest);
+			}else if (pojoRequest instanceof MasterCodeRequest) {
+				MasterCodeRequest masterCodeRequest = (MasterCodeRequest) pojoRequest;
+				response = masterCodeMgrBD.saveCodeValue(masterCodeRequest);
 			}
 		} catch (MasterCodeException e) {
 			throw new CRUDException(e.getMessageCode(), e);
