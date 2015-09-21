@@ -63,13 +63,6 @@ public final class confirmCategoryType_jsp extends org.apache.jasper.runtime.Htt
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<!-- <style>\r\n");
-      out.write("label{\r\n");
-      out.write(" width:60px;\r\n");
-      out.write("}\r\n");
-      out.write("\r\n");
-      out.write("</style> -->\r\n");
-      out.write("\r\n");
       out.write("<div class=\"container-fluid\">\r\n");
       out.write("\t<div class=\"row-fluid\">\r\n");
       out.write("\t\t<div class=\"block-center span12\">\r\n");

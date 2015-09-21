@@ -56,6 +56,12 @@ public final class include_002dscripts_jsp extends org.apache.jasper.runtime.Htt
 
       out.write("\r\n");
       out.write("\r\n");
+      out.write("<script type=\"text/javascript\">\r\n");
+      out.write("  var jsBaseURL = '");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("';\r\n");
+      out.write("</script>\r\n");
+      out.write("\r\n");
       out.write("<script type=\"text/javascript\" src=\"");
       if (_jspx_meth_spring_005furl_005f0(_jspx_page_context))
         return;
@@ -104,7 +110,7 @@ public final class include_002dscripts_jsp extends org.apache.jasper.runtime.Htt
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_005furl_005f0 = (org.springframework.web.servlet.tags.UrlTag) _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_spring_005furl_005f0.setParent(null);
-    // /WEB-INF/jsp/layout/include-scripts.jsp(3,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/include-scripts.jsp(7,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005furl_005f0.setValue("/static/external/jquery/jquery-1.7.2.min.js");
     int[] _jspx_push_body_count_spring_005furl_005f0 = new int[] { 0 };
     try {
@@ -131,7 +137,7 @@ public final class include_002dscripts_jsp extends org.apache.jasper.runtime.Htt
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_005furl_005f1 = (org.springframework.web.servlet.tags.UrlTag) _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_005furl_005f1.setPageContext(_jspx_page_context);
     _jspx_th_spring_005furl_005f1.setParent(null);
-    // /WEB-INF/jsp/layout/include-scripts.jsp(4,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/include-scripts.jsp(8,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005furl_005f1.setValue("/static/external/jqueryui/js/jquery-ui-1.10.3.custom.min.js");
     int[] _jspx_push_body_count_spring_005furl_005f1 = new int[] { 0 };
     try {
@@ -158,7 +164,7 @@ public final class include_002dscripts_jsp extends org.apache.jasper.runtime.Htt
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_005furl_005f2 = (org.springframework.web.servlet.tags.UrlTag) _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_005furl_005f2.setPageContext(_jspx_page_context);
     _jspx_th_spring_005furl_005f2.setParent(null);
-    // /WEB-INF/jsp/layout/include-scripts.jsp(5,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/include-scripts.jsp(9,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005furl_005f2.setValue("/static/internal/js/CodeGen.js");
     int[] _jspx_push_body_count_spring_005furl_005f2 = new int[] { 0 };
     try {
@@ -185,7 +191,7 @@ public final class include_002dscripts_jsp extends org.apache.jasper.runtime.Htt
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_005furl_005f3 = (org.springframework.web.servlet.tags.UrlTag) _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_005furl_005f3.setPageContext(_jspx_page_context);
     _jspx_th_spring_005furl_005f3.setParent(null);
-    // /WEB-INF/jsp/layout/include-scripts.jsp(6,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/include-scripts.jsp(10,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005furl_005f3.setValue("/static/internal/js/Functions.js");
     int[] _jspx_push_body_count_spring_005furl_005f3 = new int[] { 0 };
     try {
@@ -212,7 +218,7 @@ public final class include_002dscripts_jsp extends org.apache.jasper.runtime.Htt
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_005furl_005f4 = (org.springframework.web.servlet.tags.UrlTag) _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_005furl_005f4.setPageContext(_jspx_page_context);
     _jspx_th_spring_005furl_005f4.setParent(null);
-    // /WEB-INF/jsp/layout/include-scripts.jsp(7,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/include-scripts.jsp(11,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005furl_005f4.setValue("/static/internal/js/jQuery.Plugins.js");
     int[] _jspx_push_body_count_spring_005furl_005f4 = new int[] { 0 };
     try {
@@ -239,7 +245,7 @@ public final class include_002dscripts_jsp extends org.apache.jasper.runtime.Htt
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_005furl_005f5 = (org.springframework.web.servlet.tags.UrlTag) _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_005furl_005f5.setPageContext(_jspx_page_context);
     _jspx_th_spring_005furl_005f5.setParent(null);
-    // /WEB-INF/jsp/layout/include-scripts.jsp(8,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/include-scripts.jsp(12,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005furl_005f5.setValue("/static/external/jqueryplugins/datetimepicker/js/jquery-ui-timepicker-addon.js");
     int[] _jspx_push_body_count_spring_005furl_005f5 = new int[] { 0 };
     try {
@@ -266,7 +272,7 @@ public final class include_002dscripts_jsp extends org.apache.jasper.runtime.Htt
     org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_005furl_005f6 = (org.springframework.web.servlet.tags.UrlTag) _005fjspx_005ftagPool_005fspring_005furl_0026_005fvalue_005fnobody.get(org.springframework.web.servlet.tags.UrlTag.class);
     _jspx_th_spring_005furl_005f6.setPageContext(_jspx_page_context);
     _jspx_th_spring_005furl_005f6.setParent(null);
-    // /WEB-INF/jsp/layout/include-scripts.jsp(9,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/layout/include-scripts.jsp(13,36) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005furl_005f6.setValue("/static/external/bootstrap/js/bootstrap.min.js");
     int[] _jspx_push_body_count_spring_005furl_005f6 = new int[] { 0 };
     try {

@@ -1,5 +1,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
+<script type="text/javascript">
+  var jsBaseURL = '${pageContext.request.contextPath}';
+</script>
+
 <script type="text/javascript" src="<spring:url value="/static/external/jquery/jquery-1.7.2.min.js"/> "></script>
 <script type="text/javascript" src="<spring:url value="/static/external/jqueryui/js/jquery-ui-1.10.3.custom.min.js" />" ></script>
 <script type="text/javascript" src="<spring:url value="/static/internal/js/CodeGen.js"/>"></script>

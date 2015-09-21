@@ -97,7 +97,7 @@ public class CodeGeneratorManager extends CommonFacade{
 		Collection sameRecords = crudEqual.getQueryResult();
 		
 		if(sameRecords.isEmpty() &&!checkExistCodeMap(tbName, baseCode)){
-			return returnCode(tbName, baseCode);
+			return returnCode(tbName, baseCode); //will add to code map also
 		}else{
 			IResponseCRUD crudLike = findRecordsLikeCode(tbName, additionlWhere, baseCode);
 		    Collection likeRecords = crudLike.getQueryResult();
@@ -107,7 +107,7 @@ public class CodeGeneratorManager extends CommonFacade{
 		    	return returnCode(tbName, runningCode1);
 		    }else{
 		    	int running = 2;
-		    	String retCode = getRunningCode(baseCode, running++);
+		    	String retCode = getRunningCode(baseCode, running++); //when execute getRunningCode, running is 2, after the execution it will change to 3.
 		    	while(likeRecords.contains(retCode) || checkExistCodeMap(tbName, retCode)){
 		    		retCode = getRunningCode(baseCode, running++);
 		    	}
@@ -146,6 +146,8 @@ public class CodeGeneratorManager extends CommonFacade{
 		String code = "";
 		
 		for (int i = 0; i < chars.length; i++) {
+			
+			//only accept a-z, A-Z and _ for base condition, in allowedCharacters can define special chars
 			boolean baseCondition = (chars[i]>='a' && chars[i]<='z') || (chars[i]>='A' && chars[i]<='Z') || (chars[i]=='_');
 			
 			if(allowedCharacters!=null && allowedCharacters.length()>0){
