@@ -12,6 +12,7 @@ import sg.com.fbs.core.techinfra.web.BaseWebController;
 import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
+import sg.com.fbs.web.ui.form.mastercode.MasterCodeForm;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -74,6 +75,33 @@ public class MasterCodeController extends BaseWebController{
 		
 	}
 	
+	/**
+	 * Context /mastercode/showAddCodeValue.action
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView showAddCodeValue(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeForm masterCodeForm = new MasterCodeForm();
+		//setCrudMode(WebCRUDEnum.NONE);
+		Mvc mvc = new Mvc(masterCodeForm, MasterCodeWebEnum.SHOW_ADD_CODE_VALUE_JSP.toString());
+		return mvc;
+	}
+	
 	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

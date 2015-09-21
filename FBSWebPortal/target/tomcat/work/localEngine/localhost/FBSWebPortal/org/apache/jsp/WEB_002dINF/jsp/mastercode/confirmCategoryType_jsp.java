@@ -90,7 +90,7 @@ public final class confirmCategoryType_jsp extends org.apache.jasper.runtime.Htt
       out.write("\t\t\t\t</div>\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("            <button id=\"btnAdd\" name=\"btnAdd\" class=\"bt bt1\" onClick=\"javascript:location.href='showAddCodeKey.action'\" type=\"button\">Add Another Code Key</button> \r\n");
-      out.write("            <button id=\"btnAddValues\" name=\"btnAddValues\" class=\"bt bt1\" onClick=\"javascript:location.href='showAddCodeValues.action?codeKey=");
+      out.write("            <button id=\"btnAddValues\" name=\"btnAddValues\" class=\"bt bt1\" onClick=\"javascript:location.href='showAddCodeValue.action?codeKey=");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.codeKey}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("'\" type=\"button\">Add Code Values</button>\r\n");
       out.write("            <button id=\"btnBack\" name=\"btnBack\" class=\"bt bt-back\" onClick=\"javascript:location.href='showSearchCategoryType.action'\" type=\"button\">Back</button>\r\n");

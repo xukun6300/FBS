@@ -29,7 +29,7 @@
 				</div>
 			</div>
             <button id="btnAdd" name="btnAdd" class="bt bt1" onClick="javascript:location.href='showAddCodeKey.action'" type="button">Add Another Code Key</button> 
-            <button id="btnAddValues" name="btnAddValues" class="bt bt1" onClick="javascript:location.href='showAddCodeValues.action?codeKey=${command.codeKey}'" type="button">Add Code Values</button>
+            <button id="btnAddValues" name="btnAddValues" class="bt bt1" onClick="javascript:location.href='showAddCodeValue.action?codeKey=${command.codeKey}'" type="button">Add Code Values</button>
             <button id="btnBack" name="btnBack" class="bt bt-back" onClick="javascript:location.href='showSearchCategoryType.action'" type="button">Back</button>
 		</div>
 	</div>
