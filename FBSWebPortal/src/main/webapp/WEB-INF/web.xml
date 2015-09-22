@@ -69,6 +69,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
       <tracking-mode>COOKIE</tracking-mode>
    </session-config>
    
+   <error-page>
+      <exception-type>java.lang.Exception</exception-type>
+      <location>/WEB-INF/jsp/uncaughtException.jsp</location> 
+   </error-page>
    
    <!--  Spring Security Config -->
    <!-- Spring's DelegatingFilterProxy provides the link between web.xml and the application context. -->
