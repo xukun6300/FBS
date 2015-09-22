@@ -34,7 +34,7 @@
                       <span id="spanCK" class="input-large uneditable-input">${param.codeKey}</span>
                    </div>
                </div>
-               <form:hidden path="categoryType.value" value="${param.codeKey}"/>
+               <form:hidden path="categoryType.value" value="${param.codeKey}"/>				   
                <form:hidden path="categoryType.label" value="${param.remarks}"/>
             </c:otherwise>
          </c:choose>

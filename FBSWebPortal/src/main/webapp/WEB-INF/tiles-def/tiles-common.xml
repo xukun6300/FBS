@@ -81,7 +81,7 @@
     
     <definition name="mastercode/confirmCodeValue" extends="base.definition">
         <put-attribute name="title" value="Master Code Maintenance"/>
-        <put-attribute name="body" value="/WEB-INF/jsp/mastercode/addCodeValue.jsp"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/mastercode/confirmCodeValue.jsp"></put-attribute>
     </definition>
     
 </tiles-definitions>

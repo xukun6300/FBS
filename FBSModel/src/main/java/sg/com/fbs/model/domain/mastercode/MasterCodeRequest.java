@@ -20,7 +20,7 @@ public class MasterCodeRequest extends BasePojoRequest{
 
 	@Setter
 	@Getter
-	protected ValueLabelPair categoryType = new ValueLabelPair();
+	protected ValueLabelPair categoryType = new ValueLabelPair();//this for what
 	
 	@Setter
 	@Getter

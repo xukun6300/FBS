@@ -162,8 +162,8 @@ public class MasterCodeManager extends CommonFacade{
 			
 			masterCode = masterCodeDAO.insert(masterCode);
 			if(masterCode.getId()>0){
-				response.setCrudResult(masterCode);
-				masterCodeRequest.getCategoryType().setLabel(masterCodeType.getName()); //??
+				masterCodeRequest.getCategoryType().setLabel(masterCodeType.getName()); 
+				response.setCrudResult(masterCodeRequest);	
 			}
 			
 			return response;			
