@@ -144,7 +144,6 @@ public class WebMappingExceptionResolver extends AbstractHandlerExceptionResolve
 				}else{
 					if(moduleContext!=null && jspErrorPage!=null){
 						viewName = moduleContext+jspErrorPage;
-						viewName = USER_UNCAUGHT_EXCEPTION_PAGE;
 					}else {
 						viewName = USER_UNCAUGHT_EXCEPTION_PAGE;
 					}
