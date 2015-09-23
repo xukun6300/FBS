@@ -91,7 +91,7 @@ public class WebMappingExceptionResolver extends AbstractHandlerExceptionResolve
 		Map preloadMap = null;
 		ModelAndView mvc = null;
 		
-		String viewName = determineViewName(ex, request);
+		String viewName = determineViewName(ex, request); //userUncaughtException
 
 		boolean useGenericExceptionPage = false;
 		if(ex instanceof ApplicationCoreException){
@@ -100,17 +100,19 @@ public class WebMappingExceptionResolver extends AbstractHandlerExceptionResolve
 				probableCause = probableCause.getCause();
 			}
 			
-			boolean redirectOnError = true;
+			boolean redirectOnError = true;       
+			
+			//ApplicationCoreException is not instance of RuntimeException, only those extend RuntimeException exceptions are
 			if((probableCause.getCause() instanceof RuntimeException || probableCause instanceof RuntimeException) && !(probableCause.getCause() instanceof DataIntegrityViolationException)){
 				jspErrorPage = USER_UNCAUGHT_EXCEPTION_PAGE;
 				useGenericExceptionPage = true;
 			}else {
-				jspErrorPage = (String) request.getAttribute(BaseWebController.JSP_ERRORS_PAGE);
+				jspErrorPage = (String) request.getAttribute(BaseWebController.JSP_ERRORS_PAGE);//validation error page
 				if(jspErrorPage==null){
 					jspErrorPage = USER_UNCAUGHT_EXCEPTION_PAGE;
 					useGenericExceptionPage = true;
 				}
-				redirectOnError = (Boolean) request.getAttribute(BaseWebController.REDIRECT_ON_ERROR);
+				redirectOnError = (Boolean) request.getAttribute(BaseWebController.REDIRECT_ON_ERROR);//false
 			}
 			
 			commandForm = (BaseWebFormIF) request.getAttribute(BaseWebEnum.COMMAND_FORM.toString());
@@ -142,6 +144,7 @@ public class WebMappingExceptionResolver extends AbstractHandlerExceptionResolve
 				}else{
 					if(moduleContext!=null && jspErrorPage!=null){
 						viewName = moduleContext+jspErrorPage;
+						viewName = USER_UNCAUGHT_EXCEPTION_PAGE;
 					}else {
 						viewName = USER_UNCAUGHT_EXCEPTION_PAGE;
 					}
@@ -153,7 +156,7 @@ public class WebMappingExceptionResolver extends AbstractHandlerExceptionResolve
 			
 			ServletRequestDataBinder binder = (ServletRequestDataBinder) request.getAttribute(BaseWebController.CONTROLLER_BINDER);
 			if(binder!=null){
-				binder.getBindingResult().reject(message, message);
+				binder.getBindingResult().reject(message, message); //here will display the message to error page
 				mvc.addAllObjects(binder.getBindingResult().getModel());
 			}
 		}
@@ -163,8 +166,7 @@ public class WebMappingExceptionResolver extends AbstractHandlerExceptionResolve
 		}
 		
 		// Apply HTTP status code for error views, if specified.
-	    // Only apply it if we're processing a top-level request.
-		
+	    // Only apply it if we're processing a top-level request.		
 		Integer statusCode = determineStatusCode(request, viewName);
 		if(statusCode!=null){
 			applyStatusCodeIfPossible(request, response, statusCode);

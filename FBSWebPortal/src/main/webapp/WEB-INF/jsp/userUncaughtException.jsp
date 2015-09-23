@@ -17,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <c:import url="layout/include.jsp"></c:import>
+    <c:import url="include.jsp"></c:import>
 </head>
 <body>
 
@@ -41,9 +41,5 @@
 		</div>
 	</div>
 
-	<footer>
-	    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; Copyright 2012</p>
-	</footer>
-    
 </body>
 </html>

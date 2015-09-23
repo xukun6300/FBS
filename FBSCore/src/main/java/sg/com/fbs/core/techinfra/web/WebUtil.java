@@ -67,9 +67,7 @@ public class WebUtil {
 							
 							break;
 						}
-					}
-					
-					
+					}	
 				} catch (NoSuchMethodException e) {
 					throw new ApplicationCoreException(e);
 				} catch (IllegalAccessException e) {
