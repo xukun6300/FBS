@@ -37,7 +37,7 @@ public class WebMappingExceptionResolver extends AbstractHandlerExceptionResolve
 	
 	private static final String USER_UNCAUGHT_EXCEPTION_PAGE = "userUncaughtException";
 	
-	private static final String DEBUG_UNCAUGHT_EXCEPTION_PAGE = "uncaughtException";
+	//private static final String DEBUG_UNCAUGHT_EXCEPTION_PAGE = "uncaughtException";
 	
 	private Properties exceptionMappings;
 	
@@ -176,9 +176,19 @@ public class WebMappingExceptionResolver extends AbstractHandlerExceptionResolve
 			if(jspErrorPage == null){
 				returnView.setViewName(USER_UNCAUGHT_EXCEPTION_PAGE);
 			}
+			
+			try {
+				WebUtil.populateDescriptionOnPage(preloadMap, methodName, returnView, commandForm);
+			} catch (ApplicationCoreException e) {
+				logger.error(e.getMessage());
+			}
 		}
 		
-		return null;
+		if(jspErrorPage!=null){
+			returnView.addObject(BaseWebEnum.COMMAND_FORM.toString(), commandForm);
+		}
+		
+		return returnView;
 	}
 	
 	protected Integer determineStatusCode(HttpServletRequest request, String viewName){

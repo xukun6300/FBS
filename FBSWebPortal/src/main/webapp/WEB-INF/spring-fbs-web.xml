@@ -47,7 +47,15 @@
 <bean id="viewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"/>
 <!-- For tiles integration end -->
 
-
+<bean class="sg.com.fbs.core.techinfra.web.WebMappingExceptionResolver">
+   <property name="exceptionMappings">
+      <props>
+        <prop key="sg.com.fbs.core.techinfra.exception.ApplicationCoreException">userUncaughtException</prop>
+        <prop key="sg.com.fbs.core.techinfra.exception.CRUDException">userUncaughtException</prop>
+        <prop key="java.lang.Exception">userUncaughtException</prop>
+      </props>
+   </property>
+</bean>
 
 
 </beans>
