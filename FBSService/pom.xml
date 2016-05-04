@@ -37,11 +37,18 @@
        Due to Oracle license restriction, there is NO public Maven repository provides Oracle JDBC driver. 
        To use Oracle jdbc drive with Maven, you have to install it manually into your Maven local repository.
     -->
-    <dependency>
+    <!-- <dependency>
        <groupId>com.oracle</groupId>
        <artifactId>ojdbc6</artifactId>
        <version>11.2.0</version>
-    </dependency>
+    </dependency> -->
+    
+    <!-- Manual add db2jcc4-10.1.jar to local .m2/repository/com/ibm/db2/jcc -->
+    <dependency>
+	    <groupId>com.ibm.db2.jcc</groupId>
+	    <artifactId>db2jcc4</artifactId>
+	    <version>10.1</version>
+	</dependency>
         
     <dependency>
       <groupId>junit</groupId>
