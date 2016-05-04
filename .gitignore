@@ -56,3 +56,4 @@ FBSWeb/target/classes/sg/com/fbs/web/ui/controller/system/security/uam/UserAccou
 *.class
 FBSWeb/target/classes/sg/com/fbs/web/ui/form/system/security/uam/RegisterUserForm.class
 *.class
+*.class
