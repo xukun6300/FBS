@@ -88,6 +88,7 @@ public class FacadeExecutor {
 				return MethodUtils.invokeMethod(facade, methodName, parameter);
 			}
 		}catch (InvocationTargetException e) {
+			e.printStackTrace(); 
 			LoggerUtil.logError(logger, e);
 			//System.out.println(e.getCause().getMessage());
 			Throwable t = e.getCause();

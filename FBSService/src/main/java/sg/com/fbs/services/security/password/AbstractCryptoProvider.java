@@ -216,6 +216,8 @@ public abstract class AbstractCryptoProvider implements CryptoProvider{
 		}
 		
 		try {			
+			//if getting java.security.InvalidKeyException: Illegal key size
+			//replace JAVA_HOME/jre{version_number}/lib/security folder local_policy.jar and US_export_policy.jar
 			cipher.init(Cipher.ENCRYPT_MODE, key, iv);
 			//cipher.init(Cipher.ENCRYPT_MODE, key); 
 			byte[] cipherText = cipher.doFinal(clearText);
