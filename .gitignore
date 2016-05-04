@@ -57,3 +57,6 @@ FBSWeb/target/classes/sg/com/fbs/web/ui/controller/system/security/uam/UserAccou
 FBSWeb/target/classes/sg/com/fbs/web/ui/form/system/security/uam/RegisterUserForm.class
 *.class
 *.class
+*.class
+FBSService/target/classes/sg/com/fbs/services/security/password/AbstractCryptoProvider.class
+FBSService/target/classes/sg/com/fbs/services/security/password/AbstractCryptoProvider.class

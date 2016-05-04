@@ -108,11 +108,10 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t        <ul class=\"dropdown-menu\" role=\"menu\">\r\n");
       out.write("\t\t          <li><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("/useraccountmanagement/searchUser.action\">User Account Management</a></li>\r\n");
-      out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
-      out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
-      out.write("\t\t        <!--   <li class=\"divider\"></li> -->\r\n");
-      out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
+      out.write("/useraccountmanagement/searchUser.action\">Search Users</a></li>\r\n");
+      out.write("\t\t          <li><a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/useraccountmanagement/showRegisterUser.action\">Register New User</a></li>\r\n");
       out.write("\t\t        </ul>\r\n");
       out.write("\t\t      </li>\r\n");
       out.write("\t\t      \r\n");

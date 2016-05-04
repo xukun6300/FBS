@@ -635,7 +635,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
           return true;
         out.write("</label>\r\n");
         out.write("                   <div class=\"controls\">\r\n");
-        out.write("                      <span id=\"spanCK\" class=\"input-large uneditable-input\">");
+        out.write("                      <span id=\"spanCK\" class=\"input-xlarge uneditable-input\">");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.codeKey}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("</span>\r\n");
         out.write("                   </div>\r\n");
