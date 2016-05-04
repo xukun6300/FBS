@@ -29,7 +29,7 @@ body{
 	margin:0;
 	padding:0;
 	border:0;
-	font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
+	font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size:14px; 
 	color: #333;
 	background:#efefef;
@@ -3345,14 +3345,14 @@ fieldset legend.section {
 	padding-top:10px;
 	background:no-repeat;
 	cursor:pointer;
-	font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
+	font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: 300;
 	
 }
 
 fieldset legend.section i.icon-white {
 	margin: 9px 2px 0 0; 
-	font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
+	font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: 300
 }
 
