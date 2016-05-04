@@ -21,20 +21,25 @@
 <script type="text/javascript" src="${contextPath}/static/internal/js/ana/rsa.js"></script>
 <%-- <script type="text/javascript" src="${contextPath}/static/internal/js/jQuery.Plugins.js"></script>  --%> <!-- for date picker, no need, it includes in include-scripts.jsp in main.jsp -->
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row-fluid">
-    <div class="block-center span12">
+    <div class="block-center span12"> -->
+    
+ <fieldset>
+      <legend class="section">Registration For New User</legend>
+
+      <div class="container-fluid">
+		  <div class="row-fluid">
+		    <div class="block-center span12">
        <form:form method="POST" id="registerForm" name="registerForm" commandName="command" 
             action="saveNewUser.action" class="form-horizontal" autocomplete="off">
-            
-          <h1>Registration For New User</h1>
           <form:hidden path="salt"/>
           <form:hidden path="modulus" value="${modulus}"/>
           <form:hidden path="exponent" value="${exponent}"/> 
            <!-- Person Details -->
           <div class="clearfix">
             <strong><spring:message code="fbs.common.registeruser.ui.label.personaldetails"></spring:message></strong>
-            <br/>
+            <br/><br>
   
             <div class="control-group required">
               <label class="control-label"> <spring:message code="fbs.common.ana.registeruser.ui.label.emailfbsid"></spring:message> </label>
@@ -93,7 +98,7 @@
          <!-- Contact Details -->
          <div class="clearfix">
            <strong><spring:message code="fbs.common.registeruser.ui.label.contactdetails"></spring:message></strong>
-           <br/>
+           <br/><br>
            
            <div class="control-group required">
               <label class="control-label" for="primaryContactTypeT"><spring:message code="fbs.common.ana.registeruser.ui.label.primarycontact"></spring:message></label>
@@ -128,7 +133,7 @@
          <!-- Security Questions --> 
          <div class="clearfix"> 
             <strong><spring:message code="fbs.common.registeruser.ui.label.securityquestions"></spring:message></strong>
-            <br>
+            <br><br>
             
             <div class="control-group required">
                <label class="control-label" for="securityQuestion1"><spring:message code="fbs.common.registeruser.ui.label.securityquestions.question1" /></label>
@@ -213,9 +218,11 @@
          </div>
           
        </form:form>   
-    </div>
-  </div>
-</div>
+		       </div>
+		  </div>
+		</div> 
+       </fieldset>
+   <!--  -->
 
 <div id="modalApplicationError" class="modal hide fade alert-error">
 	<div class="modal-body">

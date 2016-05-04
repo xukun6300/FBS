@@ -31,7 +31,7 @@
                <div class="control-group">
                    <label class="control-label" for=""><spring:message code="fbs.common.codemaintenance.ui.label.code.key"/></label>
                    <div class="controls">
-                      <span id="spanCK" class="input-large uneditable-input">${param.codeKey}</span>
+                      <span id="spanCK" class="input-xlarge uneditable-input">${param.codeKey}</span>
                    </div>
                </div>
                <form:hidden path="categoryType.value" value="${param.codeKey}"/>				   

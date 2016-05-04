@@ -31,11 +31,8 @@
 		          Menu1 <span class="caret"></span>
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
-		          <li><a href="${contextPath}/useraccountmanagement/searchUser.action">User Account Management</a></li>
-		          <li><a href="#">Another action</a></li>
-		          <li><a href="#">Another action</a></li>
-		        <!--   <li class="divider"></li> -->
-		          <li><a href="#">Another action</a></li>
+		          <li><a href="${contextPath}/useraccountmanagement/searchUser.action">Search Users</a></li>
+		          <li><a href="${contextPath}/useraccountmanagement/showRegisterUser.action">Register New User</a></li>
 		        </ul>
 		      </li>
 		      

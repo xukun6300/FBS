@@ -16,7 +16,7 @@
 
    <property name="authenticationSuccessHandler">
 		<bean class="sg.com.fbs.security.web.auth.fbsid.FbsSavedRequestAwareAuthenticationSuccessHandler">
-	     	<property name="defaultTargetUrl" value="/useraccountmanagement/showRegisterUser.action"/>
+	     	<property name="defaultTargetUrl" value="/useraccountmanagement/searchUser.action"/>
 		</bean>		
    </property>
 
