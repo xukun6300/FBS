@@ -33,66 +33,158 @@ public class ActionTag extends GridComponent{
 	
 	private static final String COLUMN_NAME ="ActionTag";
 	
-	@Setter
-	@Getter
 	private String replaceNull;
 	
-	@Setter
-	@Getter
 	private String index;
-	
-	@Setter
-	@Getter
+
 	private String name;
-	
-	@Setter
-	@Getter
+
 	private String keyName;
-	
-	@Setter
-	@Getter
+
 	private String codeSetID;
-	
-	@Setter
-	@Getter
+
 	private String codeSetIDConfigKey;
-	
-	@Setter
-	@Getter
+
 	private String format;
-	
-	@Setter
-	@Getter
+
 	protected String title;
-	
-	@Setter
-	@Getter
+
 	private String uri;
-	
-	@Setter
-	@Getter
+
 	protected String picName;
-	
-	@Setter
-	@Getter
+
 	private GridRows gridRows;
-	
-	@Setter
-	@Getter
+
 	private String javascript;
-	
-	@Setter
-	@Getter
+
 	private String target;
-	
-	@Setter
-	@Getter
+
 	private String buttonClass;
-	
-	@Setter
-	@Getter
+
 	private String iconClass;
 	
+	
+	
+	public String getReplaceNull() {
+		return replaceNull;
+	}
+
+	public void setReplaceNull(String replaceNull) {
+		this.replaceNull = replaceNull;
+	}
+
+	public String getIndex() {
+		return index;
+	}
+
+	public void setIndex(String index) {
+		this.index = index;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getKeyName() {
+		return keyName;
+	}
+
+	public void setKeyName(String keyName) {
+		this.keyName = keyName;
+	}
+
+	public String getCodeSetID() {
+		return codeSetID;
+	}
+
+	public void setCodeSetID(String codeSetID) {
+		this.codeSetID = codeSetID;
+	}
+
+	public String getCodeSetIDConfigKey() {
+		return codeSetIDConfigKey;
+	}
+
+	public void setCodeSetIDConfigKey(String codeSetIDConfigKey) {
+		this.codeSetIDConfigKey = codeSetIDConfigKey;
+	}
+
+	public String getFormat() {
+		return format;
+	}
+
+	public void setFormat(String format) {
+		this.format = format;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getUri() {
+		return uri;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
+	public String getPicName() {
+		return picName;
+	}
+
+	public void setPicName(String picName) {
+		this.picName = picName;
+	}
+
+	public GridRows getGridRows() {
+		return gridRows;
+	}
+
+	public void setGridRows(GridRows gridRows) {
+		this.gridRows = gridRows;
+	}
+
+	public String getJavascript() {
+		return javascript;
+	}
+
+	public void setJavascript(String javascript) {
+		this.javascript = javascript;
+	}
+
+	public String getTarget() {
+		return target;
+	}
+
+	public void setTarget(String target) {
+		this.target = target;
+	}
+
+	public String getButtonClass() {
+		return buttonClass;
+	}
+
+	public void setButtonClass(String buttonClass) {
+		this.buttonClass = buttonClass;
+	}
+
+	public String getIconClass() {
+		return iconClass;
+	}
+
+	public void setIconClass(String iconClass) {
+		this.iconClass = iconClass;
+	}
+
 	public ActionTag() {
 		name = null;
 		title = null;

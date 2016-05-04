@@ -29,31 +29,66 @@ public abstract class BaseWebFormBean implements BaseWebFormIF,Serializable{
 	
 	public static final String IS_ASCENDING = "isAscending";
 	
-
-	@Getter
-	@Setter
 	private long id;
-	
-	@Setter
-	@Getter
+
 	protected DateTime createdon;
-	
-	@Setter
-	@Getter
+
 	protected DateTime modifiedon;
-	
-	@Setter
-	@Getter
+
 	private WebCRUDEnum crudMode;
-	
-	@Setter
-	@Getter
+
 	private IResponseCRUD crudResponse;
 	
-	@Setter
-	@Getter
 	private String activeStatus = "Y";
-	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public DateTime getCreatedon() {
+		return createdon;
+	}
+
+	public void setCreatedon(DateTime createdon) {
+		this.createdon = createdon;
+	}
+
+	public DateTime getModifiedon() {
+		return modifiedon;
+	}
+
+	public void setModifiedon(DateTime modifiedon) {
+		this.modifiedon = modifiedon;
+	}
+
+	public WebCRUDEnum getCrudMode() {
+		return crudMode;
+	}
+
+	public void setCrudMode(WebCRUDEnum crudMode) {
+		this.crudMode = crudMode;
+	}
+
+	public IResponseCRUD getCrudResponse() {
+		return crudResponse;
+	}
+
+	public void setCrudResponse(IResponseCRUD crudResponse) {
+		this.crudResponse = crudResponse;
+	}
+
+	public String getActiveStatus() {
+		return activeStatus;
+	}
+
+	public void setActiveStatus(String activeStatus) {
+		this.activeStatus = activeStatus;
+	}
+
 	private Order[] order = {new Order(null,true)};
 	
 	public boolean getIsActive(){

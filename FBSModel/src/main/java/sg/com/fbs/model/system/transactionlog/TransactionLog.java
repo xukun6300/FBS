@@ -16,15 +16,27 @@ public class TransactionLog extends BasePojo{
 	
 	public static final String ACTIVITY = "activity";
 	public static final String ACTIVITY_ID = "activity.id";
-	
-	@Setter
-	@Getter
+
 	private Activity activity;
-	
-	@Setter
-	@Getter
+
 	private String message;
 	
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public TransactionLog() {
 		
 	}

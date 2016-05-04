@@ -13,27 +13,57 @@ import lombok.Setter;
 public class ValidatorMessage implements Serializable, ValidatorMessageHolder{
 
 	private static final long serialVersionUID = -6862791213495240088L;
-	
-	@Setter
-	@Getter
+
 	private String detail;
-	
-	@Setter
-	@Getter
+
 	private String summary;
-	
-	@Setter
-	@Getter
+
 	private String labelFields;
 	
-	@Setter
-	@Getter
 	private String dynaData;
 	
-	@Setter
-	@Getter
 	private boolean hasError = false;
-	
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public String getLabelFields() {
+		return labelFields;
+	}
+
+	public void setLabelFields(String labelFields) {
+		this.labelFields = labelFields;
+	}
+
+	public String getDynaData() {
+		return dynaData;
+	}
+
+	public void setDynaData(String dynaData) {
+		this.dynaData = dynaData;
+	}
+
+	public boolean isHasError() {
+		return hasError;
+	}
+
+	public void setHasError(boolean hasError) {
+		this.hasError = hasError;
+	}
+
 	public ValidatorMessage(String summary, String detail){
 		this.summary = summary;
 		this.detail = detail;

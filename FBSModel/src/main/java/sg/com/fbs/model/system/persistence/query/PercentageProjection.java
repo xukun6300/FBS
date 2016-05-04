@@ -11,14 +11,27 @@ public class PercentageProjection extends Projection{
 
 	private static final long serialVersionUID = 4669893672665200166L;
 
-	@Setter
-	@Getter
+
 	private Projection proj;
-	
-	@Setter
-	@Getter
+
 	private Projection denoProj;
 	
+	public Projection getProj() {
+		return proj;
+	}
+
+	public void setProj(Projection proj) {
+		this.proj = proj;
+	}
+
+	public Projection getDenoProj() {
+		return denoProj;
+	}
+
+	public void setDenoProj(Projection denoProj) {
+		this.denoProj = denoProj;
+	}
+
 	public PercentageProjection() {
 
 	}

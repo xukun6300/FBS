@@ -35,35 +35,94 @@ public class MasterCode extends BaseLogPojo{
     public static final String EFFECTIVE_DATE = "effectiveDate";
     
     public static final String EXPIRY_DATE = "expiryDate";
-    
-    @Getter
-    @Setter
+
     protected ValueLabelPair categoryType = new ValueLabelPair();
-    @Getter
-    @Setter   
-    protected MasterCodeType masterCodeType;
-    @Getter
-    @Setter
-    protected String codeValue;
-    @Getter
-    @Setter
-    protected String description;
-    @Getter
-    @Setter
-    protected String remarks;
-    @Getter
-    @Setter
-    protected int sequenceNo;
-    @Getter
-    @Setter
-    protected DateTime effectiveDate;  //effective start date
-    @Getter
-    @Setter
-    protected DateTime expiryDate;
-    @Setter
-    protected boolean deletable;
     
-    public MasterCode(){
+    protected MasterCodeType masterCodeType;
+  
+    protected String codeValue;
+    
+    protected String description;
+    
+    protected String remarks;
+    
+    protected int sequenceNo;
+    
+    protected DateTime effectiveDate;  //effective start date
+    
+    protected DateTime expiryDate;
+  
+    protected boolean deletable;
+
+    public ValueLabelPair getCategoryType() {
+		return categoryType;
+	}
+
+	public void setCategoryType(ValueLabelPair categoryType) {
+		this.categoryType = categoryType;
+	}
+
+	public MasterCodeType getMasterCodeType() {
+		return masterCodeType;
+	}
+
+	public void setMasterCodeType(MasterCodeType masterCodeType) {
+		this.masterCodeType = masterCodeType;
+	}
+
+	public String getCodeValue() {
+		return codeValue;
+	}
+
+	public void setCodeValue(String codeValue) {
+		this.codeValue = codeValue;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	public int getSequenceNo() {
+		return sequenceNo;
+	}
+
+	public void setSequenceNo(int sequenceNo) {
+		this.sequenceNo = sequenceNo;
+	}
+
+	public DateTime getEffectiveDate() {
+		return effectiveDate;
+	}
+
+	public void setEffectiveDate(DateTime effectiveDate) {
+		this.effectiveDate = effectiveDate;
+	}
+
+	public DateTime getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(DateTime expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public void setDeletable(boolean deletable) {
+		this.deletable = deletable;
+	}
+
+	public MasterCode(){
     	super();
     }
     

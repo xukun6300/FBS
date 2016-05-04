@@ -20,15 +20,28 @@ public class GridEmptyRow extends GridComponent{
 	private static final long serialVersionUID = -4694611804206332840L;
 
 	protected Logger logger = Logger.getLogger(GridEmptyRow.class);
-	
-	@Setter
-	@Getter
+
 	private String display;
-	
-	@Setter
-	@Getter
+
 	private int columnNumber;
 	
+	
+	public String getDisplay() {
+		return display;
+	}
+
+	public void setDisplay(String display) {
+		this.display = display;
+	}
+
+	public int getColumnNumber() {
+		return columnNumber;
+	}
+
+	public void setColumnNumber(int columnNumber) {
+		this.columnNumber = columnNumber;
+	}
+
 	private static final String COLUMNS_NAME = "GridRows";
 	
 	@Override

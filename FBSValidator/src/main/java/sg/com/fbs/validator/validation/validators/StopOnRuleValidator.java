@@ -15,9 +15,15 @@ public class StopOnRuleValidator implements FieldValidator{
 
 	private static final long serialVersionUID = 498247418765148543L;
 
-	@Setter
-	@Getter
 	private String ruleName;
+	
+	public void setRuleName(String ruleName) {
+		this.ruleName = ruleName;
+	}
+	
+	public String getRuleName() {
+		return ruleName;
+	}
 	
 	@Override
 	public ValidatorMessageHolder validate(Object fieldValue, String fieldLabel) {

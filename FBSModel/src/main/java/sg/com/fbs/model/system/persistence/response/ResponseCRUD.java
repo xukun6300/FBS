@@ -20,9 +20,15 @@ public class ResponseCRUD<T> implements IResponseCRUD<T>,Serializable {
 	
 	private boolean crudFlag;
 	
-	@Getter
-	@Setter
 	private int totalRecords;
+	
+	public void setTotalRecords(int totalRecords) {
+		this.totalRecords = totalRecords;
+	}
+	
+	public int getTotalRecords() {
+		return totalRecords;
+	}
 	
 	private int totalPages;
 	

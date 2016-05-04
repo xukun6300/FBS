@@ -19,10 +19,16 @@ public class MasterCodeTypeForm extends BusinessWebForm{
 	private String codeKey;
 		
 	private String remarks;
-	
-	@Setter
-	@Getter
+
 	private int sortOrder = 1;
+	
+	public void setSortOrder(int sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+	
+	public int getSortOrder() {
+		return sortOrder;
+	}
 	
 	private DateTime effectiveDate;
 	

@@ -16,11 +16,17 @@ import lombok.Setter;
 public class SpringValidatorContext {
 
 	private Stack<String> bindingPath = new Stack<String>();
-	
-	@Getter
-	@Setter
+
 	private Object parentObject;
-	
+
+	public Object getParentObject() {
+		return parentObject;
+	}
+
+	public void setParentObject(Object parentObject) {
+		this.parentObject = parentObject;
+	}
+
 	private static ThreadLocal<SpringValidatorContext> validatorContext = new ThreadLocal<SpringValidatorContext>();
 	
 	public SpringValidatorContext(){

@@ -32,49 +32,116 @@ public class Grid extends BodyTagSupport{
 	
 	public static final String NO_RECORD_MESSAGE = "Record not found.";
 
-	@Setter
-	@Getter
 	private int currentState;
 	
 	private StringBuffer contentBuffer;
-	
-	@Setter
-	@Getter
+
 	private GridDataContext dataContext;
-	
-	@Setter
-	@Getter
+
 	private boolean resultVisibleFlag = true;
-	
-	@Setter
-	@Getter
+
 	private boolean fetchAllPage = true;
-	
-	@Setter
-	@Getter
+
 	private String queryFormName; 
-	
-	@Setter
-	@Getter
+
 	private String action;
-	
-	@Setter
-	@Getter
+
 	private String displayEmpty;
-	
-	@Setter
-	@Getter
+
 	private String searchResultKey;
-	
-	@Setter
-	@Getter
+
 	private boolean isAjax;
-	
-	@Setter
-	@Getter
+
 	private String mapKey;
 	
-	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getCurrentState() {
+		return currentState;
+	}
+
+	public void setCurrentState(int currentState) {
+		this.currentState = currentState;
+	}
+
+	public GridDataContext getDataContext() {
+		return dataContext;
+	}
+
+	public void setDataContext(GridDataContext dataContext) {
+		this.dataContext = dataContext;
+	}
+
+	public boolean isResultVisibleFlag() {
+		return resultVisibleFlag;
+	}
+
+	public void setResultVisibleFlag(boolean resultVisibleFlag) {
+		this.resultVisibleFlag = resultVisibleFlag;
+	}
+
+	public boolean isFetchAllPage() {
+		return fetchAllPage;
+	}
+
+	public void setFetchAllPage(boolean fetchAllPage) {
+		this.fetchAllPage = fetchAllPage;
+	}
+
+	public String getQueryFormName() {
+		return queryFormName;
+	}
+
+	public void setQueryFormName(String queryFormName) {
+		this.queryFormName = queryFormName;
+	}
+
+	public String getAction() {
+		return action;
+	}
+
+	public void setAction(String action) {
+		this.action = action;
+	}
+
+	public String getDisplayEmpty() {
+		return displayEmpty;
+	}
+
+	public void setDisplayEmpty(String displayEmpty) {
+		this.displayEmpty = displayEmpty;
+	}
+
+	public String getSearchResultKey() {
+		return searchResultKey;
+	}
+
+	public void setSearchResultKey(String searchResultKey) {
+		this.searchResultKey = searchResultKey;
+	}
+
+	public boolean isAjax() {
+		return isAjax;
+	}
+
+	public void setAjax(boolean isAjax) {
+		this.isAjax = isAjax;
+	}
+
+	public String getMapKey() {
+		return mapKey;
+	}
+
+	public void setMapKey(String mapKey) {
+		this.mapKey = mapKey;
+	}
+
 	public Grid(){
 		dataContext = null;
 		contentBuffer = null;

@@ -14,11 +14,17 @@ public abstract class BusinessQueryWebForm extends BaseQueryWebForm{
 	private static final long serialVersionUID = -8798607554314461473L;
 
 	public static final String CREATED_BY = "createdby";
-	
-	@Setter
-	@Getter
+
 	protected Long createdby;
-	
+
+	public Long getCreatedby() {
+		return createdby;
+	}
+
+	public void setCreatedby(Long createdby) {
+		this.createdby = createdby;
+	}
+
 	@Override
 	public String[] getDefaultOrders() {
 		String[] orders = {ID};

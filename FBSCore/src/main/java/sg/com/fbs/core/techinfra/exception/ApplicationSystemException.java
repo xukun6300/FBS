@@ -10,9 +10,16 @@ public class ApplicationSystemException extends RuntimeException{
 	 */
 	private static final long serialVersionUID = -8344927563990313236L;
 	
-	@Setter
-	@Getter
+
 	private String errorCode;
+	
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
+	}
+	
+	public String getErrorCode() {
+		return errorCode;
+	}
 	
 	public ApplicationSystemException(Throwable e){
 		super(e);

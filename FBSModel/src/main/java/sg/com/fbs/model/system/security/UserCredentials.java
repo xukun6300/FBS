@@ -7,14 +7,26 @@ import lombok.Setter;
 
 public class UserCredentials {
 
-	@Getter
-	@Setter
 	private char[] password;
-	
-	@Getter
-	@Setter
+
 	private char[] salt;
 	
+	public char[] getPassword() {
+		return password;
+	}
+
+	public void setPassword(char[] password) {
+		this.password = password;
+	}
+
+	public char[] getSalt() {
+		return salt;
+	}
+
+	public void setSalt(char[] salt) {
+		this.salt = salt;
+	}
+
 	public UserCredentials(){
 		
 	}

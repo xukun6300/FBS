@@ -18,12 +18,26 @@ public class Activity extends BasePojo{
 	public static final String NAME = "name";
 	
 	public static final String CATEGORY = "category";
-	
-	@Setter
-	@Getter
+
 	private String name;
 	
-	@Setter
-	@Getter
 	private String category;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	
+	
 }

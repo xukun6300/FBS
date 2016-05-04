@@ -13,10 +13,16 @@ import org.hibernate.type.Type;
 public class WeightedAverageProjection extends PropertyProjection {
 
 	private static final long serialVersionUID = -7551748127480713327L;
-	
-	@Getter
-	@Setter
+
 	private String denominatorProp;
+	
+	public void setDenominatorProp(String denominatorProp) {
+		this.denominatorProp = denominatorProp;
+	}
+	
+	public String getDenominatorProp() {
+		return denominatorProp;
+	}
 	
 	public WeightedAverageProjection(String prop, String denominatorProp){
 		super(prop,false);

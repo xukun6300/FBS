@@ -46,14 +46,26 @@ public class MasterCodeForm extends BusinessQueryWebForm{
 	
 	private DateTime expiryDate;
 	
-	@Setter
-	@Getter
 	private boolean alwaysAvailable;
-	
-	@Setter
-	@Getter
+
 	private boolean deleteMode;
-	
+
+	public boolean isAlwaysAvailable() {
+		return alwaysAvailable;
+	}
+
+	public void setAlwaysAvailable(boolean alwaysAvailable) {
+		this.alwaysAvailable = alwaysAvailable;
+	}
+
+	public boolean isDeleteMode() {
+		return deleteMode;
+	}
+
+	public void setDeleteMode(boolean deleteMode) {
+		this.deleteMode = deleteMode;
+	}
+
 	protected boolean searchInactiveMasterCodes = false;
 	
 	@Required(detailMessage="{fbs.common.errors.required}",

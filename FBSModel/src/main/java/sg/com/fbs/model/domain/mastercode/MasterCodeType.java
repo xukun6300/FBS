@@ -33,45 +33,127 @@ public class MasterCodeType extends BaseLogPojo{
     public static final String EFFECTIVE_DATE="effectiveDate";
 	
 	public static final String EXPIRY_DATE="expiryDate";
-	
-	@Setter
-	@Getter
+
 	private DateTime effectiveDate;
-	@Setter
-	@Getter
-	private DateTime expiryDate;
-	@Setter
-	@Getter
-	private ValueLabelPair categoryType = new ValueLabelPair();
-	@Setter
-	@Getter
-	private String code;
-	@Setter
-	@Getter
-	private String name;
-	@Setter
-	@Getter
-	private int version;
-	@Setter
-	@Getter
-	private int sortOrder;
-	@Setter
-	@Getter
-	private boolean deletable = false;
-	@Setter
-	@Getter
-	private String dataSourceValueType;
-	@Setter
-	@Getter
-	private String dataSourceDisplayType;
 	
-	@Setter
-	@Getter
+	private DateTime expiryDate;
+	
+	private ValueLabelPair categoryType = new ValueLabelPair();
+	
+	private String code;
+	
+	private String name;
+	
+	private int version;
+
+	private int sortOrder;
+	
+	private boolean deletable = false;
+	
+	private String dataSourceValueType;
+	
+	private String dataSourceDisplayType;
+
 	private Set<MasterCode> masterCodes = new HashSet<MasterCode>(0);
-	@Setter
-	@Getter
+
 	private List<Long> activeMasterCodesId = new ArrayList<Long>(0);
 	
+	public DateTime getEffectiveDate() {
+		return effectiveDate;
+	}
+
+	public void setEffectiveDate(DateTime effectiveDate) {
+		this.effectiveDate = effectiveDate;
+	}
+
+	public DateTime getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(DateTime expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public ValueLabelPair getCategoryType() {
+		return categoryType;
+	}
+
+	public void setCategoryType(ValueLabelPair categoryType) {
+		this.categoryType = categoryType;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public int getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(int sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+	public boolean isDeletable() {
+		return deletable;
+	}
+
+	public void setDeletable(boolean deletable) {
+		this.deletable = deletable;
+	}
+
+	public String getDataSourceValueType() {
+		return dataSourceValueType;
+	}
+
+	public void setDataSourceValueType(String dataSourceValueType) {
+		this.dataSourceValueType = dataSourceValueType;
+	}
+
+	public String getDataSourceDisplayType() {
+		return dataSourceDisplayType;
+	}
+
+	public void setDataSourceDisplayType(String dataSourceDisplayType) {
+		this.dataSourceDisplayType = dataSourceDisplayType;
+	}
+
+	public Set<MasterCode> getMasterCodes() {
+		return masterCodes;
+	}
+
+	public void setMasterCodes(Set<MasterCode> masterCodes) {
+		this.masterCodes = masterCodes;
+	}
+
+	public List<Long> getActiveMasterCodesId() {
+		return activeMasterCodesId;
+	}
+
+	public void setActiveMasterCodesId(List<Long> activeMasterCodesId) {
+		this.activeMasterCodesId = activeMasterCodesId;
+	}
+
 	public String getRemarks(){
 		return this.name;
 	}

@@ -12,8 +12,11 @@ public enum AuditLogTransactionTypeEnum {
 	UPDATE("Update"),
 	DELETE("Delete");
 	
-	@Getter
 	private String formalName;
+	
+	public String getFormalName() {
+		return formalName;
+	}
 	
 	private AuditLogTransactionTypeEnum(final String formalName){
 		this.formalName = formalName;

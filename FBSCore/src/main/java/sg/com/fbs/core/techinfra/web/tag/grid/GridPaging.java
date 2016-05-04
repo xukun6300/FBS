@@ -56,30 +56,58 @@ public class GridPaging extends GridComponent{
 	
 	private int pageSize;
 	
-	@Setter
-	@Getter
 	private String tableId; //html table id that shows grid
 
-	@Setter
-	@Getter
-	private boolean viewAll = true;
+	public String getTableId() {
+		return tableId;
+	}
+	public void setTableId(String tableId) {
+		this.tableId = tableId;
+	}
 	
-	@Setter
-	@Getter
+	private boolean viewAll = true;
+
+	public boolean isViewAll() {
+		return viewAll;
+	}
+	public void setViewAll(boolean viewAll) {
+		this.viewAll = viewAll;
+	}
+
 	private boolean download = true;
 	
-	@Setter
-	@Getter
+	public void setDownload(boolean download) {
+		this.download = download;
+	}
+	public boolean isDownload() {
+		return download;
+	}
+	
+
 	private boolean exportExcel = true;
-	
-	@Setter
-	@Getter
+
 	private boolean exportPDF = true;
-	
-	@Getter
-	@Setter
+
 	private boolean doPaging;
-	
+
+	public boolean isExportExcel() {
+		return exportExcel;
+	}
+	public void setExportExcel(boolean exportExcel) {
+		this.exportExcel = exportExcel;
+	}
+	public boolean isExportPDF() {
+		return exportPDF;
+	}
+	public void setExportPDF(boolean exportPDF) {
+		this.exportPDF = exportPDF;
+	}
+	public boolean isDoPaging() {
+		return doPaging;
+	}
+	public void setDoPaging(boolean doPaging) {
+		this.doPaging = doPaging;
+	}
 	public GridPaging(){
 		this.pageSize = -1;
 	}

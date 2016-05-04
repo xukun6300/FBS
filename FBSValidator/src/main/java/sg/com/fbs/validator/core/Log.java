@@ -14,8 +14,11 @@ public class Log {
 
 	private static Map<Class<?>, Log> logMap = new HashMap<Class<?>, Log>();
 	
-	@Setter
 	protected Class<?> clazz;
+	
+	public void setClazz(Class<?> clazz) {
+		this.clazz = clazz;
+	}
 	
 	public void info(String message){
 		System.out.println(message);

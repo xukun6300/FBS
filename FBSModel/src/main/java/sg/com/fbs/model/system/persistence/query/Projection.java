@@ -10,20 +10,41 @@ public class Projection implements ProjectionIF, Serializable {
 	
 	private static final long serialVersionUID = 4031209230122624726L;
 
-	@Getter
-	@Setter
+
 	private String property;
 	
 	private boolean rowCount;
 	
-	@Getter
-	@Setter
 	private String type;
-	
-	@Getter
-	@Setter
+
 	private String withProperty;
 	
+	
+	
+	public String getProperty() {
+		return property;
+	}
+
+	public void setProperty(String property) {
+		this.property = property;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getWithProperty() {
+		return withProperty;
+	}
+
+	public void setWithProperty(String withProperty) {
+		this.withProperty = withProperty;
+	}
+
 	public Projection(){
 		
 	}

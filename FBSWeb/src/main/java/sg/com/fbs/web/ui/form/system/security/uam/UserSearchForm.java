@@ -39,28 +39,59 @@ public class UserSearchForm extends BusinessQueryWebForm{
 	private static final long serialVersionUID = 1L;
 	
 	public static final String ACCOUNT_STATUS = "accountStatus";
-	
-	@Setter
-	@Getter
+
 	private ResponseCrudQueryResultMapper queryResultMapper = null;
-	
-	@Setter
-	@Getter
+
 	private String name;
-	
-	@Setter
-	@Getter
+
 	private String email;
-	
-	@Setter
-	@Getter
+
 	private String accountStatus;
-	
-	@Setter
-	@Getter
+
 	private String userRole;
 	
 	
+	
+	public ResponseCrudQueryResultMapper getQueryResultMapper() {
+		return queryResultMapper;
+	}
+
+	public void setQueryResultMapper(ResponseCrudQueryResultMapper queryResultMapper) {
+		this.queryResultMapper = queryResultMapper;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAccountStatus() {
+		return accountStatus;
+	}
+
+	public void setAccountStatus(String accountStatus) {
+		this.accountStatus = accountStatus;
+	}
+
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
+
 	public ResponseCrudQueryResultMapper getCrudQueryResultMapper(){
 		if(queryResultMapper==null){
 			queryResultMapper = new UserSearchFormQueryResultMapper();

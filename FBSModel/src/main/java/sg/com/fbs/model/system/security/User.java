@@ -40,64 +40,186 @@ public class User extends BaseLogPojo implements UserDetailsIF, TransactionLogIF
 	
 	public static final String LAST_FAILED_LOGIN_DATE = "lastFailedLoginDate";
 	
-	@Setter
-	@Getter
 	private long userId;
-	@Setter
-	@Getter
+
 	private String password;
-	@Setter
-	@Getter
+
 	private long salutation;
-	@Setter
-	@Getter
+
 	private String name;
-	@Setter
-	@Getter
+	
 	private String loginId;
-	@Setter
-	@Getter
+
 	private long gender;
-	@Setter
-	@Getter
+
 	private DateTime dateOfBirth;
-	@Setter
-	@Getter
+
 	private String officeTel;
-	@Setter
-	@Getter
+	
 	private String mobileNum;
-	@Setter
-	@Getter
+
 	private String status;
-	@Setter
-	@Getter
+
 	private String preferredContactMode;
-	@Setter
-	@Getter
+
 	private int failedLoginAttempt;
-	@Setter
-	@Getter
+
     private DateTime passwordLastUpdateDate;
-	@Setter
-	@Getter
+
 	private DateTime lastSuccessLoginDate;
-	@Setter
-	@Getter
+	
 	private DateTime lastFailedLoginDate;
-	@Setter
-	@Getter
+
 	private String salt;
-	@Setter
-	@Getter
+
 	private String salutationDescription;
-	@Setter
-	@Getter
+	
 	private Set<UserSecurityQuestion> UserSecurityQuestion;
 	
-	
-	
-	
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public long getSalutation() {
+		return salutation;
+	}
+
+	public void setSalutation(long salutation) {
+		this.salutation = salutation;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
+	public long getGender() {
+		return gender;
+	}
+
+	public void setGender(long gender) {
+		this.gender = gender;
+	}
+
+	public DateTime getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(DateTime dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getOfficeTel() {
+		return officeTel;
+	}
+
+	public void setOfficeTel(String officeTel) {
+		this.officeTel = officeTel;
+	}
+
+	public String getMobileNum() {
+		return mobileNum;
+	}
+
+	public void setMobileNum(String mobileNum) {
+		this.mobileNum = mobileNum;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getPreferredContactMode() {
+		return preferredContactMode;
+	}
+
+	public void setPreferredContactMode(String preferredContactMode) {
+		this.preferredContactMode = preferredContactMode;
+	}
+
+	public int getFailedLoginAttempt() {
+		return failedLoginAttempt;
+	}
+
+	public void setFailedLoginAttempt(int failedLoginAttempt) {
+		this.failedLoginAttempt = failedLoginAttempt;
+	}
+
+	public DateTime getPasswordLastUpdateDate() {
+		return passwordLastUpdateDate;
+	}
+
+	public void setPasswordLastUpdateDate(DateTime passwordLastUpdateDate) {
+		this.passwordLastUpdateDate = passwordLastUpdateDate;
+	}
+
+	public DateTime getLastSuccessLoginDate() {
+		return lastSuccessLoginDate;
+	}
+
+	public void setLastSuccessLoginDate(DateTime lastSuccessLoginDate) {
+		this.lastSuccessLoginDate = lastSuccessLoginDate;
+	}
+
+	public DateTime getLastFailedLoginDate() {
+		return lastFailedLoginDate;
+	}
+
+	public void setLastFailedLoginDate(DateTime lastFailedLoginDate) {
+		this.lastFailedLoginDate = lastFailedLoginDate;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
+	public String getSalutationDescription() {
+		return salutationDescription;
+	}
+
+	public void setSalutationDescription(String salutationDescription) {
+		this.salutationDescription = salutationDescription;
+	}
+
+	public Set<UserSecurityQuestion> getUserSecurityQuestion() {
+		return UserSecurityQuestion;
+	}
+
+	public void setUserSecurityQuestion(Set<UserSecurityQuestion> userSecurityQuestion) {
+		UserSecurityQuestion = userSecurityQuestion;
+	}
+
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder(17, 31).append(id).append(name).append(loginId).toHashCode();

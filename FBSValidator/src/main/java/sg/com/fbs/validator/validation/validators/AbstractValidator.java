@@ -16,10 +16,16 @@ public abstract class AbstractValidator extends MessageSpecification implements 
 	
 	private static final long serialVersionUID = 2774996045359666016L;
 
-	@Setter
-	@Getter
 	public boolean noMessages = false;
-	
+
+	public boolean isNoMessages() {
+		return noMessages;
+	}
+
+	public void setNoMessages(boolean noMessages) {
+		this.noMessages = noMessages;
+	}
+
 	protected void populateMessage(ValidatorMessage message, String fieldLabel, Object... args) {
 		populateMessage(null, message, fieldLabel, args);
 	}

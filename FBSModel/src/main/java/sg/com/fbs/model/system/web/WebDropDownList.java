@@ -16,18 +16,38 @@ public class WebDropDownList extends BasePojo{
 
 	private static final long serialVersionUID = -8668117314242017535L;
 
-	@Setter
-	@Getter
 	@Expose
 	private String value;
-	
-	@Setter
-	@Getter
+
 	@Expose
 	private String description;
-	
-	@Setter
-	@Getter
+
 	@Expose
 	private String name;
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 }

@@ -60,75 +60,170 @@ public class BasePojo implements BasePojoIF,Serializable {
 	public static final String DETAILS = "details";
 	
 	public static final String REF_ID = "refId";
-	
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
 	protected long id;
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
 	protected long createdby = 0;
 	
-	@Setter
-	@Getter
 	@XStreamOmitField
 	@NotAudited
 	protected User createdbyUser;
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
 	protected DateTime createon = new DateTime();
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
     protected Long modifiedby;
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
 	@NotAudited
 	protected User modifiedbyUser;
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
     protected DateTime modifyon = null;
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
 	protected String activeStatus = "Y";
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
 	@NotAudited
 	protected String transactionType;
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
 	@NotAudited
 	protected String details;
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
 	@NotAudited
 	protected Long refId;
-	
-	@Setter
-	@Getter
+
 	@XStreamOmitField
 	protected String triggeredFlag;
 	
 	
 	
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	public long getCreatedby() {
+		return createdby;
+	}
+
+
+	public void setCreatedby(long createdby) {
+		this.createdby = createdby;
+	}
+
+
+	public User getCreatedbyUser() {
+		return createdbyUser;
+	}
+
+
+	public void setCreatedbyUser(User createdbyUser) {
+		this.createdbyUser = createdbyUser;
+	}
+
+
+	public DateTime getCreateon() {
+		return createon;
+	}
+
+
+	public void setCreateon(DateTime createon) {
+		this.createon = createon;
+	}
+
+
+	public Long getModifiedby() {
+		return modifiedby;
+	}
+
+
+	public void setModifiedby(Long modifiedby) {
+		this.modifiedby = modifiedby;
+	}
+
+
+	public User getModifiedbyUser() {
+		return modifiedbyUser;
+	}
+
+
+	public void setModifiedbyUser(User modifiedbyUser) {
+		this.modifiedbyUser = modifiedbyUser;
+	}
+
+
+	public DateTime getModifyon() {
+		return modifyon;
+	}
+
+
+	public void setModifyon(DateTime modifyon) {
+		this.modifyon = modifyon;
+	}
+
+
+	public String getActiveStatus() {
+		return activeStatus;
+	}
+
+
+	public void setActiveStatus(String activeStatus) {
+		this.activeStatus = activeStatus;
+	}
+
+
+	public String getTransactionType() {
+		return transactionType;
+	}
+
+
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+
+
+	public String getDetails() {
+		return details;
+	}
+
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+
+	public Long getRefId() {
+		return refId;
+	}
+
+
+	public void setRefId(Long refId) {
+		this.refId = refId;
+	}
+
+
+	public String getTriggeredFlag() {
+		return triggeredFlag;
+	}
+
+
+	public void setTriggeredFlag(String triggeredFlag) {
+		this.triggeredFlag = triggeredFlag;
+	}
+
+
 	public boolean isActive(){
 		return ActiveStatusEnum.YES.toString().equals(activeStatus);
 	}

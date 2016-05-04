@@ -15,14 +15,34 @@ import lombok.Setter;
  */
 public class CaptchaTag extends SimpleTagSupport{
 
-	@Setter
-	@Getter
 	private String captchaImageUrl;
-	
-	@Setter
-	@Getter
+
 	private String captchaRefreshImageUrl;
 	
+	public String getCaptchaImageUrl() {
+		return captchaImageUrl;
+	}
+
+
+
+	public void setCaptchaImageUrl(String captchaImageUrl) {
+		this.captchaImageUrl = captchaImageUrl;
+	}
+
+
+
+	public String getCaptchaRefreshImageUrl() {
+		return captchaRefreshImageUrl;
+	}
+
+
+
+	public void setCaptchaRefreshImageUrl(String captchaRefreshImageUrl) {
+		this.captchaRefreshImageUrl = captchaRefreshImageUrl;
+	}
+
+
+
 	@Override
 	public void doTag() throws JspException, IOException {
 		String captchaImgElement = "<img alt=\"Captcha\" id=\"captchaImage\" name=\"captchaImage\" src=\""+captchaImageUrl+"\">";

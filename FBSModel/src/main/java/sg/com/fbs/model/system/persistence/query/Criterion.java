@@ -38,12 +38,22 @@ public class Criterion implements CriterionIF{
 	
 	private String shortPropertyName;
 	
-	@Setter
+
 	private String searchValueDataType = STRING;
 	
-	@Getter
-	@Setter
+	public void setSearchValueDataType(String searchValueDataType) {
+		this.searchValueDataType = searchValueDataType;
+	}
+
 	RestrictionType restrictionType = RestrictionType.LIKE;
+	
+	public RestrictionType getRestrictionType() {
+		return restrictionType;
+	}
+	
+	public void setRestrictionType(RestrictionType restrictionType) {
+		this.restrictionType = restrictionType;
+	}
 	
 	public Criterion (){
 		super();		

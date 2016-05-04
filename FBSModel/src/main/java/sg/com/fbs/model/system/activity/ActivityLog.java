@@ -18,19 +18,37 @@ public class ActivityLog extends BasePojo{
 	public static final String ACTIVITY = "activity";
 
 	public static final String ACTIVITY_ID = "activity.id";
-	
-	@Setter
-	@Getter
+
 	private Activity activity; 
-	
-	@Setter
-	@Getter
+
 	private String controller;
-	
-	@Setter
-	@Getter
+
 	private String action;
-	
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
+
+	public String getController() {
+		return controller;
+	}
+
+	public void setController(String controller) {
+		this.controller = controller;
+	}
+
+	public String getAction() {
+		return action;
+	}
+
+	public void setAction(String action) {
+		this.action = action;
+	}
+
 	public ActivityLog(){
 		
 	}

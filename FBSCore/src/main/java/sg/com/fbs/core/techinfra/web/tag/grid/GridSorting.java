@@ -24,13 +24,22 @@ public class GridSorting extends GridComponent{
 	private static final String SORTING_PROPERTY ="sortingProperty";
 	
 	private static final String IS_ASCENDING = "isAscending";
-	
-	@Setter
-	@Getter
+
 	private String name;
 	
-	@Setter
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
 	private String displayName="";
+	
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
 	
 	public String getDisplayName() {
 		return ResourceBundleUtil.getMessage(displayName);

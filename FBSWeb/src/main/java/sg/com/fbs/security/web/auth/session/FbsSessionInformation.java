@@ -18,22 +18,46 @@ public class FbsSessionInformation extends SessionInformation{
 
 	private static final long serialVersionUID = 6777398026746725596L;
 
-	@Getter
-	@Setter
 	private boolean maxSessions;
 	
-	@Getter
-	@Setter
 	private Date loginTime;
-	
-	@Getter
-	@Setter
+
 	private String ipAddress;
-	
-	@Getter
-	@Setter
+
 	private String userAgent;
-	
+
+	public boolean isMaxSessions() {
+		return maxSessions;
+	}
+
+	public void setMaxSessions(boolean maxSessions) {
+		this.maxSessions = maxSessions;
+	}
+
+	public Date getLoginTime() {
+		return loginTime;
+	}
+
+	public void setLoginTime(Date loginTime) {
+		this.loginTime = loginTime;
+	}
+
+	public String getIpAddress() {
+		return ipAddress;
+	}
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+
+	public String getUserAgent() {
+		return userAgent;
+	}
+
+	public void setUserAgent(String userAgent) {
+		this.userAgent = userAgent;
+	}
+
 	public FbsSessionInformation(Object principal, String sessionId, Date lastRequest) {
 		super(principal, sessionId, lastRequest);
 		setLoginTime(lastRequest);

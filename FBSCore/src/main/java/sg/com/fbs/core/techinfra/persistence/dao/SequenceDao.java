@@ -18,7 +18,7 @@ public class SequenceDao {
 	
 	public Long getNextKey(String sequenceName){
 		
-		Query query = getHibernateSession().createSQLQuery("select " +sequenceName +".nextval from dual");
+		Query query = getHibernateSession().createSQLQuery("SELECT " +sequenceName +".NEXTVAL FROM SYSIBM.SYSDUMMY1");
 		Long key = new Long(query.uniqueResult().toString());
 	    return key;
 	}

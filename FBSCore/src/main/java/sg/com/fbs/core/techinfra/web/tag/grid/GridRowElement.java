@@ -34,53 +34,122 @@ public class GridRowElement extends GridComponent{
 	public static final String DEFAULT_FLOAT_FORMAT = "#,###,##0.00";
 	
 	public static final String COLUMN_NAME = "GridRowElement";
-	
-	@Setter
-	@Getter
+
     private String replaceNull;
-    
-    @Setter
-    @Getter
+
     private String name;
-    
-    @Setter
-    @Getter
+ 
     private String codeSetID;
-    
-    @Setter
-    @Getter
+
     private String codeSetIDConfigKey;
-	
-    @Setter
-    @Getter
+
     private String format;
-    
-    @Setter
-    @Getter
+  
     private String index;
-    
-    @Setter
-    @Getter
+
     private boolean repeatable = true;
-    
-	@Getter
+
     private String repeatableChkField;
-    
-    @Setter
-    @Getter
+ 
     private GridRows gridRows;
-    
-    @Setter
-    @Getter
+
     private String uri;
-    
-    @Setter
-    @Getter
+ 
     private String keyName;
-    
-    @Setter
-    @Getter
-    private boolean htmlEscape = true; 
+ 
+    public String getReplaceNull() {
+		return replaceNull;
+	}
+
+	public void setReplaceNull(String replaceNull) {
+		this.replaceNull = replaceNull;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCodeSetID() {
+		return codeSetID;
+	}
+
+	public void setCodeSetID(String codeSetID) {
+		this.codeSetID = codeSetID;
+	}
+
+	public String getCodeSetIDConfigKey() {
+		return codeSetIDConfigKey;
+	}
+
+	public void setCodeSetIDConfigKey(String codeSetIDConfigKey) {
+		this.codeSetIDConfigKey = codeSetIDConfigKey;
+	}
+
+	public String getFormat() {
+		return format;
+	}
+
+	public void setFormat(String format) {
+		this.format = format;
+	}
+
+	public String getIndex() {
+		return index;
+	}
+
+	public void setIndex(String index) {
+		this.index = index;
+	}
+
+	public boolean isRepeatable() {
+		return repeatable;
+	}
+
+	public void setRepeatable(boolean repeatable) {
+		this.repeatable = repeatable;
+	}
+
+	public GridRows getGridRows() {
+		return gridRows;
+	}
+
+	public void setGridRows(GridRows gridRows) {
+		this.gridRows = gridRows;
+	}
+
+	public String getUri() {
+		return uri;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
+	public String getKeyName() {
+		return keyName;
+	}
+
+	public void setKeyName(String keyName) {
+		this.keyName = keyName;
+	}
+
+	public boolean isHtmlEscape() {
+		return htmlEscape;
+	}
+
+	public void setHtmlEscape(boolean htmlEscape) {
+		this.htmlEscape = htmlEscape;
+	}
+
+	public String getRepeatableChkField() {
+		return repeatableChkField;
+	}
+
+	private boolean htmlEscape = true; 
     
     public GridRowElement(){
     	this.name = null;

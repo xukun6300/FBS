@@ -36,34 +36,63 @@ public class GridDataContext {
 
 	private static final String IS_FETCH_ALL = "isFetchAll";
 
-	@Getter
 	private ResponseCRUD result;
 	
-	@Getter
-	@Setter
+	public ResponseCRUD getResult() {
+		return result;
+	}
+	
 	private long currentIndex;
+	
+	public long getCurrentIndex() {
+		return currentIndex;
+	}
+	public void setCurrentIndex(long currentIndex) {
+		this.currentIndex = currentIndex;
+	}
 	
 	private Iterator iterator;
 	
-	@Setter
-	@Getter
 	private Object currentItem;
+	
+	public Object getCurrentItem() {
+		return currentItem;
+	}
+	public void setCurrentItem(Object currentItem) {
+		this.currentItem = currentItem;
+	}
 	
 	private Object previousItem;
 	
-	@Setter
-	@Getter
 	private long iterationStart;
 	
-	@Setter
-	@Getter
+	public long getIterationStart() {
+		return iterationStart;
+	}
+	
+	public void setIterationStart(long iterationStart) {
+		this.iterationStart = iterationStart;
+	}
+	
 	private long iterationEnd;
+	
+	public long getIterationEnd() {
+		return iterationEnd;
+	}
+	public void setIterationEnd(long iterationEnd) {
+		this.iterationEnd = iterationEnd;
+	}
 	
 	public boolean isFetchAll;
 	
-	@Getter
-	@Setter
 	private String resultQualifierName;
+	
+	public void setResultQualifierName(String resultQualifierName) {
+		this.resultQualifierName = resultQualifierName;
+	}
+	public String getResultQualifierName() {
+		return resultQualifierName;
+	}
 	
 	public GridDataContext(ResponseCRUD queryResult){
 		if(queryResult!=null){

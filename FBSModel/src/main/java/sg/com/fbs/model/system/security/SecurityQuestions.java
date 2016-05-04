@@ -13,8 +13,15 @@ public class SecurityQuestions extends BaseLogPojo {
 
 	private static final long serialVersionUID = 6472680383721136047L;
 	
-	@Setter
-	@Getter
 	private String question;
 
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	
 }

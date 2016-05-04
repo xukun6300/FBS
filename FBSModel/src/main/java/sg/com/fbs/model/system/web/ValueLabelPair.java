@@ -16,18 +16,36 @@ public class ValueLabelPair implements Serializable{
 
 	private static final long serialVersionUID = 4288431882834502431L;
 
-	@Setter
-	@Getter
 	private String label;
-	
-	@Setter
-	@Getter
+
 	private String value;
-	
-	@Setter
-	@Getter
+
 	private long valueId = -1;
 	
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public long getValueId() {
+		return valueId;
+	}
+
+	public void setValueId(long valueId) {
+		this.valueId = valueId;
+	}
+
 	public String getDescription(){
 		return this.label;
 	}

@@ -17,36 +17,85 @@ public class MasterCodeRequest extends BasePojoRequest{
 	
 	private static final long serialVersionUID = -7795980426670039436L;
 
-
-	@Setter
-	@Getter
 	protected ValueLabelPair categoryType = new ValueLabelPair();//this for what
-	
-	@Setter
-	@Getter
+
 	protected MasterCodeType masterCodeType;
-	
-	@Setter
-	@Getter
+
 	protected String codeValue;
-	
-	@Setter
-	@Getter
+
 	protected String description;
-	
-	@Setter
-	@Getter
+
 	protected String remarks;
-	
-	@Setter
-	@Getter
+
 	protected int sequenceNo;
-	
-	@Setter
-	@Getter
+
 	protected DateTime effectiveDate;
-	
-	@Setter
-	@Getter
+
 	protected DateTime expiryDate;
+
+	public ValueLabelPair getCategoryType() {
+		return categoryType;
+	}
+
+	public void setCategoryType(ValueLabelPair categoryType) {
+		this.categoryType = categoryType;
+	}
+
+	public MasterCodeType getMasterCodeType() {
+		return masterCodeType;
+	}
+
+	public void setMasterCodeType(MasterCodeType masterCodeType) {
+		this.masterCodeType = masterCodeType;
+	}
+
+	public String getCodeValue() {
+		return codeValue;
+	}
+
+	public void setCodeValue(String codeValue) {
+		this.codeValue = codeValue;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	public int getSequenceNo() {
+		return sequenceNo;
+	}
+
+	public void setSequenceNo(int sequenceNo) {
+		this.sequenceNo = sequenceNo;
+	}
+
+	public DateTime getEffectiveDate() {
+		return effectiveDate;
+	}
+
+	public void setEffectiveDate(DateTime effectiveDate) {
+		this.effectiveDate = effectiveDate;
+	}
+
+	public DateTime getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(DateTime expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+	
+	
 }

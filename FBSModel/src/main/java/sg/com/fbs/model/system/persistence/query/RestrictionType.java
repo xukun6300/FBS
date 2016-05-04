@@ -17,10 +17,15 @@ public class RestrictionType implements Serializable{
 	public static final RestrictionType IS = new RestrictionType(RestrictionTypeIF.IS);
 	public static final RestrictionType IS_NOT_NULL = new RestrictionType(RestrictionTypeIF.IS_NOT_NULL);
 	
-	
-	@Setter
-	@Getter
 	private String type;
+	
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	public String getType() {
+		return type;
+	}
 	
 	public RestrictionType(){
 		

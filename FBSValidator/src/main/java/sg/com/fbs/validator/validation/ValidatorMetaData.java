@@ -15,13 +15,26 @@ import lombok.Setter;
  * store the validator name and a list of name value pairs for the validator.
  */
 public class ValidatorMetaData {
-	
-	@Setter
-	@Getter
+
 	private String name = null;
-	
-	@Setter
-	@Getter
+
 	private Map<String, Object> properties = new HashMap<String, Object>();
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Map<String, Object> getProperties() {
+		return properties;
+	}
+
+	public void setProperties(Map<String, Object> properties) {
+		this.properties = properties;
+	}
+
+	
 }

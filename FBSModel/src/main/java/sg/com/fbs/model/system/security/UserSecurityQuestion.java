@@ -14,21 +14,46 @@ public class UserSecurityQuestion extends BaseLogPojo{
 	private static final long serialVersionUID = -7306076144501698369L;
 	
 	public static final String USER_ID = "users.id";
-	
-	@Setter
-	@Getter
+
 	private User userId;
-	
-	@Setter
-	@Getter
+
 	private SecurityQuestions questionId;
-	
-	@Setter
-	@Getter
+
 	private String answer;
-	
-	@Setter
-	@Getter
+
 	private User users;
 
+	public User getUserId() {
+		return userId;
+	}
+
+	public void setUserId(User userId) {
+		this.userId = userId;
+	}
+
+	public SecurityQuestions getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(SecurityQuestions questionId) {
+		this.questionId = questionId;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	public User getUsers() {
+		return users;
+	}
+
+	public void setUsers(User users) {
+		this.users = users;
+	}
+
+	
 }

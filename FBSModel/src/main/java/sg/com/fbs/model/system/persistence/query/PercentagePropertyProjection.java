@@ -15,18 +15,36 @@ public class PercentagePropertyProjection extends PropertyProjection{
 
 	private static final long serialVersionUID = -566519086174038725L;
 
-	@Setter
-	@Getter
 	private String denominatorProp;
-	
-	@Setter
-	@Getter
+
 	private Projection proj = null;
-	
-	@Setter
-	@Getter
+
 	private Projection denoProj = null;
 	
+	public String getDenominatorProp() {
+		return denominatorProp;
+	}
+
+	public void setDenominatorProp(String denominatorProp) {
+		this.denominatorProp = denominatorProp;
+	}
+
+	public Projection getProj() {
+		return proj;
+	}
+
+	public void setProj(Projection proj) {
+		this.proj = proj;
+	}
+
+	public Projection getDenoProj() {
+		return denoProj;
+	}
+
+	public void setDenoProj(Projection denoProj) {
+		this.denoProj = denoProj;
+	}
+
 	public PercentagePropertyProjection(String prop, String denominatorProp){
 		super(prop, false);
 		this.denominatorProp = denominatorProp;

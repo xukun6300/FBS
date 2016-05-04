@@ -38,26 +38,67 @@ public class DateInputTag extends AbstractHtmlInputElementTag{
 	
 	public static final String TYPE = "type";
 	
-	@Setter
-	@Getter
 	private String size;
 
-	@Setter
-	@Getter
 	private String maxlength;
 
-	@Setter
-	@Getter
 	private String alt;
 
-	@Setter
-	@Getter
 	private String onselect;
 
-	@Setter
-	@Getter
 	private String autocomplete;
 	
+	
+	public String getSize() {
+		return size;
+	}
+
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+
+	public String getMaxlength() {
+		return maxlength;
+	}
+
+
+	public void setMaxlength(String maxlength) {
+		this.maxlength = maxlength;
+	}
+
+
+	public String getAlt() {
+		return alt;
+	}
+
+
+	public void setAlt(String alt) {
+		this.alt = alt;
+	}
+
+
+	public String getOnselect() {
+		return onselect;
+	}
+
+
+	public void setOnselect(String onselect) {
+		this.onselect = onselect;
+	}
+
+
+	public String getAutocomplete() {
+		return autocomplete;
+	}
+
+
+	public void setAutocomplete(String autocomplete) {
+		this.autocomplete = autocomplete;
+	}
+
+
 	/**
 	 * to perform tag content rendering.
 	 * @return valid tag render instruction as per {@link javax.servlet.jsp.tagext.Tag#doStartTag()}.

@@ -26,18 +26,29 @@ public class CompositeValidator implements FieldValidator{
 	
 	private RequiredValidator requiredValidator = null;
 	
-	@Setter
+	
 	private List<String> detailArgs;
 	
-	@Setter
+	public void setDetailArgs(List<String> detailArgs) {
+		this.detailArgs = detailArgs;
+	}
+	
+	
 	private List<String> summaryArgs;
+	
+	public void setSummaryArgs(List<String> summaryArgs) {
+		this.summaryArgs = summaryArgs;
+	}
 	
 	private String stopOnRule = "";
 	
 	private boolean stopOnFirstRule = false;
 	
-	@Setter
 	private boolean stopOnBlank = true;
+	
+	public void setStopOnBlank(boolean stopOnBlank) {
+		this.stopOnBlank = stopOnBlank;
+	}
 	
 	@Override
 	public ValidatorMessageHolder validate(Object fieldValue, String fieldLabel) {
