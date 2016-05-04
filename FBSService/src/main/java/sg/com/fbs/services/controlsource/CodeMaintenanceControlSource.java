@@ -54,12 +54,12 @@ public class CodeMaintenanceControlSource extends BaseControlSource{
 			for (MasterCode masterCode : result) {
 				if(masterCode.isActive()){
 					if(type!=null && type.equals(ID)){
-						if(!values.containsKey(masterCode.getCodeValue())){
-							values.put(String.valueOf(masterCode.getId()), masterCode.getDescription());
+						if(!values.containsValue(masterCode.getCodeValue())){
+							values.put(String.valueOf(masterCode.getId()), masterCode.getCodeValue());
 						}
 					}else {
-						if(!values.containsKey(masterCode.getCodeValue())){
-							values.put(masterCode.getCodeValue(), masterCode.getDescription());
+						if(!values.containsValue(masterCode.getCodeValue())){
+							values.put(masterCode.getCodeValue(), masterCode.getCodeValue());
 						}
 					}
 				}

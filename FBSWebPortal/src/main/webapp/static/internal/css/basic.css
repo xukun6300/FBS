@@ -3699,7 +3699,7 @@ textarea {
 	white-space:nowrap;
 	word-wrap:break-word;
 	margin-top: 0px;
-	margin-left:20px;
+	/* margin-left:20px; */
 	padding-top:0px;
 }
 
