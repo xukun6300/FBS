@@ -32,6 +32,7 @@
     <bean class="sg.com.fbs.web.ui.controller.system.security.uam.UserAccountManagementController" scope="request"/> 
     <bean class="sg.com.fbs.web.ui.controller.security.AuthenticationController" scope="request"/>
     <bean class="sg.com.fbs.web.ui.controller.mastercode.MasterCodeController" scope="request"/>
+    <bean class="sg.com.fbs.web.ui.controller.account.AccountController" scope="request"/>
     
     <mvc:interceptors>
       <mvc:interceptor>

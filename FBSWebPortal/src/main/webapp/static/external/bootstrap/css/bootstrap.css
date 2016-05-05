@@ -1952,7 +1952,7 @@ legend + .control-group {
 .form-horizontal .control-group:after {
   display: table;
   line-height: 0;
-  content: "";
+  /* content: ""; */
 }
 
 .form-horizontal .control-group:after {

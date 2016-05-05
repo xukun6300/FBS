@@ -2,9 +2,6 @@ package sg.com.fbs.web.ui.form.mastercode;
 
 import javax.servlet.http.HttpServletRequest;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 

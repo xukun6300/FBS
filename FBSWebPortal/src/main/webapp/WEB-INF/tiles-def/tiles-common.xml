@@ -85,6 +85,14 @@
     </definition>
     
     
+    <!-- Manage Account Module -->
+    <definition name="account/showAddAccount" extends="base.definition">
+        <put-attribute name="title" value="Manage Account"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/account/addAccount.jsp"/>
+    </definition>
+    
+    
+    
     <definition name="userUncaughtException" extends="base.definition">
 		<put-attribute name="title" value="Error Page" />
 		<put-attribute name="body" value="/WEB-INF/jsp/userUncaughtException.jsp" />
