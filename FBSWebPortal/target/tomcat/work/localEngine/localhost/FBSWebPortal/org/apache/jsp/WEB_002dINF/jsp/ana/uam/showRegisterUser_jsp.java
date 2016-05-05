@@ -868,19 +868,20 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
             out.write("\r\n");
             out.write("         </div>  \r\n");
             out.write("  \r\n");
-            out.write("         <div>\r\n");
-            out.write("           <button id=\"saveBtnnew\" name=\"saveBtnnew\" class=\"bt b1\" type=\"button\" onclick=\"submitForm();\">");
+            out.write("        <div class=\"control-group\">\r\n");
+            out.write("           <div class=\"controls\">\r\n");
+            out.write("\t           <button id=\"saveBtnnew\" name=\"saveBtnnew\" class=\"bt bt1\" type=\"button\" onclick=\"submitForm();\">");
             if (_jspx_meth_spring_005fmessage_005f19(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</button>\r\n");
-            out.write("           <button id=\"cancel\" name=\"cancel\" class=\"bt b1\" type=\"button\" onclick=\"javascript:location.href='");
+            out.write("\t           <button id=\"cancel\" name=\"cancel\" class=\"bt bt1\" type=\"button\" onclick=\"javascript:location.href='");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
             out.write("/authentication/showLogin.action'\">");
             if (_jspx_meth_spring_005fmessage_005f20(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</button>\r\n");
-            out.write("           \r\n");
-            out.write("         </div>\r\n");
+            out.write("</button>\t         \r\n");
+            out.write("          </div>\r\n");
+            out.write("        </div>\r\n");
             out.write("          \r\n");
             out.write("       ");
             int evalDoAfterBody = _jspx_th_form_005fform_005f0.doAfterBody();
@@ -2310,7 +2311,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f19 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f19.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f19.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(215,105) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(216,107) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f19.setCode("fbs.common.ui.button.submit");
     int[] _jspx_push_body_count_spring_005fmessage_005f19 = new int[] { 0 };
     try {
@@ -2337,7 +2338,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f20 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f20.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f20.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(216,157) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/ana/uam/showRegisterUser.jsp(217,159) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f20.setCode("fbs.common.ui.button.cancel");
     int[] _jspx_push_body_count_spring_005fmessage_005f20 = new int[] { 0 };
     try {

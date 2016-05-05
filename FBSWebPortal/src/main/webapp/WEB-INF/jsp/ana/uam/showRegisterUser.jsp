@@ -211,11 +211,12 @@
 
          </div>  
   
-         <div>
-           <button id="saveBtnnew" name="saveBtnnew" class="bt b1" type="button" onclick="submitForm();"><spring:message code="fbs.common.ui.button.submit" /></button>
-           <button id="cancel" name="cancel" class="bt b1" type="button" onclick="javascript:location.href='${contextPath}/authentication/showLogin.action'"><spring:message code="fbs.common.ui.button.cancel" /></button>
-           
-         </div>
+        <div class="control-group">
+           <div class="controls">
+	           <button id="saveBtnnew" name="saveBtnnew" class="bt bt1" type="button" onclick="submitForm();"><spring:message code="fbs.common.ui.button.submit" /></button>
+	           <button id="cancel" name="cancel" class="bt bt1" type="button" onclick="javascript:location.href='${contextPath}/authentication/showLogin.action'"><spring:message code="fbs.common.ui.button.cancel" /></button>	         
+          </div>
+        </div>
           
        </form:form>   
 		       </div>

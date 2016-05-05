@@ -7,7 +7,7 @@
 <%@ taglib prefix="netui" uri="/tags/netui" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
+<script type="text/javascript" src="<spring:url value="/static/internal/js/account/account.js" />"></script>
 <fieldset>
 	<legend class="section">Configure New Account Template</legend>
     <form:form method="POST" commandName="command" action="addNewAccount.action" class="clearfix form-horizontal">
@@ -47,7 +47,7 @@
          </div>
 	    
 	    <br>
-	    <table  class="table ftable table-bordered table-hover table-condensed">
+	    <table id="accountTb" class="table ftable table-bordered table-hover table-condensed">
              <thead>
                 <tr>
                    <th><spring:message code="fbs.common.account.ui.label.account.column.name"/></th>
@@ -62,10 +62,10 @@
 	              <td>300</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>
 	              <td>
-		              <button type="button" class="btn btn-default btn-sm">
+		              <button type="button" class="btn btn-default btn-sm arrow-up">
 			            <span class="icon-arrow-up"></span>
 			          </button>	    
-			          <button type="button" class="btn btn-default btn-sm">
+			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>	           
 	              </td>
@@ -75,10 +75,10 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>
 	              <td>
-	                 <button type="button" class="btn btn-default btn-sm">
+	                 <button type="button" class="btn btn-default btn-sm arrow-up">
 			            <span class="icon-arrow-up"></span>
 			          </button>	    
-			          <button type="button" class="btn btn-default btn-sm">
+			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>
 	              </td>
@@ -88,10 +88,10 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
 	              <td>
-	                 <button type="button" class="btn btn-default btn-sm">
+	                 <button type="button" class="btn btn-default btn-sm arrow-up">
 			            <span class="icon-arrow-up"></span>
 			          </button>	    
-			          <button type="button" class="btn btn-default btn-sm">
+			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>
 	              </td>
@@ -101,10 +101,10 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
 	              <td>
-	                 <button type="button" class="btn btn-default btn-sm">
+	                 <button type="button" class="btn btn-default btn-sm arrow-up">
 			            <span class="icon-arrow-up"></span>
 			          </button>	    
-			          <button type="button" class="btn btn-default btn-sm">
+			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>
 	              </td>
@@ -114,10 +114,10 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
 	              <td>
-	                 <button type="button" class="btn btn-default btn-sm">
+	                 <button type="button" class="btn btn-default btn-sm arrow-up">
 			            <span class="icon-arrow-up"></span>
 			          </button>	    
-			          <button type="button" class="btn btn-default btn-sm">
+			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>
 	              </td>
@@ -127,10 +127,10 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
 	              <td>
-	                 <button type="button" class="btn btn-default btn-sm">
+	                 <button type="button" class="btn btn-default btn-sm arrow-up">
 			            <span class="icon-arrow-up"></span>
 			          </button>	    
-			          <button type="button" class="btn btn-default btn-sm">
+			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>
 	              </td>
@@ -140,21 +140,23 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
 	              <td>
-	                 <button type="button" class="btn btn-default btn-sm">
+	                 <button type="button" class="btn btn-default btn-sm arrow-up">
 			            <span class="icon-arrow-up"></span>
 			          </button>	    
-			          <button type="button" class="btn btn-default btn-sm">
+			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>
 	              </td>
 	            </tr>
              </tbody>
         </table>
-                   
-	    
-	    
-	    
-	    </div>
+        
+		<div style="margin:2%">
+			<button type="button" class="bt" id="addNewRow"><i class="icon-plus icon-white"></i> Add a New Row</button>
+		</div>
+
+
+		</div>
     </form:form>
 
 </fieldset>
