@@ -123,7 +123,9 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t          <li><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("/mastercode/showAddCodeKey.action\">Add Code Key</a></li>\r\n");
-      out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
+      out.write("\t\t          <li><a href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/account/showAddAccount.action\">Create New Account</a></li>\r\n");
       out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");
       out.write("\t\t        <!--   <li class=\"divider\"></li> -->\r\n");
       out.write("\t\t          <li><a href=\"#\">Another action</a></li>\r\n");

@@ -219,7 +219,7 @@ public final class showRegisterUser_jsp extends org.apache.jasper.runtime.HttpJs
               return;
             out.write(" </label>\r\n");
             out.write("              \r\n");
-            out.write("              <div class=\"controls\">\r\n");
+            out.write("              <div class=\"input-append\">\r\n");
             out.write("                ");
             if (_jspx_meth_form_005finput_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;

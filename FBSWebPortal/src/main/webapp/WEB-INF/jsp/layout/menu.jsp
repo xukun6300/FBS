@@ -42,7 +42,7 @@
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
 		          <li><a href="${contextPath}/mastercode/showAddCodeKey.action">Add Code Key</a></li>
-		          <li><a href="#">Another action</a></li>
+		          <li><a href="${contextPath}/account/showAddAccount.action">Create New Account</a></li>
 		          <li><a href="#">Another action</a></li>
 		        <!--   <li class="divider"></li> -->
 		          <li><a href="#">Another action</a></li>

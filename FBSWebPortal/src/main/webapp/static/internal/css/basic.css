@@ -2858,8 +2858,10 @@ font-size: 14px;
 }
 
 .input-append {
-	padding-top: 25px;
-	margin-left: 40px;	
+	/* padding-top: 25px;
+	margin-left: 40px; */
+	margin-left: 165px;
+    display: block !important;	
 }
 
 .ea-home li a{

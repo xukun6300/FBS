@@ -46,7 +46,111 @@
             </div>
          </div>
 	    
-	    
+	    <br>
+	    <table  class="table ftable table-bordered table-hover table-condensed">
+             <thead>
+                <tr>
+                   <th><spring:message code="fbs.common.account.ui.label.account.column.name"/></th>
+                   <th><spring:message code="fbs.common.account.ui.label.account.column.size"/></th>                  
+                   <th><spring:message code="fbs.common.account.ui.label.account.column.type"/></th>
+                   <th><spring:message code="fbs.common.account.ui.label.account.column.order"/></th>
+                </tr>
+             </thead>             
+             <tbody>
+	            <tr>
+	              <td><spring:message code="fbs.common.account.ui.label.account.item.desc"/></td>
+	              <td>300</td>
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>
+	              <td>
+		              <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-up"></span>
+			          </button>	    
+			          <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-down"></span>
+			          </button>	           
+	              </td>
+	            </tr>
+	            <tr>
+	              <td><spring:message code="fbs.common.account.ui.label.account.workings"/></td>
+	              <td>100</td>
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>
+	              <td>
+	                 <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-up"></span>
+			          </button>	    
+			          <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-down"></span>
+			          </button>
+	              </td>
+	            </tr>
+	            <tr>
+	              <td><spring:message code="fbs.common.account.ui.label.account.amount"/></td>
+	              <td>100</td>
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
+	              <td>
+	                 <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-up"></span>
+			          </button>	    
+			          <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-down"></span>
+			          </button>
+	              </td>
+	            </tr>
+	            <tr>
+	              <td><spring:message code="fbs.common.account.ui.label.account.q1"/></td>
+	              <td>100</td>
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
+	              <td>
+	                 <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-up"></span>
+			          </button>	    
+			          <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-down"></span>
+			          </button>
+	              </td>
+	            </tr>
+	            <tr>
+	              <td><spring:message code="fbs.common.account.ui.label.account.q2"/></td>
+	              <td>100</td>
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
+	              <td>
+	                 <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-up"></span>
+			          </button>	    
+			          <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-down"></span>
+			          </button>
+	              </td>
+	            </tr>
+	            <tr>
+	              <td><spring:message code="fbs.common.account.ui.label.account.q3"/></td>
+	              <td>100</td>
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
+	              <td>
+	                 <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-up"></span>
+			          </button>	    
+			          <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-down"></span>
+			          </button>
+	              </td>
+	            </tr>
+	            <tr>
+	              <td><spring:message code="fbs.common.account.ui.label.account.q4"/></td>
+	              <td>100</td>
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>
+	              <td>
+	                 <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-up"></span>
+			          </button>	    
+			          <button type="button" class="btn btn-default btn-sm">
+			            <span class="icon-arrow-down"></span>
+			          </button>
+	              </td>
+	            </tr>
+             </tbody>
+        </table>
+                   
 	    
 	    
 	    
