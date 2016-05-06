@@ -10,7 +10,7 @@
 <script type="text/javascript" src="<spring:url value="/static/internal/js/account/account.js" />"></script>
 <fieldset>
 	<legend class="section">Configure New Account Template</legend>
-    <form:form method="POST" commandName="command" action="addNewAccount.action" class="clearfix form-horizontal">
+    <form:form method="POST" id="accountForm" commandName="command" action="addNewAccount.action" class="clearfix form-horizontal">
 	    <form:errors cssClass="alert alert-error" element="div"/>
 	    <div class="clearfix"><br>
 	    <div class="control-group required">
@@ -32,8 +32,8 @@
 	    <div class="control-group required">
             <label class="control-label" for="accountDesc"><spring:message code="fbs.common.account.ui.label.account.need.requisition.form"/></label>
             <div class="controls control-radio-checkbox">        
-               <form:radiobutton id="needRequisitionFormYes" path="needRequisitionForm" value="Y"/><label for="needRequisitionFormYes">Yes</label>
-               <form:radiobutton id="needRequisitionFormNo" path="needRequisitionForm" value="N"/><label for="needRequisitionFormNo">No</label> 
+               <form:radiobutton id="needRequisitionFormYes" path="needRequisitionForm" value="true"/><label for="needRequisitionFormYes">Yes</label>
+               <form:radiobutton id="needRequisitionFormNo" path="needRequisitionForm" value="false"/><label for="needRequisitionFormNo">No</label> 
                <form:errors path="needRequisitionForm" cssClass="mandatory" element="div"></form:errors>  
             </div>
          </div>
@@ -154,6 +154,7 @@
         
 		<div style="margin:2%">
 			<button type="button" class="bt" id="addNewRow"><i class="icon-plus icon-white"></i> Add a New Row</button>
+			<button type="button" class="bt" id="saveAccount">Save</button>			
 		</div>
 
 
