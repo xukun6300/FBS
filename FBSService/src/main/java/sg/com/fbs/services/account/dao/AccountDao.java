@@ -1,5 +1,8 @@
 package sg.com.fbs.services.account.dao;
 
+import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.model.account.Account;
+import sg.com.fbs.model.account.AccountStructure;
 import sg.com.fbs.techinfra.persistence.dao.BaseDao;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -10,4 +13,13 @@ import sg.com.fbs.techinfra.persistence.dao.BaseDao;
  */
 public class AccountDao extends BaseDao{
 
+	public Account insert(Account account) throws DataAccessObjectException{
+		account = (Account) super.insert(account);
+		return account;
+	}
+	
+	public AccountStructure insert(AccountStructure accountStructure) throws DataAccessObjectException{
+		accountStructure = (AccountStructure) super.insert(accountStructure);
+		return accountStructure;
+	}
 }

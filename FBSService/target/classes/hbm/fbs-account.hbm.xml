@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+		
+<hibernate-mapping auto-import="true" default-lazy="false">
+   
+   <class name="sg.com.fbs.model.account.Account" table="ACCOUNT_TB">
+      <id name="id" column="ACCOUNTID">
+        <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+           <param name="sequence">ACCOUNT_SEQ</param>
+        </generator>
+      </id>
+      <property name="accountCode" column="ACCT_CODE" not-null="true"/>
+      <property name="accountDesc" column="ACCT_DESC" not-null="true"/>
+      <property name="requisitionForm" column="REQ_FORM" not-null="true"/>
+      <property name="spendPeriod" column="SPEND_PRD" not-null="true"/>
+      <property name="financialYear" column="FY" not-null="true"/>
+      <set name="acctStructures" table="ACCT_STRUCTURE_TB" inverse="true" cascade="all" fetch="select" order-by="sequence" where="ACTIVE_IND='Y'">
+         <key column="ACCOUNTID"/>
+         <one-to-many class="sg.com.fbs.model.account.AccountStructure"/>
+      </set>
+      <property name="modifiedby" column="MODIFIEDBY" />
+	  <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
+	  <property name="createdby" column="CREATEDBY" update="false"/>
+	  <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
+	  <property name="activeStatus" column="ACTIVE_IND" not-null="true"/>
+   </class>
+   
+   <class name="sg.com.fbs.model.account.AccountStructure" table="ACCT_STRUCTURE_TB">
+      <id name="id" column="ACCT_STRUCTURE_ID">
+         <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+           <param name="sequence">ACCT_STRUCTURE_SEQ</param>
+         </generator>
+      </id>      
+      <many-to-one name="account" class="sg.com.fbs.model.account.Account" column="ACCOUNTID" cascade="save-update" not-found="ignore"/>
+      <property name="columnName" column="COLUMN_NAME" not-null="true"/>
+      <property name="columnSize" column="COLUMN_SIZE" not-null="true"/>
+      <property name="columnType" column="COLUMN_TYPE" not-null="true"/>
+      <property name="sequence" column="SEQUENCE" not-null="true"/>
+      <property name="modifiedby" column="MODIFIEDBY" />
+	  <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
+	  <property name="createdby" column="CREATEDBY" update="false"/>
+	  <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
+	  <property name="activeStatus" column="ACTIVE_IND" not-null="true"/>
+   </class>
+
+
+</hibernate-mapping>		

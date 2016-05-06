@@ -66,7 +66,7 @@ public class AccountController extends BaseWebController{
 		setCrudMode(WebCRUDEnum.INSERT_MODE);
 		setCRUDOperation(AccountCRUD.class);
 		setValidationErrorPage(AccountWebEnum.SHOW_ADD_ACCOUNT_JSP.toString());
-		Mvc mvc = new Mvc(accountForm, AccountWebEnum.SHOW_ADD_ACCOUNT_JSP.toString(), accountRequest);
+		Mvc mvc = new Mvc(accountForm, AccountWebEnum.CONFIRM_ADD_ACCOUNT_JSP.toString(), accountRequest);
 		return mvc;
 	}
 

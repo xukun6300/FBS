@@ -38,6 +38,7 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         <mapping resource="hbm/fbs-auditlog.hbm.xml"/>
         <mapping resource="hbm/fbs-activity.hbm.xml"/>
         <mapping resource="hbm/fbs-mastercode.hbm.xml"/>
+        <mapping resource="hbm/fbs-account.hbm.xml"/>
   </session-factory>
 
 </hibernate-configuration>
