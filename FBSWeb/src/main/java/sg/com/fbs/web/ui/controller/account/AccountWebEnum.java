@@ -23,5 +23,12 @@ public enum AccountWebEnum implements WebDropDownListIF{
 		public String toString() {
 			return "showAddAccount";
 		}
+	},
+	
+	CONFIRM_ADD_ACCOUNT_JSP{
+		@Override
+		public String toString() {
+			return "confirmAddAccount";
+		}
 	}
 }

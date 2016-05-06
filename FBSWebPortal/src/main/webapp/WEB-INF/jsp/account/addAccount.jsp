@@ -12,7 +12,7 @@
 	<legend class="section">Configure New Account Template</legend>
     <form:form method="POST" commandName="command" action="addNewAccount.action" class="clearfix form-horizontal">
 	    <form:errors cssClass="alert alert-error" element="div"/>
-	    <div class="clearfix">
+	    <div class="clearfix"><br>
 	    <div class="control-group required">
             <label class="control-label" for="accountCode"><spring:message code="fbs.common.account.ui.label.account.code"/></label>
             <div class="controls">

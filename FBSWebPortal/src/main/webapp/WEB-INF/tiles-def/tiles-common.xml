@@ -91,6 +91,10 @@
         <put-attribute name="body" value="/WEB-INF/jsp/account/addAccount.jsp"/>
     </definition>
     
+    <definition name="account/confirmAddAccount" extends="base.definition">
+        <put-attribute name="title" value="Manage Account"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/account/confirmAddAccount.jsp"/>
+    </definition>
     
     
     <definition name="userUncaughtException" extends="base.definition">

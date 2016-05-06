@@ -1,21 +1,18 @@
-package sg.com.fbs.web.ui.form.account;
+package sg.com.fbs.model.account;
 
-import javax.servlet.http.HttpServletRequest;
-
-import sg.com.fbs.common.form.BusinessWebForm;
-import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.business.pojo.BasePojoRequest;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
  * @Author Frank Xu Kun $
- * @Created May 5, 2016 $
+ * @Created May 6, 2016 10:06:15 AM $
  * 
  */
-public class AccountForm extends BusinessWebForm{
+public class AccountRequest extends BasePojoRequest{
 
 	private static final long serialVersionUID = 1L;
-
-	private String accountCode;
+	
+    private String accountCode;
 	
 	private String accountDesc;
 	
@@ -24,7 +21,7 @@ public class AccountForm extends BusinessWebForm{
 	private String acctSpendingPeriod;
 
 	private String acctStructureJson;
-	
+
 	public String getAccountCode() {
 		return accountCode;
 	}
@@ -57,18 +54,13 @@ public class AccountForm extends BusinessWebForm{
 		this.acctSpendingPeriod = acctSpendingPeriod;
 	}
 
-	public void setAcctStructureJson(String acctStructureJson) {
-		this.acctStructureJson = acctStructureJson;
-	}
-	
 	public String getAcctStructureJson() {
 		return acctStructureJson;
 	}
-	
-	@Override
-	public CriteriaIF getSearchCriteria(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+
+	public void setAcctStructureJson(String acctStructureJson) {
+		this.acctStructureJson = acctStructureJson;
 	}
 
+	
 }

@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.fbs.core.techinfra.web.BaseWebController;
 import sg.com.fbs.core.techinfra.web.Mvc;
+import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
+import sg.com.fbs.model.account.AccountRequest;
 import sg.com.fbs.web.ui.form.account.AccountForm;
 
 
@@ -55,6 +57,16 @@ public class AccountController extends BaseWebController{
 	public ModelAndView showAddAccount(HttpServletRequest request, HttpServletResponse response){
 		AccountForm accountForm = new AccountForm();
 		Mvc mvc = new Mvc(accountForm, AccountWebEnum.SHOW_ADD_ACCOUNT_JSP.toString());
+		return mvc;
+	}
+	
+	public ModelAndView addNewAccount(HttpServletRequest request, HttpServletResponse response){
+		AccountForm accountForm = new AccountForm();
+		AccountRequest accountRequest = new AccountRequest();
+		setCrudMode(WebCRUDEnum.INSERT_MODE);
+		setCRUDOperation(AccountCRUD.class);
+		setValidationErrorPage(AccountWebEnum.SHOW_ADD_ACCOUNT_JSP.toString());
+		Mvc mvc = new Mvc(accountForm, AccountWebEnum.SHOW_ADD_ACCOUNT_JSP.toString(), accountRequest);
 		return mvc;
 	}
 

@@ -77,6 +77,7 @@ function exportData(type, tableId){
 	});
 	
 	var rowJson = JSON.stringify(jsonData);
+	console.log(rowJson);
 	var url = jsBaseURL + '/gridexportdata/exportdata.action';   //jsBase is context path (/FBSWebPortal)
 	var frm = $('<form>').attr({action:url,method:'POST',target:'_blank'}).appendTo($('body'));
 	
