@@ -46,7 +46,7 @@ public class AccountManager extends CommonFacade{
             System.out.println("JSON value:---->"+accountRequest.getAcctStructureJson());
             
 			if(accountStructures!=null && accountStructures.size()>0){
-				account.setAcctStructures(new HashSet<AccountStructure>(accountStructures));
+				account.setAcctStructures(accountStructures);
 				for (AccountStructure accountStructure : accountStructures) {
 					accountStructure.setAccount(account);
 					accountStructure = accountDao.insert(accountStructure);
@@ -55,10 +55,12 @@ public class AccountManager extends CommonFacade{
 			
 			if(account.getId()>0){
 				accountRequest.setId(account.getId());
+				accountRequest.setAcctStructures(accountStructures);
 				response.setCrudResult(account);
 			}
 			return response;
 		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
 			throw new AccountException(e.getMessageCode(), e);
 		}
 	}

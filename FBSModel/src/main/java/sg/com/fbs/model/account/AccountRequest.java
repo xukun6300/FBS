@@ -1,5 +1,10 @@
 package sg.com.fbs.model.account;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -22,6 +27,16 @@ public class AccountRequest extends BasePojoRequest{
 
 	private String acctStructureJson;
 
+    private List<AccountStructure> acctStructures = new ArrayList<AccountStructure>();
+	
+	public List<AccountStructure> getAcctStructures() {
+		return acctStructures;
+	}
+	
+	public void setAcctStructures(List<AccountStructure> acctStructures) {
+		this.acctStructures = acctStructures;
+	}
+	
 	public String getAccountCode() {
 		return accountCode;
 	}

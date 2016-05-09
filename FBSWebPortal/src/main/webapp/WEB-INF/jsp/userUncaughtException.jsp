@@ -34,6 +34,10 @@
 							<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${currentDate}" />.
 							<div/> 
 							Please take a screen shot of this message and contact the system administrator.
+							${exception }
+							<c:forEach var="stackTraceElem" items="${exception.stackTrace}">
+    <c:out value="${stackTraceElem}"/><br/>
+  </c:forEach>
 						</div>
 					</span>
 				</div>

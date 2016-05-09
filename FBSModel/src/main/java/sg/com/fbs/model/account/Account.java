@@ -1,6 +1,8 @@
 package sg.com.fbs.model.account;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import sg.com.fbs.model.business.pojo.BaseLogPojo;
@@ -25,7 +27,7 @@ public class Account extends BaseLogPojo{
 	
 	private String financialYear;
 	
-	private Set<AccountStructure> acctStructures = new HashSet<AccountStructure>(0);
+	private List<AccountStructure> acctStructures = new ArrayList<AccountStructure>();
 
 	public String getAccountCode() {
 		return accountCode;
@@ -67,11 +69,11 @@ public class Account extends BaseLogPojo{
 		this.financialYear = financialYear;
 	}
 	
-	public Set<AccountStructure> getAcctStructures() {
+	public List<AccountStructure> getAcctStructures() {
 		return acctStructures;
 	}
 	
-	public void setAcctStructures(Set<AccountStructure> acctStructures) {
+	public void setAcctStructures(List<AccountStructure> acctStructures) {
 		this.acctStructures = acctStructures;
 	}
 

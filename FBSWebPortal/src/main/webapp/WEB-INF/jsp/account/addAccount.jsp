@@ -54,6 +54,7 @@
                    <th><spring:message code="fbs.common.account.ui.label.account.column.size"/></th>                  
                    <th><spring:message code="fbs.common.account.ui.label.account.column.type"/></th>
                    <th><spring:message code="fbs.common.account.ui.label.account.column.order"/></th>
+                   <th></th>
                 </tr>
              </thead>             
              <tbody>
@@ -69,6 +70,9 @@
 			            <span class="icon-arrow-down"></span>
 			          </button>	           
 	              </td>
+	              <td>
+	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              </td>
 	            </tr>
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.workings"/></td>
@@ -81,6 +85,9 @@
 			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>
+	              </td>
+	              <td>
+	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -95,6 +102,9 @@
 			            <span class="icon-arrow-down"></span>
 			          </button>
 	              </td>
+	              <td>
+	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              </td>
 	            </tr>
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.q1"/></td>
@@ -107,6 +117,9 @@
 			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>
+	              </td>
+	              <td>
+	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -121,6 +134,9 @@
 			            <span class="icon-arrow-down"></span>
 			          </button>
 	              </td>
+	              <td>
+	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              </td>
 	            </tr>
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.q3"/></td>
@@ -134,6 +150,9 @@
 			            <span class="icon-arrow-down"></span>
 			          </button>
 	              </td>
+	              <td>
+	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              </td>
 	            </tr>
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.q4"/></td>
@@ -146,6 +165,9 @@
 			          <button type="button" class="btn btn-default btn-sm arrow-down">
 			            <span class="icon-arrow-down"></span>
 			          </button>
+	              </td>
+	              <td>
+	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 
