@@ -115,6 +115,11 @@ public abstract class BaseWebController extends MultiActionController{
 	protected void setCRUDOperation(Class crudOperation) {
 		tlCrudOperation.set((WebCRUDIF)ReflectionUtil.getClassObject(crudOperation.getName()));
 	}
+	
+	protected void setCRUDOperation(WebCRUDIF crudOperation){
+		tlCrudOperation.set(crudOperation);
+	}
+	
 	/**
 	 * As BaseWebcontroller is extending MultiActionController  hence it will be a singleton class (as per Spring controller design)
 	 * Due to this variables being declared are set by one request are getting used by other request if they are not reset.
@@ -442,7 +447,7 @@ public abstract class BaseWebController extends MultiActionController{
 		} catch (IllegalAccessException e) {
 			throw new ApplicationCoreException(e);
 		} catch (InvocationTargetException e) {
-			
+			e.printStackTrace();
 			ApplicationCoreException ace = handleException(e);
 			throw ace;
 		}

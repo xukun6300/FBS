@@ -1,5 +1,7 @@
 package sg.com.fbs.services.account.mgr;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.model.account.AccountRequest;
@@ -14,10 +16,13 @@ import sg.com.fbs.services.account.exception.AccountException;
  */
 public class AccountManagerBD extends BusinessDelegate {
 
+	@Autowired
+	private AccountManager accountManager;
+	
 	@SuppressWarnings("rawtypes")
 	public ResponseCRUD saveAccount(AccountRequest accountRequest) throws AccountException{
 		try {
-			Object object = new AccountManager().run(accountRequest);
+			Object object = accountManager.run(accountRequest);
 			return (ResponseCRUD) object;
 		} catch (ApplicationCoreException e) {
 			throw new AccountException(e.getMessageCode(), e);
@@ -27,7 +32,7 @@ public class AccountManagerBD extends BusinessDelegate {
 	
 	public Boolean checkAccountCodeExist(String accountCode) throws AccountException{
 		try {
-             Object object = new AccountManager().run(accountCode);
+             Object object = accountManager.run(accountCode);
              return (Boolean)object;
 		} catch (ApplicationCoreException e) {
 			throw new AccountException(e.getMessageCode(), e);

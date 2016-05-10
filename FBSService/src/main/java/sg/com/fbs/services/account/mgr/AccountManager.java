@@ -1,8 +1,9 @@
 package sg.com.fbs.services.account.mgr;
 
 import java.lang.reflect.Type;
-import java.util.HashSet;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 //import org.hibernate.criterion.Criterion;
 
@@ -30,9 +31,12 @@ import sg.com.fbs.services.account.exception.AccountException;
  */
 public class AccountManager extends CommonFacade{
 	
+	@Autowired
+	private AccountDao accountDao;
+	
 	@SuppressWarnings("rawtypes")
 	public Boolean checkAccountCodeExist(String accountCode) throws AccountException{
-		AccountDao accountDao = new AccountDao();
+		//AccountDao accountDao = new AccountDao();
 		CriteriaIF searchCriteria = new Criteria();
 		Criterion[] criterions = {new Criterion(Account.ACCOUNT_CODE, accountCode, true), new Criterion(Account.ACT_IND, "Y", true)};
 		searchCriteria.setCriterion(criterions);

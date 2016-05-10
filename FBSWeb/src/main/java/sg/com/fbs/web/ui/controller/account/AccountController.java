@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,6 +25,12 @@ import sg.com.fbs.web.ui.form.account.AccountForm;
  */
 public class AccountController extends BaseWebController{
 
+	@Autowired
+	private AccountCRUD accountCrud;
+	
+	@Autowired
+	private AccountValidator accountValidator;
+	
 	@Override
 	public String getModuleWebContext() {
 		return AccountWebEnum.ACCOUNT_JSP_PLACEHOLDER.toString();
@@ -43,7 +50,7 @@ public class AccountController extends BaseWebController{
 
 	@Override
 	public Validator getCustomValidator() {
-		return new AccountValidator();
+		return accountValidator;
 	}
 	
 	
@@ -63,7 +70,7 @@ public class AccountController extends BaseWebController{
 		AccountForm accountForm = new AccountForm();
 		AccountRequest accountRequest = new AccountRequest();
 		setCrudMode(WebCRUDEnum.INSERT_MODE);
-		setCRUDOperation(AccountCRUD.class);
+		setCRUDOperation(accountCrud);
 		setValidationErrorPage(AccountWebEnum.SHOW_ADD_ACCOUNT_JSP.toString());
 		Mvc mvc = new Mvc(accountForm, AccountWebEnum.CONFIRM_ADD_ACCOUNT_JSP.toString(), accountRequest);
 		return mvc;

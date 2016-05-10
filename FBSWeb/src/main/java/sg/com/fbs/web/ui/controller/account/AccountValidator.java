@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -23,6 +24,9 @@ import sg.com.fbs.web.ui.form.account.AccountForm;
  */
 public class AccountValidator implements Validator{
 
+	@Autowired
+	private AccountManagerBD accountManagerBD;
+	
 	@Override
 	public boolean supports(Class<?> arg0) {
 		return true;
@@ -49,7 +53,7 @@ public class AccountValidator implements Validator{
 				errors.rejectValue("acctSpendingPeriod", "fbs.common.errors.account.invalid.spend.period");
 			}
 			
-			AccountManagerBD accountManagerBD = new AccountManagerBD();
+			//AccountManagerBD accountManagerBD = new AccountManagerBD();
 			try {
 				Boolean accountCodeExist = accountManagerBD.checkAccountCodeExist(accountForm.getAccountCode());
 				if(accountCodeExist){

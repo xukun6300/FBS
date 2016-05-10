@@ -2,6 +2,8 @@ package sg.com.fbs.web.ui.controller.account;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import sg.com.fbs.core.techinfra.exception.CRUDException;
 import sg.com.fbs.core.techinfra.web.WebCRUDIF;
 import sg.com.fbs.model.account.AccountRequest;
@@ -18,6 +20,9 @@ import sg.com.fbs.services.account.mgr.AccountManagerBD;
  */
 public class AccountCRUD implements WebCRUDIF{
 
+	@Autowired
+	private AccountManagerBD accountManagerBD;
+	
 	@Override
 	public IResponseCRUD<?> runQuery(BasePojoRequest pojoRequest, Object form, HttpServletRequest request)
 			throws CRUDException {
@@ -37,7 +42,7 @@ public class AccountCRUD implements WebCRUDIF{
 			throws CRUDException {
 		
 		IResponseCRUD<?> response = null;
-		AccountManagerBD accountManagerBD = new AccountManagerBD();
+		//AccountManagerBD accountManagerBD = new AccountManagerBD();
 		try {
 			if (pojoRequest instanceof AccountRequest) {
 				AccountRequest accountRequest = (AccountRequest) pojoRequest;

@@ -34,6 +34,12 @@
     <bean class="sg.com.fbs.web.ui.controller.mastercode.MasterCodeController" scope="request"/>
     <bean class="sg.com.fbs.web.ui.controller.account.AccountController" scope="request"/>
     
+    <bean id="accountDao" class="sg.com.fbs.services.account.dao.AccountDao"/>
+    <bean id="accountManager" class="sg.com.fbs.services.account.mgr.AccountManager"/>
+    <bean id="accountManagerBD" class="sg.com.fbs.services.account.mgr.AccountManagerBD"/>
+    <bean id="accountCrud" class="sg.com.fbs.web.ui.controller.account.AccountCRUD"/>
+    <bean id="accountValidator" class="sg.com.fbs.web.ui.controller.account.AccountValidator"/>
+    
     <mvc:interceptors>
       <mvc:interceptor>
         <mvc:mapping path="/**"/>

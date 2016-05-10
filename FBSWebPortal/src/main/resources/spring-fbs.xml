@@ -30,9 +30,6 @@
   </property>
 </bean> -->
 
-
-
-
 <import resource="classpath:spring-fbs-common-webui.xml"/>
 <import resource="classpath:spring-fbs-transactions.xml"/> 
 <import resource="classpath:spring-fbs-validator.xml"/>
