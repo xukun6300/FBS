@@ -17,7 +17,7 @@
       <property name="financialYear" column="FY" not-null="true"/>
       <list name="acctStructures" table="ACCT_STRUCTURE_TB" inverse="true" cascade="all" fetch="select" where="ACTIVE_IND='Y'">
          <key column="ACCOUNTID"/>
-         <list-index column="ACCT_STRUCTURE_ID" base="1"/>
+         <list-index column="SEQUENCE" base="1"/>
          <one-to-many class="sg.com.fbs.model.account.AccountStructure"/>
       </list>
       <property name="modifiedby" column="MODIFIEDBY" />
