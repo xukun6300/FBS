@@ -16,6 +16,10 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
   </context-param>
   <!-- load root context -->
   
+  <welcome-file-list>
+     <welcome-file>redirect.jsp</welcome-file>
+  </welcome-file-list>
+  
   <!-- initialization of the WebApplicationContext, which is the child context of the application context. 
        Each DispatcherServlet defined in a Spring web application will have an associated WebApplicationContext. -->
   <servlet>
@@ -113,4 +117,5 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
       
    </jsp-config>
 
+	
 </web-app>

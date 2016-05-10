@@ -28,12 +28,15 @@
   	
 	<context:component-scan base-package="sg.com.fbs.core.techinfra.web.exportdata"/>
 	<context:component-scan base-package="sg.com.fbs.web.ui.controller"/>
-
+    
+    <!-- Default bean scope:Singleton , one instance per IoC container -->
     <bean class="sg.com.fbs.web.ui.controller.system.security.uam.UserAccountManagementController" scope="request"/> 
     <bean class="sg.com.fbs.web.ui.controller.security.AuthenticationController" scope="request"/>
     <bean class="sg.com.fbs.web.ui.controller.mastercode.MasterCodeController" scope="request"/>
-    <bean class="sg.com.fbs.web.ui.controller.account.AccountController" scope="request"/>
     
+    
+    <!-- Account Management -->
+    <bean class="sg.com.fbs.web.ui.controller.account.AccountController" scope="request"/>
     <bean id="accountDao" class="sg.com.fbs.services.account.dao.AccountDao"/>
     <bean id="accountManager" class="sg.com.fbs.services.account.mgr.AccountManager"/>
     <bean id="accountManagerBD" class="sg.com.fbs.services.account.mgr.AccountManagerBD"/>
