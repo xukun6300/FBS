@@ -271,6 +271,7 @@ public abstract class BaseWebController extends MultiActionController{
 				modelView.addObject(BaseWebEnum.MODEL_BEAN.toString(), modelBean);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new ApplicationCoreException(e);
 		}
 		

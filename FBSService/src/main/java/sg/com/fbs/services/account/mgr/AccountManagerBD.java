@@ -24,4 +24,13 @@ public class AccountManagerBD extends BusinessDelegate {
 		}
 		
 	}
+	
+	public Boolean checkAccountCodeExist(String accountCode) throws AccountException{
+		try {
+             Object object = new AccountManager().run(accountCode);
+             return (Boolean)object;
+		} catch (ApplicationCoreException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
 }

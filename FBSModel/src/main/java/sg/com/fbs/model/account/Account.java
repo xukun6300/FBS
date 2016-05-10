@@ -17,6 +17,8 @@ public class Account extends BaseLogPojo{
 
 	private static final long serialVersionUID = -948756286819561386L;
 	
+	public static final String ACCOUNT_CODE = "accountCode";
+	
 	private String accountCode;
 	
 	private String accountDesc;

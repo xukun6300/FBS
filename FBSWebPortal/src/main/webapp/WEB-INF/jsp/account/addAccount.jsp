@@ -12,9 +12,9 @@
 	<legend class="section">Configure New Account Template</legend>
     <form:form method="POST" id="accountForm" commandName="command" action="addNewAccount.action" class="clearfix form-horizontal">
 	    <form:errors cssClass="alert alert-error" element="div"/>
-	    <div class="clearfix"><br>
-	    
-	    <form:errors path="*" cssClass="mandatory" element="div"/>
+	    <div class="clearfix">
+	    <form:errors path="acctStructureJson" cssClass="mandatory" element="div" style="margin-left:25px; margin-bottom:20px"/>
+	    <br>
 	    <form:input path="acctStructureJson" type="hidden"/>
 	    
 	    <div class="control-group required">

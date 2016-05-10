@@ -11,6 +11,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import sg.com.fbs.model.account.AccountStructure;
+import sg.com.fbs.services.account.exception.AccountException;
+import sg.com.fbs.services.account.mgr.AccountManagerBD;
 import sg.com.fbs.web.ui.form.account.AccountForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -31,6 +33,33 @@ public class AccountValidator implements Validator{
 		if(target instanceof AccountForm){
 			AccountForm accountForm = (AccountForm) target;
 			
+			if(StringUtils.isEmpty(accountForm.getAccountCode())){
+				errors.rejectValue("accountCode", "fbs.common.errors.account.mandatory.account.code");
+			}
+			
+			if(StringUtils.isEmpty(accountForm.getAccountDesc())){
+				errors.rejectValue("accountDesc", "fbs.common.errors.account.mandatory.account.desc");
+			}
+
+			if(StringUtils.isEmpty(accountForm.getAcctSpendingPeriod())){
+				errors.rejectValue("acctSpendingPeriod", "fbs.common.errors.account.mandatory.spend.period");
+			}
+			
+			if(!StringUtils.isNumeric(accountForm.getAcctSpendingPeriod())){
+				errors.rejectValue("acctSpendingPeriod", "fbs.common.errors.account.invalid.spend.period");
+			}
+			
+			AccountManagerBD accountManagerBD = new AccountManagerBD();
+			try {
+				Boolean accountCodeExist = accountManagerBD.checkAccountCodeExist(accountForm.getAccountCode());
+				if(accountCodeExist){
+					errors.rejectValue("accountCode", "fbs.common.errors.account.invalid.account.code");
+				}
+			} catch (AccountException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			Gson gson = new Gson();
 			Type acctStructureListType = new TypeToken<List<AccountStructure>>(){}.getType();			
 			List<AccountStructure> accountStructures = gson.fromJson(accountForm.getAcctStructureJson(), acctStructureListType);
@@ -43,7 +72,9 @@ public class AccountValidator implements Validator{
 					if(StringUtils.isEmpty(accountStructure.getColumnSize())){
 						errors.rejectValue("acctStructureJson", "fbs.common.errors.account.mandatory.column.size");
 					}
-					
+					if(!StringUtils.isNumeric(accountStructure.getColumnSize())){
+						errors.rejectValue("acctStructureJson", "fbs.common.errors.account.invalid.column.size");
+					}
 				}
 			}
 		}

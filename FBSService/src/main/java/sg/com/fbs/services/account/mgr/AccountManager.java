@@ -4,6 +4,8 @@ import java.lang.reflect.Type;
 import java.util.HashSet;
 import java.util.List;
 
+//import org.hibernate.criterion.Criterion;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -12,6 +14,10 @@ import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException
 import sg.com.fbs.model.account.Account;
 import sg.com.fbs.model.account.AccountRequest;
 import sg.com.fbs.model.account.AccountStructure;
+import sg.com.fbs.model.system.persistence.query.Criteria;
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.query.Criterion;
+import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.account.dao.AccountDao;
 import sg.com.fbs.services.account.exception.AccountException;
@@ -23,6 +29,24 @@ import sg.com.fbs.services.account.exception.AccountException;
  * 
  */
 public class AccountManager extends CommonFacade{
+	
+	@SuppressWarnings("rawtypes")
+	public Boolean checkAccountCodeExist(String accountCode) throws AccountException{
+		AccountDao accountDao = new AccountDao();
+		CriteriaIF searchCriteria = new Criteria();
+		Criterion[] criterions = {new Criterion(Account.ACCOUNT_CODE, accountCode, true), new Criterion(Account.ACT_IND, "Y", true)};
+		searchCriteria.setCriterion(criterions);
+		searchCriteria.setFetchAll(true);
+		
+		try {
+			IResponseCRUD responseCRUD = accountDao.searchAccount(searchCriteria);
+			
+			return responseCRUD.getQueryResult().size()>0;
+		} catch (DataAccessObjectException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+
+	}
 
 	@SuppressWarnings("rawtypes")
 	public ResponseCRUD saveAccount(AccountRequest accountRequest) throws AccountException{
