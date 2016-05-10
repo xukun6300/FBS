@@ -13,6 +13,10 @@
     <form:form method="POST" id="accountForm" commandName="command" action="addNewAccount.action" class="clearfix form-horizontal">
 	    <form:errors cssClass="alert alert-error" element="div"/>
 	    <div class="clearfix"><br>
+	    
+	    <form:errors path="*" cssClass="mandatory" element="div"/>
+	    <form:input path="acctStructureJson" type="hidden"/>
+	    
 	    <div class="control-group required">
             <label class="control-label" for="accountCode"><spring:message code="fbs.common.account.ui.label.account.code"/></label>
             <div class="controls">
@@ -71,7 +75,7 @@
 			          </button>	           
 	              </td>
 	              <td>
-	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -87,7 +91,7 @@
 			          </button>
 	              </td>
 	              <td>
-	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -103,7 +107,7 @@
 			          </button>
 	              </td>
 	              <td>
-	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -119,7 +123,7 @@
 			          </button>
 	              </td>
 	              <td>
-	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -135,7 +139,7 @@
 			          </button>
 	              </td>
 	              <td>
-	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -151,7 +155,7 @@
 			          </button>
 	              </td>
 	              <td>
-	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -167,7 +171,7 @@
 			          </button>
 	              </td>
 	              <td>
-	              <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 

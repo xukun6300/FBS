@@ -56,8 +56,20 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <c:forEach items="${command.acctStructures}">
-                           <td>Test</td>
+                        <c:forEach items="${command.acctStructures}" var="acctColumn">
+                           <td>
+	                           <c:choose>
+	                              <c:when test="${acctColumn.columnType =='T'}">
+	                                Test
+	                              </c:when>
+	                              <c:when test="${acctColumn.columnType =='N'}">
+	                                100
+	                              </c:when>
+	                              <c:otherwise>
+	                                01/01/2000
+	                              </c:otherwise>
+	                           </c:choose>
+                           </td>
                         </c:forEach>                      
                        </tr>
                     </tbody>
