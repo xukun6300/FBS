@@ -538,7 +538,9 @@ public class BaseDao extends AbstractBaseDao{
 				
 			}
 			
-		} else {
+		} else if (projection.isType(ProjectionIF.DISTINCT)) {
+			p = Projections.distinct(Projections.property(propertyName));
+		}else {
 			throw new IllegalArgumentException("projection with type [" + projection.getType() + "] not supported");
 		}
 		

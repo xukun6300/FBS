@@ -40,6 +40,8 @@ public interface ProjectionIF {
 	
 	public static final String COUNT = "COUNT";
 	
+	public static final String DISTINCT = "DISTINCT";
+	
 	public boolean isWeekProjection();
 	
 	public boolean isMonthProjection();
