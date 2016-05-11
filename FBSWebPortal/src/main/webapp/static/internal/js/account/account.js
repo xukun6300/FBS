@@ -21,7 +21,7 @@ function retainTable(){
 
 		$.each(jsonObj, function(i, item){
 			var row = "";
-			if(item['default']){
+			if(item['defaultColumn']==='Y'){
 				
 				var optionStr = "";
 				
@@ -125,13 +125,13 @@ function constructAcctStructureJSON(){
 			obj['columnName'] = $.trim($(this).find('td:eq(0)').text());
 			obj['columnSize'] = $.trim($(this).find('td:eq(1)').text());			
 			obj['columnType'] = colType ;
-			obj['default'] = true;
+			obj['defaultColumn'] = 'Y';
 			
 		}else{ //user added row, editable
 			obj['columnName'] = $.trim($(this).find('td:eq(0) input').val());
 			obj['columnSize'] = $.trim($(this).find('td:eq(1) input').val());
 			obj['columnType'] = $.trim($(this).find('td:eq(2) select').val()); //json obj key will map to AccountStructure.java attributes, coz it will be deserialized to java obj 
-			obj['default'] = false;
+			obj['defaultColumn'] = 'N';
 		}
 		
 		obj['sequence'] = ++i;

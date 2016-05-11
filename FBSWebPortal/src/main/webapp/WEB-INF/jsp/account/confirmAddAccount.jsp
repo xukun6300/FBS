@@ -1,3 +1,4 @@
+<%@ page import="sg.com.fbs.core.techinfra.util.DateUtil" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -5,6 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="joda" uri="http://www.joda.org/joda/time/tags" %>
 <%@ taglib prefix="netui" uri="/tags/netui" %>
+
 
 <div class="container-fluid">
 	<div class="row-fluid">
@@ -25,6 +27,11 @@
 				<div class="control-group">
 					<label class="control-label" style="width:170px;font-weight: bold"><spring:message code="fbs.common.account.ui.label.account.desc"/></label>
 					<label class="control-label" style="width:auto;text-align:left;padding-left:20px">${command.accountDesc}</label>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" style="width:170px;font-weight: bold"><spring:message code="fbs.common.account.ui.label.account.fy"/></label>
+					<label class="control-label" style="width:auto;text-align:left;padding-left:20px"><%=DateUtil.getCurrentYear() %></label>
 				</div>
 				
 				<div class="control-group">

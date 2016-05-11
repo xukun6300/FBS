@@ -12,6 +12,7 @@ import com.google.gson.reflect.TypeToken;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.core.techinfra.util.DateUtil;
 import sg.com.fbs.model.account.Account;
 import sg.com.fbs.model.account.AccountRequest;
 import sg.com.fbs.model.account.AccountStructure;
@@ -36,7 +37,7 @@ public class AccountManager extends CommonFacade{
 	
 	@SuppressWarnings("rawtypes")
 	public Boolean checkAccountCodeExist(String accountCode) throws AccountException{
-		//AccountDao accountDao = new AccountDao();
+		
 		CriteriaIF searchCriteria = new Criteria();
 		Criterion[] criterions = {new Criterion(Account.ACCOUNT_CODE, accountCode, true), new Criterion(Account.ACT_IND, "Y", true)};
 		searchCriteria.setCriterion(criterions);
@@ -57,13 +58,13 @@ public class AccountManager extends CommonFacade{
 		try {
 			ResponseCRUD response = new ResponseCRUD();
 
-			AccountDao accountDao = new AccountDao();
-
+			String currentFY = DateUtil.getCurrentYear();
+			
 			Account account = new Account();
 			account.setAccountCode(accountRequest.getAccountCode());
 			account.setAccountDesc(accountRequest.getAccountDesc());
 			account.setRequisitionForm(accountRequest.isNeedRequisitionForm() ? "Y" : "N");
-			account.setFinancialYear("2016");
+			account.setFinancialYear(currentFY);
 			account.setSpendPeriod(Integer.valueOf(accountRequest.getAcctSpendingPeriod()));
 
 			account = accountDao.insert(account);

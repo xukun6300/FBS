@@ -2,6 +2,7 @@ package sg.com.fbs.core.techinfra.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -53,6 +54,8 @@ public class DateUtil {
 		}
 	}
 	
-	
+	public static String getCurrentYear(){		
+		return String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+	}
 
 }

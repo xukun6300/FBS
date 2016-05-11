@@ -21,6 +21,16 @@ public class AccountStructure extends BaseLogPojo{
 	private String columnType;
 	
 	private int sequence;
+	
+	private String defaultColumn;
+	
+	public void setDefaultColumn(String defaultColumn) {
+		this.defaultColumn = defaultColumn;
+	}
+	
+	public String getDefaultColumn() {
+		return defaultColumn;
+	}
 
 	public Account getAccount() {
 		return account;

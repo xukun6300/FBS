@@ -38,6 +38,7 @@
       <property name="columnSize" column="COLUMN_SIZE" not-null="true"/>
       <property name="columnType" column="COLUMN_TYPE" not-null="true"/>
       <property name="sequence" column="SEQUENCE" not-null="true"/>
+      <property name="defaultColumn" column="DEFAULT_COL" not-null="true"/>
       <property name="modifiedby" column="MODIFIEDBY" />
 	  <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
 	  <property name="createdby" column="CREATEDBY" update="false"/>
