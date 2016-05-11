@@ -14,6 +14,8 @@ import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
 import sg.com.fbs.model.account.AccountRequest;
 import sg.com.fbs.web.ui.form.account.AccountForm;
+import sg.com.fbs.web.ui.form.account.AccountSearchForm;
+import sg.com.fbs.web.ui.form.system.security.uam.UserSearchForm;
 
 
 
@@ -21,6 +23,12 @@ import sg.com.fbs.web.ui.form.account.AccountForm;
 
  * @Author Frank Xu Kun $
  * @Created May 5, 2016 $
+ * 
+ */
+/**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
+
+ * @Author Frank Xu Kun $
+ * @Created May 11, 2016 $
  * 
  */
 public class AccountController extends BaseWebController{
@@ -38,13 +46,12 @@ public class AccountController extends BaseWebController{
 
 	@Override
 	public void preLoad(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public ModelAndView postLoad(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -66,6 +73,12 @@ public class AccountController extends BaseWebController{
 		return mvc;
 	}
 	
+	/**
+	 * Context /account/addNewAccount.action
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	public ModelAndView addNewAccount(HttpServletRequest request, HttpServletResponse response){
 		AccountForm accountForm = new AccountForm();
 		AccountRequest accountRequest = new AccountRequest();
@@ -75,5 +88,30 @@ public class AccountController extends BaseWebController{
 		Mvc mvc = new Mvc(accountForm, AccountWebEnum.CONFIRM_ADD_ACCOUNT_JSP.toString(), accountRequest);
 		return mvc;
 	}
+	
+	/**
+	 * Context /account/searchAccount.action
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView searchAccount(HttpServletRequest request, HttpServletResponse response){
+		AccountSearchForm accountSearchForm = new AccountSearchForm();
+		AccountRequest accountRequest = new AccountRequest();
+		setCrudMode(WebCRUDEnum.QUERY_MODE);
+		setCRUDOperation(accountCrud);
+		setValidationErrorPage(AccountWebEnum.SEARCH_ACCOUNT_JSP.toString());
+		Mvc mvc = new Mvc(accountSearchForm, AccountWebEnum.SEARCH_ACCOUNT_JSP.toString(), accountRequest);
+		return mvc;
+	}
 
 }
+
+
+
+
+
+
+
+
+

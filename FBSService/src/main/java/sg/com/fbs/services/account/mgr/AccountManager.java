@@ -93,4 +93,21 @@ public class AccountManager extends CommonFacade{
 			throw new AccountException(e.getMessageCode(), e);
 		}
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchAccount(CriteriaIF criteria) throws AccountException{
+		try {
+			IResponseCRUD response = accountDao.searchAccount(criteria);
+			return response;
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new AccountException(e.getMessageCode(), e);
+		}
+		
+	}
 }
+
+
+
+
+

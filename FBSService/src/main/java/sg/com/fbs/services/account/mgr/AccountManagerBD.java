@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.model.account.AccountRequest;
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.account.exception.AccountException;
 
@@ -38,4 +40,16 @@ public class AccountManagerBD extends BusinessDelegate {
 			throw new AccountException(e.getMessageCode(), e);
 		}
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchAccount(CriteriaIF criteria) throws AccountException{
+		try {
+            Object object = accountManager.run(criteria);
+            return (IResponseCRUD)object;
+		} catch (ApplicationCoreException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
+	
+	
 }

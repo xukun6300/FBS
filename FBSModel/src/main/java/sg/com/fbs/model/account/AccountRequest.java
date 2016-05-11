@@ -26,9 +26,19 @@ public class AccountRequest extends BasePojoRequest{
 	private String acctSpendingPeriod;
 
 	private String acctStructureJson;
+	
+	private String financialYear;
 
     private List<AccountStructure> acctStructures = new ArrayList<AccountStructure>();
 	
+    public String getFinancialYear() {
+		return financialYear;
+	}
+    
+    public void setFinancialYear(String financialYear) {
+		this.financialYear = financialYear;
+	}
+    
 	public List<AccountStructure> getAcctStructures() {
 		return acctStructures;
 	}

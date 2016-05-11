@@ -19,6 +19,14 @@ public class Account extends BaseLogPojo{
 	
 	public static final String ACCOUNT_CODE = "accountCode";
 	
+	public static final String ACCOUNT_DESC = "accountDesc";
+	
+	public static final String REQ_FORM = "requisitionForm";
+	
+	public static final String SPEND_PERIOD = "spendPeriod";
+	
+	public static final String FINANCIAL_YEAR = "financialYear";
+	
 	private String accountCode;
 	
 	private String accountDesc;

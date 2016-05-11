@@ -1,16 +1,22 @@
 package sg.com.fbs.web.ui.controller.account;
 
+import java.util.Collection;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.ibm.db2.jcc.am.re;
+
 import sg.com.fbs.core.techinfra.exception.CRUDException;
 import sg.com.fbs.core.techinfra.web.WebCRUDIF;
+import sg.com.fbs.model.account.Account;
 import sg.com.fbs.model.account.AccountRequest;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.account.exception.AccountException;
 import sg.com.fbs.services.account.mgr.AccountManagerBD;
+import sg.com.fbs.web.ui.form.account.AccountSearchForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -20,14 +26,38 @@ import sg.com.fbs.services.account.mgr.AccountManagerBD;
  */
 public class AccountCRUD implements WebCRUDIF{
 
+	public static final String YES = "Yes";
+	
+	public static final String NO = "No";
+	
 	@Autowired
 	private AccountManagerBD accountManagerBD;
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public IResponseCRUD<?> runQuery(BasePojoRequest pojoRequest, Object form, HttpServletRequest request)
 			throws CRUDException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		IResponseCRUD<?> response = null;
+		try {
+			if (form instanceof AccountSearchForm) {
+				AccountSearchForm accountSearchForm = (AccountSearchForm) form;
+				response = accountManagerBD.searchAccount(accountSearchForm.getSearchCriteria(request));
+				
+				Collection<Account> accounts = (Collection<Account>) response.getQueryResult();
+				for (Account account : accounts) {
+					if("Y".equalsIgnoreCase(account.getRequisitionForm())){
+						account.setRequisitionForm(YES);
+					}else {
+						account.setRequisitionForm(NO);
+					}
+				}
+			}
+		} catch (AccountException e) {
+			throw new CRUDException(e.getMessageCode(), e);
+		}
+
+		return response;
 	}
 
 	@Override
@@ -42,7 +72,7 @@ public class AccountCRUD implements WebCRUDIF{
 			throws CRUDException {
 		
 		IResponseCRUD<?> response = null;
-		//AccountManagerBD accountManagerBD = new AccountManagerBD();
+
 		try {
 			if (pojoRequest instanceof AccountRequest) {
 				AccountRequest accountRequest = (AccountRequest) pojoRequest;
