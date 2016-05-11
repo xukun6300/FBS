@@ -35,7 +35,7 @@ public class Account extends BaseLogPojo{
 	
 	private int spendPeriod;
 	
-	private String financialYear;
+	private int financialYear;
 	
 	private List<AccountStructure> acctStructures = new ArrayList<AccountStructure>();
 
@@ -71,11 +71,11 @@ public class Account extends BaseLogPojo{
 		this.spendPeriod = spendPeriod;
 	}
 
-	public String getFinancialYear() {
+	public int getFinancialYear() {
 		return financialYear;
 	}
 
-	public void setFinancialYear(String financialYear) {
+	public void setFinancialYear(int financialYear) {
 		this.financialYear = financialYear;
 	}
 	

@@ -128,7 +128,7 @@ public class AccountSearchForm extends BusinessQueryWebForm{
 			}
 			
 			if(!StringUtils.isEmpty(financialYear)){
-				criterionList.add(new Criterion(Account.FINANCIAL_YEAR, financialYear));
+				criterionList.add(new Criterion(Account.FINANCIAL_YEAR, Integer.valueOf(financialYear)));
 			}
 			
 			criterionList.add(new Criterion(Account.ACT_IND, "Y"));

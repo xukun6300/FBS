@@ -58,7 +58,7 @@ public class AccountManager extends CommonFacade{
 		try {
 			ResponseCRUD response = new ResponseCRUD();
 
-			String currentFY = DateUtil.getCurrentYear();
+			int currentFY = DateUtil.getCurrentYear();
 			
 			Account account = new Account();
 			account.setAccountCode(accountRequest.getAccountCode());

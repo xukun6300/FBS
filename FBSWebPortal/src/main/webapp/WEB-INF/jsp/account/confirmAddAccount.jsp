@@ -31,7 +31,7 @@
 				
 				<div class="control-group">
 					<label class="control-label" style="width:170px;font-weight: bold"><spring:message code="fbs.common.account.ui.label.account.fy"/></label>
-					<label class="control-label" style="width:auto;text-align:left;padding-left:20px"><%=DateUtil.getCurrentYear() %></label>
+					<label class="control-label" style="width:auto;text-align:left;padding-left:20px"><%=String.valueOf(DateUtil.getCurrentYear()) %></label>
 				</div>
 				
 				<div class="control-group">

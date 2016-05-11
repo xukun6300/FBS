@@ -54,8 +54,8 @@ public class DateUtil {
 		}
 	}
 	
-	public static String getCurrentYear(){		
-		return String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+	public static int getCurrentYear(){		
+		return Calendar.getInstance().get(Calendar.YEAR);
 	}
 
 }
