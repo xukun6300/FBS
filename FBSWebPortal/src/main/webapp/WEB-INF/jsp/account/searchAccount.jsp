@@ -101,8 +101,7 @@
 						<td style="width:250px;">
 							<div class="controls">
 								<form:select path="financialYear" class="input-large">
-								    <%-- <form:options items="${financialYears}"/> --%>
-								    <form:option value="2016" label="Please Select"/>
+								    <form:options items="${financialYears}"/>								   
 								</form:select>		
 							</div>
 				        </td>

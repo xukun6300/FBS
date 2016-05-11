@@ -37,5 +37,32 @@ public enum AccountWebEnum implements WebDropDownListIF{
 		public String toString() {
 			return "searchAccount";
 		}
-	}
+	},
+	
+	
+	FINANCIAL_YEAR__LIST {
+		@Override
+		public String toString() {
+			return "financialYears";
+		}
+	},
+	
+	DEFAULT_VALUE {
+		@Override
+		public String toString() {
+			return "-1";
+		}
+	},
+	
+	PLEASE_SELECT {
+		@Override
+		public String toString() {
+			return "Please Select";
+		}
+	},
 }
+
+
+
+
+

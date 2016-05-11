@@ -1,5 +1,7 @@
 package sg.com.fbs.services.account.mgr;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
@@ -51,5 +53,12 @@ public class AccountManagerBD extends BusinessDelegate {
 		}
 	}
 	
-	
+	public Map<String, String> getFinancialYears() throws AccountException{
+		try {
+            Object object = new AccountManager().run();
+            return (Map<String, String>)object;
+		} catch (ApplicationCoreException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
 }

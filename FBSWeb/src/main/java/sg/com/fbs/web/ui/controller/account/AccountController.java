@@ -10,6 +10,7 @@ import org.springframework.validation.Validator;
 import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.fbs.core.techinfra.web.BaseWebController;
+import sg.com.fbs.core.techinfra.web.DefaultRefDataSource;
 import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
 import sg.com.fbs.model.account.AccountRequest;
@@ -46,7 +47,19 @@ public class AccountController extends BaseWebController{
 
 	@Override
 	public void preLoad(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+		AccountWebEnum[] comboInitializer = {
+				AccountWebEnum.FINANCIAL_YEAR__LIST
+		};
 		
+		String[] views = {
+				AccountWebEnum.SEARCH_ACCOUNT_JSP.toString()
+		};
+		
+		for (String view : views) {
+			map.put(view, comboInitializer);
+		}
+		
+		map.put(DefaultRefDataSource.WEB_LIST_DATA_SOURCE, new AccountRefDataSource());
 	}
 
 	@Override

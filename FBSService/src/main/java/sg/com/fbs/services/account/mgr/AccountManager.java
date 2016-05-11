@@ -1,7 +1,9 @@
 package sg.com.fbs.services.account.mgr;
 
 import java.lang.reflect.Type;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -104,6 +106,25 @@ public class AccountManager extends CommonFacade{
 			throw new AccountException(e.getMessageCode(), e);
 		}
 		
+	}
+	
+	public Map<String, String> getFinancialYears() throws AccountException{
+		AccountDao accountDao = new AccountDao();
+		Map<String, String> fyMap = new LinkedHashMap<String, String>();
+		try {
+			List<String> fyList = accountDao.getDistinctFinancialYearList();
+			
+			if(fyList!=null && fyList.size()>0){
+				for (String fy : fyList) {
+					fyMap.put(fy, fy);
+				}
+			}
+			
+			return fyMap;
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new AccountException(e.getMessageCode(), e);
+		}		
 	}
 }
 
