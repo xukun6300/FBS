@@ -33,6 +33,7 @@ import sg.com.fbs.core.techinfra.util.constant.CoreErrorCodes;
 import sg.com.fbs.model.business.pojo.BasePojoIF;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.business.pojo.BasePojoRequestIF;
+import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.Order;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 
@@ -312,9 +313,11 @@ public abstract class BaseWebController extends MultiActionController{
 			BaseWebFormIF commandForm = (BaseWebFormIF) binder.getBindingResult().getModel().get(BaseWebEnum.COMMAND_FORM.toString());
 			
 			//get response from session????
+			//because after validation failed, still want to keep the last response result?
 			if(request.getSession().getAttribute(RESPONSE_CRUD)!=null){
 				commandForm.setCrudResponse((ResponseCRUD)request.getSession().getAttribute(RESPONSE_CRUD));
 			}
+			
 			modelView.addObject(BaseWebEnum.COMMAND_FORM.toString(), commandForm);
 			modelView.setViewName(getValidationErrorPage());
 			modelView.addObject(HAS_ERRORS, Boolean.TRUE);
@@ -414,6 +417,8 @@ public abstract class BaseWebController extends MultiActionController{
 				}
 				
 				commandForm.setCrudResponse(response);
+				//for validation failed case
+				request.getSession().setAttribute(RESPONSE_CRUD, response);
 			}
 		}
 	
