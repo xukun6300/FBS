@@ -10,9 +10,7 @@
 
 <fieldset>
 	<legend class="section">Account Management</legend>
-	<h2 class="expand"></h2>
 	<form:form method="POST" commandName="command" action="searchAccount.action" class="clearfix">
-		<form:errors path="*" cssClass="alert alert-error" element="div" />
 		<div class="clearfix">
 			<table class="ftable">
 			    <tr>
@@ -83,7 +81,8 @@
 					</td>
 					<td style="width:250px;">
 						<div class="controls">
-							<form:input path="spendPeriod" class="input-large" maxlength="100"/>					
+							<form:input path="spendPeriod" class="input-large" maxlength="100"/>			
+							<form:errors path="spendPeriod"	cssClass="mandatory" element="div"/>	
 						</div>
 			        </td>
 					<!-- spend period field -->
@@ -117,30 +116,31 @@
 	</form:form>
 	
 	 <netui:grid queryFormName="command" action="searchAccount.action">
-            <netui:gridPaging tableId="accountsTable"/>
-            <table id="accountsTable" class="table ftable table-bordered table-hover table-condensed">
-               <thead>
-                  <tr>
-                     <th><spring:message code="fbs.common.ui.label.pagination.sn"/></th>
-                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.code" name="accountCode"/></th>
-                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.desc" name="accountDesc"/></th>                     
-                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.need.requisition.form" name="requisitionForm"/></th>   <!-- name is property of Account.java -->
-                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.spend.period.short" name="spendPeriod"/></th>
-                     <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.fy" name="financialYear"/></th>                     
-                  </tr>
-               </thead>
-               <tbody>
-                  <netui:gridRows>
-                     <tr>
-                        <td><netui:gridCurrentRowNum/></td>
-                        <td><netui:gridRowElement name="accountCode"/></td>
-                        <td><netui:gridRowElement name="accountDesc"/></td>                       
-                        <td><netui:gridRowElement name="requisitionForm"/></td> 
-                        <td><netui:gridRowElement name="spendPeriod"/></td>
-                        <td><netui:gridRowElement name="financialYear"/></td>                      
-                     </tr>
-                  </netui:gridRows>
-               </tbody>
-            </table>
-         </netui:grid>
+        <netui:gridPaging tableId="accountsTable"/>
+        <table id="accountsTable" class="table ftable table-bordered table-hover table-condensed">
+           <thead>
+              <tr>
+                 <th><spring:message code="fbs.common.ui.label.pagination.sn"/></th>
+                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.code" name="accountCode"/></th>
+                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.desc" name="accountDesc"/></th>                     
+                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.need.requisition.form" name="requisitionForm"/></th>   <!-- name is property of Account.java -->
+                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.spend.period.short" name="spendPeriod"/></th>
+                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.fy" name="financialYear"/></th>                     
+              </tr>
+           </thead>
+           <tbody>
+              <netui:gridRows>
+                 <tr>
+                    <td><netui:gridCurrentRowNum/></td>
+                    <td><netui:gridRowElement name="accountCode"/></td>
+                    <td><netui:gridRowElement name="accountDesc"/></td>                       
+                    <td><netui:gridRowElement name="requisitionForm"/></td> 
+                    <td><netui:gridRowElement name="spendPeriod"/></td>
+                    <td><netui:gridRowElement name="financialYear"/></td>                      
+                 </tr>
+              </netui:gridRows>
+           </tbody>
+        </table>
+     </netui:grid>
+
 </fieldset>

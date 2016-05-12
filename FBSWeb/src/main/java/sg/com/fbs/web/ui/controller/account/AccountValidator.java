@@ -15,6 +15,7 @@ import sg.com.fbs.model.account.AccountStructure;
 import sg.com.fbs.services.account.exception.AccountException;
 import sg.com.fbs.services.account.mgr.AccountManagerBD;
 import sg.com.fbs.web.ui.form.account.AccountForm;
+import sg.com.fbs.web.ui.form.account.AccountSearchForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -80,6 +81,11 @@ public class AccountValidator implements Validator{
 						errors.rejectValue("acctStructureJson", "fbs.common.errors.account.invalid.column.size");
 					}
 				}
+			}
+		}else if (target instanceof AccountSearchForm) {
+			AccountSearchForm accountSearchForm = (AccountSearchForm) target;
+			if (accountSearchForm.getSpendPeriod() != null && !StringUtils.isNumeric(accountSearchForm.getSpendPeriod())) {
+				errors.rejectValue("spendPeriod", "fbs.common.errors.account.invalid.spend.period");
 			}
 		}
 	}

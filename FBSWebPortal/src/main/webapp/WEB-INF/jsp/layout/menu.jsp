@@ -28,37 +28,30 @@
 		      <li role="presentation"><a href="#">Home</a></li>
 		      <li role="presentation" class="dropdown">
 		        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">
-		          Menu1 <span class="caret"></span>
+		          User Management <span class="caret"></span>
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
-		          <li><a href="${contextPath}/useraccountmanagement/searchUser.action">Search Users</a></li>
 		          <li><a href="${contextPath}/useraccountmanagement/showRegisterUser.action">Register New User</a></li>
+		          <li><a href="${contextPath}/useraccountmanagement/searchUser.action">Search User</a></li>		          
 		        </ul>
 		      </li>
 		      
 		      <li role="presentation" class="dropdown">
 		        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">
-		          Menu2 <span class="caret"></span>
+		          Account Management <span class="caret"></span>
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
-		          <li><a href="${contextPath}/mastercode/showAddCodeKey.action">Add Code Key</a></li>
 		          <li><a href="${contextPath}/account/showAddAccount.action">Create New Account</a></li>
-		          <li><a href="#">Another action</a></li>
-		        <!--   <li class="divider"></li> -->
-		          <li><a href="#">Another action</a></li>
+		          <li><a href="${contextPath}/account/searchAccount.action">Search Account</a></li>		          
 		        </ul>
 		      </li>  
 		         
 		       <li role="presentation" class="dropdown">
 		        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">
-		          Menu3 <span class="caret"></span>
+		          System Configuration <span class="caret"></span>
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
-		          <li><a href="#">Action</a></li>
-		          <li><a href="#">Another action</a></li>
-		          <li><a href="#">Something else here</a></li>
-		        <!--   <li class="divider"></li> -->
-		          <li><a href="#">Separated link</a></li>
+		          <li><a href="${contextPath}/mastercode/showAddCodeKey.action">Add Code Key</a></li>		          
 		        </ul>
 		      </li>  
 		      

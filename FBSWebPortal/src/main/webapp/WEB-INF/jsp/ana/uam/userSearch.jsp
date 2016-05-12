@@ -14,7 +14,6 @@
 
    <fieldset>
       <legend class="section">User Account Management</legend>
-      <h2 class="expand"></h2>
          <form:form method="POST" commandName="command" action="searchUser.action" class="clearfix">
            <form:errors path="*" cssClass="alert alert-error" element="div"/>
            <div class="clearfix">
