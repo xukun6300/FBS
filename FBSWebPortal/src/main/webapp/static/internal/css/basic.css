@@ -64,7 +64,7 @@ hr{
 }
 
 .container{ 
-	width:1000px;
+	width:1200px;
 	background:#fff;
 	border:1px solid #ddd;
 
@@ -3338,7 +3338,7 @@ background: url(../img/icon_advise.png) no-repeat 16px center #DE9719 ;
 fieldset legend.section {
  
 	color:#4691b8;
-	width:960px;
+	width:1150px;
 	font-size:25px;
 	margin:5px 0px 20px 20px;
 	padding:0;
