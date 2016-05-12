@@ -42,7 +42,7 @@ public class Grid extends BodyTagSupport{
 
 	private boolean fetchAllPage = true;
 
-	private String queryFormName; 
+	private String queryFormName; //value is set from jsp tag attribute, normally is "command"
 
 	private String action;
 
@@ -151,7 +151,7 @@ public class Grid extends BodyTagSupport{
 	@Override
 	public int doStartTag(){
 		logger.debug("------ in doStartTag ------");
-		
+
 		initGrid();
 		
 		if(TYPE_SEARCH_RESULT.equals(type) && dataContext!=null && dataContext.getResult()!=null && dataContext.getTotalRecordFound()==0){
@@ -179,6 +179,7 @@ public class Grid extends BodyTagSupport{
 	@Override   
 	public int doAfterBody(){       //think no need here
 		logger.debug("------ in doAfterBody ------");
+		
 		return BodyTagSupport.SKIP_BODY;
 	}
 	
@@ -208,7 +209,7 @@ public class Grid extends BodyTagSupport{
 			ResponseCRUD response = (ResponseCRUD) form.getCrudResponse();
 			this.dataContext = new GridDataContext(response);
 			//?
-			this.dataContext.setResultQualifierName(form.getResultQualifierName());
+			this.dataContext.setResultQualifierName(form.getResultQualifierName());//queryResult.results
 			
 		}else if (TYPE_INTERNAL_DATA.equals(type)) {
 			Collection internalData = (Collection) pageContext.getAttribute(searchResultKey);
@@ -232,6 +233,7 @@ public class Grid extends BodyTagSupport{
 	}
 	
 	private BaseWebFormIF getQueryForm(String queryFormName){
+		//attribute(command) set in BaseWebController executeCRUDOperation()
 		BaseWebFormIF form = (BaseWebFormIF) pageContext.getAttribute(queryFormName,PageContext.REQUEST_SCOPE);
 		
 		if(form==null){

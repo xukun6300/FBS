@@ -47,7 +47,7 @@ public class GridSorting extends GridComponent{
 	
 	@Override
 	protected int renderStartTag() throws JspException {
-		return 0;
+		return BodyTagSupport.SKIP_BODY;
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class GridSorting extends GridComponent{
 		if(dataContext!=null && dataContext.getTotalRecordFound()>0){
 			long totalPage = dataContext.getTotalPage();
 			long currentPage = dataContext.getCurrentPage();
-			String action = getAction();
+			String action = getAction(); //action attribute in Grid tag
 			
 			if(totalPage==0){
 				totalPage=-1;
@@ -88,7 +88,7 @@ public class GridSorting extends GridComponent{
 			boolean isCurrSortProp = false;
 			
 			if(sortingProperty!=null){
-				isCurrSortProp = sortingProperty.equalsIgnoreCase(this.getName());
+				isCurrSortProp = sortingProperty.equalsIgnoreCase(this.getName());//compare property name in Order[] and name attribute in GridSorting tag
 			}
 			
 			String ascLinkCSS = "";

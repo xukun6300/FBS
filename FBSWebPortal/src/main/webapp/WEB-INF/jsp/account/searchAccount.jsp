@@ -125,7 +125,8 @@
                  <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.desc" name="accountDesc"/></th>                     
                  <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.need.requisition.form" name="requisitionForm"/></th>   <!-- name is property of Account.java -->
                  <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.spend.period.short" name="spendPeriod"/></th>
-                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.fy" name="financialYear"/></th>                     
+                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.fy" name="financialYear"/></th>   
+                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.ui.label.create.on" name="createon"/></th>                    
               </tr>
            </thead>
            <tbody>
@@ -136,7 +137,8 @@
                     <td><netui:gridRowElement name="accountDesc"/></td>                       
                     <td><netui:gridRowElement name="requisitionForm"/></td> 
                     <td><netui:gridRowElement name="spendPeriod"/></td>
-                    <td><netui:gridRowElement name="financialYear"/></td>                      
+                    <td><netui:gridRowElement name="financialYear"/></td>    
+                    <td><netui:gridRowElement name="createon" format="dd MMM yyyy"/></td>                   
                  </tr>
               </netui:gridRows>
            </tbody>

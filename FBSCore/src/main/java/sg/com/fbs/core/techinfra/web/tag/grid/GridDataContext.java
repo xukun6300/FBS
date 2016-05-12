@@ -5,8 +5,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import lombok.Getter;
-import lombok.Setter;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.log4j.Logger;
@@ -267,7 +265,7 @@ public class GridDataContext {
 	public Map<String, String> getOrderURIMap(String sortingProperty, boolean isAscending){
 		Map<String, String> uriMap = new HashMap<String, String>();
 		OrderIF[] orders = result.getCriteria().getOrder();
-		
+		//doesn't make sence?
 		for (int i = 0; i < orders.length; i++) {
 			//??
 			uriMap.put("sortingProperty", sortingProperty);
