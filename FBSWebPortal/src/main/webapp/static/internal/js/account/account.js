@@ -11,6 +11,20 @@ $(document).ready(function(){
 	//$(".arrow-down").click(moveRowDown);
 	$("#addNewRow").click(addNewRow);
 	$("#saveAccount").click(saveAccount);
+	
+	$(".edit-mode").hide();
+	
+	var tbodyHtml = $("#accountTb tbody").html();
+	$("#editBtn").click(function(){
+		$(".edit-mode").show();
+		$(".non-edit-mode").hide();
+	});
+	
+	$("#cancelBtn").click(function(){
+		$("#accountTb tbody").html(tbodyHtml);
+		$(".edit-mode").hide();
+		$(".non-edit-mode").show();
+	});
 });
 
 function retainTable(){

@@ -9,12 +9,16 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <script type="text/javascript" src="<spring:url value="/static/internal/js/account/account.js" />"></script>
 <style type="text/css">
-.edit-mode{
+/* .edit-mode{
    display:none !important;
-}
+} */
 
 label.non-edit-mode {
    margin-left:20px;
+}
+
+td label.non-edit-mode {
+   margin-left:0px;
 }
 </style>
 <fieldset>
@@ -29,7 +33,7 @@ label.non-edit-mode {
             <label class="control-label bold" for="accountCode"><spring:message code="fbs.common.account.ui.label.account.code"/></label>
             <div class="controls">
                <label class="non-edit-mode">${command.accountCode}</label>               
-               <form:input id="accountCode" path="accountCode" class="input-xlarge edit-mode" maxlength="100"/>
+               <form:input id="accountCode" path="accountCode" class="input-xlarge edit-mode" maxlength="100" disabled="true"/>
                <%-- <form:errors path="accountCode" cssClass="mandatory" element="div"/> --%> 
             </div>
          </div>
@@ -44,11 +48,11 @@ label.non-edit-mode {
          </div>
 	    
 	    <div class="control-group">
-            <label class="control-label bold" for="accountDesc"><spring:message code="fbs.common.account.ui.label.account.need.requisition.form"/></label>
+            <label class="control-label bold" for="needRequisitionForm"><spring:message code="fbs.common.account.ui.label.account.need.requisition.form"/></label>
             <div class="controls control-radio-checkbox">        
                
                <c:choose>
-                  <c:when test="${command.needRequisitionForm=='Y'}">
+                  <c:when test="${command.needRequisitionForm}">
                      <label class="non-edit-mode">Yes</label> 
                   </c:when>
                   <c:otherwise>
@@ -84,41 +88,102 @@ label.non-edit-mode {
              </thead>             
              <tbody>
                  <c:forEach items="${command.acctStructures}" var="acctStructure">
-                    <tr>
-                      <td><label class="non-edit-mode">${acctStructure.columnName}</label></td>
-                      <td><label class="non-edit-mode">${acctStructure.columnSize}</label></td>
-                      <td>
-                          <label class="non-edit-mode">
-	                         <c:choose>
-	                            <c:when test="${acctStructure.columnType=='T'}">
-	                               Text
-	                            </c:when>
-	                            <c:when test="${acctStructure.columnType=='N'}">
-	                               Numeric
-	                            </c:when>
-	                            <c:otherwise>
-	                               Date
-	                            </c:otherwise>
-                         </c:choose>
-                         </label>
-                      </td>
-                      <td class="edit-mode">
-			              <button type="button" class="btn btn-default btn-sm arrow-up">
-				            <span class="icon-arrow-up"></span>
-				          </button>	    
-				          <button type="button" class="btn btn-default btn-sm arrow-down">
-				            <span class="icon-arrow-down"></span>
-				          </button>	           
-		              </td>
-		              <td class="edit-mode">
-		                   <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
-		              </td>
-                    </tr>
+                    <c:choose>
+                       <c:when test="${acctStructure.defaultColumn=='Y'}">
+                           <tr>
+		                      <td>
+		                          ${acctStructure.columnName}
+		                      </td>
+		                      <td>
+		                          ${acctStructure.columnSize}
+		                      </td>
+		                      <td>		                        
+		                        <c:choose>
+		                            <c:when test="${acctStructure.columnType=='T'}">
+		                               Text
+		                            </c:when>
+		                            <c:when test="${acctStructure.columnType=='N'}">
+		                               Numeric
+		                            </c:when>
+		                            <c:otherwise>
+		                               Date
+		                            </c:otherwise>
+	                             </c:choose>	                   
+		                      </td>
+		                      <td class="edit-mode">
+					              <button type="button" class="btn btn-default btn-sm arrow-up">
+						            <span class="icon-arrow-up"></span>
+						          </button>	    
+						          <button type="button" class="btn btn-default btn-sm arrow-down">
+						            <span class="icon-arrow-down"></span>
+						          </button>	           
+				              </td>
+				              <td class="edit-mode">
+				                   <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
+				              </td>
+		                    </tr>
+                       
+                       </c:when>
+                       <c:otherwise>
+                           <tr>
+		                      <td>
+		                          <label class="non-edit-mode">${acctStructure.columnName}</label>
+		                          <input type="text" class="input edit-mode" maxlength="100" value="${acctStructure.columnName}"/>
+		                      </td>
+		                      <td>
+		                          <label class="non-edit-mode">${acctStructure.columnSize}</label>
+		                          <input type="text" class="input edit-mode" maxlength="100" value="${acctStructure.columnSize}"/>
+		                      </td>
+		                      <td>
+		                          <label class="non-edit-mode">
+			                         <c:choose>
+			                            <c:when test="${acctStructure.columnType=='T'}">
+			                               Text
+			                            </c:when>
+			                            <c:when test="${acctStructure.columnType=='N'}">
+			                               Numeric
+			                            </c:when>
+			                            <c:otherwise>
+			                               Date
+			                            </c:otherwise>
+		                             </c:choose>
+		                         </label>
+		                         
+		                         <select class="input-small edit-mode">
+			                         <option value="T" <c:if test="${acctStructure.columnType=='T'}">selected="selected"</c:if>>Text</option>
+			                         <option value="N" <c:if test="${acctStructure.columnType=='N'}">selected="selected"</c:if>>Numeric</option>
+			                         <option value="D" <c:if test="${acctStructure.columnType=='D'}">selected="selected"</c:if>>Date</option>
+		                         </select>
+		                         
+		                          
+		                      </td>
+		                      <td class="edit-mode">
+					              <button type="button" class="btn btn-default btn-sm arrow-up">
+						            <span class="icon-arrow-up"></span>
+						          </button>	    
+						          <button type="button" class="btn btn-default btn-sm arrow-down">
+						            <span class="icon-arrow-down"></span>
+						          </button>	           
+				              </td>
+				              <td class="edit-mode">
+				                   <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+				              </td>
+		                    </tr>
+                          
+                       </c:otherwise>
+                    </c:choose>
+                 
+                    
                  </c:forEach>
              </tbody>
           </table>
 		
-		
+			<div style="margin:2%">
+				<button type="button" class="bt non-edit-mode" id="editBtn">Edit</button>
+				<button type="button" class="bt edit-mode" id="addNewRow"><i class="icon-plus icon-white"></i> Add a New Row</button>
+				<button type="submit" class="bt edit-mode" id="saveBtn">Save</button>	
+				<button type="button" class="bt edit-mode" id="cancelBtn">Cancel</button>		
+			</div>
 		</div>
 	</form:form>
 </fieldset>
