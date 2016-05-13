@@ -23,7 +23,7 @@ td label.non-edit-mode {
 </style>
 <fieldset>
 	<legend class="section">Account Details</legend>
-	<form:form method="POST" commandName="command" action="updateAccount.action" class="clearfix form-horizontal">
+	<form:form method="POST" commandName="command" id="updateAccountForm" action="updateAccount.action" class="clearfix form-horizontal">
 		<div class="clearfix">
 		<form:errors path="acctStructureJson" cssClass="mandatory" element="div" style="margin-left:25px; margin-bottom:20px"/>
 	    <br>

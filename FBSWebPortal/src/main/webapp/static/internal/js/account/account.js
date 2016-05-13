@@ -25,6 +25,8 @@ $(document).ready(function(){
 		$(".edit-mode").hide();
 		$(".non-edit-mode").show();
 	});
+	
+	$("#saveBtn").click(updateAccount);
 });
 
 function retainTable(){
@@ -118,6 +120,12 @@ function saveAccount(){
 	//$('<input>').attr({'type':'hidden','value':JSON.stringify(json),'name':'acctStructureJson'}).appendTo('#accountForm');
 	$("#acctStructureJson").val(JSON.stringify(json));
 	$('#accountForm').submit();	
+}
+
+function updateAccount(){
+	var json = constructAcctStructureJSON();
+	$("#acctStructureJson").val(JSON.stringify(json));
+	$('#updateAccountForm').submit();	
 }
 
 

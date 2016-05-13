@@ -100,8 +100,22 @@ public class AccountCRUD implements WebCRUDIF{
 	@Override
 	public IResponseCRUD<?> update(BasePojoRequest pojoRequest, Object form, HttpServletRequest request)
 			throws CRUDException {
-		// TODO Auto-generated method stub
-		return null;
+		IResponseCRUD response = null;
+		
+		try {
+			
+			if(pojoRequest instanceof AccountRequest){
+				AccountRequest accountRequest = (AccountRequest) pojoRequest;
+				
+				response = accountManagerBD.updateAccount(accountRequest);
+			}
+			
+		} catch (AccountException e) {
+			throw new CRUDException(e.getMessageCode(), e);
+		}
+		
+		
+		return response;
 	}
 
 	@Override

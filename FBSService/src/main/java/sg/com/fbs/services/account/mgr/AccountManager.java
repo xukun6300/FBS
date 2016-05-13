@@ -96,6 +96,46 @@ public class AccountManager extends CommonFacade{
 			throw new AccountException(e.getMessageCode(), e);
 		}
 	}
+
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD updateAccount(AccountRequest accountRequest) throws AccountException {
+
+		ResponseCRUD response = new ResponseCRUD();
+		try {
+			Account account = getAccountById(accountRequest.getId());
+			account.setAccountDesc(accountRequest.getAccountDesc());
+			account.setRequisitionForm(accountRequest.isNeedRequisitionForm() ? "Y" : "N");
+			account.setSpendPeriod(Integer.valueOf(accountRequest.getAcctSpendingPeriod()));
+
+			account = (Account) accountDao.update(account);
+
+			if(account.getAcctStructures()!=null && account.getAcctStructures().size()>0){
+				for (AccountStructure accountStructure : account.getAcctStructures()) {
+					accountDao.softDelete(accountStructure);
+				}
+			}
+			
+			Gson gson = new Gson();			
+			Type acctStructureListType = new TypeToken<List<AccountStructure>>(){}.getType();
+			List<AccountStructure> accountStructures = gson.fromJson(accountRequest.getAcctStructureJson(), acctStructureListType);		
+			
+			if(accountStructures!=null && accountStructures.size()>0){
+				for (AccountStructure accountStructure : accountStructures) {
+					accountStructure.setAccount(account);
+					accountStructure = accountDao.insert(accountStructure);
+				}				
+				account.setAcctStructures(accountStructures);
+			}			
+			
+			response.setCrudResult(account);
+			
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new AccountException(e.getMessageCode(), e);
+		}
+		return response;
+	}
+	
 	
 	@SuppressWarnings("rawtypes")
 	public IResponseCRUD searchAccount(CriteriaIF criteria) throws AccountException{
@@ -150,7 +190,32 @@ public class AccountManager extends CommonFacade{
 			throw new AccountException(e.getMessageCode(), e);
 		}
 	}
+	
+	// can extract one method?
+	public AccountStructure getAccountStructureById(long acctStructureId) throws AccountException{
+		try {
+			AccountStructure accountStructure = (AccountStructure) accountDao.findObject(AccountStructure.class, AccountStructure.ID, acctStructureId);
+			return accountStructure;
+		} catch (DataAccessObjectException e) {			
+			e.printStackTrace();
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

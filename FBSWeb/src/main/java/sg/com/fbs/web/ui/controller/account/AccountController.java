@@ -140,6 +140,22 @@ public class AccountController extends BaseWebController{
 		Mvc mvc = new Mvc(accountForm, AccountWebEnum.SHOW_ACCOUNT_DETAILS_JSP.toString(), accountRequest);
 		return mvc;
 	}
+	
+	/**
+	 * Context /account/updateAccount.action
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView updateAccount(HttpServletRequest request, HttpServletResponse response){
+		AccountForm accountForm = new AccountForm();
+		AccountRequest accountRequest = new AccountRequest();
+		setCrudMode(WebCRUDEnum.UPDATE_MODE);
+		setCRUDOperation(accountCrud);
+		setValidationErrorPage(AccountWebEnum.SHOW_ACCOUNT_DETAILS_JSP.toString());
+		Mvc mvc = new Mvc(accountForm, AccountWebEnum.CONFIRM_ADD_ACCOUNT_JSP.toString(), accountRequest);
+		return mvc;
+	}
 
 }
 

@@ -70,6 +70,16 @@ public class AccountManagerBD extends BusinessDelegate {
 			throw new AccountException(e.getMessageCode(), e);
 		}
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD updateAccount(AccountRequest accountRequest) throws AccountException{
+		try {
+            Object object = accountManager.run(accountRequest);
+            return (IResponseCRUD)object;
+		} catch (ApplicationCoreException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
 }
 
 
