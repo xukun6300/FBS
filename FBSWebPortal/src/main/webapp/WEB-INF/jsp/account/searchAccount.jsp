@@ -133,7 +133,7 @@
               <netui:gridRows>
                  <tr>
                     <td><netui:gridCurrentRowNum/></td>
-                    <td><netui:gridRowElement name="accountCode"/></td>
+                    <td><a href='showAccountDetails.action?id=<netui:gridRowElement name="id"/>'><netui:gridRowElement name="accountCode"/></a></td>
                     <td><netui:gridRowElement name="accountDesc"/></td>                       
                     <td><netui:gridRowElement name="requisitionForm"/></td> 
                     <td><netui:gridRowElement name="spendPeriod"/></td>

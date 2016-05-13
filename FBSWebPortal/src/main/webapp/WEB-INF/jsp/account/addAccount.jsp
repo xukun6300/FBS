@@ -34,7 +34,7 @@
          </div>
 	    
 	    <div class="control-group required">
-            <label class="control-label" for="accountDesc"><spring:message code="fbs.common.account.ui.label.account.need.requisition.form"/></label>
+            <label class="control-label" for="needRequisitionForm"><spring:message code="fbs.common.account.ui.label.account.need.requisition.form"/></label>
             <div class="controls control-radio-checkbox">        
                <form:radiobutton id="needRequisitionFormYes" path="needRequisitionForm" value="true"/><label for="needRequisitionFormYes">Yes</label>
                <form:radiobutton id="needRequisitionFormNo" path="needRequisitionForm" value="false"/><label for="needRequisitionFormNo">No</label> 

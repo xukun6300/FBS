@@ -32,6 +32,12 @@ import sg.com.fbs.web.ui.form.system.security.uam.UserSearchForm;
  * @Created May 11, 2016 $
  * 
  */
+/**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
+
+ * @Author Frank Xu Kun $
+ * @Created May 13, 2016 $
+ * 
+ */
 public class AccountController extends BaseWebController{
 
 	@Autowired
@@ -115,6 +121,23 @@ public class AccountController extends BaseWebController{
 		setCRUDOperation(accountCrud);
 		setValidationErrorPage(AccountWebEnum.SEARCH_ACCOUNT_JSP.toString());
 		Mvc mvc = new Mvc(accountSearchForm, AccountWebEnum.SEARCH_ACCOUNT_JSP.toString(), accountRequest);
+		return mvc;
+	}
+	
+	
+	/**
+	 * Context /account/showAccountDetails.action
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView showAccountDetails(HttpServletRequest request, HttpServletResponse response){
+		AccountForm accountForm = new AccountForm();
+		AccountRequest accountRequest = new AccountRequest();
+		setCrudMode(WebCRUDEnum.DETAILS_MODE);
+		setCRUDOperation(accountCrud);
+		setValidationErrorPage(AccountWebEnum.SHOW_ACCOUNT_DETAILS_JSP.toString());
+		Mvc mvc = new Mvc(accountForm, AccountWebEnum.SHOW_ACCOUNT_DETAILS_JSP.toString(), accountRequest);
 		return mvc;
 	}
 

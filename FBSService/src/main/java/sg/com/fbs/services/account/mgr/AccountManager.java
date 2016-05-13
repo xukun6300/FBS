@@ -23,6 +23,7 @@ import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
+import sg.com.fbs.model.user.UserRequest;
 import sg.com.fbs.services.account.dao.AccountDao;
 import sg.com.fbs.services.account.exception.AccountException;
 
@@ -125,6 +126,29 @@ public class AccountManager extends CommonFacade{
 			e.printStackTrace();
 			throw new AccountException(e.getMessageCode(), e);
 		}		
+	}
+	
+	public void loadAccountDetails(AccountRequest accountRequest) throws AccountException{
+		long accountId = accountRequest.getId();
+		Account account = getAccountById(accountId);
+		if(account!=null){
+			accountRequest.setAccountCode(account.getAccountCode());
+			accountRequest.setAccountDesc(account.getAccountDesc());
+			accountRequest.setAcctSpendingPeriod(String.valueOf(account.getSpendPeriod()));
+			accountRequest.setAcctStructures(account.getAcctStructures());
+			accountRequest.setFinancialYear(String.valueOf(account.getFinancialYear()));
+			accountRequest.setNeedRequisitionForm("Y".equalsIgnoreCase(account.getRequisitionForm()));
+		}
+	}
+	
+	public Account getAccountById(long accountId) throws AccountException{
+		try {
+			Account account = (Account) accountDao.findObject(Account.class, Account.ID, accountId);
+			return account;
+		} catch (DataAccessObjectException e) {			
+			e.printStackTrace();
+			throw new AccountException(e.getMessageCode(), e);
+		}
 	}
 }
 

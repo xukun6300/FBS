@@ -39,6 +39,12 @@ public enum AccountWebEnum implements WebDropDownListIF{
 		}
 	},
 	
+	SHOW_ACCOUNT_DETAILS_JSP{
+		@Override
+		public String toString() {
+			return "showAccountDetails";
+		}
+	},
 	
 	FINANCIAL_YEAR__LIST {
 		@Override

@@ -101,6 +101,11 @@
         <put-attribute name="body" value="/WEB-INF/jsp/account/searchAccount.jsp"/>
     </definition>
     
+    <definition name="account/showAccountDetails" extends="base.definition">
+        <put-attribute name="title" value="Manage Account"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/account/showAccountDetails.jsp"/>
+    </definition>
+    
     
     
     

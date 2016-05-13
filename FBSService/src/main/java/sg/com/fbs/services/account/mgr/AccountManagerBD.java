@@ -10,6 +10,7 @@ import sg.com.fbs.model.account.AccountRequest;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
+import sg.com.fbs.model.user.UserRequest;
 import sg.com.fbs.services.account.exception.AccountException;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -61,4 +62,16 @@ public class AccountManagerBD extends BusinessDelegate {
 			throw new AccountException(e.getMessageCode(), e);
 		}
 	}
+	
+	public void loadAccountDetails(AccountRequest accountRequest) throws AccountException{
+		try {
+			accountManager.run(accountRequest);			
+		} catch (ApplicationCoreException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
 }
+
+
+
+
