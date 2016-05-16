@@ -12,7 +12,14 @@ $(document).ready(function(){
 	$("#addNewRow").click(addNewRow);
 	$("#saveAccount").click(saveAccount);
 	
-	$(".edit-mode").hide();
+	
+	
+	if($(".mandatory").text()==null || $(".mandatory").text()==''){
+		$(".edit-mode").hide();
+	}else{
+		//if have any validation failed, then retain the edit mode
+		$(".non-edit-mode").hide();
+	}
 	
 	var tbodyHtml = $("#accountTb tbody").html();
 	$("#editBtn").click(function(){
@@ -26,7 +33,9 @@ $(document).ready(function(){
 		$(".non-edit-mode").show();
 	});
 	
+	
 	$("#saveBtn").click(updateAccount);
+	
 });
 
 function retainTable(){
