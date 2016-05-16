@@ -23,7 +23,7 @@ public enum WebCRUDEnum {
 	},
 	
 	UPDATE_MODE{
-		public String tosString(){
+		public String toString(){
 			return "update";
 		}
 	},

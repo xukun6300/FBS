@@ -33,6 +33,16 @@ public class AccountForm extends BusinessWebForm{
 	
 	private List<AccountStructure> acctStructures = new ArrayList<AccountStructure>();
 	
+	private boolean updateFlag;
+	
+	public void setUpdateFlag(boolean updateFlag) {
+		this.updateFlag = updateFlag;
+	}
+	
+	public boolean isUpdateFlag() {
+		return updateFlag;
+	}
+	
 	public List<AccountStructure> getAcctStructures() {
 		return acctStructures;
 	}

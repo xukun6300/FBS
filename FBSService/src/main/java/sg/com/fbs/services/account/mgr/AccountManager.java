@@ -103,31 +103,36 @@ public class AccountManager extends CommonFacade{
 		ResponseCRUD response = new ResponseCRUD();
 		try {
 			Account account = getAccountById(accountRequest.getId());
-			account.setAccountDesc(accountRequest.getAccountDesc());
-			account.setRequisitionForm(accountRequest.isNeedRequisitionForm() ? "Y" : "N");
-			account.setSpendPeriod(Integer.valueOf(accountRequest.getAcctSpendingPeriod()));
+			
+			if(account!=null){
+				account.setAccountDesc(accountRequest.getAccountDesc());
+				account.setRequisitionForm(accountRequest.isNeedRequisitionForm() ? "Y" : "N");
+				account.setSpendPeriod(Integer.valueOf(accountRequest.getAcctSpendingPeriod()));
 
-			account = (Account) accountDao.update(account);
+				account = (Account) accountDao.update(account);
 
-			if(account.getAcctStructures()!=null && account.getAcctStructures().size()>0){
-				for (AccountStructure accountStructure : account.getAcctStructures()) {
-					accountDao.softDelete(accountStructure);
+				if(account.getAcctStructures()!=null && account.getAcctStructures().size()>0){
+					for (AccountStructure accountStructure : account.getAcctStructures()) {
+						accountDao.softDelete(accountStructure);
+					}
 				}
+				
+				Gson gson = new Gson();			
+				Type acctStructureListType = new TypeToken<List<AccountStructure>>(){}.getType();
+				List<AccountStructure> accountStructures = gson.fromJson(accountRequest.getAcctStructureJson(), acctStructureListType);		
+				
+				if(accountStructures!=null && accountStructures.size()>0){
+					for (AccountStructure accountStructure : accountStructures) {
+						accountStructure.setAccount(account);
+						accountStructure = accountDao.insert(accountStructure);
+					}				
+					account.setAcctStructures(accountStructures);
+				}			
+				
+				response.setCrudResult(account);
 			}
 			
-			Gson gson = new Gson();			
-			Type acctStructureListType = new TypeToken<List<AccountStructure>>(){}.getType();
-			List<AccountStructure> accountStructures = gson.fromJson(accountRequest.getAcctStructureJson(), acctStructureListType);		
 			
-			if(accountStructures!=null && accountStructures.size()>0){
-				for (AccountStructure accountStructure : accountStructures) {
-					accountStructure.setAccount(account);
-					accountStructure = accountDao.insert(accountStructure);
-				}				
-				account.setAcctStructures(accountStructures);
-			}			
-			
-			response.setCrudResult(account);
 			
 		} catch (DataAccessObjectException e) {
 			e.printStackTrace();

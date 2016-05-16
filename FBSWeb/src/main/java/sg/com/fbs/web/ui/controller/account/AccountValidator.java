@@ -55,16 +55,19 @@ public class AccountValidator implements Validator{
 			}
 			
 			//AccountManagerBD accountManagerBD = new AccountManagerBD();
-			try {
-				Boolean accountCodeExist = accountManagerBD.checkAccountCodeExist(accountForm.getAccountCode());
-				if(accountCodeExist){
-					errors.rejectValue("accountCode", "fbs.common.errors.account.invalid.account.code");
-				}
-			} catch (AccountException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
+			if(!accountForm.isUpdateFlag()){
+				try {
+					Boolean accountCodeExist = accountManagerBD.checkAccountCodeExist(accountForm.getAccountCode());
+					if(accountCodeExist){
+						errors.rejectValue("accountCode", "fbs.common.errors.account.invalid.account.code");
+					}
+				} catch (AccountException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+									
 			Gson gson = new Gson();
 			Type acctStructureListType = new TypeToken<List<AccountStructure>>(){}.getType();			
 			List<AccountStructure> accountStructures = gson.fromJson(accountForm.getAcctStructureJson(), acctStructureListType);

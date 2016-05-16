@@ -97,13 +97,13 @@ public class AccountCRUD implements WebCRUDIF{
 		return response;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public IResponseCRUD<?> update(BasePojoRequest pojoRequest, Object form, HttpServletRequest request)
 			throws CRUDException {
 		IResponseCRUD response = null;
 		
-		try {
-			
+		try {			
 			if(pojoRequest instanceof AccountRequest){
 				AccountRequest accountRequest = (AccountRequest) pojoRequest;
 				

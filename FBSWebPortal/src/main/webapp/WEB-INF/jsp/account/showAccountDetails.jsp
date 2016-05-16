@@ -28,12 +28,14 @@ td label.non-edit-mode {
 		<form:errors path="acctStructureJson" cssClass="mandatory" element="div" style="margin-left:25px; margin-bottom:20px"/>
 	    <br>
 	    <form:input path="acctStructureJson" type="hidden"/>
+	    
+		<form:hidden path="id"/><!-- to hold the url param id and submit to updateAccount.action  -->
 		
 		<div class="control-group">
             <label class="control-label bold" for="accountCode"><spring:message code="fbs.common.account.ui.label.account.code"/></label>
             <div class="controls">
                <label class="non-edit-mode">${command.accountCode}</label>               
-               <form:input id="accountCode" path="accountCode" class="input-xlarge edit-mode" maxlength="100" disabled="true"/>
+               <form:input id="accountCode" path="accountCode" class="input-xlarge edit-mode" maxlength="100" readonly="true"/>
                <%-- <form:errors path="accountCode" cssClass="mandatory" element="div"/> --%> 
             </div>
          </div>

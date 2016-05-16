@@ -149,6 +149,7 @@ public class AccountController extends BaseWebController{
 	 */
 	public ModelAndView updateAccount(HttpServletRequest request, HttpServletResponse response){
 		AccountForm accountForm = new AccountForm();
+		accountForm.setUpdateFlag(true);
 		AccountRequest accountRequest = new AccountRequest();
 		setCrudMode(WebCRUDEnum.UPDATE_MODE);
 		setCRUDOperation(accountCrud);

@@ -448,8 +448,10 @@ public abstract class BaseWebController extends MultiActionController{
 				}
 			}
 		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
 			throw new ApplicationCoreException(e);
 		} catch (IllegalAccessException e) {
+			e.printStackTrace();
 			throw new ApplicationCoreException(e);
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
