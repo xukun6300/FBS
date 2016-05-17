@@ -50,5 +50,12 @@ public enum MasterCodeWebEnum implements WebDropDownListIF{
 		public String toString() {
 			return "confirmCodeValue";
 		}
+	},
+	
+	SEARCH_CATEGORY_TYPE_JSP {
+		@Override
+		public String toString() {
+			return "searchCategoryType";
+		}
 	}
 }

@@ -8,6 +8,8 @@ import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
+import sg.com.fbs.model.system.persistence.query.Criteria;
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
 
@@ -19,6 +21,7 @@ import sg.com.fbs.services.mastercode.exception.MasterCodeException;
  */
 public class MasterCodeMgrBD extends BusinessDelegate{
 
+	@SuppressWarnings("unchecked")
 	public List<MasterCode> getCodesValuesFilterWithEffectiveDate(String codeKey) throws MasterCodeException{
 		Object response;
 		try {
@@ -29,6 +32,7 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		return (List<MasterCode>)response;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<MasterCode> getCodesValues(String codekey) throws MasterCodeException {
 		Object response;
 		try {
@@ -40,6 +44,7 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	public Map<String, String> getSalutation() throws MasterCodeException{
 		Object obj;
 		try {
@@ -50,6 +55,7 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		return (Map<String, String>)obj;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Map<String, String> getGenderType() throws MasterCodeException{
 		Object obj;
 		try {
@@ -60,6 +66,7 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		return (Map<String, String>)obj;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Map<String, String> getPrimaryContactMode() throws MasterCodeException{
 		Object obj;
 		try {
@@ -79,6 +86,7 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public ResponseCRUD saveCategoryType(MasterCodeTypeRequest masterCodeTypeRequest) throws MasterCodeException{
 		try {
 			Object obj = new MasterCodeManager().run(masterCodeTypeRequest);
@@ -88,9 +96,20 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public ResponseCRUD saveCodeValue(MasterCodeRequest masterCodeRequest) throws MasterCodeException{
 		try {
 			Object obj = new MasterCodeManager().run(masterCodeRequest);
+			return (ResponseCRUD) obj;
+		} catch (ApplicationCoreException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public ResponseCRUD searchCategoryTypes(CriteriaIF criteria) throws MasterCodeException{
+		try {
+			Object obj = new MasterCodeManager().run(criteria);
 			return (ResponseCRUD) obj;
 		} catch (ApplicationCoreException e) {
 			throw new MasterCodeException(e.getMessageCode(), e);

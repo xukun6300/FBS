@@ -84,6 +84,10 @@
         <put-attribute name="body" value="/WEB-INF/jsp/mastercode/confirmCodeValue.jsp"></put-attribute>
     </definition>
     
+    <definition name="mastercode/searchCategoryType" extends="base.definition">
+        <put-attribute name="title" value="Master Code Maintenance"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/mastercode/searchMasterCodeType.jsp"></put-attribute>
+    </definition>
     
     <!-- Manage Account Module -->
     <definition name="account/showAddAccount" extends="base.definition">
@@ -109,7 +113,7 @@
     
     
     
-    
+    <!-- Exception page -->
     <definition name="userUncaughtException" extends="base.definition">
 		<put-attribute name="title" value="Error Page" />
 		<put-attribute name="body" value="/WEB-INF/jsp/userUncaughtException.jsp" />

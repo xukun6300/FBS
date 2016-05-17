@@ -7,6 +7,8 @@ import java.util.Map;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeType;
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.techinfra.persistence.dao.BaseDao;
 
 /**
@@ -42,6 +44,10 @@ public class MasterCodeDAO extends BaseDao{
 		//add remove cache ,will implement later
 		masterCode = (MasterCode) super.insert(masterCode);
 		return masterCode;
+	}
+	
+	public IResponseCRUD searchMasterCodeType(CriteriaIF criteria) throws DataAccessObjectException{
+		return search(MasterCodeType.class, criteria, true);
 	}
 }
 

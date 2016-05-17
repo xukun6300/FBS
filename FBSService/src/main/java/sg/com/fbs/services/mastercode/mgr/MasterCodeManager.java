@@ -15,10 +15,13 @@ import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeType;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.controlsource.CodeMaintenanceControlSource;
 import sg.com.fbs.services.mastercode.dao.MasterCodeDAO;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
+
 
 /**
  * @Author Frank Xu $
@@ -177,6 +180,19 @@ public class MasterCodeManager extends CommonFacade{
 		masterCodeType.setVersion(masterCodeType.getVersion() + 1);
 		masterCodeDAO.update(masterCodeType);
 		return masterCodeType;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchCategoryTypes(CriteriaIF criteria) throws MasterCodeException{
+		addActiveStatusCriterion(criteria);
+		MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+		IResponseCRUD response;
+		try {
+			response = masterCodeDAO.searchMasterCodeType(criteria);
+		} catch (DataAccessObjectException e) {
+			throw new MasterCodeException(e.getMessageCode(), e.getCause());
+		}		
+		return response;
 	}
 	
 }

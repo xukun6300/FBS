@@ -15,6 +15,7 @@ import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeForm;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeForm;
+import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeSearchForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -104,6 +105,21 @@ public class MasterCodeController extends BaseWebController{
 		return mvc;
 	}
 	
+	/**
+	 * Context /mastercode/searchCategoryType.action 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView searchCategoryType(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeTypeSearchForm masterCodeTypeSearchForm = new MasterCodeTypeSearchForm();
+		MasterCodeTypeRequest masterCodeTypeRequest = new MasterCodeTypeRequest();
+		setCrudMode(WebCRUDEnum.QUERY_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		setValidationErrorPage(MasterCodeWebEnum.SEARCH_CATEGORY_TYPE_JSP.toString());
+		Mvc mvc = new Mvc(masterCodeTypeSearchForm, MasterCodeWebEnum.SEARCH_CATEGORY_TYPE_JSP.toString(), masterCodeTypeRequest);
+		return mvc;
+	}
 
 }
 

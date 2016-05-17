@@ -5,6 +5,7 @@ import java.util.Date;
 import org.joda.time.DateTime;
 import lombok.Getter;
 import lombok.Setter;
+import sg.com.fbs.model.business.pojo.BasePojo;
 
 
 
@@ -91,6 +92,25 @@ public class Criterion implements CriterionIF{
 		this.setPropertyName(propertyName);
 		this.setShortPropertyName(shortPropertyName);
 		this.setSearchValues(searchValues);
+	}
+	
+	public Criterion(String propertyName, RestrictionType restrictionType, Object searchValue){
+		this.setPropertyName(propertyName);
+		this.setSearchValue(searchValue);
+		this.setRestrictionType(restrictionType);
+		
+		if(searchValue instanceof DateTime){
+			this.setSearchValueDataType(DATE);
+		}
+		
+		if(searchValue instanceof Date){
+			this.setSearchValueDataType(DATE);
+		}
+		
+		if(BasePojo.ACT_IND.equals(propertyName)){
+			this.setCaseSensitive(true);
+		}
+		
 	}
 	
 	public Criterion(String propertyName, RestrictionType restrictionType, String shortPropertyName, Object searchValue){

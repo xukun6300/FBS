@@ -7,9 +7,11 @@ import sg.com.fbs.core.techinfra.web.WebCRUDIF;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
 import sg.com.fbs.services.mastercode.mgr.MasterCodeMgrBD;
+import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeSearchForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -19,11 +21,29 @@ import sg.com.fbs.services.mastercode.mgr.MasterCodeMgrBD;
  */
 public class MasterCodeCRUD implements WebCRUDIF{
 
+	private MasterCodeMgrBD masterCodeMgrBD = new MasterCodeMgrBD();
+	
 	@Override
-	public IResponseCRUD<?> runQuery(BasePojoRequest pojoRequest, Object form,
-			HttpServletRequest request) throws CRUDException {
-		// TODO Auto-generated method stub
-		return null;
+	public IResponseCRUD<?> runQuery(BasePojoRequest pojoRequest, Object form, HttpServletRequest request) throws CRUDException {
+		IResponseCRUD<?> response = null;
+		try {
+			if (form instanceof MasterCodeTypeSearchForm) {
+				MasterCodeTypeSearchForm masterCodeTypeSearchForm = (MasterCodeTypeSearchForm) form;
+				
+				if (masterCodeTypeSearchForm.isSearchInactiveMasterCodes()) {
+                    CriteriaIF searchCriteria = masterCodeTypeSearchForm.addInActiveStatusCriterion(masterCodeTypeSearchForm.getSearchCriteria(request));
+					response = masterCodeMgrBD.searchCategoryTypes(searchCriteria);
+				}else{
+					response = masterCodeMgrBD.searchCategoryTypes(masterCodeTypeSearchForm.getSearchCriteria(request));
+				}
+
+				//update deleteable?
+			}
+		} catch (MasterCodeException e) {		
+			e.printStackTrace();
+			throw new CRUDException(e);
+		}
+		return response;
 	}
 
 	@Override
@@ -37,8 +57,7 @@ public class MasterCodeCRUD implements WebCRUDIF{
 	public IResponseCRUD<?> insert(BasePojoRequest pojoRequest, Object form,
 			HttpServletRequest request) throws CRUDException {
 		
-		IResponseCRUD<?> response = null;
-		MasterCodeMgrBD masterCodeMgrBD = new MasterCodeMgrBD();
+		IResponseCRUD<?> response = null;		
 		try {
 			if (pojoRequest instanceof MasterCodeTypeRequest) {
 				
