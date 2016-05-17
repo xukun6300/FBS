@@ -7,6 +7,7 @@ import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
+import sg.com.fbs.model.domain.mastercode.MasterCodeType;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
@@ -111,6 +112,14 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		try {
 			Object obj = new MasterCodeManager().run(criteria);
 			return (ResponseCRUD) obj;
+		} catch (ApplicationCoreException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+	}
+	
+	public void updateMasterCodeTypeDetails(MasterCodeType masterCodeType, boolean isInactiveSearch) throws MasterCodeException{
+		try {
+			new MasterCodeManager().run(masterCodeType, isInactiveSearch);
 		} catch (ApplicationCoreException e) {
 			throw new MasterCodeException(e.getMessageCode(), e);
 		}

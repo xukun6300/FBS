@@ -58,6 +58,16 @@ public class MasterCodeType extends BaseLogPojo{
 
 	private List<Long> activeMasterCodesId = new ArrayList<Long>(0);
 	
+	private List<Long> inactiveMasterCodesId = new ArrayList<Long>(0);
+	
+	public List<Long> getInactiveMasterCodesId() {
+		return inactiveMasterCodesId;
+	}
+	
+	public void setInactiveMasterCodesId(List<Long> inactiveMasterCodesId) {
+		this.inactiveMasterCodesId = inactiveMasterCodesId;
+	}
+	
 	public DateTime getEffectiveDate() {
 		return effectiveDate;
 	}
@@ -182,7 +192,9 @@ public class MasterCodeType extends BaseLogPojo{
 		return (this.activeMasterCodesId == null) ? 0 : this.activeMasterCodesId.size();
 	}
 	
-
+	public int getInactiveMasterCodesSize(){
+		return (this.inactiveMasterCodesId == null) ? 0 : this.inactiveMasterCodesId.size();
+	}
 	
 	
 	

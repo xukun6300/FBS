@@ -1,5 +1,6 @@
 package sg.com.fbs.services.mastercode.mgr;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -195,6 +196,41 @@ public class MasterCodeManager extends CommonFacade{
 		return response;
 	}
 	
+	public void updateMasterCodeTypeDetails(MasterCodeType masterCodeType, boolean isInactiveSearch) throws MasterCodeException{
+		
+		if(isInactiveSearch){//for inactive search, all code types cannot delete, so no worry getActiveMasterCodesId not set
+			List<MasterCode> inactiveCodes = getAllInactiveMasterCode(masterCodeType);
+			for (MasterCode masterCode : inactiveCodes) {
+				masterCodeType.getInactiveMasterCodesId().add(masterCode.getId());
+			}
+		}else {			
+			for (MasterCode masterCode : masterCodeType.getMasterCodes()) {
+				
+				masterCodeType.getActiveMasterCodesId().add(masterCode.getId());
+			}
+		}
+		
+		if((masterCodeType.getActiveMasterCodesId()==null || masterCodeType.getActiveMasterCodesId().size()>0) 
+				&& masterCodeType.getActiveStatus().equals(ActiveStatusEnum.YES.toString())){
+			
+			masterCodeType.setDeletable(true);
+		}
+		
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<MasterCode> getAllInactiveMasterCode(MasterCodeType masterCodeType) throws MasterCodeException{
+		MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+		List<MasterCode> inactiveCodes = new ArrayList<MasterCode>();
+		try {
+			inactiveCodes = (List<MasterCode>)masterCodeDAO.find(MasterCode.class, MasterCode.MASTERCODE_TYPE_ID, masterCodeType.getId(), MasterCode.ACT_IND, ActiveStatusEnum.NO.toString());
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new MasterCodeException(e.getMessageCode(),e);
+		}
+		return inactiveCodes;
+	}
 }
 
 

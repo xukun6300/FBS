@@ -6,6 +6,7 @@ import sg.com.fbs.core.techinfra.exception.CRUDException;
 import sg.com.fbs.core.techinfra.web.WebCRUDIF;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
+import sg.com.fbs.model.domain.mastercode.MasterCodeType;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
@@ -28,16 +29,24 @@ public class MasterCodeCRUD implements WebCRUDIF{
 		IResponseCRUD<?> response = null;
 		try {
 			if (form instanceof MasterCodeTypeSearchForm) {
-				MasterCodeTypeSearchForm masterCodeTypeSearchForm = (MasterCodeTypeSearchForm) form;
+				MasterCodeTypeSearchForm formBean = (MasterCodeTypeSearchForm) form;
 				
-				if (masterCodeTypeSearchForm.isSearchInactiveMasterCodes()) {
-                    CriteriaIF searchCriteria = masterCodeTypeSearchForm.addInActiveStatusCriterion(masterCodeTypeSearchForm.getSearchCriteria(request));
+				if (formBean.isSearchInactiveMasterCodes()) {
+                    CriteriaIF searchCriteria = formBean.addInActiveStatusCriterion(formBean.getSearchCriteria(request));
 					response = masterCodeMgrBD.searchCategoryTypes(searchCriteria);
 				}else{
-					response = masterCodeMgrBD.searchCategoryTypes(masterCodeTypeSearchForm.getSearchCriteria(request));
+					response = masterCodeMgrBD.searchCategoryTypes(formBean.getSearchCriteria(request));
+				}
+				
+				//update master code size and deleteable
+				if(response!=null && response.getQueryResult().size()>0){
+					for (Object masterCodeType : response.getQueryResult()) {
+						if(masterCodeType instanceof MasterCodeType){
+							masterCodeMgrBD.updateMasterCodeTypeDetails((MasterCodeType)masterCodeType, formBean.isSearchInactiveMasterCodes());
+						}
+					}
 				}
 
-				//update deleteable?
 			}
 		} catch (MasterCodeException e) {		
 			e.printStackTrace();
