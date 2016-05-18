@@ -210,7 +210,7 @@ public class MasterCodeManager extends CommonFacade{
 			}
 		}
 		
-		if((masterCodeType.getActiveMasterCodesId()==null || masterCodeType.getActiveMasterCodesId().size()>0) 
+		if((masterCodeType.getActiveMasterCodesId()==null || masterCodeType.getActiveMasterCodesId().size()==0) 
 				&& masterCodeType.getActiveStatus().equals(ActiveStatusEnum.YES.toString())){
 			
 			masterCodeType.setDeletable(true);

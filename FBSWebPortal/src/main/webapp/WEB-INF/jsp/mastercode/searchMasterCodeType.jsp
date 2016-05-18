@@ -114,10 +114,10 @@
 							</c:choose>
 						</td>
 						<td class="nowrap export-ignore">
-						<%-- <netui:updateTag name="id" keyName="id" uri="listCodeValuesDetails.action?searchInactiveMasterCodes=${command.searchInactiveMasterCodes}" />
+						    <netui:updateTag name="id" keyName="id" uri="listCodeValuesDetails.action?searchInactiveMasterCodes=${command.searchInactiveMasterCodes}" />
 							<c:if test="${masterTyperow.deletable}">
 								<netui:deleteTag name="id" keyName="id" uri="showDeleteCodeKey.action?" />
-							</c:if> --%>
+							</c:if>
 						</td>
 					</tr>
 				</netui:gridRows>
@@ -129,8 +129,7 @@
 
 <script type="text/javascript">
 	$('#effectiveDateFrom').myDatePicker('#effectiveDateFromBtn');
-	$('#effectiveDateTo').myDatePicker('#effectiveDateToBtn');
-	
+	$('#effectiveDateTo').myDatePicker('#effectiveDateToBtn');	
 	$('#expiryDateFrom').myDatePicker('#expiryDateFromBtn');
 	$('#expiryDateTo').myDatePicker('#expiryDateToBtn');
 </script>

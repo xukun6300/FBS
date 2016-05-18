@@ -497,6 +497,59 @@
 		</attribute>
 		<dynamic-attributes>true</dynamic-attributes>
 	</tag>
+	
+	<tag>
+	   <name>updateTag</name>
+	   <tag-class>sg.com.fbs.core.techinfra.web.tag.grid.UpdateTag</tag-class>
+	   <description>The row element control.</description>
+	   <attribute>
+            <name>uri</name>
+            <required>no</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+         <attribute>
+            <name>target</name>
+            <required>no</required>
+        </attribute>
+        <attribute>
+            <name>javascript</name>
+            <required>no</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>            
+         <attribute>
+            <name>keyName</name>
+            <required>no</required>
+        </attribute>
+         <attribute>
+            <name>title</name>
+            <required>no</required>
+        </attribute>
+         <attribute>
+            <name>index</name>
+            <required>no</required>
+        </attribute>
+         <attribute>
+            <name>name</name>
+            <required>no</required>
+        </attribute>
+        <attribute>
+            <name>codeSetID</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>codeSetIDConfigKey</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>replaceNull</name>
+            <required>false</required>
+        </attribute> 
+	</tag>
+    
 </taglib>
 
 

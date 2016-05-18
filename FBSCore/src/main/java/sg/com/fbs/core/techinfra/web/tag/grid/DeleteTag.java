@@ -9,9 +9,9 @@ public class DeleteTag extends ActionTag{
 
 	private static final long serialVersionUID = 7123680091020738844L;
 	
-	public DeleteTag() {
-		super();
-		title = "fbs.common.ui.label.delete";
+	@Override
+	public String getTitle() {
+		return "fbs.common.ui.label.delete";
 	}
 	
 	public String getPicName() {
@@ -19,7 +19,7 @@ public class DeleteTag extends ActionTag{
 	}
 
 	public String getButtonClass() {
-		return "btn btn-mini btn-danger";
+		return "btn btn-danger";
 	}
 
 	public String getIconClass() {
