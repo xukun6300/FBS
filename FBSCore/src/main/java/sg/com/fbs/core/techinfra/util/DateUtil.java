@@ -29,6 +29,8 @@ public class DateUtil {
 	
 	public static final String DEFAULT_DATETIME_FORMAT = "dd MMM yyyy HH:mm:ss";
 	
+	private static DateTimeFormatter standardDateFormat = DateTimeFormat.forPattern(DEFAULT_DATE_FORMAT);
+	
 	public static DateTime convertDateStringToDate(String dateStr, String format){
 		return DateTimeFormat.forPattern(format).parseDateTime(dateStr);
 	}
@@ -38,6 +40,15 @@ public class DateUtil {
 	}
 	
 	public static String convertDateToDateString(DateTime date){
+		try { 
+			return standardDateFormat.print(date);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			return null;
+		}
+	}
+	
+	public static String convertDateToDateString(Date date){
 		try { 
 			return new SimpleDateFormat(DEFAULT_DATE_FORMAT).format(date);
 		} catch (Exception e) {

@@ -147,12 +147,12 @@ public class DateInputTag extends AbstractHtmlInputElementTag{
 	 */
 	protected void writeValue(TagWriter tagWriter) throws JspException {
 		String value ="";
-		
-		if(getBoundValue() instanceof DateTime){
-			value = getDisplayString(DateUtil.convertDateToDateString((DateTime)getBoundValue()), getPropertyEditor());
+		Object boundValue = getBoundValue();
+		if(boundValue instanceof DateTime){
+			value = getDisplayString(DateUtil.convertDateToDateString((DateTime)boundValue), getPropertyEditor());
 		}else {
-			if(getBoundValue()!=null){
-				value = (String)getBoundValue();
+			if(boundValue!=null){
+				value = (String)boundValue;
 				//prevent XSS attack
 				if(value!=null){
 					if(StringUtils.isNumeric(maxlength)){
@@ -163,7 +163,8 @@ public class DateInputTag extends AbstractHtmlInputElementTag{
 			}
 		}
 		String type = hasDynamicTypeAttribute()?(String)getDynamicAttributes().get(TYPE):getType();
-		tagWriter.writeAttribute("value", processFieldValue(getName(), value, type));
+		String processedValue = processFieldValue(getName(), value, type);
+		tagWriter.writeAttribute("value", processedValue);
 	}
 	
 	@Override
