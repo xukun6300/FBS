@@ -54,7 +54,7 @@ public class AccountController extends BaseWebController{
 	@Override
 	public void preLoad(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
 		AccountWebEnum[] comboInitializer = {
-				AccountWebEnum.FINANCIAL_YEAR__LIST
+				AccountWebEnum.FINANCIAL_YEAR_LIST
 		};
 		
 		String[] views = {

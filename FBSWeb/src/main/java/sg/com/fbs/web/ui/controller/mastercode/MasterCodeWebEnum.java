@@ -57,5 +57,12 @@ public enum MasterCodeWebEnum implements WebDropDownListIF{
 		public String toString() {
 			return "searchCategoryType";
 		}
+	},
+	
+	CODE_KEYS_T_LIST {
+		@Override
+		public String toString() {
+			return "codeKeys";
+		}
 	}
 }

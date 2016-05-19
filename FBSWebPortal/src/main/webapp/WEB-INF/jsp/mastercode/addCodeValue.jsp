@@ -20,8 +20,7 @@
                    <label class="control-label" for="categoryType"><spring:message code="fbs.common.codemaintenance.ui.label.code.key"/></label>
                    <div class="controls">
                      <form:select path="categoryType.value" id="categoryType" class="input-large value-label-pair">
-                        <form:option value="-1">[Any Code Key]</form:option>
-                        <!-- netui -->
+                        <form:options items="${codeKeys}"/>
                      </form:select>
                      <form:errors path="categoryType" cssClass="mandatory" element="div"/>
                    </div>

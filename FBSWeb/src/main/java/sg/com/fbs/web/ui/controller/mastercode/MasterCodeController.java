@@ -9,6 +9,7 @@ import org.springframework.validation.Validator;
 import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.fbs.core.techinfra.web.BaseWebController;
+import sg.com.fbs.core.techinfra.web.DefaultRefDataSource;
 import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
@@ -31,14 +32,24 @@ public class MasterCodeController extends BaseWebController{
 	}
 
 	@Override
-	public void preLoad(Map<String, Object> map, HttpServletRequest request,
-			HttpServletResponse response) {
+	public void preLoad(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
+		MasterCodeWebEnum[] comboInitializer = {
+				MasterCodeWebEnum.CODE_KEYS_T_LIST
+		};
 		
-	}
+		String[] views = {
+				MasterCodeWebEnum.SHOW_ADD_CODE_VALUE_JSP.toString()
+		};
+		
+		for (String view : views) {
+			map.put(view, comboInitializer);
+		}
+		
+		map.put(DefaultRefDataSource.WEB_LIST_DATA_SOURCE, new MasterCodeRefDataSource());
+ 	}
 
 	@Override
-	public ModelAndView postLoad(Map<String, Object> map,
-			HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView postLoad(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
 
 		return null;
 	}

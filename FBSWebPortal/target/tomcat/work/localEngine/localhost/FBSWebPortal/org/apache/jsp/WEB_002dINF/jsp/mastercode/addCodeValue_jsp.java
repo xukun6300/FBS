@@ -23,7 +23,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fotherwise;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fhidden_0026_005fvalue_005fpath_005fnobody;
@@ -46,7 +46,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fc_005fotherwise = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005fhidden_0026_005fvalue_005fpath_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -65,7 +65,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     _005fjspx_005ftagPool_005fc_005fwhen_0026_005ftest.release();
     _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.release();
     _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass.release();
-    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue.release();
+    _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody.release();
     _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.release();
     _005fjspx_005ftagPool_005fc_005fotherwise.release();
     _005fjspx_005ftagPool_005fform_005fhidden_0026_005fvalue_005fpath_005fnobody.release();
@@ -184,97 +184,19 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
                     out.write("</label>\r\n");
                     out.write("                   <div class=\"controls\">\r\n");
                     out.write("                     ");
-                    //  form:select
-                    org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_005fselect_005f0 = (org.springframework.web.servlet.tags.form.SelectTag) _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass.get(org.springframework.web.servlet.tags.form.SelectTag.class);
-                    _jspx_th_form_005fselect_005f0.setPageContext(_jspx_page_context);
-                    _jspx_th_form_005fselect_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fwhen_005f0);
-                    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(22,21) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                    _jspx_th_form_005fselect_005f0.setPath("categoryType.value");
-                    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(22,21) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                    _jspx_th_form_005fselect_005f0.setId("categoryType");
-                    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(22,21) null
-                    _jspx_th_form_005fselect_005f0.setDynamicAttribute(null, "class", new String("input-large value-label-pair"));
-                    int[] _jspx_push_body_count_form_005fselect_005f0 = new int[] { 0 };
-                    try {
-                      int _jspx_eval_form_005fselect_005f0 = _jspx_th_form_005fselect_005f0.doStartTag();
-                      if (_jspx_eval_form_005fselect_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-                        do {
-                          out.write("\r\n");
-                          out.write("                        ");
-                          //  form:option
-                          org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f0 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                          _jspx_th_form_005foption_005f0.setPageContext(_jspx_page_context);
-                          _jspx_th_form_005foption_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-                          // /WEB-INF/jsp/mastercode/addCodeValue.jsp(23,24) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                          _jspx_th_form_005foption_005f0.setValue(new String("-1"));
-                          int[] _jspx_push_body_count_form_005foption_005f0 = new int[] { 0 };
-                          try {
-                            int _jspx_eval_form_005foption_005f0 = _jspx_th_form_005foption_005f0.doStartTag();
-                            if (_jspx_eval_form_005foption_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-                              java.lang.Object value = null;
-                              java.lang.String displayValue = null;
-                              if (_jspx_eval_form_005foption_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-                              out = _jspx_page_context.pushBody();
-                              _jspx_push_body_count_form_005foption_005f0[0]++;
-                              _jspx_th_form_005foption_005f0.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
-                              _jspx_th_form_005foption_005f0.doInitBody();
-                              }
-                              value = (java.lang.Object) _jspx_page_context.findAttribute("value");
-                              displayValue = (java.lang.String) _jspx_page_context.findAttribute("displayValue");
-                              do {
-                              out.write("[Any Code Key]");
-                              int evalDoAfterBody = _jspx_th_form_005foption_005f0.doAfterBody();
-                              value = (java.lang.Object) _jspx_page_context.findAttribute("value");
-                              displayValue = (java.lang.String) _jspx_page_context.findAttribute("displayValue");
-                              if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-                              break;
-                              } while (true);
-                              if (_jspx_eval_form_005foption_005f0 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-                              out = _jspx_page_context.popBody();
-                              _jspx_push_body_count_form_005foption_005f0[0]--;
-                              }
-                            }
-                            if (_jspx_th_form_005foption_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                              return;
-                            }
-                          } catch (Throwable _jspx_exception) {
-                            while (_jspx_push_body_count_form_005foption_005f0[0]-- > 0)
-                              out = _jspx_page_context.popBody();
-                            _jspx_th_form_005foption_005f0.doCatch(_jspx_exception);
-                          } finally {
-                            _jspx_th_form_005foption_005f0.doFinally();
-                            _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue.reuse(_jspx_th_form_005foption_005f0);
-                          }
-                          out.write("\r\n");
-                          out.write("                        <!-- netui -->\r\n");
-                          out.write("                     ");
-                          int evalDoAfterBody = _jspx_th_form_005fselect_005f0.doAfterBody();
-                          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-                            break;
-                        } while (true);
-                      }
-                      if (_jspx_th_form_005fselect_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                        return;
-                      }
-                    } catch (Throwable _jspx_exception) {
-                      while (_jspx_push_body_count_form_005fselect_005f0[0]-- > 0)
-                        out = _jspx_page_context.popBody();
-                      _jspx_th_form_005fselect_005f0.doCatch(_jspx_exception);
-                    } finally {
-                      _jspx_th_form_005fselect_005f0.doFinally();
-                      _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass.reuse(_jspx_th_form_005fselect_005f0);
-                    }
+                    if (_jspx_meth_form_005fselect_005f0(_jspx_th_c_005fwhen_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
+                      return;
                     out.write("\r\n");
                     out.write("                     ");
                     //  form:errors
                     org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f1 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
                     _jspx_th_form_005ferrors_005f1.setPageContext(_jspx_page_context);
                     _jspx_th_form_005ferrors_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fwhen_005f0);
-                    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(26,21) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+                    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(25,21) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
                     _jspx_th_form_005ferrors_005f1.setPath("categoryType");
-                    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(26,21) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+                    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(25,21) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
                     _jspx_th_form_005ferrors_005f1.setCssClass("mandatory");
-                    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(26,21) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+                    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(25,21) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
                     _jspx_th_form_005ferrors_005f1.setElement("div");
                     int[] _jspx_push_body_count_form_005ferrors_005f1 = new int[] { 0 };
                     try {
@@ -337,11 +259,11 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f2 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f2.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(46,16) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(45,16) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f2.setPath("description");
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(46,16) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(45,16) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f2.setCssClass("mandatory");
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(46,16) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(45,16) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f2.setElement("div");
             int[] _jspx_push_body_count_form_005ferrors_005f2 = new int[] { 0 };
             try {
@@ -376,11 +298,11 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f3 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f3.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(54,15) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(53,15) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f3.setPath("codeValue");
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(54,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(53,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f3.setCssClass("mandatory");
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(54,15) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(53,15) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f3.setElement("div");
             int[] _jspx_push_body_count_form_005ferrors_005f3 = new int[] { 0 };
             try {
@@ -426,11 +348,11 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f4 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f4.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(70,15) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(69,15) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f4.setPath("effectiveDate");
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(70,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(69,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f4.setCssClass("mandatory");
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(70,15) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(69,15) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f4.setElement("div");
             int[] _jspx_push_body_count_form_005ferrors_005f4 = new int[] { 0 };
             try {
@@ -466,11 +388,11 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f5 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f5.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(79,15) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(78,15) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f5.setPath("expiryDate");
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(79,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(78,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f5.setCssClass("mandatory");
-            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(79,15) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/mastercode/addCodeValue.jsp(78,15) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f5.setElement("div");
             int[] _jspx_push_body_count_form_005ferrors_005f5 = new int[] { 0 };
             try {
@@ -617,6 +539,77 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     return false;
   }
 
+  private boolean _jspx_meth_form_005fselect_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_005fwhen_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fform_005f0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  form:select
+    org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_005fselect_005f0 = (org.springframework.web.servlet.tags.form.SelectTag) _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass.get(org.springframework.web.servlet.tags.form.SelectTag.class);
+    _jspx_th_form_005fselect_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_form_005fselect_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fwhen_005f0);
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(22,21) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_form_005fselect_005f0.setPath("categoryType.value");
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(22,21) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_form_005fselect_005f0.setId("categoryType");
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(22,21) null
+    _jspx_th_form_005fselect_005f0.setDynamicAttribute(null, "class", new String("input-large value-label-pair"));
+    int[] _jspx_push_body_count_form_005fselect_005f0 = new int[] { 0 };
+    try {
+      int _jspx_eval_form_005fselect_005f0 = _jspx_th_form_005fselect_005f0.doStartTag();
+      if (_jspx_eval_form_005fselect_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                        ");
+          if (_jspx_meth_form_005foptions_005f0(_jspx_th_form_005fselect_005f0, _jspx_page_context, _jspx_push_body_count_form_005fselect_005f0))
+            return true;
+          out.write("\r\n");
+          out.write("                     ");
+          int evalDoAfterBody = _jspx_th_form_005fselect_005f0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_form_005fselect_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_form_005fselect_005f0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_form_005fselect_005f0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_form_005fselect_005f0.doFinally();
+      _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fid_005fclass.reuse(_jspx_th_form_005fselect_005f0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_form_005foptions_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fselect_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fselect_005f0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  form:options
+    org.springframework.web.servlet.tags.form.OptionsTag _jspx_th_form_005foptions_005f0 = (org.springframework.web.servlet.tags.form.OptionsTag) _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody.get(org.springframework.web.servlet.tags.form.OptionsTag.class);
+    _jspx_th_form_005foptions_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_form_005foptions_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(23,24) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_form_005foptions_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${codeKeys}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
+    int[] _jspx_push_body_count_form_005foptions_005f0 = new int[] { 0 };
+    try {
+      int _jspx_eval_form_005foptions_005f0 = _jspx_th_form_005foptions_005f0.doStartTag();
+      if (_jspx_th_form_005foptions_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_form_005foptions_005f0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_form_005foptions_005f0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_form_005foptions_005f0.doFinally();
+      _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody.reuse(_jspx_th_form_005foptions_005f0);
+    }
+    return false;
+  }
+
   private boolean _jspx_meth_c_005fotherwise_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_005fchoose_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fform_005f0)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -670,7 +663,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f1 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f1.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fotherwise_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(32,55) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(31,55) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f1.setCode("fbs.common.codemaintenance.ui.label.code.key");
     int[] _jspx_push_body_count_spring_005fmessage_005f1 = new int[] { 0 };
     try {
@@ -697,9 +690,9 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.HiddenInputTag _jspx_th_form_005fhidden_005f0 = (org.springframework.web.servlet.tags.form.HiddenInputTag) _005fjspx_005ftagPool_005fform_005fhidden_0026_005fvalue_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.HiddenInputTag.class);
     _jspx_th_form_005fhidden_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fhidden_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fotherwise_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(37,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(36,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fhidden_005f0.setPath("categoryType.value");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(37,15) null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(36,15) null
     _jspx_th_form_005fhidden_005f0.setDynamicAttribute(null, "value", (java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.codeKey}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     int[] _jspx_push_body_count_form_005fhidden_005f0 = new int[] { 0 };
     try {
@@ -726,9 +719,9 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.HiddenInputTag _jspx_th_form_005fhidden_005f1 = (org.springframework.web.servlet.tags.form.HiddenInputTag) _005fjspx_005ftagPool_005fform_005fhidden_0026_005fvalue_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.HiddenInputTag.class);
     _jspx_th_form_005fhidden_005f1.setPageContext(_jspx_page_context);
     _jspx_th_form_005fhidden_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fotherwise_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(38,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(37,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fhidden_005f1.setPath("categoryType.label");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(38,15) null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(37,15) null
     _jspx_th_form_005fhidden_005f1.setDynamicAttribute(null, "value", (java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${param.remarks}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     int[] _jspx_push_body_count_form_005fhidden_005f1 = new int[] { 0 };
     try {
@@ -755,7 +748,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f2 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f2.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(43,60) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(42,60) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f2.setCode("fbs.common.codemaintenance.ui.label.code.value.description");
     int[] _jspx_push_body_count_spring_005fmessage_005f2 = new int[] { 0 };
     try {
@@ -782,13 +775,13 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_005finput_005f0 = (org.springframework.web.servlet.tags.form.InputTag) _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fmaxlength_005fid_005fclass_005fnobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
     _jspx_th_form_005finput_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005finput_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(45,16) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(44,16) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f0.setPath("description");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(45,16) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(44,16) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f0.setId("description");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(45,16) null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(44,16) null
     _jspx_th_form_005finput_005f0.setDynamicAttribute(null, "class", new String("input-xlarge"));
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(45,16) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(44,16) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f0.setMaxlength("255");
     int[] _jspx_push_body_count_form_005finput_005f0 = new int[] { 0 };
     try {
@@ -815,7 +808,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f3 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f3.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(51,57) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(50,57) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f3.setCode("fbs.common.codemaintenance.ui.label.code.value");
     int[] _jspx_push_body_count_spring_005fmessage_005f3 = new int[] { 0 };
     try {
@@ -842,13 +835,13 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_005finput_005f1 = (org.springframework.web.servlet.tags.form.InputTag) _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fmaxlength_005fid_005fclass_005fnobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
     _jspx_th_form_005finput_005f1.setPageContext(_jspx_page_context);
     _jspx_th_form_005finput_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(53,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(52,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f1.setPath("codeValue");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(53,15) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(52,15) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f1.setId("codeValue");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(53,15) null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(52,15) null
     _jspx_th_form_005finput_005f1.setDynamicAttribute(null, "class", new String("input-xlarge"));
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(53,15) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(52,15) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f1.setMaxlength("300");
     int[] _jspx_push_body_count_form_005finput_005f1 = new int[] { 0 };
     try {
@@ -875,9 +868,9 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.CheckboxTag _jspx_th_form_005fcheckbox_005f0 = (org.springframework.web.servlet.tags.form.CheckboxTag) _005fjspx_005ftagPool_005fform_005fcheckbox_0026_005fpath_005fid_005fnobody.get(org.springframework.web.servlet.tags.form.CheckboxTag.class);
     _jspx_th_form_005fcheckbox_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fcheckbox_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(61,14) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(60,14) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fcheckbox_005f0.setId("alwaysAvailable");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(61,14) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(60,14) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fcheckbox_005f0.setPath("alwaysAvailable");
     int[] _jspx_push_body_count_form_005fcheckbox_005f0 = new int[] { 0 };
     try {
@@ -904,7 +897,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f4 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f4.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(66,61) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(65,61) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f4.setCode("fbs.common.codemaintenance.ui.label.effective.date");
     int[] _jspx_push_body_count_spring_005fmessage_005f4 = new int[] { 0 };
     try {
@@ -931,17 +924,17 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     sg.com.fbs.core.techinfra.web.tag.date.DateInputTag _jspx_th_netui_005fdateinput_005f0 = (sg.com.fbs.core.techinfra.web.tag.date.DateInputTag) _005fjspx_005ftagPool_005fnetui_005fdateinput_0026_005fplaceholder_005fpath_005fmaxlength_005fid_005fdisabled_005fcssClass_005fnobody.get(sg.com.fbs.core.techinfra.web.tag.date.DateInputTag.class);
     _jspx_th_netui_005fdateinput_005f0.setPageContext(_jspx_page_context);
     _jspx_th_netui_005fdateinput_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(68,15) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(67,15) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f0.setId("effectiveDate");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(68,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(67,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f0.setPath("effectiveDate");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(68,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(67,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f0.setCssClass("input-medium");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(68,15) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(67,15) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f0.setMaxlength("10");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(68,15) null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(67,15) null
     _jspx_th_netui_005fdateinput_005f0.setDynamicAttribute(null, "placeholder", new String("dd/MM/yyyy"));
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(68,15) name = disabled type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(67,15) name = disabled type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f0.setDisabled(true);
     int[] _jspx_push_body_count_netui_005fdateinput_005f0 = new int[] { 0 };
     try {
@@ -968,7 +961,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f5 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f5.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(75,58) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(74,58) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f5.setCode("fbs.common.codemaintenance.ui.label.expiry.date");
     int[] _jspx_push_body_count_spring_005fmessage_005f5 = new int[] { 0 };
     try {
@@ -995,17 +988,17 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     sg.com.fbs.core.techinfra.web.tag.date.DateInputTag _jspx_th_netui_005fdateinput_005f1 = (sg.com.fbs.core.techinfra.web.tag.date.DateInputTag) _005fjspx_005ftagPool_005fnetui_005fdateinput_0026_005fplaceholder_005fpath_005fmaxlength_005fid_005fdisabled_005fcssClass_005fnobody.get(sg.com.fbs.core.techinfra.web.tag.date.DateInputTag.class);
     _jspx_th_netui_005fdateinput_005f1.setPageContext(_jspx_page_context);
     _jspx_th_netui_005fdateinput_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(77,15) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(76,15) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f1.setId("expiryDate");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(77,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(76,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f1.setPath("expiryDate");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(77,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(76,15) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f1.setCssClass("input-medium");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(77,15) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(76,15) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f1.setMaxlength("10");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(77,15) null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(76,15) null
     _jspx_th_netui_005fdateinput_005f1.setDynamicAttribute(null, "placeholder", new String("dd/MM/yyyy"));
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(77,15) name = disabled type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(76,15) name = disabled type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_netui_005fdateinput_005f1.setDisabled(true);
     int[] _jspx_push_body_count_netui_005fdateinput_005f1 = new int[] { 0 };
     try {
@@ -1032,7 +1025,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f6 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f6.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(84,55) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(83,55) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f6.setCode("fbs.common.codemaintenance.ui.label.remarks2");
     int[] _jspx_push_body_count_spring_005fmessage_005f6 = new int[] { 0 };
     try {
@@ -1059,13 +1052,13 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_005finput_005f2 = (org.springframework.web.servlet.tags.form.InputTag) _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fmaxlength_005fid_005fclass_005fnobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
     _jspx_th_form_005finput_005f2.setPageContext(_jspx_page_context);
     _jspx_th_form_005finput_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(86,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(85,15) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f2.setPath("remarks");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(86,15) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(85,15) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f2.setId("remarks");
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(86,15) null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(85,15) null
     _jspx_th_form_005finput_005f2.setDynamicAttribute(null, "class", new String("input-xlarge"));
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(86,15) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(85,15) name = maxlength type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f2.setMaxlength("255");
     int[] _jspx_push_body_count_form_005finput_005f2 = new int[] { 0 };
     try {
@@ -1092,7 +1085,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f7 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f7.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(94,77) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(93,77) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f7.setCode("fbs.common.ui.button.save");
     int[] _jspx_push_body_count_spring_005fmessage_005f7 = new int[] { 0 };
     try {
@@ -1119,7 +1112,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f8 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f8.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(95,71) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(94,71) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f8.setCode("fbs.common.ui.button.reset");
     int[] _jspx_push_body_count_spring_005fmessage_005f8 = new int[] { 0 };
     try {
@@ -1146,7 +1139,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f9 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f9.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(96,142) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(95,142) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f9.setCode("fbs.common.ui.button.back");
     int[] _jspx_push_body_count_spring_005fmessage_005f9 = new int[] { 0 };
     try {

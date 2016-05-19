@@ -46,7 +46,7 @@ public enum AccountWebEnum implements WebDropDownListIF{
 		}
 	},
 	
-	FINANCIAL_YEAR__LIST {
+	FINANCIAL_YEAR_LIST {
 		@Override
 		public String toString() {
 			return "financialYears";
