@@ -16,6 +16,7 @@ import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeForm;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeForm;
+import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeListForm;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeSearchForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -129,6 +130,24 @@ public class MasterCodeController extends BaseWebController{
 		setCRUDOperation(MasterCodeCRUD.class);
 		setValidationErrorPage(MasterCodeWebEnum.SEARCH_CATEGORY_TYPE_JSP.toString());
 		Mvc mvc = new Mvc(masterCodeTypeSearchForm, MasterCodeWebEnum.SEARCH_CATEGORY_TYPE_JSP.toString(), masterCodeTypeRequest);
+		return mvc;
+	}
+	
+	
+	/**
+	 * Context /mastercode/listCodeValuesDetails.action 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView listCodeValuesDetails(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeTypeListForm masterCodeTypeListForm = new MasterCodeTypeListForm();
+		MasterCodeTypeRequest masterCodeTypeRequest = new MasterCodeTypeRequest();
+		masterCodeTypeListForm.setTxnType(MasterCodeWebEnum.LIST_CODE_VALUES_TXN_TYPE.toString());
+		setCrudMode(WebCRUDEnum.DETAILS_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		setValidationErrorPage(MasterCodeWebEnum.LIST_CODE_VALUES_JSP.toString());
+		Mvc mvc = new Mvc(masterCodeTypeListForm, MasterCodeWebEnum.LIST_CODE_VALUES_JSP.toString(), masterCodeTypeRequest);
 		return mvc;
 	}
 

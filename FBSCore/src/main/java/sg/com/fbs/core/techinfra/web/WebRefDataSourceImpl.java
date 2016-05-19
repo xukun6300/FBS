@@ -25,9 +25,9 @@ public class WebRefDataSourceImpl {
 		Object[] params = {methodName.toString(), modelview, extraParams};
 		
 		try {
-			Map returnValues = (Map)MethodUtils.invokeMethod(executionClass, methodNameStr.toString(), params);
-			
+			Map returnValues = (Map)MethodUtils.invokeMethod(executionClass, methodNameStr.toString(), params);			
 			modelview.addObject(methodName.toString(), returnValues);			
+			
 		} catch (NoSuchMethodException e) {
 			logger.warn("Invalid method on the web data source during population.");
 		} catch (IllegalAccessException e) {

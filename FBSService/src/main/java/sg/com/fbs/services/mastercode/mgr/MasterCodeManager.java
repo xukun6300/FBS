@@ -1,6 +1,7 @@
 package sg.com.fbs.services.mastercode.mgr;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,13 +11,17 @@ import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.core.techinfra.persistence.dao.DaoErrorCodesEnum;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
 import sg.com.fbs.core.techinfra.util.ControlSourceIF;
+import sg.com.fbs.model.business.pojo.BasePojo;
 import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeType;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
+import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.query.Criterion;
+import sg.com.fbs.model.system.persistence.query.CriterionIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.controlsource.CodeMaintenanceControlSource;
@@ -231,6 +236,84 @@ public class MasterCodeManager extends CommonFacade{
 		}
 		return inactiveCodes;
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public IResponseCRUD searchCategoryTypeDetails(CriteriaIF criteria) throws MasterCodeException{
+		IResponseCRUD res = null;
+		
+		CriteriaIF mctCriteria = new Criteria();
+		mctCriteria.setCriterion(criteria.getCriterion());
+		mctCriteria.setFetchAll(false);
+		mctCriteria.setRequestedPage(1);
+		
+		res = searchMasterCodeType(mctCriteria); //first search against MasterCodeType
+		
+		MasterCodeType masterCodeType = (MasterCodeType) res.getCrudResult();
+		if(masterCodeType!=null){
+			CriteriaIF searchCriteria = new Criteria();
+			CriterionIF[] criterions = {new Criterion(MasterCode.MASTERCODE_TYPE_ID, masterCodeType.getId())};
+			
+			for (Criterion criterion : criteria.getCriterion()) {
+				if(criterion.getPropertyName().equalsIgnoreCase(BasePojo.ACT_IND)){
+					List<CriterionIF> criterionList = new ArrayList<CriterionIF>();
+					criterionList.addAll(Arrays.asList(criterions));
+					criterionList.add(criterion);
+					criterions = criterionList.toArray(new CriterionIF[criterionList.size()]);
+					break;
+				}
+			}
+			
+			searchCriteria.setCriterion(criterions);
+			searchCriteria.setFetchAll(criteria.isFetchAll());
+			searchCriteria.setOrder(criteria.getOrder());
+			searchCriteria.setRequestedPage(criteria.getRequestedPage());
+			
+			IResponseCRUD detailsResult = searchMasterCodes(searchCriteria);
+			res.setCrudResult(masterCodeType);
+			res.setQueryResult(detailsResult.getQueryResult());
+			res.setTotalPages(detailsResult.getTotalPages());
+			res.setTotalRecords(detailsResult.getTotalRecords());
+			res.getCriteria().setOrder(criteria.getOrder());
+			res.getCriteria().setFetchAll(criteria.isFetchAll());
+			res.getCriteria().setRequestedPage(criteria.getRequestedPage());
+			
+		}
+		
+		return res;
+	}
+	
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchMasterCodeType(CriteriaIF criteria) throws MasterCodeException{
+		IResponseCRUD response = searchCategoryTypes(criteria);
+		if(response.getQueryResult().size()==1){
+			MasterCodeType masterCodeType = (MasterCodeType) response.getQueryResult().iterator().next();
+			response.setCrudResult(masterCodeType);
+		}
+		return response;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchMasterCodes(CriteriaIF criteria) throws MasterCodeException{
+		addActiveStatusCriterion(criteria);
+		MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+		IResponseCRUD response;
+		try {
+			response = masterCodeDAO.searchMasterCode(criteria);
+			
+			if(response!=null && response.getTotalRecords()>0){
+				MasterCode masterCode = (MasterCode) response.getQueryResult().iterator().next();
+				MasterCodeType masterCodeType = masterCode.getMasterCodeType(); 
+				response.setCrudResult(masterCodeType);
+			}
+	
+		} catch (DataAccessObjectException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+		
+		return response;
+	}
+	
 }
 
 

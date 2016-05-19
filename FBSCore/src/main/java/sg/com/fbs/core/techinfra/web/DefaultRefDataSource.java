@@ -16,11 +16,8 @@ public class DefaultRefDataSource implements WebRefDataSourceIF{
 	public static final String WEB_LIST_DATA_SOURCE = "webDataSource";
 	
 	@Override
-	public void populateReferenceData(WebDropDownListIF[] enums,
-			ModelAndView modelView, Map extraParams)
-			throws ApplicationCoreException {
-		// TODO Auto-generated method stub
-		
+	public void populateReferenceData(WebDropDownListIF[] enums, ModelAndView modelView, Map extraParams) throws ApplicationCoreException {
+
 	}
 
 }

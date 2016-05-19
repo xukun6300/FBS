@@ -217,7 +217,7 @@ public abstract class BaseWebController extends MultiActionController{
 	private void setReferenceDataToModel(Map<String, Object> extraMap, ModelAndView modelView, HttpServletRequest request) throws ApplicationCoreException{
 	
 		Set<String> keys = extraMap.keySet();
-		WebDropDownListIF[] weblist = null;
+		WebDropDownListIF[] weblist = null; //XXWebEnum
 		WebRefDataSourceIF dataSource = null;
 		try {
 			for (String key : keys) {

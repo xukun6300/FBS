@@ -51,7 +51,7 @@
 		          System Configuration <span class="caret"></span>
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
-		          <li><a href="${contextPath}/mastercode/showAddCodeKey.action">Add Code Key</a></li>		          
+		          <li><a href="${contextPath}/mastercode/searchCategoryType.action">Manage Code Key</a></li>		          
 		        </ul>
 		      </li>  
 		      

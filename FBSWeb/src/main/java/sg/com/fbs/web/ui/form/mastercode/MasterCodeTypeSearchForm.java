@@ -166,27 +166,6 @@ public class MasterCodeTypeSearchForm extends BusinessQueryWebForm{
 		return searchCriteria;
 	}
 	
-	public CriteriaIF addInActiveStatusCriterion(CriteriaIF criteria){
-		CriterionIF[] criterion = criteria.getCriterion();
-		List<CriterionIF> origCriterionList = Arrays.asList(criterion);
-		List<CriterionIF> criterionList = new ArrayList<CriterionIF>();
-		criterionList.addAll(origCriterionList);
-		criterionList.add(new Criterion(BasePojo.ACT_IND, ActiveStatusEnum.NO.toString()));
-		criterion = criterionList.toArray(new CriterionIF[criterionList.size()]);
-		criteria.setCriterion(criterion);
-		return criteria;
-	}
-
-    public CriteriaIF addActiveStatusCriterion(CriteriaIF criteria){
-    	CriterionIF[] criterion = criteria.getCriterion();
-		List<CriterionIF> origCriterionList = Arrays.asList(criterion);
-		List<CriterionIF> criterionList = new ArrayList<CriterionIF>();
-		criterionList.addAll(origCriterionList);
-		criterionList.add(new Criterion(BasePojo.ACT_IND, ActiveStatusEnum.YES.toString()));
-		criterion = criterionList.toArray(new CriterionIF[criterionList.size()]);
-		criteria.setCriterion(criterion);
-		return criteria;
-	}
 }
 
 

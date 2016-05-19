@@ -11,6 +11,7 @@ import sg.com.fbs.model.domain.mastercode.MasterCodeType;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
 
@@ -120,6 +121,16 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 	public void updateMasterCodeTypeDetails(MasterCodeType masterCodeType, boolean isInactiveSearch) throws MasterCodeException{
 		try {
 			new MasterCodeManager().run(masterCodeType, isInactiveSearch);
+		} catch (ApplicationCoreException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchCategoryTypeDetails(CriteriaIF criteria) throws MasterCodeException{
+		try {
+			Object obj = new MasterCodeManager().run(criteria);
+			return (IResponseCRUD) obj;
 		} catch (ApplicationCoreException e) {
 			throw new MasterCodeException(e.getMessageCode(), e);
 		}

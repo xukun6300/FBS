@@ -64,5 +64,37 @@ public enum MasterCodeWebEnum implements WebDropDownListIF{
 		public String toString() {
 			return "codeKeys";
 		}
+	},
+	
+	LIST_CODE_VALUES_TXN_TYPE {
+	    public String toString() {
+	        return "listCodeValues";
+	    }
+	},
+
+	UPDATE_CODE_VALUE_SEQUENCE_TXN_TYPE {
+	    public String toString() {
+	        return "updateCodeValueSequence";
+	    }
+	},
+	
+	LIST_CODE_VALUES_JSP {
+		@Override
+		public String toString() {
+			return "listCodeValues";
+		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
