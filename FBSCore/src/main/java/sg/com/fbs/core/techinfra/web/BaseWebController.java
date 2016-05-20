@@ -186,16 +186,20 @@ public abstract class BaseWebController extends MultiActionController{
 			preLoad(extraMap, request, response);
 
 			/** This will invoke module controller handler method, since it will extend BaseWebController**/
+			/** Add empty formBean and pojo request to modelAndView**/
 			modelAndView = invokeNamedMethod(methodName, request, response);		
 			
+			/**add dropdown list/radio button... to modelAndView**/
 			setReferenceDataToModel(extraMap, modelAndView, request);
+			
+			/**Empty form now**/
 			BaseWebFormIF commandForm = (BaseWebFormIF) modelAndView.getModelMap().get(BaseWebEnum.COMMAND_FORM.toString());
 			if(commandForm!=null){
-				commandForm.setCrudMode(getCrudMode());
+				commandForm.setCrudMode(getCrudMode()); //set from module controller
 			}		
 			
 			/**
-			 * this will map http parameters to form bean, and then copy form properties to model bean
+			 * this will map http parameters to form bean, and then copy form properties to model bean(pojo request)
 			 * also will call validator to validate form bean
 			 */
 			mapFormToModel(modelAndView, commandForm, request);			
@@ -217,7 +221,7 @@ public abstract class BaseWebController extends MultiActionController{
 	private void setReferenceDataToModel(Map<String, Object> extraMap, ModelAndView modelView, HttpServletRequest request) throws ApplicationCoreException{
 	
 		Set<String> keys = extraMap.keySet();
-		WebDropDownListIF[] weblist = null; //XXWebEnum
+		WebDropDownListIF[] weblist = null; //XXWebEnum, DropDown list or radio button name
 		WebRefDataSourceIF dataSource = null;
 		try {
 			for (String key : keys) {
@@ -232,7 +236,7 @@ public abstract class BaseWebController extends MultiActionController{
 				// if datasource is null load dummy web datasource
 				dataSource = new DefaultRefDataSource();
 			}
-			extraMap.put(HTTP_SERVLET_REQUEST, request);
+			extraMap.put(HTTP_SERVLET_REQUEST, request);//??
 			Object[] params = { weblist, modelView, extraMap };
 
 			if (weblist != null && dataSource != null) {
@@ -248,7 +252,7 @@ public abstract class BaseWebController extends MultiActionController{
 	}
 	
 	/**
-	 * Auto map form bean to business model bean
+	 * Auto map form bean to business model bean(pojo request)
 	 * 
 	 */
 	private void mapFormToModel(ModelAndView modelView, BaseWebFormIF commandForm, HttpServletRequest request) throws ApplicationCoreException {
@@ -272,7 +276,7 @@ public abstract class BaseWebController extends MultiActionController{
 			
 			if(modelView!=null && modelView.getModel()!=null && modelView.getModel().get(BaseWebEnum.MODEL_BEAN.toString())!=null){
 				Object modelBean = modelView.getModel().get(BaseWebEnum.MODEL_BEAN.toString());
-				Object commandBean = modelView.getModel().get(BaseWebEnum.COMMAND_FORM.toString());
+				Object commandBean = modelView.getModel().get(BaseWebEnum.COMMAND_FORM.toString());//why dont user param commandForm?
 				ReflectionUtil.copyProperties(modelBean, commandBean);
 				modelView.addObject(BaseWebEnum.MODEL_BEAN.toString(), modelBean);
 			}
@@ -308,12 +312,15 @@ public abstract class BaseWebController extends MultiActionController{
 				modelView.addObject(GLOBAL_ERRORS, binder.getBindingResult().getGlobalErrors());
 			}
 			// what is this for??
+			//only for validation failed senario?
 			modelView.addAllObjects(binder.getBindingResult().getModel());
-			//??
+
 			BaseWebFormIF commandForm = (BaseWebFormIF) binder.getBindingResult().getModel().get(BaseWebEnum.COMMAND_FORM.toString());
 			
-			//get response from session????
-			//because after validation failed, still want to keep the last response result?
+			/**
+			 * may because after validation failed, still want to keep the last response result?
+			 * added in executeCRUDOperation method
+			 */
 			if(request.getSession().getAttribute(RESPONSE_CRUD)!=null){
 				commandForm.setCrudResponse((ResponseCRUD)request.getSession().getAttribute(RESPONSE_CRUD));
 			}
