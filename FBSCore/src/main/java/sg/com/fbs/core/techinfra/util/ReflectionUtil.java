@@ -11,6 +11,8 @@ import sg.com.fbs.core.techinfra.exception.ApplicationSystemException;
 
 public class ReflectionUtil {
 
+	//to copy property from ORIG to DEST, 
+	//Orig class must have same getter method which match Dest class's setter method
 	public static void copyProperties(Object dest, Object orig){
 		
 		try {

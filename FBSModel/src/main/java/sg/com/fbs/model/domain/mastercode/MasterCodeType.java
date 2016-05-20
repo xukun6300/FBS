@@ -164,7 +164,7 @@ public class MasterCodeType extends BaseLogPojo{
 		this.activeMasterCodesId = activeMasterCodesId;
 	}
 
-	public String getRemarks(){
+	public String getRemarks(){ //for copying property to MasterCodeTypeForm.java in BaseWebController.java
 		return this.name;
 	}
 	
@@ -172,7 +172,7 @@ public class MasterCodeType extends BaseLogPojo{
 		this.name = remarks;
 	}
 	
-	public String getCodeKey(){
+	public String getCodeKey(){ //for copying property to MasterCodeTypeForm.java BaseWebController.java
 		return this.code;
 	}
 	
