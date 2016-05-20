@@ -14,7 +14,7 @@ public class ReflectionUtil {
 	public static void copyProperties(Object dest, Object orig){
 		
 		try {
-			ConvertUtilsBean convertUtilsBean = BeanUtilsBean.getInstance().getConvertUtils();
+			//ConvertUtilsBean convertUtilsBean = BeanUtilsBean.getInstance().getConvertUtils();
 			//convertUtilsBean.register(converter, clazz);
 			BeanUtils.copyProperties(dest, orig);
 		} catch (IllegalAccessException e) {

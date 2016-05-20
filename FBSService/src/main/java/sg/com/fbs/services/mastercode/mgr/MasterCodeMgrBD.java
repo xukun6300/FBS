@@ -135,6 +135,16 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 			throw new MasterCodeException(e.getMessageCode(), e);
 		}
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchMasterCodeType(CriteriaIF criteria) throws MasterCodeException{
+		try {
+			Object obj = new MasterCodeManager().run(criteria);
+			return (IResponseCRUD) obj;
+		} catch (ApplicationCoreException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+	}
 }
 
 

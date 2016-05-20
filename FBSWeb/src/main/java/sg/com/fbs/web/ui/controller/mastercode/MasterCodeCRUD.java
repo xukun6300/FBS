@@ -19,6 +19,7 @@ import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.mastercode.exception.MasterCodeException;
 import sg.com.fbs.services.mastercode.mgr.MasterCodeMgrBD;
+import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeForm;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeListForm;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeSearchForm;
 
@@ -79,7 +80,9 @@ public class MasterCodeCRUD implements WebCRUDIF{
 				}
 
 				response = masterCodeMgrBD.searchCategoryTypeDetails(criteria);
-
+			}else if (form instanceof MasterCodeTypeForm) {
+				MasterCodeTypeForm formBean = (MasterCodeTypeForm) form;				
+				response = masterCodeMgrBD.searchMasterCodeType(formBean.getSearchCriteria(request));			
 			}
 		} catch (MasterCodeException e) {
 			throw new CRUDException(e.getMessageCode(), e);

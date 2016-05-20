@@ -94,6 +94,10 @@
         <put-attribute name="body" value="/WEB-INF/jsp/mastercode/listCodeValues.jsp"></put-attribute>
     </definition>
     
+    <definition name="mastercode/showDeleteCodeKey" extends="base.definition">
+        <put-attribute name="title" value="Master Code Maintenance"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/mastercode/deleteCodeKey.jsp"></put-attribute>
+    </definition>
     
     <!-- Manage Account Module -->
     <definition name="account/showAddAccount" extends="base.definition">

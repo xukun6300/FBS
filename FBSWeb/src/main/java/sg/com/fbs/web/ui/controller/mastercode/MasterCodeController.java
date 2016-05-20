@@ -13,6 +13,7 @@ import sg.com.fbs.core.techinfra.web.DefaultRefDataSource;
 import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
+import sg.com.fbs.model.domain.mastercode.MasterCodeTypeEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeForm;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeForm;
@@ -23,6 +24,18 @@ import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeSearchForm;
 
  * @Author Frank Xu $
  * @Created 2:46:18 pm 16 Sep, 2015 $
+ * 
+ */
+/**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
+
+ * @Author Frank Xu Kun $
+ * @Created May 20, 2016 $
+ * 
+ */
+/**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
+
+ * @Author Frank Xu Kun $
+ * @Created May 20, 2016 $
  * 
  */
 public class MasterCodeController extends BaseWebController{
@@ -149,6 +162,22 @@ public class MasterCodeController extends BaseWebController{
 		setValidationErrorPage(MasterCodeWebEnum.LIST_CODE_VALUES_JSP.toString());
 		Mvc mvc = new Mvc(masterCodeTypeListForm, MasterCodeWebEnum.LIST_CODE_VALUES_JSP.toString(), masterCodeTypeRequest);
 		return mvc;
+	}
+	
+	
+	/**
+	 * Context /mastercode/showDeleteCodeKey.action 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView showDeleteCodeKey(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeTypeForm masterCodeTypeForm = new MasterCodeTypeForm();
+		MasterCodeTypeRequest masterCodeTypeRequest = new MasterCodeTypeRequest();
+		setCrudMode(WebCRUDEnum.DETAILS_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		Mvc mvc = new Mvc(masterCodeTypeForm, MasterCodeWebEnum.SHOW_DELETE_CODE_KEY_JSP.toString(), masterCodeTypeRequest);
+		return mvc;		
 	}
 
 }

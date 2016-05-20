@@ -6,7 +6,10 @@ import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import sg.com.fbs.common.form.BusinessWebForm;
+import sg.com.fbs.model.domain.mastercode.MasterCodeType;
+import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.validator.annotations.validation.Required;
 
 public class MasterCodeTypeForm extends BusinessWebForm{
@@ -62,7 +65,11 @@ public class MasterCodeTypeForm extends BusinessWebForm{
 	
 	@Override
 	public CriteriaIF getSearchCriteria(HttpServletRequest request) {
-		// TODO Auto-generated method stub
+		
+		CriteriaIF criteria = new Criteria();
+		criteria.appendCriterion(new Criterion(MasterCodeType.ID, this.getId()));
+		criteria.setFetchAll(true);
+		
 		return null;
 	}
 

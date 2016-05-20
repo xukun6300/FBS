@@ -50,8 +50,8 @@
 							<th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.code.value" name="codeValue"/></th>
 							<th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.effective.date" name="effectiveDate"/></th>
                             <th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.expiry.date" name="expiryDate"/></th>
-                            <th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.active.status" name="activeStatus"/></th>
-							<th class="nowrap export-ignore" ><spring:message code="fbs.common.ui.label.action"/></th>
+                            <th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.active.status" name="activeStatus"/></th>                           
+							<th class="nowrap export-ignore" ><spring:message code="fbs.common.ui.label.action"/></th>							
 						</tr>
 					</thead>
 					<tbody>
@@ -62,13 +62,13 @@
 							<td class="nowrap"><netui:gridRowElement  name="codeValue"/></td>
 							<td><netui:gridRowElement  name="effectiveDate" format="dd MMM yyyy"/></td>
 							<td><netui:gridRowElement  name="expiryDate" format="dd MMM yyyy"/></td> 
-							<td><netui:gridRowElement  name="activeStatus"/></td>
-							<td class="nowrap export-ignore">
-								<c:if test="${codeValueRow.deletable}">
+							<td><netui:gridRowElement  name="activeStatus"/></td>							
+							<td class="nowrap export-ignore">		
+							<c:if test="${codeValueRow.deletable}">						
 								<netui:updateTag  name="id" keyName="id" uri="showUpdateCodeValue.action?searchInactiveMasterCodes=${command.searchInactiveMasterCodes}" />
-								<netui:deleteTag  name="id" keyName="id" uri="showDeleteCodeValue.action?codeTypeId=${command.id}" />
-								</c:if>
-							</td>
+								<netui:deleteTag  name="id" keyName="id" uri="showDeleteCodeValue.action?codeTypeId=${command.id}" />		
+							</c:if>						
+							</td>							
 						</tr>
 						</netui:gridRows>
 					</tbody>
