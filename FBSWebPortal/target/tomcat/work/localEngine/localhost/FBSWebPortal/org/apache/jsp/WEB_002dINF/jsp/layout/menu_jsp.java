@@ -136,7 +136,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t        <ul class=\"dropdown-menu\" role=\"menu\">\r\n");
       out.write("\t\t          <li><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("/mastercode/showAddCodeKey.action\">Add Code Key</a></li>\t\t          \r\n");
+      out.write("/mastercode/searchCategoryType.action\">Manage Code Key</a></li>\t\t          \r\n");
       out.write("\t\t        </ul>\r\n");
       out.write("\t\t      </li>  \r\n");
       out.write("\t\t      \r\n");
