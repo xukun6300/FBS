@@ -3820,3 +3820,6 @@ div .font-buttons {
 	margin-bottom: 10px;
 }
 
+.control-group .control-group-label{
+	margin-left: 20px;
+}

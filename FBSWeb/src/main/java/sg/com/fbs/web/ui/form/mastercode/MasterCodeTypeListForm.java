@@ -137,7 +137,7 @@ public class MasterCodeTypeListForm extends BusinessQueryWebForm{
 			searchCriteria.setFetchAll(true);
 		}
 		
-		return null;
+		return searchCriteria;
 	}
 
 }
