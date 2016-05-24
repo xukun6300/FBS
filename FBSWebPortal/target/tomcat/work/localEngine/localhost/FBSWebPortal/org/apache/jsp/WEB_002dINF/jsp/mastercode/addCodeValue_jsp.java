@@ -437,7 +437,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
             if (_jspx_meth_spring_005fmessage_005f8(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</button>\r\n");
-            out.write("\t\t   <button id=\"btnBack\" name=\"btnBack\" class=\"bt bt-back\" onClick=\"javascript:location.href='showSearchCategoryType.action'\" type=\"button\" >");
+            out.write("\t\t   <button id=\"btnBack\" name=\"btnBack\" class=\"bt bt-back\" onClick=\"javascript:history.back()\" type=\"button\" >");
             if (_jspx_meth_spring_005fmessage_005f9(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</button>\t\r\n");
@@ -1139,7 +1139,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f9 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f9.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(95,142) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeValue.jsp(95,111) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f9.setCode("fbs.common.ui.button.back");
     int[] _jspx_push_body_count_spring_005fmessage_005f9 = new int[] { 0 };
     try {
