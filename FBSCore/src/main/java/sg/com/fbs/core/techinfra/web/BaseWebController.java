@@ -276,7 +276,7 @@ public abstract class BaseWebController extends MultiActionController{
 			
 			if(modelView!=null && modelView.getModel()!=null && modelView.getModel().get(BaseWebEnum.MODEL_BEAN.toString())!=null){
 				Object modelBean = modelView.getModel().get(BaseWebEnum.MODEL_BEAN.toString());
-				Object commandBean = modelView.getModel().get(BaseWebEnum.COMMAND_FORM.toString());//why dont user param commandForm?
+				Object commandBean = modelView.getModel().get(BaseWebEnum.COMMAND_FORM.toString());//why dont user param commandForm? should be same
 				ReflectionUtil.copyProperties(modelBean, commandBean);
 				modelView.addObject(BaseWebEnum.MODEL_BEAN.toString(), modelBean);
 			}
@@ -385,16 +385,15 @@ public abstract class BaseWebController extends MultiActionController{
 						commandForm.setId(pojo.getId());
 						
 						if (crudMode.equals(WebCRUDEnum.DETAILS_MODE)
-								|| crudMode.equals(WebCRUDEnum.INSERT_MODE)
-								|| crudMode.equals(WebCRUDEnum.DELETE_MODE)
-								|| crudMode.equals(WebCRUDEnum.UPDATE_MODE)
-								|| crudMode.equals(WebCRUDEnum.QUERY_MODE)
-								|| crudMode.equals(WebCRUDEnum.DYNAMIC_MODE)) {
+						 || crudMode.equals(WebCRUDEnum.INSERT_MODE)
+						 || crudMode.equals(WebCRUDEnum.DELETE_MODE)
+						 || crudMode.equals(WebCRUDEnum.UPDATE_MODE)
+						 || crudMode.equals(WebCRUDEnum.QUERY_MODE)
+						 || crudMode.equals(WebCRUDEnum.DYNAMIC_MODE)) {
 
 							if(response.getCrudResult()!=null){
-								//??
 								commandForm.setOrder(convertToOrderObject(commandForm.getDefaultOrders()));
-								ReflectionUtil.copyProperties(commandForm, response.getCrudResult());
+								ReflectionUtil.copyProperties(commandForm, response.getCrudResult()); //copy from CRUD result to commandForm
 								modelView.addObject(BaseWebEnum.COMMAND_FORM.toString(), commandForm);
 							}
 						}
@@ -407,14 +406,13 @@ public abstract class BaseWebController extends MultiActionController{
 						commandForm.setId(pojoRequest.getId());
 						
 						if (crudMode.equals(WebCRUDEnum.DETAILS_MODE)
-								|| crudMode.equals(WebCRUDEnum.INSERT_MODE)
-								|| crudMode.equals(WebCRUDEnum.DELETE_MODE)
-								|| crudMode.equals(WebCRUDEnum.UPDATE_MODE)
-								|| crudMode.equals(WebCRUDEnum.QUERY_MODE)
-								|| crudMode.equals(WebCRUDEnum.DYNAMIC_MODE)) {
+						 || crudMode.equals(WebCRUDEnum.INSERT_MODE)
+						 || crudMode.equals(WebCRUDEnum.DELETE_MODE)
+					 	 || crudMode.equals(WebCRUDEnum.UPDATE_MODE)
+						 || crudMode.equals(WebCRUDEnum.QUERY_MODE)
+						 || crudMode.equals(WebCRUDEnum.DYNAMIC_MODE)) {
 							
 							if(response.getCrudResult()!=null){
-								//??
 								commandForm.setOrder(convertToOrderObject(commandForm.getDefaultOrders()));
 								ReflectionUtil.copyProperties(commandForm, response.getCrudResult());
 								modelView.addObject(BaseWebEnum.COMMAND_FORM.toString(), commandForm);
@@ -448,7 +446,7 @@ public abstract class BaseWebController extends MultiActionController{
 
 				Object form = modelView.getModel().get(BaseWebEnum.COMMAND_FORM.toString());
 
-				Object[] params = new Object[] { pojoRequest, form, request };
+				Object[] params = new Object[] { pojoRequest, form, request };// By now the formBean value already copied to pojo request
 
 				if (pojoRequest != null && modelView != null) {
 					responseCRUD = (ResponseCRUD) MethodUtils.invokeMethod(crudOperation, crudMode.toString(), params);
