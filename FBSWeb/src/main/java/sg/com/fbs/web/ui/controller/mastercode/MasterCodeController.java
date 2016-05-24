@@ -183,6 +183,21 @@ public class MasterCodeController extends BaseWebController{
 		Mvc mvc = new Mvc(masterCodeTypeListForm, MasterCodeWebEnum.LIST_CODE_VALUES_JSP.toString(), masterCodeTypeRequest);
 		return mvc;
 	}
+	
+	/**
+	 * Context /mastercode/showUpdateCodeValue.action 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView showUpdateCodeValue(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeForm masterCodeForm = new MasterCodeForm();
+		MasterCodeRequest masterCodeRequest = new MasterCodeRequest();
+		setCrudMode(WebCRUDEnum.DETAILS_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		Mvc mvc = new Mvc(masterCodeForm, MasterCodeWebEnum.SHOW_UPDATE_CODE_VALUE_JSP.toString(), masterCodeRequest);
+		return mvc;
+	}
 
 }
 

@@ -47,14 +47,14 @@ $(document).ready(function(){
 			<div class="control-group">
 	            <label class="control-label bold"><spring:message code="fbs.common.codemaintenance.ui.label.code.key"/></label>
 	            <div class="controls">
-	               <label  class="control-group-label">${command.codeKey}</label>               
+	               <label>${command.codeKey}</label>               
 	            </div>
 	         </div>
 	         
 	         <div class="control-group">
 	            <label class="control-label bold"><spring:message code="fbs.common.codemaintenance.ui.label.remarks"/></label>
 	            <div class="controls">
-	               <label class="control-group-label">${command.remarks}</label>               
+	               <label>${command.remarks}</label>               
 	            </div>
 	         </div>
 	         

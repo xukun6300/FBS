@@ -97,7 +97,13 @@ public enum MasterCodeWebEnum implements WebDropDownListIF{
 		public String toString() {
 			return "showDeleteCodeValue";
 		}
-	}
+	},
+	
+	SHOW_UPDATE_CODE_VALUE_JSP {
+	    public String toString() {
+	        return "showUpdateCodeValue";
+	    }
+	},
 }
 
 

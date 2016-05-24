@@ -9,8 +9,12 @@ import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import sg.com.fbs.common.form.BusinessQueryWebForm;
+import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeType;
+import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.query.Criterion;
+import sg.com.fbs.model.system.persistence.query.Order;
 import sg.com.fbs.model.system.web.ValueLabelPair;
 import sg.com.fbs.validator.annotations.validation.Required;
 
@@ -67,6 +71,14 @@ public class MasterCodeForm extends BusinessQueryWebForm{
 	}
 
 	protected boolean searchInactiveMasterCodes = false;
+	
+	public void setSearchInactiveMasterCodes(boolean searchInactiveMasterCodes) {
+		this.searchInactiveMasterCodes = searchInactiveMasterCodes;
+	}
+	
+	public boolean isSearchInactiveMasterCodes() {
+		return searchInactiveMasterCodes;
+	}
 	
 	@Required(detailMessage="{fbs.common.errors.required}",
 			  summaryMessage="{fbs.common.errors.required}",
@@ -145,8 +157,13 @@ public class MasterCodeForm extends BusinessQueryWebForm{
 	
 	@Override
 	public CriteriaIF getSearchCriteria(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+		CriteriaIF criteria = new Criteria();
+		criteria.appendCriterion(new Criterion(MasterCode.ID, this.getId()));
+		Order order = new Order(MasterCode.ID, true);
+		Order[] orders = {order};
+		criteria.setOrder(orders);
+		criteria.setFetchAll(true);
+		return criteria;
 	}
 
 }

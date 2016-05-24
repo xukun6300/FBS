@@ -282,6 +282,17 @@ public class MasterCodeManager extends CommonFacade{
 		return res;
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchMasterCode(CriteriaIF criteria) throws MasterCodeException{
+		IResponseCRUD response = searchMasterCodes(criteria);
+		
+		if(response.getQueryResult().size()==1){
+			MasterCode masterCode = (MasterCode) response.getQueryResult().iterator().next();
+			response.setCrudResult(masterCode);
+		}
+		return response;
+	}
+	
 
 	@SuppressWarnings("rawtypes")
 	public IResponseCRUD searchMasterCodes(CriteriaIF criteria) throws MasterCodeException{
@@ -361,7 +372,7 @@ public class MasterCodeManager extends CommonFacade{
 				if(masterCode.getId()>0){
 					ResponseCRUD res = (ResponseCRUD) searchCategoryTypeDetails(criteria);
 					if(res!=null && res.getQueryResult()!=null){
-						response.setCrudResult(masterCode.getMasterCodeType());
+						response.setCrudResult(masterCode.getMasterCodeType());//command obj
 						response.setQueryResult(res.getQueryResult());
 						response.setTotalRecords(res.getTotalRecords());
 						response.setTotalPages(res.getTotalPages());

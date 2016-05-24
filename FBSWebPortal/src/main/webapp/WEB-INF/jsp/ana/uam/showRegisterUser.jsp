@@ -44,7 +44,7 @@
             <div class="control-group required">
               <label class="control-label"> <spring:message code="fbs.common.ana.registeruser.ui.label.emailfbsid"></spring:message> </label>
               
-              <div class="input-append">
+              <div class="controls input-append">
                 <form:input id="email" path="email" class="input-xlarge" maxlength="50"></form:input>
                 <button id="btnCheckEmailId" name="btnCheckEmailId" class="bt-mid bt-append" type="button">
                    <spring:message code="fbs.common.ana.registeruser.ui.label.checkidavailablility"></spring:message>

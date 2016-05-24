@@ -55,8 +55,8 @@
         <div class="control-group">
            <div class="controls">
             <button id="btnSave" name="btnSave" type="submit" class="bt bt1"><spring:message code="fbs.common.ui.button.save"/></button>
-            <button id="btnReset" name="btnReset" type="button" class="bt bt1"><spring:message code="fbs.common.ui.button.reset"/></button>
-            <button id="btnBack" name="btnBack" type="button" class="bt bt-back"><spring:message code="fbs.common.ui.button.back"/></button>
+            <button id="btnReset" name="btnReset" type="reset" class="bt bt1"><spring:message code="fbs.common.ui.button.reset"/></button>
+            <button id="btnBack" name="btnBack" type="button" class="bt bt-back" onClick="javascript:history.back()"><spring:message code="fbs.common.ui.button.back"/></button>
            </div>
         </div>
          
