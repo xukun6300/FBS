@@ -313,11 +313,11 @@ public final class addCodeKey_jsp extends org.apache.jasper.runtime.HttpJspBase
             if (_jspx_meth_spring_005fmessage_005f4(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</button>\r\n");
-            out.write("            <button id=\"btnReset\" name=\"btnReset\" type=\"button\" class=\"bt bt1\">");
+            out.write("            <button id=\"btnReset\" name=\"btnReset\" type=\"reset\" class=\"bt bt1\">");
             if (_jspx_meth_spring_005fmessage_005f5(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</button>\r\n");
-            out.write("            <button id=\"btnBack\" name=\"btnBack\" type=\"button\" class=\"bt bt-back\">");
+            out.write("            <button id=\"btnBack\" name=\"btnBack\" type=\"button\" class=\"bt bt-back\" onClick=\"javascript:history.back()\">");
             if (_jspx_meth_spring_005fmessage_005f6(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</button>\r\n");
@@ -698,7 +698,7 @@ public final class addCodeKey_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f5 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f5.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeKey.jsp(58,79) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeKey.jsp(58,78) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f5.setCode("fbs.common.ui.button.reset");
     int[] _jspx_push_body_count_spring_005fmessage_005f5 = new int[] { 0 };
     try {
@@ -725,7 +725,7 @@ public final class addCodeKey_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.MessageTag _jspx_th_spring_005fmessage_005f6 = (org.springframework.web.servlet.tags.MessageTag) _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.get(org.springframework.web.servlet.tags.MessageTag.class);
     _jspx_th_spring_005fmessage_005f6.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/mastercode/addCodeKey.jsp(59,81) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/mastercode/addCodeKey.jsp(59,117) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_spring_005fmessage_005f6.setCode("fbs.common.ui.button.back");
     int[] _jspx_push_body_count_spring_005fmessage_005f6 = new int[] { 0 };
     try {
