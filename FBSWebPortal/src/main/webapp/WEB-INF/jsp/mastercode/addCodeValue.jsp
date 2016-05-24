@@ -92,7 +92,7 @@
         <div class="controls">
            <button id="btnSave" name="btnSave" class="bt bt1" type="submit" ><spring:message code="fbs.common.ui.button.save"/></button>
 		   <button id="btnReset" name="btnReset" class="bt bt1" type="reset"><spring:message code="fbs.common.ui.button.reset"/></button>
-		   <button id="btnBack" name="btnBack" class="bt bt-back" onClick="javascript:location.href='showSearchCategoryType.action'" type="button" ><spring:message code="fbs.common.ui.button.back"/></button>	
+		   <button id="btnBack" name="btnBack" class="bt bt-back" onClick="javascript:history.back()" type="button" ><spring:message code="fbs.common.ui.button.back"/></button>	
         </div>	     		
       </div>
    </form:form>

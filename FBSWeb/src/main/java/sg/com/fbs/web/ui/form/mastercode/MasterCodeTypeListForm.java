@@ -41,6 +41,16 @@ public class MasterCodeTypeListForm extends BusinessQueryWebForm{
 	private String txnType;
 	
 	protected boolean searchInactiveMasterCodes = false;
+	
+	private long deleteCodeId;
+	
+	public void setDeleteCodeId(long deleteCodeId) {
+		this.deleteCodeId = deleteCodeId;
+	}
+	
+	public long getDeleteCodeId() {
+		return deleteCodeId;
+	}
 
 	public ValueLabelPair getCategoryType() {
 		return categoryType;

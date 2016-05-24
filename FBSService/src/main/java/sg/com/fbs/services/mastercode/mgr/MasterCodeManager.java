@@ -346,6 +346,43 @@ public class MasterCodeManager extends CommonFacade{
 		return response;
 	}
 	
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public IResponseCRUD deleteAndShowCodeValue(CriteriaIF criteria, long codeId) throws MasterCodeException{
+		ResponseCRUD response = new ResponseCRUD();		
+		MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+		try {
+			MasterCode masterCode = (MasterCode) masterCodeDAO.findObject(MasterCode.class, MasterCode.ID, codeId);
+			
+			if(masterCode!=null){
+				masterCode = (MasterCode) masterCodeDAO.softDelete(masterCode);
+				masterCodeDAO.flush();
+				
+				if(masterCode.getId()>0){
+					ResponseCRUD res = (ResponseCRUD) searchCategoryTypeDetails(criteria);
+					if(res!=null && res.getQueryResult()!=null){
+						response.setCrudResult(masterCode.getMasterCodeType());
+						response.setQueryResult(res.getQueryResult());
+						response.setTotalRecords(res.getTotalRecords());
+						response.setTotalPages(res.getTotalPages());
+						response.setCriteria(criteria);
+						
+						Map<String, Object> moreQueryResult = new HashMap<String, Object>();
+						moreQueryResult.put("successMsg", true);
+						moreQueryResult.put("deletedCodeValue", masterCode.getCodeValue());
+						response.setMoreQueryResult(moreQueryResult);
+					}			
+				}
+				
+			}
+			
+		} catch (DataAccessObjectException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+		
+		return response;
+	}
+	
 
 }
 

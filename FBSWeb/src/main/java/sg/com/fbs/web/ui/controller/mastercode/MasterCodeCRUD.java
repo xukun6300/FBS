@@ -125,12 +125,14 @@ public class MasterCodeCRUD implements WebCRUDIF{
 
 			if(form instanceof MasterCodeTypeSearchForm){
 				MasterCodeTypeSearchForm formBean = (MasterCodeTypeSearchForm) form;
+				//because after delete, still on the same page, so need to retain the criteria
 				CriteriaIF criteria = null;
 				if (formBean.isSearchInactiveMasterCodes()) {
 					criteria = addInActiveStatusCriterion(formBean.getSearchCriteria(request));
 				}else{
 					criteria = formBean.getSearchCriteria(request);
 				}
+				
 				response = masterCodeMgrBD.deleteAndShowCodeKey(criteria, formBean.getId());
 
 				//update master code size and deleteable(duplicated code with search)
@@ -141,6 +143,19 @@ public class MasterCodeCRUD implements WebCRUDIF{
 						}
 					}
 				}
+				
+			}else if (form instanceof MasterCodeTypeListForm) {
+				//because after delete, still on the same page, so need to retain the criteria
+				MasterCodeTypeListForm formBean = (MasterCodeTypeListForm) form;
+				CriteriaIF criteria = formBean.getSearchCriteria(request);
+				if (formBean.isSearchInactiveMasterCodes()) {
+					criteria = addInActiveStatusCriterion(criteria);
+				} else {
+					criteria = addActiveStatusCriterionForCodeValues(criteria);
+				}
+
+				response = masterCodeMgrBD.deleteAndShowCodeValue(criteria, formBean.getDeleteCodeId());
+				
 			}
 		} catch (MasterCodeException e) {
 			throw new CRUDException(e.getMessageCode(), e);

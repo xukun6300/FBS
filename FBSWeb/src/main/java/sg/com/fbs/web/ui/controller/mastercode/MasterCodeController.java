@@ -153,23 +153,6 @@ public class MasterCodeController extends BaseWebController{
 		return mvc;
 	}
 	
-	
-	/**
-	 * Context /mastercode/showDeleteCodeKey.action 
-	 * @param request
-	 * @param response
-	 * @return
-	 */
-	public ModelAndView showDeleteCodeKey(HttpServletRequest request, HttpServletResponse response){
-		MasterCodeTypeForm masterCodeTypeForm = new MasterCodeTypeForm();
-		MasterCodeTypeRequest masterCodeTypeRequest = new MasterCodeTypeRequest();
-		setCrudMode(WebCRUDEnum.DETAILS_MODE);
-		setCRUDOperation(MasterCodeCRUD.class);
-		Mvc mvc = new Mvc(masterCodeTypeForm, MasterCodeWebEnum.SHOW_DELETE_CODE_KEY_JSP.toString(), masterCodeTypeRequest);
-		return mvc;		
-	}
-	
-	
 	/**
 	 * Context /mastercode/deleteCodeKey.action 
 	 * @param request
@@ -182,6 +165,22 @@ public class MasterCodeController extends BaseWebController{
 		setCrudMode(WebCRUDEnum.DELETE_MODE);
 		setCRUDOperation(MasterCodeCRUD.class);
 		Mvc mvc = new Mvc(masterCodeTypeSearchForm, MasterCodeWebEnum.SEARCH_CATEGORY_TYPE_JSP.toString(), masterCodeTypeRequest);
+		return mvc;
+	}
+	
+	/**
+	 * Context /mastercode/deleteCodeValue.action 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView deleteCodeValue(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeTypeListForm masterCodeTypeListForm = new MasterCodeTypeListForm();
+		MasterCodeTypeRequest masterCodeTypeRequest = new MasterCodeTypeRequest();
+		masterCodeTypeListForm.setTxnType(MasterCodeWebEnum.LIST_CODE_VALUES_TXN_TYPE.toString());
+		setCrudMode(WebCRUDEnum.DELETE_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		Mvc mvc = new Mvc(masterCodeTypeListForm, MasterCodeWebEnum.LIST_CODE_VALUES_JSP.toString(), masterCodeTypeRequest);
 		return mvc;
 	}
 

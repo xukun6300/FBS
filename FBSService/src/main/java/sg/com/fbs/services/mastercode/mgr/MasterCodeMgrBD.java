@@ -156,7 +156,15 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		}
 	}
 	
-	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD deleteAndShowCodeValue(CriteriaIF criteria, long codeId) throws MasterCodeException{
+		try {
+			Object obj = new MasterCodeManager().run(criteria, codeId);
+			return (IResponseCRUD) obj;
+		} catch (ApplicationCoreException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+	}
 }
 
 
