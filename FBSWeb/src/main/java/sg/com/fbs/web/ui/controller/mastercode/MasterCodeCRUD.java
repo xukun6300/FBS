@@ -117,11 +117,35 @@ public class MasterCodeCRUD implements WebCRUDIF{
 		return null;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
-	public IResponseCRUD<?> delete(BasePojoRequest pojoRequest, Object form,
-			HttpServletRequest request) throws CRUDException {
-		// TODO Auto-generated method stub
-		return null;
+	public IResponseCRUD<?> delete(BasePojoRequest pojoRequest, Object form, HttpServletRequest request) throws CRUDException {
+		IResponseCRUD response = null;
+		try {
+
+			if(form instanceof MasterCodeTypeSearchForm){
+				MasterCodeTypeSearchForm formBean = (MasterCodeTypeSearchForm) form;
+				CriteriaIF criteria = null;
+				if (formBean.isSearchInactiveMasterCodes()) {
+					criteria = addInActiveStatusCriterion(formBean.getSearchCriteria(request));
+				}else{
+					criteria = formBean.getSearchCriteria(request);
+				}
+				response = masterCodeMgrBD.deleteAndShowCodeKey(criteria, formBean.getId());
+
+				//update master code size and deleteable(duplicated code with search)
+				if(response!=null && response.getQueryResult().size()>0){
+					for (Object masterCodeType : response.getQueryResult()) {
+						if(masterCodeType instanceof MasterCodeType){
+							masterCodeMgrBD.updateMasterCodeTypeDetails((MasterCodeType)masterCodeType, formBean.isSearchInactiveMasterCodes());
+						}
+					}
+				}
+			}
+		} catch (MasterCodeException e) {
+			throw new CRUDException(e.getMessageCode(), e);
+		}
+		return response;
 	}
 
 	@Override

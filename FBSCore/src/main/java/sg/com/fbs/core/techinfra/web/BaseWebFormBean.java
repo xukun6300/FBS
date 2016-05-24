@@ -89,7 +89,7 @@ public abstract class BaseWebFormBean implements BaseWebFormIF,Serializable{
 		this.activeStatus = activeStatus;
 	}
 
-	private Order[] order = {new Order(null,true)};
+	private Order[] order = {new Order(ID,true)};
 	
 	public boolean getIsActive(){
 		return activeStatus.equals(ActiveStatusEnum.YES.toString());

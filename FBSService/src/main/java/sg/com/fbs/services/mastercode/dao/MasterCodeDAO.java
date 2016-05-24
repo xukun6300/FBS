@@ -48,7 +48,7 @@ public class MasterCodeDAO extends BaseDao{
 	
 	@SuppressWarnings("rawtypes")
 	public IResponseCRUD searchMasterCodeType(CriteriaIF criteria) throws DataAccessObjectException{
-		return search(MasterCodeType.class, criteria, true);
+		return search(MasterCodeType.class, criteria);
 	}
 	
 	@SuppressWarnings("rawtypes")

@@ -127,6 +127,16 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 	}
 	
 	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchMasterCodeType(CriteriaIF criteria) throws MasterCodeException{
+		try {
+			Object obj = new MasterCodeManager().run(criteria);
+			return (IResponseCRUD) obj;
+		} catch (ApplicationCoreException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
 	public IResponseCRUD searchCategoryTypeDetails(CriteriaIF criteria) throws MasterCodeException{
 		try {
 			Object obj = new MasterCodeManager().run(criteria);
@@ -137,14 +147,16 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public IResponseCRUD searchMasterCodeType(CriteriaIF criteria) throws MasterCodeException{
+	public IResponseCRUD deleteAndShowCodeKey(CriteriaIF criteria, long codeKeyId) throws MasterCodeException{
 		try {
-			Object obj = new MasterCodeManager().run(criteria);
+			Object obj = new MasterCodeManager().run(criteria, codeKeyId);
 			return (IResponseCRUD) obj;
 		} catch (ApplicationCoreException e) {
 			throw new MasterCodeException(e.getMessageCode(), e);
 		}
 	}
+	
+	
 }
 
 

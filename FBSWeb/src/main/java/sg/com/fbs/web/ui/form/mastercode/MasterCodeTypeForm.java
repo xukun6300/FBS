@@ -70,7 +70,7 @@ public class MasterCodeTypeForm extends BusinessWebForm{
 		criteria.appendCriterion(new Criterion(MasterCodeType.ID, this.getId()));
 		criteria.setFetchAll(true);
 		
-		return null;
+		return criteria;
 	}
 
 }

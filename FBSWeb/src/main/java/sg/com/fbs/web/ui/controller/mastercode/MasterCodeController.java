@@ -26,18 +26,7 @@ import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeSearchForm;
  * @Created 2:46:18 pm 16 Sep, 2015 $
  * 
  */
-/**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
- * @Author Frank Xu Kun $
- * @Created May 20, 2016 $
- * 
- */
-/**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
-
- * @Author Frank Xu Kun $
- * @Created May 20, 2016 $
- * 
- */
 public class MasterCodeController extends BaseWebController{
 
 	@Override
@@ -178,6 +167,22 @@ public class MasterCodeController extends BaseWebController{
 		setCRUDOperation(MasterCodeCRUD.class);
 		Mvc mvc = new Mvc(masterCodeTypeForm, MasterCodeWebEnum.SHOW_DELETE_CODE_KEY_JSP.toString(), masterCodeTypeRequest);
 		return mvc;		
+	}
+	
+	
+	/**
+	 * Context /mastercode/deleteCodeKey.action 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView deleteCodeKey(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeTypeSearchForm masterCodeTypeSearchForm = new MasterCodeTypeSearchForm();	
+		MasterCodeTypeRequest masterCodeTypeRequest = new MasterCodeTypeRequest();
+		setCrudMode(WebCRUDEnum.DELETE_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		Mvc mvc = new Mvc(masterCodeTypeSearchForm, MasterCodeWebEnum.SEARCH_CATEGORY_TYPE_JSP.toString(), masterCodeTypeRequest);
+		return mvc;
 	}
 
 }

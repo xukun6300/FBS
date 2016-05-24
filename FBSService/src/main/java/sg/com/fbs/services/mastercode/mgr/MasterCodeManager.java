@@ -282,17 +282,7 @@ public class MasterCodeManager extends CommonFacade{
 		return res;
 	}
 	
-	
-	@SuppressWarnings("rawtypes")
-	public IResponseCRUD searchMasterCodeType(CriteriaIF criteria) throws MasterCodeException{
-		IResponseCRUD response = searchCategoryTypes(criteria);
-		if(response.getQueryResult().size()==1){
-			MasterCodeType masterCodeType = (MasterCodeType) response.getQueryResult().iterator().next();
-			response.setCrudResult(masterCodeType);
-		}
-		return response;
-	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public IResponseCRUD searchMasterCodes(CriteriaIF criteria) throws MasterCodeException{
 		addActiveStatusCriterion(criteria);
@@ -313,6 +303,49 @@ public class MasterCodeManager extends CommonFacade{
 		
 		return response;
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD searchMasterCodeType(CriteriaIF criteria) throws MasterCodeException{
+		IResponseCRUD response = searchCategoryTypes(criteria);
+		if(response.getQueryResult().size()==1){
+			MasterCodeType masterCodeType = (MasterCodeType) response.getQueryResult().iterator().next();
+			response.setCrudResult(masterCodeType);
+		}
+		return response;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public IResponseCRUD deleteAndShowCodeKey(CriteriaIF criteria, long codeKeyId) throws MasterCodeException{
+		ResponseCRUD response = new ResponseCRUD();
+		MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+		MasterCodeType masterCodeType;
+		try {
+			masterCodeType = (MasterCodeType) masterCodeDAO.findObject(MasterCodeType.class, MasterCodeType.ID, codeKeyId);
+			masterCodeType = (MasterCodeType) masterCodeDAO.softDelete(masterCodeType);
+			masterCodeDAO.flush();//flush the delete operation to db then do search
+			
+			if(masterCodeType.getId()>0){	
+				ResponseCRUD res = (ResponseCRUD) searchCategoryTypes(criteria);
+				if(res!=null && res.getQueryResult()!=null){
+					response.setQueryResult(res.getQueryResult());
+					response.setTotalRecords(res.getTotalRecords());
+					response.setTotalPages(res.getTotalPages());
+					response.setCriteria(criteria);
+					
+					Map<String, Object> moreQueryResult = new HashMap<String, Object>();
+					moreQueryResult.put("successMsg", true);
+					moreQueryResult.put("deletedCodeKey", masterCodeType.getCodeKey());
+					response.setMoreQueryResult(moreQueryResult);
+				}			
+			}
+			
+		} catch (DataAccessObjectException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+		
+		return response;
+	}
+	
 
 }
 

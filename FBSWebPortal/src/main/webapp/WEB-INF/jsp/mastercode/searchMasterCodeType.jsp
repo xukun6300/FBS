@@ -7,12 +7,44 @@
 <%@ taglib prefix="netui" uri="/tags/netui" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+
+	$("[name='deleteCodeKey']").click(function(){
+		$('#deleteCodeKeyDialog').attr('code-key-id',$(this).attr('code-key-id'));
+		
+		$('#deleteCodeKeyDialog').modal({
+	        keyboard: false ,
+	    	backdrop: true,	    	
+	    }) ;
+	});
+	
+	$("#deleteCodeKeyDialogCloseBtn").click(function(){
+		$('#deleteCodeKeyDialog').modal('hide');
+	});
+	
+	$("#deleteCodeKeyDialogDeleteBtn").click(function(){
+		$("#codeKeyForm").attr('action','deleteCodeKey.action?id='+$('#deleteCodeKeyDialog').attr('code-key-id'));
+		$("#codeKeyForm").submit();
+	});
+});
+</script>
 
 <fieldset>
+
+ <form:form method="POST" commandName="command" action="searchCategoryType.action" class="clearfix form-horizontal" id="codeKeyForm">
+    <c:if test="${command.crudResponse.moreQueryResults.successMsg}">
+       <div class="alert alert-success" id="deleteSuccessMsg">
+         <button data-dismiss="alert" class="close" type="button">×</button>
+         You have successfully deleted code key <strong>${command.crudResponse.moreQueryResults.deletedCodeKey}</strong>       
+       </div>
+    </c:if>
+    
+   
 	<legend class="section">Code Key Search</legend>
-	<form:form method="POST" commandName="command" action="searchCategoryType.action" class="clearfix form-horizontal">
+	
 	   <div class="clearfix">
-	   
 	      <div class="control-group inline-control">
 	          <label class="control-label" for="remarks"><spring:message code="fbs.common.codemaintenance.ui.label.search.remarks" /></label>
 			  <div class="controls">
@@ -97,7 +129,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<netui:gridRows id="masterTyperow">
+				<netui:gridRows id="masterTyperow"><!-- single record -->
 					<tr>
 						<td><netui:gridCurrentRowNum /></td>						
 						<td class="nowrap"><netui:gridRowElement name="code" /></td>
@@ -115,8 +147,10 @@
 						</td>
 						<td class="nowrap export-ignore">
 						    <netui:updateTag name="id" keyName="id" uri="listCodeValuesDetails.action?searchInactiveMasterCodes=${command.searchInactiveMasterCodes}" />
-							<c:if test="${masterTyperow.deletable}">
-								<netui:deleteTag name="id" keyName="id" uri="showDeleteCodeKey.action?" />
+							<c:if test="${masterTyperow.deletable}">								
+								<button type="button" class="btn btn-danger" title="Delete" name="deleteCodeKey" code-key-id="${masterTyperow.id}">
+									<i class="icon-remove icon-white"></i>
+								</button>
 							</c:if>
 						</td>
 					</tr>
@@ -126,6 +160,22 @@
 	</netui:grid>
 
 </fieldset>
+
+<div id="deleteCodeKeyDialog" style="width: 630px; height: 180px;" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Delete Code Key" aria-hidden="true">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3 style="width:330px;font-family:Arial;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#EB9B07;">Delete Code Key</h3>
+	</div>
+	<div class="modal-body" style="max-height:800px;width:600px;height:60px;">	
+		Are you sure you want to delete this code key?
+	</div>
+	<div class="modal-footer" style="width:600px;height:30px;">
+		<a class="bt bt-pane b1" id="deleteCodeKeyDialogDeleteBtn">Delete</a>
+		<a class="bt" id="deleteCodeKeyDialogCloseBtn">Close</a>
+	</div>
+</div> 
+
+
 
 <script type="text/javascript">
 	$('#effectiveDateFrom').myDatePicker('#effectiveDateFromBtn');
