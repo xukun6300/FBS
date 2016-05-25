@@ -14,6 +14,7 @@ import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeEnum;
+import sg.com.fbs.model.domain.mastercode.MasterCodeTypeListRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeForm;
 import sg.com.fbs.web.ui.form.mastercode.MasterCodeTypeForm;
@@ -229,6 +230,41 @@ public class MasterCodeController extends BaseWebController{
 		Mvc mvc = new Mvc(masterCodeTypeForm, MasterCodeWebEnum.SHOW_UPDATE_CODE_KEY_JSP.toString(), masterCodeTypeRequest);
 		return mvc;
 	}
+	
+	/**
+	 * Context /mastercode/updateCodeKey.action 
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView updateCodeKey(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeTypeForm masterCodeTypeForm = new MasterCodeTypeForm();
+		MasterCodeTypeRequest masterCodeTypeRequest = new MasterCodeTypeRequest();
+		setCrudMode(WebCRUDEnum.UPDATE_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		setValidationErrorPage(MasterCodeWebEnum.SHOW_UPDATE_CODE_KEY_JSP.toString());
+		Mvc mvc = new Mvc(masterCodeTypeForm, MasterCodeWebEnum.CONFIRM_ADD_CODE_KEY_JSP.toString(), masterCodeTypeRequest);
+		return mvc;
+	}
+	
+	/**
+	 * Context /mastercode/showCodeValueSequence.action
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView showCodeValueSequence(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeTypeListForm masterCodeTypeListForm = new MasterCodeTypeListForm();
+		MasterCodeTypeRequest masterCodeTypeRequest = new MasterCodeTypeRequest();
+		masterCodeTypeListForm.setTxnType(MasterCodeWebEnum.UPDATE_CODE_VALUE_SEQUENCE_TXN_TYPE.toString());
+		setCrudMode(WebCRUDEnum.DETAILS_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		setValidationErrorPage(MasterCodeWebEnum.SHOW_CODE_VALUE_SEQUENCE_JSP.toString());
+		Mvc mvc = new Mvc(masterCodeTypeListForm, MasterCodeWebEnum.SHOW_CODE_VALUE_SEQUENCE_JSP.toString(), masterCodeTypeRequest);
+		return mvc;
+	}
+	
+	
 	
 }
 

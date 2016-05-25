@@ -75,12 +75,14 @@ public class MasterCodeCRUD implements WebCRUDIF{
 			if (form instanceof MasterCodeTypeListForm) {
 				MasterCodeTypeListForm formBean = (MasterCodeTypeListForm) form;
 				CriteriaIF criteria = formBean.getSearchCriteria(request);
-				if (formBean.isSearchInactiveMasterCodes()) {
-					criteria = addInActiveStatusCriterion(criteria);
-				} else {
-					criteria = addActiveStatusCriterionForCodeValues(criteria);
-				}
-
+				
+				if(!MasterCodeWebEnum.UPDATE_CODE_VALUE_SEQUENCE_TXN_TYPE.toString().equals(formBean.getTxnType())){
+					if (formBean.isSearchInactiveMasterCodes()) {
+						criteria = addInActiveStatusCriterion(criteria);
+					} else {
+						criteria = addActiveStatusCriterionForCodeValues(criteria);
+					}
+				}				
 				response = masterCodeMgrBD.searchCategoryTypeDetails(criteria);
 			}else if (form instanceof MasterCodeTypeForm) {
 				
@@ -141,6 +143,9 @@ public class MasterCodeCRUD implements WebCRUDIF{
 				
 				MasterCodeRequest masterCodeRequest = (MasterCodeRequest) pojoRequest;
 				response = masterCodeMgrBD.updateCodeValue(masterCodeRequest);
+			}else if (pojoRequest instanceof MasterCodeTypeRequest) {
+				MasterCodeTypeRequest masterCodeTypeRequest = (MasterCodeTypeRequest) pojoRequest;
+				response = masterCodeMgrBD.updateCategoryType(masterCodeTypeRequest);
 			}
 		} catch (MasterCodeException e) {
 			throw new CRUDException(e.getMessageCode(), e);

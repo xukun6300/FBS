@@ -64,7 +64,7 @@ $(document).ready(function(){
 			    </c:if>
 			    <button id="btnBack" name="btnBack" class="bt" onClick="javascript:location.href='searchCategoryType.action'" type="button" ><spring:message code="fbs.common.ui.button.back"/></button>
 			    <c:if test="${!command.searchInactiveMasterCodes}">
-				  <button id="btnUpdateSequence" name="btnUpdateSequence" class="bt" onClick="javascript:location.href='showCodeValueSequence.action?codeTypeId=${command.id}'" type="button" ><spring:message code="fbs.common.codemaintenance.ui.button.update.sequence"/></button>
+				  <button id="btnUpdateSequence" name="btnUpdateSequence" class="bt" onClick="javascript:location.href='showCodeValueSequence.action?id=${command.id}'" type="button" ><spring:message code="fbs.common.codemaintenance.ui.button.update.sequence"/></button>
 				  <button id="btnUpdateCodeKey" name="btnUpdateCodeKey" class="bt" onClick="javascript:location.href='showUpdateCodeKey.action?id=${command.id}'" type="button" ><spring:message code="fbs.common.codemaintenance.ui.label.update.code.key"/></button>
 				</c:if>
 	         </div>

@@ -9,13 +9,7 @@
 
 
 <fieldset>
-    <%-- <c:if test="${command.crudResponse.moreQueryResults.successMsg}">
-       <div class="alert alert-success" id="deleteSuccessMsg">
-         <button data-dismiss="alert" class="close" type="button">×</button>
-         You have successfully deleted code value <strong>${command.crudResponse.moreQueryResults.deletedCodeValue}</strong>       
-       </div>
-    </c:if> --%>
-	<legend class="section">Edit Code Value</legend>
+	<legend class="section">Update Code Value</legend>
 	<form:form class="clearfix form-horizontal" id="codeValueForm" method="POST" commandName="command" action="updateCodeValue.action">
 		<div class="clearfix">		
 			<div class="control-group">

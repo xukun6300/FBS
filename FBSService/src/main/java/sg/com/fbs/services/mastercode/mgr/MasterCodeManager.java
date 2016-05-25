@@ -110,6 +110,31 @@ public class MasterCodeManager extends CommonFacade{
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public ResponseCRUD updateCategoryType(MasterCodeTypeRequest masterCodeTypeRequest) throws MasterCodeException{
+		try {
+			ResponseCRUD response = new ResponseCRUD();
+			MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+			MasterCodeType masterCodeType = (MasterCodeType) masterCodeDAO.findObject(MasterCodeType.class, MasterCodeType.ID, masterCodeTypeRequest.getId());
+			
+			if(masterCodeType!=null){
+				masterCodeType.setCodeKey(masterCodeTypeRequest.getCodeKey());
+				masterCodeType.setRemarks(masterCodeTypeRequest.getRemarks());
+				masterCodeType.setSortOrder(masterCodeTypeRequest.getSortOrder());
+				masterCodeType.setEffectiveDate(masterCodeTypeRequest.getEffectiveDate());
+				
+				masterCodeType = updateMasterCodeTypeVersion(masterCodeType);
+				if(masterCodeType.getId()>0){
+					response.setCrudFlag(true);
+					response.setCrudResult(masterCodeType);
+				}
+			}
+			return response;
+		} catch (DataAccessObjectException e) {
+			throw new MasterCodeException(e.getMessageCode(), e.getCause());
+		}
+
+	}
 	
 	private boolean checkIfExistsByCodeKey(MasterCodeTypeRequest masterCodeTypeRequest) throws DataAccessObjectException{
 		boolean exists = false;

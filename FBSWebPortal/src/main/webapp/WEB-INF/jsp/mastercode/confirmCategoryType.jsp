@@ -27,10 +27,15 @@
 					<label class="control-label" style="width:50px;font-weight:bold">Code:</label> 
 					<label class="control-label" style="width:100px;text-align:left;padding-left:20px">${command.codeKey}</label>
 				</div>
+				
+				<div class="control-group">
+					<label class="control-label" style="width:50px;font-weight:bold">Effective Date:</label> 
+					<label class="control-label" style="width:100px;text-align:left;padding-left:20px"><joda:format value="${command.effectiveDate}" pattern="dd MMM yyyy"/>  </label>
+				</div>
 			</div>
             <button id="btnAdd" name="btnAdd" class="bt bt1" onClick="javascript:location.href='showAddCodeKey.action'" type="button">Add Another Code Key</button> 
             <button id="btnAddValues" name="btnAddValues" class="bt bt1" onClick="javascript:location.href='showAddCodeValue.action?codeKey=${command.codeKey}'" type="button">Add Code Values</button>
-            <button id="btnBack" name="btnBack" class="bt bt-back" onClick="javascript:location.href='searchCategoryType.action'" type="button">Back</button>
+            <button id="btnBack" name="btnBack" class="bt bt-back" onClick="javascript:history.back()" type="button">Back</button>
 		</div>
 	</div>
 </div>
