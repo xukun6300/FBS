@@ -103,6 +103,17 @@
         <put-attribute name="title" value="Master Code Maintenance"></put-attribute>
         <put-attribute name="body" value="/WEB-INF/jsp/mastercode/updateCodeValue.jsp"></put-attribute>
     </definition>
+    
+    <definition name="mastercode/confirmUpdateCodeValue" extends="base.definition">
+        <put-attribute name="title" value="Master Code Maintenance"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/mastercode/confirmUpdateCodeValue.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="mastercode/showUpdateCodeKey" extends="base.definition">
+        <put-attribute name="title" value="Master Code Maintenance"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/jsp/mastercode/updateCodeKey.jsp"></put-attribute>
+    </definition>
+    
     <!-- Manage Account Module -->
     <definition name="account/showAddAccount" extends="base.definition">
         <put-attribute name="title" value="Manage Account"/>

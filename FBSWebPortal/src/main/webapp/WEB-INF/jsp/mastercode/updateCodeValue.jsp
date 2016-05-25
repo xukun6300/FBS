@@ -77,7 +77,11 @@
 				<button id="btnBack" name="btnBack" class="bt" onClick="javascript:history.back()" type="button" ><spring:message code="fbs.common.ui.button.back"/></button>
 			   </div>
 			 </div>
-			
+			 <form:hidden path="id"/>
+			 <form:hidden path="masterCodeType.codeKey" />
+	         <form:hidden path="codeValue" />
+             <form:hidden path="sequenceNo" />
+			 <form:hidden path="categoryType.value" value="${command.masterCodeType.codeKey}"/>
 	    </div>
 	</form:form>
 </fieldset>
@@ -86,6 +90,38 @@
     $('#effectiveDate').myDatePicker('#effectiveDateBtn');
     $('#expiryDate').myDatePicker('#expiryDateBtn');
 
+    $(document).ready(function(){
+    	
+    	$("#alwaysAvailable").click(function(){
+    		adjustRadioState($(this));
+    	});
+    	
+    	adjustRadioState($("#alwaysAvailable"));
+    });
     
+    function adjustRadioState(source){
+    	if(source.attr('checked')){
+    		$('#effectiveDate').val('');
+    		$('#expiryDate').val('');
+    		$('#effectiveDate').attr("disabled", "disabled");
+    		$('#expiryDate').attr("disabled", "disabled");
+    		$('#effectiveDateBtn').attr("disabled", "disabled");
+    		$('#expiryDateBtn').attr("disabled", "disabled");
+    	}else{
+    		$('#effectiveDate').removeAttr('disabled');
+    		$('#expiryDate').removeAttr('disabled');
+    		$('#effectiveDateBtn').removeAttr('disabled');
+    		$('#expiryDateBtn').removeAttr('disabled');
+    	}
+    }
     
 </script>
+
+
+
+
+
+
+
+
+

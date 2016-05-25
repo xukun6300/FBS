@@ -97,6 +97,7 @@ public class MasterCodeCRUD implements WebCRUDIF{
 					criteria = formBean.getSearchCriteria(request);
 				}
 				
+				//CRUD result from response will be copied to formbean, and formbean will add to modelview with name 'command'
 				response = masterCodeMgrBD.searchMasterCode(criteria);
 				
 				MasterCode masterCode = (MasterCode) response.getQueryResult().iterator().next();
@@ -131,11 +132,21 @@ public class MasterCodeCRUD implements WebCRUDIF{
 		return response;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
-	public IResponseCRUD<?> update(BasePojoRequest pojoRequest, Object form,
-			HttpServletRequest request) throws CRUDException {
-		// TODO Auto-generated method stub
-		return null;
+	public IResponseCRUD<?> update(BasePojoRequest pojoRequest, Object form, HttpServletRequest request) throws CRUDException {
+		IResponseCRUD response = null;
+		try {
+			if (pojoRequest instanceof MasterCodeRequest) {
+				
+				MasterCodeRequest masterCodeRequest = (MasterCodeRequest) pojoRequest;
+				response = masterCodeMgrBD.updateCodeValue(masterCodeRequest);
+			}
+		} catch (MasterCodeException e) {
+			throw new CRUDException(e.getMessageCode(), e);
+		}
+		
+		return response;
 	}
 
 	@SuppressWarnings("rawtypes")

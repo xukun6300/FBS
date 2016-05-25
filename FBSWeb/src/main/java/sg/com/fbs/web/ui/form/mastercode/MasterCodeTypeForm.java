@@ -10,6 +10,7 @@ import sg.com.fbs.model.domain.mastercode.MasterCodeType;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
+import sg.com.fbs.model.system.persistence.query.Order;
 import sg.com.fbs.validator.annotations.validation.Required;
 
 public class MasterCodeTypeForm extends BusinessWebForm{
@@ -69,6 +70,11 @@ public class MasterCodeTypeForm extends BusinessWebForm{
 		CriteriaIF criteria = new Criteria();
 		criteria.appendCriterion(new Criterion(MasterCodeType.ID, this.getId()));
 		criteria.setFetchAll(true);
+		
+		Order order = new Order(MasterCodeType.ID, true);
+		Order[] orders = {order};
+		
+		criteria.setOrder(orders);
 		
 		return criteria;
 	}

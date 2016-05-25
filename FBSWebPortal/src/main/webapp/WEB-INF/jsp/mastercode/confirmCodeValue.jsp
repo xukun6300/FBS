@@ -20,7 +20,7 @@
 				
 				<div class="control-group">
 					<label class="control-label" style="width:100px;font-weight: bold"><spring:message code="fbs.common.codemaintenance.ui.label.code.key"/></label>
-					<label class="control-label" style="width:auto;text-align:left;padding-left:20px">${command.categoryType.label}</label>
+					<label class="control-label" style="width:auto;text-align:left;padding-left:20px">${command.masterCodeType.codeKey}</label>
 				</div>
 				
 				<div class="control-group">
@@ -34,13 +34,13 @@
 				</div>
 				
 				<div class="control-group">
-					<label class="control-label" style="width:100px;font-weight: bold"><spring:message code="fbs.common.codemaintenance.ui.label.effective.date"/></label>
-					<label class="control-label" style="width:auto;text-align:left;padding-left:20px">${command.effectiveDate}</label>
+					<label class="control-label" style="width:100px;font-weight: bold"><spring:message code="fbs.common.codemaintenance.ui.label.effective.date"/></label>					
+					<label class="control-label" style="width:auto;text-align:left;padding-left:20px"><joda:format value="${command.effectiveDate}" pattern="dd-MMM-yyyy"/></label>
 				</div>
 				
 				<div class="control-group">
-					<label class="control-label" style="width:100px;font-weight: bold"><spring:message code="fbs.common.codemaintenance.ui.label.expiry.date"/></label>
-					<label class="control-label" style="width:auto;text-align:left;padding-left:20px">${command.expiryDate}</label>
+					<label class="control-label" style="width:100px;font-weight: bold"><spring:message code="fbs.common.codemaintenance.ui.label.expiry.date"/></label>					
+					<label class="control-label" style="width:auto;text-align:left;padding-left:20px"><joda:format value="${command.expiryDate}" pattern="dd-MMM-yyyy"/></label>
 				</div>
 				
 				<div class="control-group">
@@ -51,8 +51,8 @@
 				
 				
 			</div>
-			<button id="btnAdd" name="btnAdd" class="bt bt1" onClick="javascript:location.href='showAddCodeValue.action?codeKey=${command.categoryType.value}'" type="button" >Add Code Value</button> 
-		    <button id="btnBack" name="btnBack" class="bt bt-back" onClick="javascript:location.href='showSearchCategoryType.action'" type="button" >Back</button>
+			<button id="btnAdd" name="btnAdd" class="bt bt1" onClick="javascript:location.href='showAddCodeValue.action?codeKey=${command.masterCodeType.codeKey}'" type="button" >Add Code Value</button> 
+		    <button id="btnBack" name="btnBack" class="bt bt-back" onClick="javascript:history.back()" type="button" >Back</button>
 		</div>
 	</div>
 </div>

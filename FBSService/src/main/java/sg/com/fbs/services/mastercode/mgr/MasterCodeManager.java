@@ -171,6 +171,7 @@ public class MasterCodeManager extends CommonFacade{
 			
 			masterCode = masterCodeDAO.insert(masterCode);
 			if(masterCode.getId()>0){
+				masterCodeRequest.setMasterCodeType(masterCodeType);//for confirmation page get code key value (CrudResult is command object)
 				masterCodeRequest.getCategoryType().setLabel(masterCodeType.getName()); 
 				response.setCrudResult(masterCodeRequest);	
 			}
@@ -370,6 +371,9 @@ public class MasterCodeManager extends CommonFacade{
 				masterCodeDAO.flush();
 				
 				if(masterCode.getId()>0){
+					
+					updateMasterCodeTypeVersion(masterCode.getMasterCodeType());
+					
 					ResponseCRUD res = (ResponseCRUD) searchCategoryTypeDetails(criteria);
 					if(res!=null && res.getQueryResult()!=null){
 						response.setCrudResult(masterCode.getMasterCodeType());//command obj
@@ -395,6 +399,45 @@ public class MasterCodeManager extends CommonFacade{
 	}
 	
 
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD updateCodeValue(MasterCodeRequest masterCodeRequest) throws MasterCodeException{
+		
+		try {
+			if(checkIfExistsByCodeKeyAndValue(masterCodeRequest)){
+				throw new DataAccessObjectException(DaoErrorCodesEnum.DAO_RECORD_ALREADY_EXIST.toString());
+			}
+			IResponseCRUD response = new ResponseCRUD();
+			MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+			MasterCode masterCode = (MasterCode) masterCodeDAO.findObject(MasterCode.class, MasterCode.ID, masterCodeRequest.getId());
+			
+			MasterCodeType masterCodeType = masterCode.getMasterCodeType();
+			
+			if(masterCode==null || masterCodeType==null){
+				throw new DataAccessObjectException(DaoErrorCodesEnum.DAO_RECORD_NOT_FOUND.toString());
+			}
+			
+			updateMasterCodeTypeVersion(masterCodeType);
+			
+			masterCode.setDescription(masterCodeRequest.getDescription());
+			masterCode.setEffectiveDate(masterCodeRequest.getEffectiveDate());
+			masterCode.setExpiryDate(masterCodeRequest.getExpiryDate());
+			masterCode.setRemarks(masterCodeRequest.getRemarks());
+			masterCode.setSequenceNo(masterCodeRequest.getSequenceNo());
+			
+			masterCode = (MasterCode) masterCodeDAO.update(masterCode);
+			
+			if(masterCode.getId()>0){
+				response.setCrudFlag(true);
+				response.setCrudResult(masterCode);
+			}
+			
+			return response;
+		} catch (DataAccessObjectException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+
+	}
+	
 }
 
 
