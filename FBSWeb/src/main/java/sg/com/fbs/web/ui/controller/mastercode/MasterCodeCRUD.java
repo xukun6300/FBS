@@ -77,7 +77,8 @@ public class MasterCodeCRUD implements WebCRUDIF{
 				MasterCodeTypeListForm formBean = (MasterCodeTypeListForm) form;
 				CriteriaIF criteria = formBean.getSearchCriteria(request);
 				
-				if(!MasterCodeWebEnum.UPDATE_CODE_VALUE_SEQUENCE_TXN_TYPE.toString().equals(formBean.getTxnType())){
+				//For inactive master code, even no update sequence option
+				if(!MasterCodeWebEnum.UPDATE_CODE_VALUE_SEQUENCE_TXN_TYPE.toString().equals(formBean.getTxnType())){ 
 					if (formBean.isSearchInactiveMasterCodes()) {
 						criteria = addInActiveStatusCriterion(criteria);
 					} else {

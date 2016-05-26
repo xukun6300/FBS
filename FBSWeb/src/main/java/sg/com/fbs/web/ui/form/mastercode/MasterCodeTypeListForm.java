@@ -128,7 +128,7 @@ public class MasterCodeTypeListForm extends BusinessQueryWebForm{
 			criterion = defaultCriterion;
 		}
 		
-		Order[] orders = getOrder(); 
+		Order[] orders = getOrder(); //default order --> SequenceNO
 				
 		if(!StringUtils.isEmpty(request.getParameter(IS_ASCENDING)) && !StringUtils.isEmpty(request.getParameter(SORTING_PROPERTY))){
 			Order newOrder = new Order(request.getParameter(SORTING_PROPERTY), request.getParameter(IS_ASCENDING).equals("true")?true:false); 
