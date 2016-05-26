@@ -23,9 +23,11 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 import org.hibernate.sql.JoinType;
+import org.joda.time.DateTime;
 
 import sg.com.fbs.core.techinfra.persistence.HibernateUtil;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.core.techinfra.security.util.PrincipalSecUtil;
 import sg.com.fbs.core.techinfra.util.StringUtil;
 import sg.com.fbs.model.business.pojo.BasePojo;
 import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
@@ -75,11 +77,12 @@ public class BaseDao extends AbstractBaseDao{
 	}
 	
 	//return a new track object or not????
-	public Object Update(String entityName, Object object) throws DataAccessObjectException{
+	public Object update(String entityName, Object object) throws DataAccessObjectException{
 		Object obj = null;
 		
 		if(object instanceof BasePojo){
-			//BasePojoIF pojo = (BasePojoIF) object;
+			((BasePojo) object).setModifiedby(PrincipalSecUtil.getUserId());
+			((BasePojo) object).setModifyon(new DateTime());
 			obj = getSession().merge(entityName, object);
 		}	
 		return obj;
@@ -90,6 +93,8 @@ public class BaseDao extends AbstractBaseDao{
 		logger.debug("----------update dao----------");
 		Object obj=null;
 		if(object instanceof BasePojo){
+			((BasePojo) object).setModifiedby(PrincipalSecUtil.getUserId());
+			((BasePojo) object).setModifyon(new DateTime());
 			//merge will return a new object copy which is tracked in persistent context.
 			obj = getSession().merge(object);
 		}
@@ -100,11 +105,16 @@ public class BaseDao extends AbstractBaseDao{
 	public Object[] updateBatch(Object[] objects){
 		
 		for (int i = 0; i < objects.length; i++) {
-			getSession().merge(objects[i]);
-			
-			if(i!=0 && i%50==0){
-				getSession().flush();
-				getSession().clear();
+			if(objects[i] instanceof BasePojo){
+				
+				((BasePojo) objects[i]).setModifiedby(PrincipalSecUtil.getUserId());
+				((BasePojo) objects[i]).setModifyon(new DateTime());
+	
+				getSession().merge(objects[i]);
+				if(i!=0 && i%50==0){
+					getSession().flush();
+					getSession().clear();
+				}
 			}
 		}
 		return objects;
@@ -135,7 +145,7 @@ public class BaseDao extends AbstractBaseDao{
 		if(object instanceof BasePojo){
 			BasePojo pojo = (BasePojo) object;
 			pojo.setActiveStatus(ActiveStatusEnum.NO.toString());
-			return Update(entityName, object);
+			return update(entityName, object);
 		}
 		return object;
 	}

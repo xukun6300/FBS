@@ -65,7 +65,7 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<style type=\"text/css\">\n");
+      out.write("<style type=\"text/css\">\r\n");
       out.write("table.gridtable {\r\n");
       out.write("\tfont-family: arila,sans-serif;\r\n");
       out.write("\tcolor:#333333;\r\n");
@@ -86,7 +86,7 @@ public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\tborder-style: solid;\r\n");
       out.write("\tborder-color: #DEDEDE;\r\n");
       out.write("\tbackground-color: #ffffff;\r\n");
-      out.write("}\n");
+      out.write("}\r\n");
       out.write("</style>\r\n");
       out.write("\r\n");
       out.write("\r\n");

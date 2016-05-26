@@ -7,12 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.joda.time.DateTime;
+
 import com.google.gson.Gson;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.core.techinfra.persistence.dao.DaoErrorCodesEnum;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.core.techinfra.security.util.PrincipalSecUtil;
 import sg.com.fbs.core.techinfra.util.ControlSourceIF;
 import sg.com.fbs.model.business.pojo.BasePojo;
 import sg.com.fbs.model.business.pojo.SequenceMapping;
@@ -127,7 +130,9 @@ public class MasterCodeManager extends CommonFacade{
 				masterCodeType.setRemarks(masterCodeTypeRequest.getRemarks());
 				masterCodeType.setSortOrder(masterCodeTypeRequest.getSortOrder());
 				masterCodeType.setEffectiveDate(masterCodeTypeRequest.getEffectiveDate());
-				
+				masterCodeType.setModifiedby(PrincipalSecUtil.getUserId());
+				masterCodeType.setModifyon(new DateTime());
+								
 				masterCodeType = updateMasterCodeTypeVersion(masterCodeType);
 				if(masterCodeType.getId()>0){
 					response.setCrudFlag(true);
@@ -453,7 +458,8 @@ public class MasterCodeManager extends CommonFacade{
 			masterCode.setExpiryDate(masterCodeRequest.getExpiryDate());
 			masterCode.setRemarks(masterCodeRequest.getRemarks());
 			masterCode.setSequenceNo(masterCodeRequest.getSequenceNo());
-			
+			masterCode.setModifiedby(PrincipalSecUtil.getUserId());
+			masterCode.setModifyon(new DateTime());
 			masterCode = (MasterCode) masterCodeDAO.update(masterCode);
 			
 			if(masterCode.getId()>0){
@@ -503,6 +509,8 @@ public class MasterCodeManager extends CommonFacade{
 						Integer seq = newSequenceMap.get(masterCode.getId());
 						if (seq.intValue() != masterCode.getSequenceNo()) {
 							masterCode.setSequenceNo(seq);
+							masterCode.setModifiedby(PrincipalSecUtil.getUserId());
+							masterCode.setModifyon(new DateTime());
 							masterCodeUpdateList.add(masterCode);
 						}
 					}

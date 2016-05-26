@@ -10,6 +10,7 @@
 	<legend class="section">Update Code Key</legend>
 	<form:form method="POST" commandName="command" action="updateCodeKey.action" class="clearfix form-horizontal">
 		<form:errors cssClass="alert alert-error" element="div" />
+		<form:hidden path="id"/>
 		<div class="clearfix">
 		
 		<div class="control-group required">

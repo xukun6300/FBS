@@ -100,6 +100,30 @@
 <script type="text/javascript">
     $('#effectiveDate').myDatePicker('#effectiveDateBtn');
     $('#expiryDate').myDatePicker('#expiryDateBtn');  
+    
+    $(document).ready(function(){    	
+    	$("#alwaysAvailable").click(function(){
+    		adjustRadioState($(this));
+    	});
+    	
+    	adjustRadioState($("#alwaysAvailable"));
+    });
+    
+    function adjustRadioState(source){
+    	if(source.attr('checked')){
+    		$('#effectiveDate').val('');
+    		$('#expiryDate').val('');
+    		$('#effectiveDate').attr("disabled", "disabled");
+    		$('#expiryDate').attr("disabled", "disabled");
+    		$('#effectiveDateBtn').attr("disabled", "disabled");
+    		$('#expiryDateBtn').attr("disabled", "disabled");
+    	}else{
+    		$('#effectiveDate').removeAttr('disabled');
+    		$('#expiryDate').removeAttr('disabled');
+    		$('#effectiveDateBtn').removeAttr('disabled');
+    		$('#expiryDateBtn').removeAttr('disabled');
+    	}
+    }
 </script>
 
 
