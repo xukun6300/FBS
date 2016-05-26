@@ -84,8 +84,7 @@ td label.non-edit-mode {
                    <th><spring:message code="fbs.common.account.ui.label.account.column.name"/></th>
                    <th><spring:message code="fbs.common.account.ui.label.account.column.size"/></th>                  
                    <th><spring:message code="fbs.common.account.ui.label.account.column.type"/></th>
-                   <th class="edit-mode"><spring:message code="fbs.common.account.ui.label.account.column.order"/></th>
-                   <th class="edit-mode"></th>
+                   <th class="edit-mode"><spring:message code="fbs.common.ui.label.delete"/></th>                   
                 </tr>
              </thead>             
              <tbody>
@@ -112,14 +111,6 @@ td label.non-edit-mode {
 		                            </c:otherwise>
 	                             </c:choose>	                   
 		                      </td>
-		                      <td class="edit-mode">
-					              <button type="button" class="btn btn-default btn-sm arrow-up">
-						            <span class="icon-arrow-up"></span>
-						          </button>	    
-						          <button type="button" class="btn btn-default btn-sm arrow-down">
-						            <span class="icon-arrow-down"></span>
-						          </button>	           
-				              </td>
 				              <td class="edit-mode">
 				                   <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 				              </td>
@@ -159,14 +150,6 @@ td label.non-edit-mode {
 		                         
 		                          
 		                      </td>
-		                      <td class="edit-mode">
-					              <button type="button" class="btn btn-default btn-sm arrow-up">
-						            <span class="icon-arrow-up"></span>
-						          </button>	    
-						          <button type="button" class="btn btn-default btn-sm arrow-down">
-						            <span class="icon-arrow-down"></span>
-						          </button>	           
-				              </td>
 				              <td class="edit-mode">
 				                   <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
 				              </td>

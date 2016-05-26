@@ -11,9 +11,7 @@ $(document).ready(function(){
 	//$(".arrow-down").click(moveRowDown);
 	$("#addNewRow").click(addNewRow);
 	$("#saveAccount").click(saveAccount);
-	
-	
-	
+
 	if($(".mandatory").text()==null || $(".mandatory").text()==''){
 		$(".edit-mode").hide();
 	}else{
@@ -23,6 +21,12 @@ $(document).ready(function(){
 	
 	var tbodyHtml = $("#accountTb tbody").html();
 	$("#editBtn").click(function(){
+		$("#accountTb").addClass('table-sortable');
+		$(".table-sortable tbody").sortable({
+			start:function(event, ui){
+				$(ui.item).attr('previous-index',ui.item.index());
+			}
+		});
 		$(".edit-mode").show();
 		$(".non-edit-mode").hide();
 	});
@@ -31,11 +35,17 @@ $(document).ready(function(){
 		$("#accountTb tbody").html(tbodyHtml);
 		$(".edit-mode").hide();
 		$(".non-edit-mode").show();
+		$("#accountTb tbody").sortable("destroy");
 	});
 	
 	
 	$("#saveBtn").click(updateAccount);
 	
+	$(".table-sortable tbody").sortable({
+		start:function(event, ui){
+			$(ui.item).attr('previous-index',ui.item.index());
+		}
+	});
 });
 
 function retainTable(){
@@ -61,9 +71,7 @@ function retainTable(){
 				row+="<tr>" +
 				     "<td>"+ item['columnName'] +"</td>" +
 				     "<td>"+ item['columnSize'] +"</td>" +
-				     "<td>"+ optionStr +"</td>" +
-				     "<td><button type=\"button\" class=\"btn btn-default btn-sm arrow-up\"><span class=\"icon-arrow-up\"></span></button> " +
-				     "<button type=\"button\" class=\"btn btn-default btn-sm arrow-down\"><span class=\"icon-arrow-down\"></span></button></td>" +
+				     "<td>"+ optionStr +"</td>" +				     
 				     "<td><button class=\"btn btn-danger deleteRow\" disabled><i class=\"icon-remove icon-white\"></i></button></td>"+
 				     "</tr>";
 			}else{
@@ -80,9 +88,7 @@ function retainTable(){
 				row+="<tr>" +
 				     "<td><input class=\"input\" type=\"text\" maxlength=\"100\" value=\""+item['columnName']+"\"></td>" +
 				     "<td><input class=\"input\" type=\"text\" maxlength=\"100\" value=\""+item['columnSize']+"\"></td>" +
-				     "<td><select class=\"input-small\">"+ optionStr + "</select></td>" +
-				     "<td><button type=\"button\" class=\"btn btn-default btn-sm arrow-up\"><span class=\"icon-arrow-up\"></span></button> " +
-				     "<button type=\"button\" class=\"btn btn-default btn-sm arrow-down\"><span class=\"icon-arrow-down\"></span></button></td>" +
+				     "<td><select class=\"input-small\">"+ optionStr + "</select></td>" +				    
 				     "<td><button class=\"btn btn-danger deleteRow\"><i class=\"icon-remove icon-white\"></i></button></td>"+
 				     "</tr>";
 			}
@@ -116,9 +122,7 @@ function addNewRow(){
 	var newRow = "<tr>" +
 			     "<td><input class=\"input\" type=\"text\" maxlength=\"100\"></td>" +
 			     "<td><input class=\"input\" type=\"text\" maxlength=\"100\"></td>" +
-			     "<td><select class=\"input-small\"><option value=\"T\">Text</option><option value=\"N\">Numeric</option><option value=\"D\">Date</option></select></td>" +
-			     "<td><button type=\"button\" class=\"btn btn-default btn-sm arrow-up\"><span class=\"icon-arrow-up\"></span></button> " +
-			     "<button type=\"button\" class=\"btn btn-default btn-sm arrow-down\"><span class=\"icon-arrow-down\"></span></button></td>" +
+			     "<td><select class=\"input-small\"><option value=\"T\">Text</option><option value=\"N\">Numeric</option><option value=\"D\">Date</option></select></td>" +			     
 			     "<td><button class=\"btn btn-danger deleteRow\"><i class=\"icon-remove icon-white\"></i></button></td>"+
 			     "</tr>";
 	$("#accountTb tbody").append(newRow);
@@ -126,7 +130,6 @@ function addNewRow(){
 
 function saveAccount(){
 	var json = constructAcctStructureJSON();
-	//$('<input>').attr({'type':'hidden','value':JSON.stringify(json),'name':'acctStructureJson'}).appendTo('#accountForm');
 	$("#acctStructureJson").val(JSON.stringify(json));
 	$('#accountForm').submit();	
 }
