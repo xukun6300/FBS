@@ -13,11 +13,13 @@ import sg.com.fbs.core.techinfra.web.WebCRUDIF;
 import sg.com.fbs.model.account.Account;
 import sg.com.fbs.model.account.AccountRequest;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.user.UserRequest;
 import sg.com.fbs.services.account.exception.AccountException;
 import sg.com.fbs.services.account.mgr.AccountManagerBD;
+import sg.com.fbs.web.ui.form.account.AccountForm;
 import sg.com.fbs.web.ui.form.account.AccountSearchForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -118,11 +120,22 @@ public class AccountCRUD implements WebCRUDIF{
 		return response;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
-	public IResponseCRUD<?> delete(BasePojoRequest pojoRequest, Object form, HttpServletRequest request)
-			throws CRUDException {
-		// TODO Auto-generated method stub
-		return null;
+	public IResponseCRUD<?> delete(BasePojoRequest pojoRequest, Object form, HttpServletRequest request) throws CRUDException {
+		IResponseCRUD response = null;
+		AccountManagerBD accountManagerBD = new AccountManagerBD();
+		try {
+			if(form instanceof AccountSearchForm){
+				AccountSearchForm formBean = (AccountSearchForm) form;
+				CriteriaIF criteria = formBean.getSearchCriteria(request);
+				response = accountManagerBD.deleteAndShowAccount(criteria, formBean.getId());
+			}
+		} catch (AccountException e) {
+			throw new CRUDException(e.getMessageCode(), e);
+		}
+		
+		return response;
 	}
 
 	@Override

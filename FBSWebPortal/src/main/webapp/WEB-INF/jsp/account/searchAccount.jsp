@@ -9,8 +9,14 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <fieldset>
+    <c:if test="${command.crudResponse.moreQueryResults.successMsg}">
+       <div class="alert alert-success" id="deleteSuccessMsg">
+         <button data-dismiss="alert" class="close" type="button">×</button>
+         You have successfully deleted code value <strong>(${command.crudResponse.moreQueryResults.deletedAccount.accountCode})${command.crudResponse.moreQueryResults.deletedAccount.accountDesc}</strong>       
+       </div>
+    </c:if>
 	<legend class="section">Account Management</legend>
-	<form:form method="POST" commandName="command" action="searchAccount.action" class="clearfix">
+	<form:form method="POST" commandName="command" action="searchAccount.action" class="clearfix" id="accountForm">
 		<div class="clearfix">
 			<table class="ftable">
 			    <tr>
@@ -126,7 +132,8 @@
                  <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.need.requisition.form" name="requisitionForm"/></th>   <!-- name is property of Account.java -->
                  <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.spend.period.short" name="spendPeriod"/></th>
                  <th class="nowrap"><netui:gridSorting displayName="fbs.common.account.ui.label.account.fy" name="financialYear"/></th>   
-                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.ui.label.create.on" name="createon"/></th>                    
+                 <th class="nowrap"><netui:gridSorting displayName="fbs.common.ui.label.create.on" name="createon"/></th>
+                 <th class="nowrap"><spring:message code="fbs.common.ui.label.delete"/></th>                    
               </tr>
            </thead>
            <tbody>
@@ -138,7 +145,12 @@
                     <td><netui:gridRowElement name="requisitionForm"/></td> 
                     <td><netui:gridRowElement name="spendPeriod"/></td>
                     <td><netui:gridRowElement name="financialYear"/></td>    
-                    <td><netui:gridRowElement name="createon" format="dd MMM yyyy"/></td>                   
+                    <td><netui:gridRowElement name="createon" format="dd MMM yyyy"/></td>    
+                    <td>
+                      <button type="button" class="btn btn-danger" title="Delete" name="deleteAccount" account-id="<netui:gridRowElement name="id"/>">
+						  <i class="icon-remove icon-white"></i>
+					  </button>		
+                    </td>               
                  </tr>
               </netui:gridRows>
            </tbody>
@@ -146,3 +158,41 @@
      </netui:grid>
 
 </fieldset>
+
+<div id="deleteAccountDialog" style="width: 630px; height: 180px;" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Delete Account" aria-hidden="true">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3 style="width:330px;font-family:Arial;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#EB9B07;">Delete Account</h3>
+	</div>
+	<div class="modal-body" style="max-height:800px;width:600px;height:60px;">	
+		Are you sure you want to delete account: <label id="deleteAcctName" class="bold" style="display:inline"></label>
+	</div>
+	<div class="modal-footer" style="width:600px;height:30px;">
+		<a class="bt bt-pane b1" id="deleteAccountDialogDeleteBtn">Delete</a>
+		<a class="bt" id="deleteAccountDialogCloseBtn">Close</a>
+	</div>
+</div> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("[name='deleteAccount']").click(function(){
+		$('#deleteAccountDialog').attr('account-id',$(this).attr('account-id'));		
+		$('#deleteAcctName').text('('+$(this).closest('tr').find('td:nth-child(2)').text()+')'+$(this).closest('tr').find('td:nth-child(3)').text());
+		$('#deleteAccountDialog').modal({
+	        keyboard: false ,
+	    	backdrop: true,	    	
+	    }) ;
+	});
+	
+	$("#deleteAccountDialogCloseBtn").click(function(){
+		$('#deleteAccountDialog').modal('hide');
+	});
+	
+	$("#deleteAccountDialogDeleteBtn").click(function(){
+		$("#accountForm").attr('action','deleteAccount.action?id='+$('#deleteAccountDialog').attr('account-id'));
+		$("#accountForm").submit();
+	});
+});
+
+
+</script>

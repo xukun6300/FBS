@@ -80,6 +80,18 @@ public class AccountManagerBD extends BusinessDelegate {
 			throw new AccountException(e.getMessageCode(), e);
 		}
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public ResponseCRUD deleteAndShowAccount(CriteriaIF criteria, long accountId) throws AccountException{
+		try {
+            Object object = new AccountManager().run(criteria, accountId);
+            return (ResponseCRUD)object;
+		} catch (ApplicationCoreException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
+	
+	
 }
 
 

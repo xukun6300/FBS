@@ -158,6 +158,23 @@ public class AccountController extends BaseWebController{
 		return mvc;
 	}
 
+	/**
+	 * Context /account/deleteAccount.action
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView deleteAccount(HttpServletRequest request, HttpServletResponse response){
+		AccountSearchForm accountForm = new AccountSearchForm();	
+		AccountRequest accountRequest = new AccountRequest();
+		accountForm.setValidateForm(false);
+		setCrudMode(WebCRUDEnum.DELETE_MODE);
+		setCRUDOperation(AccountCRUD.class);
+		setValidationErrorPage(AccountWebEnum.SEARCH_ACCOUNT_JSP.toString());
+		Mvc mvc = new Mvc(accountForm, AccountWebEnum.SEARCH_ACCOUNT_JSP.toString(), accountRequest);
+		return mvc;
+	}
+	
 }
 
 

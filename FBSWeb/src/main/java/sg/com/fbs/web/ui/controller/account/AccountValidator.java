@@ -87,8 +87,11 @@ public class AccountValidator implements Validator{
 			}
 		}else if (target instanceof AccountSearchForm) {
 			AccountSearchForm accountSearchForm = (AccountSearchForm) target;
-			if (accountSearchForm.getSpendPeriod() != null && !StringUtils.isNumeric(accountSearchForm.getSpendPeriod())) {
-				errors.rejectValue("spendPeriod", "fbs.common.errors.account.invalid.spend.period");
+			
+			if(accountSearchForm.isValidateForm()){
+				if (accountSearchForm.getSpendPeriod() != null && !StringUtils.isNumeric(accountSearchForm.getSpendPeriod())) {
+					errors.rejectValue("spendPeriod", "fbs.common.errors.account.invalid.spend.period");
+				}
 			}
 		}
 	}

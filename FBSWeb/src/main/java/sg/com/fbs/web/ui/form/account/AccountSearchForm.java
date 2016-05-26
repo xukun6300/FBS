@@ -36,7 +36,16 @@ public class AccountSearchForm extends BusinessQueryWebForm{
 	
 	private String financialYear;
 	
-
+    private boolean validateForm = true;
+    
+    public void setValidateForm(boolean validateForm) {
+		this.validateForm = validateForm;
+	}
+    
+    public boolean isValidateForm() {
+		return validateForm;
+	}
+	
 	public String getAccountCode() {
 		return accountCode;
 	}
@@ -77,6 +86,10 @@ public class AccountSearchForm extends BusinessQueryWebForm{
 		this.financialYear = financialYear;
 	}
 
+	public void setSpendPeriod(int spendPeriod){
+		this.spendPeriod = Integer.toString(spendPeriod);
+	}
+	
 
 
 	@Override
@@ -124,7 +137,11 @@ public class AccountSearchForm extends BusinessQueryWebForm{
 			}
 			
 			if(!StringUtils.isEmpty(spendPeriod)){
-				criterionList.add(new Criterion(Account.SPEND_PERIOD, Integer.valueOf(spendPeriod)));
+				if(StringUtils.isNumeric(spendPeriod)){
+					criterionList.add(new Criterion(Account.SPEND_PERIOD, Integer.valueOf(spendPeriod)));
+				}else{
+					criterionList.add(new Criterion(Account.SPEND_PERIOD, -1));
+				}
 			}
 			
 			if(financialYear!=null && !financialYear.equals("-1")){

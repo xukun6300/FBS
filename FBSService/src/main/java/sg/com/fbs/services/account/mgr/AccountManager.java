@@ -1,6 +1,7 @@
 package sg.com.fbs.services.account.mgr;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,6 @@ import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
-import sg.com.fbs.model.user.UserRequest;
 import sg.com.fbs.services.account.dao.AccountDao;
 import sg.com.fbs.services.account.exception.AccountException;
 
@@ -145,6 +145,7 @@ public class AccountManager extends CommonFacade{
 	@SuppressWarnings("rawtypes")
 	public IResponseCRUD searchAccount(CriteriaIF criteria) throws AccountException{
 		try {
+			AccountDao accountDao = new AccountDao();
 			IResponseCRUD response = accountDao.searchAccount(criteria);
 			return response;
 		} catch (DataAccessObjectException e) {
@@ -205,6 +206,36 @@ public class AccountManager extends CommonFacade{
 			e.printStackTrace();
 			throw new AccountException(e.getMessageCode(), e);
 		}
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public ResponseCRUD deleteAndShowAccount(CriteriaIF criteria, long accountId) throws AccountException{
+		try {
+			ResponseCRUD response = new ResponseCRUD();
+			AccountDao accountDao = new AccountDao();
+			Account account = (Account) accountDao.findObject(Account.class, Account.ID, accountId);
+			account = (Account) accountDao.softDelete(account);
+			accountDao.flush();
+			
+			IResponseCRUD res = searchAccount(criteria);
+			
+			response.setQueryResult(res.getQueryResult());
+			response.setTotalPages(res.getTotalPages());
+			response.setTotalRecords(res.getTotalRecords());
+			response.setCriteria(criteria);
+			
+			Map<String, Object> moreQueryResult = new HashMap<String, Object>();
+			moreQueryResult.put("successMsg", true);
+			moreQueryResult.put("deletedAccount", account);
+			response.setMoreQueryResult(moreQueryResult);
+			
+			return response;
+		} catch (DataAccessObjectException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+		
+		
+		
 	}
 	
 }
