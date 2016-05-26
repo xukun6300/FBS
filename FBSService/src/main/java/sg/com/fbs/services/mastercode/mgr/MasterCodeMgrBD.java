@@ -8,6 +8,7 @@ import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeType;
+import sg.com.fbs.model.domain.mastercode.MasterCodeTypeListRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
@@ -196,6 +197,15 @@ public class MasterCodeMgrBD extends BusinessDelegate{
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
+	public ResponseCRUD updateCodeValueSequence(MasterCodeTypeListRequest masterCodeTypeListRequest) throws MasterCodeException{
+		try {
+			Object obj = new MasterCodeManager().run(masterCodeTypeListRequest);
+			return (ResponseCRUD) obj;
+		} catch (ApplicationCoreException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
+	}
 }
 
 

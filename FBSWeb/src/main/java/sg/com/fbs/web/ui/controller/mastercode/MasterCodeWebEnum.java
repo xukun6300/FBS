@@ -121,6 +121,12 @@ public enum MasterCodeWebEnum implements WebDropDownListIF{
 	    public String toString() {
 	        return "showCodeValueSequence";
 	    }
+	},
+	
+	REDIRECT_TO_LIST_CODE_VALUES_JSP {
+	    public String toString() {
+	        return "redirect:/mastercode/listCodeValuesDetails.action?";
+	    }
 	},	
 }
 

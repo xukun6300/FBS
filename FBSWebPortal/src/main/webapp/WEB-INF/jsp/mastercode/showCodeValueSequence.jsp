@@ -10,7 +10,7 @@
 
 <fieldset>
 	<legend class="section">Update Code Value Sequence</legend>
-	<form:form class="clearfix form-horizontal" method="POST" commandName="command" action="updateCodeValueSequence.action">
+	<form:form class="clearfix form-horizontal" method="POST" commandName="command" action="updateCodeValueSequence.action?id=${param.id}">
 		<div class="clearfix">
 		
 		<div class="control-group">
@@ -58,25 +58,25 @@
 				</tbody>
 			</table>
 		</netui:grid>
-		<p style="color: red;"><spring:message code="fbs.common.codemaintenance.ui.label.updatesequence.note" /><p>
+		<p style="color: red;margin-left:25px"><spring:message code="fbs.common.codemaintenance.ui.label.updatesequence.note" /><p>
 		
-		<form:hidden path="codeTypeId"/>
+		<form:hidden path="codeTypeId" value="${param.id}"/><!-- url param id value -->
 		<form:hidden path="sequenceJson"/>
 		</div>
 	</form:form>
 </fieldset>
 <script type="text/javascript">
 	$('.table-sortable tbody').sortable({
-		start		: function(event, ui) {
+		start : function(event, ui) {
 			$(ui.item).attr('previous-index', ui.item.index());
 		},
-		update		:	function(event, ui) {
+		update : function(event, ui) {
 			var items = [];
 			var rows = $(this).find('tr');
 			for (var i=0; i<rows.length; i++) {
 				var item = {
-					"recordId" :	$(rows[i]).attr('record-id'),
-					"sequenceNo"	:	i + 1
+					"recordId" : $(rows[i]).attr('record-id'),
+					"sequenceNo" : i + 1
 				};
 				items[i]=item;
 				$(rows[i]).find('td:first').text(i+1);

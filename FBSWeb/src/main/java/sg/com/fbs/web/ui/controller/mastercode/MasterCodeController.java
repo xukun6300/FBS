@@ -264,7 +264,21 @@ public class MasterCodeController extends BaseWebController{
 		return mvc;
 	}
 	
-	
+	/**
+	 * Context /mastercode/updateCodeValueSequence.action
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView updateCodeValueSequence(HttpServletRequest request, HttpServletResponse response){
+		MasterCodeTypeListForm masterCodeTypeListForm = new MasterCodeTypeListForm();
+		MasterCodeTypeListRequest masterCodeTypeListRequest = new MasterCodeTypeListRequest();
+		setCrudMode(WebCRUDEnum.UPDATE_MODE);
+		setCRUDOperation(MasterCodeCRUD.class);
+		setValidationErrorPage(MasterCodeWebEnum.SHOW_CODE_VALUE_SEQUENCE_JSP.toString());
+		Mvc mvc = new Mvc(masterCodeTypeListForm, MasterCodeWebEnum.REDIRECT_TO_LIST_CODE_VALUES_JSP.toString()+"id="+request.getParameter("id"),masterCodeTypeListRequest);
+		return mvc;		
+	}
 	
 }
 

@@ -2,9 +2,12 @@ package sg.com.fbs.services.mastercode.mgr;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.google.gson.Gson;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
@@ -12,11 +15,13 @@ import sg.com.fbs.core.techinfra.persistence.dao.DaoErrorCodesEnum;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
 import sg.com.fbs.core.techinfra.util.ControlSourceIF;
 import sg.com.fbs.model.business.pojo.BasePojo;
+import sg.com.fbs.model.business.pojo.SequenceMapping;
 import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeType;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeEnum;
+import sg.com.fbs.model.domain.mastercode.MasterCodeTypeListRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
@@ -461,6 +466,57 @@ public class MasterCodeManager extends CommonFacade{
 			throw new MasterCodeException(e.getMessageCode(), e);
 		}
 
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public ResponseCRUD updateCodeValueSequence(MasterCodeTypeListRequest masterCodeTypeListRequest) throws MasterCodeException{
+		try {
+			ResponseCRUD response = new ResponseCRUD();
+			MasterCodeDAO masterCodeDAO = new MasterCodeDAO();
+
+			Gson gson = new Gson();
+			SequenceMapping[] newSequenceList = gson.fromJson(masterCodeTypeListRequest.getSequenceJson(), SequenceMapping[].class);
+			Map<Long, Integer> newSequenceMap = new HashMap<Long, Integer>();
+
+			for (SequenceMapping sequenceMapping : newSequenceList) {
+				newSequenceMap.put(sequenceMapping.getRecordId(), sequenceMapping.getSequenceNo());
+			}
+
+			MasterCodeType masterCodeType;
+
+			masterCodeType = (MasterCodeType) masterCodeDAO.findObject(MasterCodeType.class, MasterCodeType.ID, masterCodeTypeListRequest.getCodeTypeId());
+
+			if (masterCodeType == null) {
+				throw new DataAccessObjectException(DaoErrorCodesEnum.DAO_RECORD_NOT_FOUND.toString());
+			}
+
+			updateMasterCodeTypeVersion(masterCodeType);
+
+			Collection masterCodeCol = masterCodeDAO.find(MasterCode.class, MasterCode.MASTERCODE_TYPE_ID, masterCodeType.getId());
+
+			if (masterCodeCol != null && masterCodeCol.size() > 0) {
+				List<MasterCode> masterCodeList = (List<MasterCode>) masterCodeCol;
+				List<MasterCode> masterCodeUpdateList = new ArrayList<MasterCode>();
+
+				for (MasterCode masterCode : masterCodeList) {
+					if (newSequenceMap.containsKey(masterCode.getId())) {
+						Integer seq = newSequenceMap.get(masterCode.getId());
+						if (seq.intValue() != masterCode.getSequenceNo()) {
+							masterCode.setSequenceNo(seq);
+							masterCodeUpdateList.add(masterCode);
+						}
+					}
+				}
+
+				MasterCode[] masterCodeArr = masterCodeUpdateList.toArray(new MasterCode[masterCodeUpdateList.size()]);
+
+				masterCodeDAO.updateBatch(masterCodeArr);
+			}
+
+			return response;
+		} catch (DataAccessObjectException e) {
+			throw new MasterCodeException(e.getMessageCode(), e);
+		}
 	}
 	
 }

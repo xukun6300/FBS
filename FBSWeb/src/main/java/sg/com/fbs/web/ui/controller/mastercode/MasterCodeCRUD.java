@@ -14,6 +14,7 @@ import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
 import sg.com.fbs.model.domain.mastercode.MasterCode;
 import sg.com.fbs.model.domain.mastercode.MasterCodeRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeType;
+import sg.com.fbs.model.domain.mastercode.MasterCodeTypeListRequest;
 import sg.com.fbs.model.domain.mastercode.MasterCodeTypeRequest;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
@@ -146,6 +147,9 @@ public class MasterCodeCRUD implements WebCRUDIF{
 			}else if (pojoRequest instanceof MasterCodeTypeRequest) {
 				MasterCodeTypeRequest masterCodeTypeRequest = (MasterCodeTypeRequest) pojoRequest;
 				response = masterCodeMgrBD.updateCategoryType(masterCodeTypeRequest);
+			}else if (pojoRequest instanceof MasterCodeTypeListRequest) {
+				MasterCodeTypeListRequest masterCodeTypeListRequest = (MasterCodeTypeListRequest) pojoRequest;
+				response = masterCodeMgrBD.updateCodeValueSequence(masterCodeTypeListRequest);
 			}
 		} catch (MasterCodeException e) {
 			throw new CRUDException(e.getMessageCode(), e);
