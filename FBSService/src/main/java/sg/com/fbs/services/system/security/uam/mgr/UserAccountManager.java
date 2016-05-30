@@ -27,6 +27,7 @@ import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.SecurityQuestions;
 import sg.com.fbs.model.system.security.User;
+import sg.com.fbs.model.system.security.UserAccountMapping;
 import sg.com.fbs.model.system.security.UserSecurityQuestion;
 import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
 import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
@@ -127,6 +128,20 @@ public class UserAccountManager extends CommonFacade{
 		}
 		
 		user = (User) userAccountManagementDAO.insert(user);
+		
+		String selectedAccountsStr = registerUserRequest.getSelectedAccounts();
+		
+		if(!StringUtils.isEmpty(selectedAccountsStr)){
+			String[] selectedAccounts = selectedAccountsStr.split(",");
+			if(selectedAccounts!=null && selectedAccounts.length>0){
+				for (String accountCode : selectedAccounts) {
+					UserAccountMapping userAccountMapping = new UserAccountMapping();
+					userAccountMapping.setUserId(user.getId());
+					userAccountMapping.setAccountCode(accountCode);
+					userAccountManagementDAO.insert(userAccountMapping);
+				}
+			}
+		}
 		
 		// sent notification
 		if (user != null) {			

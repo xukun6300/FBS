@@ -33,7 +33,21 @@
       <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
       <property name="activeStatus" column="ACTIVE_IND" not-null="true"/>
    </class>
-
+   
+   <class name="sg.com.fbs.model.system.security.UserAccountMapping" table="USER_ACCT_MAPPING_TB" lazy="true">
+      <id name="id" column="USER_ACCT_MAPPING_ID">
+         <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+            <param name="sequence">USER_ACCT_MAPPING_SEQ</param>
+         </generator>
+      </id>
+      <property name="userId" column="USERID"></property>
+      <property name="accountCode" column="ACCT_CODE"></property>
+      <property name="modifiedby" column="MODIFIEDBY" />
+      <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
+      <property name="createdby" column="CREATEDBY" update="false"/>
+      <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
+      <property name="activeStatus" column="ACTIVE_IND" not-null="true"/>
+   </class>
 
 </hibernate-mapping>		
 		
