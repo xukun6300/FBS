@@ -21,6 +21,7 @@ import sg.com.fbs.model.system.persistence.query.Order;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.SecurityQuestions;
 import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
+import sg.com.fbs.services.controlsource.AccountControlSource;
 import sg.com.fbs.services.controlsource.GenderTypeControlSource;
 import sg.com.fbs.services.controlsource.PrimaryContactModeControlSource;
 import sg.com.fbs.services.controlsource.SalutationControlSource;
@@ -82,6 +83,7 @@ public class UserAccountManagementRefDataSource extends WebRefDataSourceImpl imp
 		return securityQuestionsMap;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Map<String, String> getPrimaryContactType(String listName, ModelAndView modelview, Map extraParams) throws ApplicationCoreException{
 		Map<String, String> primaryContactTypes = new LinkedHashMap<String, String>();
 		PrimaryContactModeControlSource primaryContactModeControlSource = new PrimaryContactModeControlSource();
@@ -97,6 +99,13 @@ public class UserAccountManagementRefDataSource extends WebRefDataSourceImpl imp
 			accountStatusMap.put(accountStatus.getAccountStatus(), accountStatus.getDescription());
 		}
 		return accountStatusMap;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Map<String, String> getAllAccounts(String listName, ModelAndView modelAndView, Map extraParams) throws ApplicationCoreException{
+		Map<String, String> allAccounts = new LinkedHashMap<String, String>();
+		AccountControlSource accountControlSource = new AccountControlSource();		
+		return accountControlSource.getControlSourceValues(allAccounts);
 	}
 	
 }

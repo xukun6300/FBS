@@ -21,9 +21,39 @@
 <script type="text/javascript" src="${contextPath}/static/internal/js/ana/rsa.js"></script>
 <%-- <script type="text/javascript" src="${contextPath}/static/internal/js/jQuery.Plugins.js"></script>  --%> <!-- for date picker, no need, it includes in include-scripts.jsp in main.jsp -->
 
-<!-- <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="block-center span12"> -->
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#assignTo").click(function(){
+		$("#allAccounts").find("option:selected").each(function(){
+			var newOption = $("<option/>").text($(this).text()).val($(this).val());
+			$("#selectedAccounts").append(newOption);
+		});
+		$("#allAccounts").find("option:selected").remove();
+		
+		setSelectedAccountsVal();
+	});
+	
+	$("#assignBack").click(function(){
+		$("#selectedAccounts").find("option:selected").each(function(){
+			var newOption = $("<option/>").text($(this).text()).val($(this).val());
+			$("#allAccounts").append(newOption);
+		});
+		$("#selectedAccounts").find("option:selected").remove();
+		setSelectedAccountsVal();
+	});
+	
+	function setSelectedAccountsVal(){
+		var selectedAccounts = [];
+		$("#selectedAccounts option").each(function(index){
+			selectedAccounts[index] = $(this).val();
+		})
+		console.log(selectedAccounts);
+		$("#selectedAccounts").val(selectedAccounts);
+	}
+})
+
+
+</script>
     
  <fieldset>
       <legend class="section">Registration For New User</legend>
@@ -192,7 +222,32 @@
                </div>               
             </div>
 
-           <%--  <c:if test="${captchaFlag eq 'Y'}"> --%>
+          
+
+         </div>  
+  
+        <div class="clearfix"> 
+            <strong>Accounts</strong>
+            <br><br>
+            
+            <div class="control-group required">             
+                  <label class="control-label">All Accounts</label>
+                  <div class="controls two-select-list">
+                    <form:select multiple="true" class="input-xlarge select-destination" path="allAccounts" style="height:150px">
+                      <form:options items="${allAccounts}"/> 
+                    </form:select>
+                    <span class="button-inline">
+                    <button class="btn button-add" id="assignTo" type="button"><i class="icon-arrow-right"></i></button>
+                    <br>
+                    <button class="btn button-remove" id="assignBack" type="button"><i class="icon-arrow-left"></i></button>
+                    </span>
+                    <form:select multiple="true" path="selectedAccounts" class="input-xlarge select-destination" style="height:150px">                    
+                    </form:select>
+                    <p class="help-block">Please select the appropriate accounts</p>                 
+                </div>
+            </div>     
+            
+             <%--  <c:if test="${captchaFlag eq 'Y'}"> --%>
                <div class="control-group required">
 				<label class="control-label"> <spring:message code="fbs.common.registeruser.ui.label.captcha" /></label>
 				<div class="controls">
@@ -207,9 +262,9 @@
 				  <form:errors path="captchaResponse" cssClass="mandatory" element="div"/>
 				</div>
 			   </div> 
-           <%-- </c:if> --%>
-
-         </div>  
+           <%-- </c:if> --%>       
+         </div>
+  
   
         <div class="control-group">
            <div class="controls">

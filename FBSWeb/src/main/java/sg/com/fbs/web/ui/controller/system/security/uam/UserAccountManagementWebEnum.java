@@ -93,6 +93,13 @@ public enum UserAccountManagementWebEnum implements WebDropDownListIF{
 		public String toString() {
 			return UserSearchForm.ACCOUNT_STATUS;
 		}
+	},
+	
+	ALL_ACCOUNTS_LIST{
+		@Override
+		public String toString() {
+			return "allAccounts";
+		}
 	}
 }
 

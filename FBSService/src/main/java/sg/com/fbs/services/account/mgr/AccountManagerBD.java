@@ -91,7 +91,15 @@ public class AccountManagerBD extends BusinessDelegate {
 		}
 	}
 	
-	
+	@SuppressWarnings("unchecked")
+	public Map<String, String> getAllAccountsForCurrentFY() throws AccountException{
+		try {
+			Object object = new AccountManager().run();
+            return (Map<String, String>)object;
+		} catch (ApplicationCoreException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
 }
 
 

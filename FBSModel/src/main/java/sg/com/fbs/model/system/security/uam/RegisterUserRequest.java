@@ -62,6 +62,26 @@ public class RegisterUserRequest extends BasePojoRequest{
 	
 	private String exponent;
 
+    private String selectedAccounts;
+    
+    private String allAccounts;
+    
+    public String getAllAccounts() {
+		return allAccounts;
+	}
+    
+    public void setAllAccounts(String allAccounts) {
+		this.allAccounts = allAccounts;
+	}
+	
+	public void setSelectedAccounts(String selectedAccounts) {
+		this.selectedAccounts = selectedAccounts;
+	}
+	
+	public String getSelectedAccounts() {
+		return selectedAccounts;
+	}
+	
 	public String getName() {
 		return name;
 	}

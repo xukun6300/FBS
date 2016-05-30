@@ -49,7 +49,8 @@ public class UserAccountManagementController extends BaseWebController {
 			UserAccountManagementWebEnum.GENDER_TYPE_T_LIST,
 			UserAccountManagementWebEnum.PRIMARY_CONTACT_TYPE_T_LIST,
 			UserAccountManagementWebEnum.SECURITY_QUESTION_LIST,
-			UserAccountManagementWebEnum.ACCOUNT_STATUS_LIST
+			UserAccountManagementWebEnum.ACCOUNT_STATUS_LIST,
+			UserAccountManagementWebEnum.ALL_ACCOUNTS_LIST
 		};
 		
 		String[] views = {

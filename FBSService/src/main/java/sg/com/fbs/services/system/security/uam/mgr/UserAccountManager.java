@@ -132,10 +132,7 @@ public class UserAccountManager extends CommonFacade{
 		if (user != null) {			
 			response.setCrudResult(user);
 		}
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-	/*	String pwd = encoder.encode("123456");
-		System.out.println(pwd);
-		System.out.println(new BCryptPasswordEncoder().matches("123456", pwd));*/
+
 		return response;
 	}
 	

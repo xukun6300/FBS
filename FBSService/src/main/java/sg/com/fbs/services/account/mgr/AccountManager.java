@@ -1,6 +1,7 @@
 package sg.com.fbs.services.account.mgr;
 
 import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,13 +20,16 @@ import sg.com.fbs.core.techinfra.util.DateUtil;
 import sg.com.fbs.model.account.Account;
 import sg.com.fbs.model.account.AccountRequest;
 import sg.com.fbs.model.account.AccountStructure;
+import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
+import sg.com.fbs.model.system.persistence.query.Order;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.account.dao.AccountDao;
 import sg.com.fbs.services.account.exception.AccountException;
+import sg.com.fbs.services.business.financialyear.FinancialYearUtil;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -233,9 +237,35 @@ public class AccountManager extends CommonFacade{
 		} catch (DataAccessObjectException e) {
 			throw new AccountException(e.getMessageCode(), e);
 		}
+	}
 		
-		
-		
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public Map<String, String> getAllAccountsForCurrentFY() throws AccountException{		
+		try {
+			Map<String, String> accountMap = new LinkedHashMap<String, String>();
+			int fy = FinancialYearUtil.getCurrentFinancialYear();			
+			AccountDao accountDao = new AccountDao();
+			
+			CriteriaIF criteria = new Criteria();
+			criteria.appendCriterion(new Criterion(Account.FINANCIAL_YEAR, fy));
+			criteria.appendCriterion(new Criterion(Account.ACT_IND, ActiveStatusEnum.YES.toString()));
+			Order order = new Order(Account.ACCOUNT_CODE, true);
+			Order[] orders = {order};
+			criteria.setOrder(orders);			
+			IResponseCRUD response = accountDao.search(Account.class, criteria);
+			
+			Collection<Account> accounts = response.getQueryResult();
+			
+			if(accounts!=null && accounts.size()>0){
+				for (Account account : accounts) {
+					accountMap.put(account.getAccountCode(), "("+account.getAccountCode()+")"+account.getAccountDesc());
+				}
+			}
+			
+			return accountMap;
+		} catch (DataAccessObjectException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
 	}
 	
 }
