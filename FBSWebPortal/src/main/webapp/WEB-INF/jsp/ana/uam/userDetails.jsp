@@ -114,43 +114,16 @@ $(document).ready(function(){
                   </tr>
                </table>
              
-           <br><hr/>
+           <br>
+           <div style="margin-left:40px">
+               <label class="bold" style="font-size:14px">Accounts</label>
+	           <c:forEach items="${command.selectedAccountList}" var="selectedAccount">
+	               ${selectedAccount}<br><br>
+	           </c:forEach>
            
-           <table style="margin-left:20px;">
-           <tr>
-           <td style="font-weight:bold;padding-bottom:15px">All Accounts</td>
-           <td></td>
-           <td style="font-weight:bold;padding-bottom:15px">Accounts Assigned To User</td>
-           </tr>
-           <tr>
-           <td>
-             <form:select path=""  multiple="true" style="height:100px" id="accountsLeft">
-              <form:option value="1" label="1"/>
-              <form:option value="2" label="2"/>
-              <form:option value="3" label="3"/>
-              <form:option value="4" label="4"/>
-              <form:option value="5" label="5"/>
-             </form:select>
-           </td>
-           <td>
-			<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-				<button id="assignTo" type="button" class="btn btn-success" style="width:120px">Assign To >></button>
-				<button id="assignBack" type="button" class="btn btn-danger"style="width:120px"><< Assign Back</button>
-			</div> 
-			
-           </td>
-           <td>
-          
-            <form:select path=""  multiple="true" style="height:100px" id="accountsRight">
-              <form:option value="11" label="11"/>
-              <form:option value="12" label="12"/>
-              <form:option value="13" label="13"/>
-              <form:option value="14" label="14"/>
-              <form:option value="15" label="15"/>
-           </form:select>
-           </td>
-           </tr>
-           </table>
+           </div>
+           
+           
            <form:hidden path="selectedAccounts" id="selectedAccounts"/>
            </fieldset>
        

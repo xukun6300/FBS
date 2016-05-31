@@ -15,8 +15,7 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fform_0026_005fmethod_005fid_005fcommandName_005fclass_005faction;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fselect_0026_005fstyle_005fpath_005fmultiple_005fid;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fform_005fhidden_0026_005fpath_005fid_005fnobody;
 
   private javax.el.ExpressionFactory _el_expressionfactory;
@@ -31,8 +30,7 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
     _005fjspx_005ftagPool_005fform_005fform_0026_005fmethod_005fid_005fcommandName_005fclass_005faction = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005fform_005fselect_0026_005fstyle_005fpath_005fmultiple_005fid = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fform_005fhidden_0026_005fpath_005fid_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
@@ -43,8 +41,7 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
     _005fjspx_005ftagPool_005fform_005fform_0026_005fmethod_005fid_005fcommandName_005fclass_005faction.release();
     _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.release();
     _005fjspx_005ftagPool_005fspring_005fmessage_0026_005fcode_005fnobody.release();
-    _005fjspx_005ftagPool_005fform_005fselect_0026_005fstyle_005fpath_005fmultiple_005fid.release();
-    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.release();
+    _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.release();
     _005fjspx_005ftagPool_005fform_005fhidden_0026_005fpath_005fid_005fnobody.release();
   }
 
@@ -295,343 +292,17 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
             out.write("                  </tr>\r\n");
             out.write("               </table>\r\n");
             out.write("             \r\n");
-            out.write("           <br><hr/>\r\n");
+            out.write("           <br>\r\n");
+            out.write("           <div style=\"margin-left:40px\">\r\n");
+            out.write("               <label class=\"bold\" style=\"font-size:14px\">Accounts</label>\r\n");
+            out.write("\t           ");
+            if (_jspx_meth_c_005fforEach_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
+              return;
+            out.write("\r\n");
             out.write("           \r\n");
-            out.write("           <table style=\"margin-left:20px;\">\r\n");
-            out.write("           <tr>\r\n");
-            out.write("           <td style=\"font-weight:bold;padding-bottom:15px\">All Accounts</td>\r\n");
-            out.write("           <td></td>\r\n");
-            out.write("           <td style=\"font-weight:bold;padding-bottom:15px\">Accounts Assigned To User</td>\r\n");
-            out.write("           </tr>\r\n");
-            out.write("           <tr>\r\n");
-            out.write("           <td>\r\n");
-            out.write("             ");
-            //  form:select
-            org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_005fselect_005f0 = (org.springframework.web.servlet.tags.form.SelectTag) _005fjspx_005ftagPool_005fform_005fselect_0026_005fstyle_005fpath_005fmultiple_005fid.get(org.springframework.web.servlet.tags.form.SelectTag.class);
-            _jspx_th_form_005fselect_005f0.setPageContext(_jspx_page_context);
-            _jspx_th_form_005fselect_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/ana/uam/userDetails.jsp(127,13) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-            _jspx_th_form_005fselect_005f0.setPath("");
-            // /WEB-INF/jsp/ana/uam/userDetails.jsp(127,13) name = multiple type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-            _jspx_th_form_005fselect_005f0.setMultiple(new String("true"));
-            // /WEB-INF/jsp/ana/uam/userDetails.jsp(127,13) null
-            _jspx_th_form_005fselect_005f0.setDynamicAttribute(null, "style", new String("height:100px"));
-            // /WEB-INF/jsp/ana/uam/userDetails.jsp(127,13) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-            _jspx_th_form_005fselect_005f0.setId("accountsLeft");
-            int[] _jspx_push_body_count_form_005fselect_005f0 = new int[] { 0 };
-            try {
-              int _jspx_eval_form_005fselect_005f0 = _jspx_th_form_005fselect_005f0.doStartTag();
-              if (_jspx_eval_form_005fselect_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-                do {
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f0 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f0.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(128,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f0.setValue(new String("1"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(128,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f0.setLabel("1");
-                  int[] _jspx_push_body_count_form_005foption_005f0 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f0 = _jspx_th_form_005foption_005f0.doStartTag();
-                    if (_jspx_th_form_005foption_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f0[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f0.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f0.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f0);
-                  }
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f1 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f1.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(129,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f1.setValue(new String("2"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(129,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f1.setLabel("2");
-                  int[] _jspx_push_body_count_form_005foption_005f1 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f1 = _jspx_th_form_005foption_005f1.doStartTag();
-                    if (_jspx_th_form_005foption_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f1[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f1.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f1.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f1);
-                  }
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f2 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f2.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(130,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f2.setValue(new String("3"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(130,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f2.setLabel("3");
-                  int[] _jspx_push_body_count_form_005foption_005f2 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f2 = _jspx_th_form_005foption_005f2.doStartTag();
-                    if (_jspx_th_form_005foption_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f2[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f2.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f2.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f2);
-                  }
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f3 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f3.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(131,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f3.setValue(new String("4"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(131,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f3.setLabel("4");
-                  int[] _jspx_push_body_count_form_005foption_005f3 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f3 = _jspx_th_form_005foption_005f3.doStartTag();
-                    if (_jspx_th_form_005foption_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f3[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f3.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f3.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f3);
-                  }
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f4 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f4.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(132,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f4.setValue(new String("5"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(132,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f4.setLabel("5");
-                  int[] _jspx_push_body_count_form_005foption_005f4 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f4 = _jspx_th_form_005foption_005f4.doStartTag();
-                    if (_jspx_th_form_005foption_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f4[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f4.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f4.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f4);
-                  }
-                  out.write("\r\n");
-                  out.write("             ");
-                  int evalDoAfterBody = _jspx_th_form_005fselect_005f0.doAfterBody();
-                  if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-                    break;
-                } while (true);
-              }
-              if (_jspx_th_form_005fselect_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                return;
-              }
-            } catch (Throwable _jspx_exception) {
-              while (_jspx_push_body_count_form_005fselect_005f0[0]-- > 0)
-                out = _jspx_page_context.popBody();
-              _jspx_th_form_005fselect_005f0.doCatch(_jspx_exception);
-            } finally {
-              _jspx_th_form_005fselect_005f0.doFinally();
-              _005fjspx_005ftagPool_005fform_005fselect_0026_005fstyle_005fpath_005fmultiple_005fid.reuse(_jspx_th_form_005fselect_005f0);
-            }
-            out.write("\r\n");
-            out.write("           </td>\r\n");
-            out.write("           <td>\r\n");
-            out.write("\t\t\t<div class=\"btn-group-vertical\" role=\"group\" aria-label=\"Vertical button group\">\r\n");
-            out.write("\t\t\t\t<button id=\"assignTo\" type=\"button\" class=\"btn btn-success\" style=\"width:120px\">Assign To >></button>\r\n");
-            out.write("\t\t\t\t<button id=\"assignBack\" type=\"button\" class=\"btn btn-danger\"style=\"width:120px\"><< Assign Back</button>\r\n");
-            out.write("\t\t\t</div> \r\n");
-            out.write("\t\t\t\r\n");
-            out.write("           </td>\r\n");
-            out.write("           <td>\r\n");
-            out.write("          \r\n");
-            out.write("            ");
-            //  form:select
-            org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_005fselect_005f1 = (org.springframework.web.servlet.tags.form.SelectTag) _005fjspx_005ftagPool_005fform_005fselect_0026_005fstyle_005fpath_005fmultiple_005fid.get(org.springframework.web.servlet.tags.form.SelectTag.class);
-            _jspx_th_form_005fselect_005f1.setPageContext(_jspx_page_context);
-            _jspx_th_form_005fselect_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/ana/uam/userDetails.jsp(144,12) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-            _jspx_th_form_005fselect_005f1.setPath("");
-            // /WEB-INF/jsp/ana/uam/userDetails.jsp(144,12) name = multiple type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-            _jspx_th_form_005fselect_005f1.setMultiple(new String("true"));
-            // /WEB-INF/jsp/ana/uam/userDetails.jsp(144,12) null
-            _jspx_th_form_005fselect_005f1.setDynamicAttribute(null, "style", new String("height:100px"));
-            // /WEB-INF/jsp/ana/uam/userDetails.jsp(144,12) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-            _jspx_th_form_005fselect_005f1.setId("accountsRight");
-            int[] _jspx_push_body_count_form_005fselect_005f1 = new int[] { 0 };
-            try {
-              int _jspx_eval_form_005fselect_005f1 = _jspx_th_form_005fselect_005f1.doStartTag();
-              if (_jspx_eval_form_005fselect_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-                do {
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f5 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f5.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f1);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(145,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f5.setValue(new String("11"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(145,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f5.setLabel("11");
-                  int[] _jspx_push_body_count_form_005foption_005f5 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f5 = _jspx_th_form_005foption_005f5.doStartTag();
-                    if (_jspx_th_form_005foption_005f5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f5[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f5.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f5.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f5);
-                  }
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f6 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f6.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f1);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(146,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f6.setValue(new String("12"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(146,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f6.setLabel("12");
-                  int[] _jspx_push_body_count_form_005foption_005f6 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f6 = _jspx_th_form_005foption_005f6.doStartTag();
-                    if (_jspx_th_form_005foption_005f6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f6[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f6.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f6.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f6);
-                  }
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f7 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f7.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f1);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(147,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f7.setValue(new String("13"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(147,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f7.setLabel("13");
-                  int[] _jspx_push_body_count_form_005foption_005f7 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f7 = _jspx_th_form_005foption_005f7.doStartTag();
-                    if (_jspx_th_form_005foption_005f7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f7[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f7.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f7.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f7);
-                  }
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f8 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f8.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f1);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(148,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f8.setValue(new String("14"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(148,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f8.setLabel("14");
-                  int[] _jspx_push_body_count_form_005foption_005f8 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f8 = _jspx_th_form_005foption_005f8.doStartTag();
-                    if (_jspx_th_form_005foption_005f8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f8[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f8.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f8.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f8);
-                  }
-                  out.write("\r\n");
-                  out.write("              ");
-                  //  form:option
-                  org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f9 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
-                  _jspx_th_form_005foption_005f9.setPageContext(_jspx_page_context);
-                  _jspx_th_form_005foption_005f9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f1);
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(149,14) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f9.setValue(new String("15"));
-                  // /WEB-INF/jsp/ana/uam/userDetails.jsp(149,14) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-                  _jspx_th_form_005foption_005f9.setLabel("15");
-                  int[] _jspx_push_body_count_form_005foption_005f9 = new int[] { 0 };
-                  try {
-                    int _jspx_eval_form_005foption_005f9 = _jspx_th_form_005foption_005f9.doStartTag();
-                    if (_jspx_th_form_005foption_005f9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                      return;
-                    }
-                  } catch (Throwable _jspx_exception) {
-                    while (_jspx_push_body_count_form_005foption_005f9[0]-- > 0)
-                      out = _jspx_page_context.popBody();
-                    _jspx_th_form_005foption_005f9.doCatch(_jspx_exception);
-                  } finally {
-                    _jspx_th_form_005foption_005f9.doFinally();
-                    _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f9);
-                  }
-                  out.write("\r\n");
-                  out.write("           ");
-                  int evalDoAfterBody = _jspx_th_form_005fselect_005f1.doAfterBody();
-                  if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-                    break;
-                } while (true);
-              }
-              if (_jspx_th_form_005fselect_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-                return;
-              }
-            } catch (Throwable _jspx_exception) {
-              while (_jspx_push_body_count_form_005fselect_005f1[0]-- > 0)
-                out = _jspx_page_context.popBody();
-              _jspx_th_form_005fselect_005f1.doCatch(_jspx_exception);
-            } finally {
-              _jspx_th_form_005fselect_005f1.doFinally();
-              _005fjspx_005ftagPool_005fform_005fselect_0026_005fstyle_005fpath_005fmultiple_005fid.reuse(_jspx_th_form_005fselect_005f1);
-            }
-            out.write("\r\n");
-            out.write("           </td>\r\n");
-            out.write("           </tr>\r\n");
-            out.write("           </table>\r\n");
+            out.write("           </div>\r\n");
+            out.write("           \r\n");
+            out.write("           \r\n");
             out.write("           ");
             if (_jspx_meth_form_005fhidden_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
@@ -1015,6 +686,47 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
     return false;
   }
 
+  private boolean _jspx_meth_c_005fforEach_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fform_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fform_005f0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fforEach_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
+    // /WEB-INF/jsp/ana/uam/userDetails.jsp(120,12) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.selectedAccountList}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
+    // /WEB-INF/jsp/ana/uam/userDetails.jsp(120,12) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setVar("selectedAccount");
+    int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_005fforEach_005f0 = _jspx_th_c_005fforEach_005f0.doStartTag();
+      if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("\t               ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${selectedAccount}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("<br><br>\r\n");
+          out.write("\t           ");
+          int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_005fforEach_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_005fforEach_005f0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_005fforEach_005f0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_005fforEach_005f0.doFinally();
+      _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f0);
+    }
+    return false;
+  }
+
   private boolean _jspx_meth_form_005fhidden_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_form_005fform_005f0, PageContext _jspx_page_context, int[] _jspx_push_body_count_form_005fform_005f0)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -1023,9 +735,9 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.form.HiddenInputTag _jspx_th_form_005fhidden_005f0 = (org.springframework.web.servlet.tags.form.HiddenInputTag) _005fjspx_005ftagPool_005fform_005fhidden_0026_005fpath_005fid_005fnobody.get(org.springframework.web.servlet.tags.form.HiddenInputTag.class);
     _jspx_th_form_005fhidden_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fhidden_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/ana/uam/userDetails.jsp(154,11) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/ana/uam/userDetails.jsp(127,11) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fhidden_005f0.setPath("selectedAccounts");
-    // /WEB-INF/jsp/ana/uam/userDetails.jsp(154,11) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/ana/uam/userDetails.jsp(127,11) name = id type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fhidden_005f0.setId("selectedAccounts");
     int[] _jspx_push_body_count_form_005fhidden_005f0 = new int[] { 0 };
     try {

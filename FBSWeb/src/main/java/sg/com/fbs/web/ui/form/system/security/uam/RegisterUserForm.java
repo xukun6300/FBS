@@ -1,6 +1,7 @@
 package sg.com.fbs.web.ui.form.system.security.uam;
 
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -81,6 +82,16 @@ public class RegisterUserForm extends BusinessQueryWebForm{
 	
     private String allAccounts;
     
+    private List<String> selectedAccountList;
+	
+	public void setSelectedAccountList(List<String> selectedAccountList) {
+		this.selectedAccountList = selectedAccountList;
+	}
+	
+	public List<String> getSelectedAccountList() {
+		return selectedAccountList;
+	}
+	
     public String getAllAccounts() {
 		return allAccounts;
 	}

@@ -76,6 +76,16 @@ public class User extends BaseLogPojo implements UserDetailsIF, TransactionLogIF
 	
 	private Set<UserSecurityQuestion> UserSecurityQuestion;
 	
+	private Set<UserAccountMapping> userAcctMappings;
+	
+	public void setUserAcctMappings(Set<UserAccountMapping> userAcctMappings) {
+		this.userAcctMappings = userAcctMappings;
+	}
+	
+	public Set<UserAccountMapping> getUserAcctMappings() {
+		return userAcctMappings;
+	}
+	
 	public long getUserId() {
 		return userId;
 	}

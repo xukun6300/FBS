@@ -3,6 +3,8 @@ package sg.com.fbs.model.system.security.uam;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 import org.joda.time.DateTime;
 
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
@@ -65,6 +67,16 @@ public class RegisterUserRequest extends BasePojoRequest{
     private String selectedAccounts;
     
     private String allAccounts;
+    
+    private List<String> selectedAccountList;
+	
+	public void setSelectedAccountList(List<String> selectedAccountList) {
+		this.selectedAccountList = selectedAccountList;
+	}
+	
+	public List<String> getSelectedAccountList() {
+		return selectedAccountList;
+	}
     
     public String getAllAccounts() {
 		return allAccounts;

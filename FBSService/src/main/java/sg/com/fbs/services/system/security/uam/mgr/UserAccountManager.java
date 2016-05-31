@@ -2,6 +2,7 @@ package sg.com.fbs.services.system.security.uam.mgr;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,6 +21,8 @@ import sg.com.fbs.core.businfra.facade.ServiceLocator;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
 import sg.com.fbs.core.techinfra.util.DateUtil;
+import sg.com.fbs.model.account.Account;
+import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
@@ -32,6 +35,8 @@ import sg.com.fbs.model.system.security.UserSecurityQuestion;
 import sg.com.fbs.model.system.security.uam.AccountStatusEnum;
 import sg.com.fbs.model.system.security.uam.RegisterUserRequest;
 import sg.com.fbs.model.user.UserRequest;
+import sg.com.fbs.services.account.dao.AccountDao;
+import sg.com.fbs.services.business.financialyear.FinancialYearUtil;
 import sg.com.fbs.services.mastercode.mgr.MasterCodeManager;
 import sg.com.fbs.services.security.external.crypto.provider.CryptoServicesClientIF;
 import sg.com.fbs.services.security.password.PasswordServices;
@@ -136,7 +141,7 @@ public class UserAccountManager extends CommonFacade{
 			if(selectedAccounts!=null && selectedAccounts.length>0){
 				for (String accountCode : selectedAccounts) {
 					UserAccountMapping userAccountMapping = new UserAccountMapping();
-					userAccountMapping.setUserId(user.getId());
+					userAccountMapping.setUser(user);
 					userAccountMapping.setAccountCode(accountCode);
 					userAccountManagementDAO.insert(userAccountMapping);
 				}
@@ -264,9 +269,39 @@ public class UserAccountManager extends CommonFacade{
 			
 			userRequest.setOfficeTel(user.getOfficeTel());
 			userRequest.setMobileNum(user.getMobileNum());
+			
+			Set<UserAccountMapping> userAccountMappings = user.getUserAcctMappings();
+			List<String> selectedAccouts = new ArrayList<String>();
+			if(userAccountMappings!=null && userAccountMappings.size()>0){
+				for (UserAccountMapping userAccountMapping : userAccountMappings) {								
+					String accountCode = userAccountMapping.getAccountCode();					
+					Account account = getCurrentFyAccountByAcctCode(accountCode);
+					if(account!=null){
+						selectedAccouts.add("(" + account.getAccountCode() + ")" + account.getAccountDesc());
+					}
+				}
+			}
+			userRequest.setSelectedAccountList(selectedAccouts);
 		}
 		
 	}
+	
+	@SuppressWarnings("unchecked")
+	public Account getCurrentFyAccountByAcctCode(String acctCode){
+		int currentFy = FinancialYearUtil.getCurrentFinancialYear();
+		AccountDao accountDao = new AccountDao();
+		try {
+			Collection<Account> accounts = accountDao.find(Account.class, Account.FINANCIAL_YEAR, currentFy, Account.ACCOUNT_CODE, acctCode, Account.ACT_IND, ActiveStatusEnum.YES.toString());
+			if(accounts!=null && accounts.size()>0){
+				return accounts.iterator().next();
+			}			
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 }
 
 

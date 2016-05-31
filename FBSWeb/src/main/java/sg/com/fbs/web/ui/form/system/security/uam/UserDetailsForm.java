@@ -1,5 +1,7 @@
 package sg.com.fbs.web.ui.form.system.security.uam;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import lombok.Getter;
@@ -42,6 +44,16 @@ public class UserDetailsForm extends BusinessQueryWebForm{
 	private String mobileNum;
 
 	private String selectedAccounts;
+	
+	private List<String> selectedAccountList;
+
+	public void setSelectedAccountList(List<String> selectedAccountList) {
+		this.selectedAccountList = selectedAccountList;
+	}
+
+	public List<String> getSelectedAccountList() {
+		return selectedAccountList;
+	}
 	
 	public String getName() {
 		return name;

@@ -1,5 +1,7 @@
 package sg.com.fbs.model.user;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
@@ -39,6 +41,16 @@ public class UserRequest extends BasePojoRequest{
 	private String mobileNum;
 	
 	private String selectedAccounts;
+	
+	private List<String> selectedAccountList;
+
+	public void setSelectedAccountList(List<String> selectedAccountList) {
+		this.selectedAccountList = selectedAccountList;
+	}
+
+	public List<String> getSelectedAccountList() {
+		return selectedAccountList;
+	}
 
 	public String getName() {
 		return name;

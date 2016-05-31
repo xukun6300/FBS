@@ -27,6 +27,11 @@
         <key column="USERID" not-null="true"></key>
         <one-to-many class="sg.com.fbs.model.system.security.UserSecurityQuestion"/>
       </set>
+      <!-- Always put inverse="true" in your collection variable ??  -->
+      <set name="userAcctMappings" table="USER_ACCT_MAPPING_TB" cascade="all" inverse="true"> <!-- userAcctMappings is relationship owner, it will update the relationship -->
+         <key column="USERID" not-null="true"/>
+         <one-to-many class="sg.com.fbs.model.system.security.UserAccountMapping"/>
+      </set>
       <property name="modifiedby" column="MODIFIEDBY" />
       <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
       <property name="createdby" column="CREATEDBY" update="false"/>
@@ -40,7 +45,7 @@
             <param name="sequence">USER_ACCT_MAPPING_SEQ</param>
          </generator>
       </id>
-      <property name="userId" column="USERID"></property>
+      <many-to-one name="user" class="sg.com.fbs.model.system.security.User" column="USERID" cascade="save-update" not-found="ignore"/>
       <property name="accountCode" column="ACCT_CODE"></property>
       <property name="modifiedby" column="MODIFIEDBY" />
       <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
