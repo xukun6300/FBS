@@ -15,7 +15,7 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		<!-- For DB2 -->
 		<property name="hibernate.dialect">org.hibernate.dialect.DB2Dialect</property>
 		<property name="hibernate.connection.driver_class">com.ibm.db2.jcc.DB2Driver</property>	
-		<property name="connection.url">jdbc:db2://UPTESTDBA3:50000/UPDBST</property>	
+		<property name="connection.url">jdbc:db2://UPTESTDBA3.ntuc.sg:50000/UPDBST</property>	
 		<property name="connection.username">updbst</property>	
 		<property name="connection.password">sp@ntuc1234</property>
 		

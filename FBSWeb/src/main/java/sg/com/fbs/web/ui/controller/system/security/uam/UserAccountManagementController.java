@@ -130,6 +130,15 @@ public class UserAccountManagementController extends BaseWebController {
 		return mvc;
 	}
 	
+	public ModelAndView showUpdateUserDetails(HttpServletRequest request, HttpServletResponse response){
+		UserDetailsForm userDetailsForm = new UserDetailsForm();
+		UserRequest userRequest = new UserRequest();
+		setCrudMode(WebCRUDEnum.DETAILS_MODE);
+		setCRUDOperation(UserAccountManagementCRUD.class);
+		setValidationErrorPage(UserAccountManagementWebEnum.USER_DETAILS_JSP.toString());
+		Mvc mvc = new Mvc(userDetailsForm, UserAccountManagementWebEnum.USER_DETAILS_JSP.toString(), userRequest);
+		return mvc;
+	}
 	
 	
 	private boolean captchaValidation(HttpServletRequest request){

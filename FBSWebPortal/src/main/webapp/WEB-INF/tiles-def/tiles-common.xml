@@ -47,6 +47,11 @@
         <put-attribute name="body" value="/WEB-INF/jsp/ana/uam/userDetails.jsp"/>
     </definition>
     
+    <definition name="useraccountmanagement/showUpdateUserDetails" extends="base.definition">
+        <put-attribute name="title" value="Logout"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/ana/uam/updateUserDetails.jsp"/>
+    </definition>
+    
     <definition name="security/showLogin" extends="login.definition">
         <put-attribute name="title" value="Login Page"/>
         <put-attribute name="body" value="/WEB-INF/jsp/security/login.jsp"/>
@@ -56,6 +61,7 @@
         <put-attribute name="title" value="Logout"/>
         <put-attribute name="body" value="/WEB-INF/jsp/security/logout.jsp"/>
     </definition>
+    
     
     
     <!-- Master Code Module -->

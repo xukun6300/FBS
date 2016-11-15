@@ -19,40 +19,6 @@ padding : 20px
 
 </style>
 
-<script type="text/javascript">
-$(document).ready(function(){
-	$("#assignTo").click(function(){
-		$("#accountsLeft").find("option:selected").each(function(){
-			var newOption = $("<option/>").text($(this).text()).val($(this).val());
-			$("#accountsRight").append(newOption);
-		});
-		$("#accountsLeft").find("option:selected").remove();
-		
-		setSelectedAccountsVal();
-	});
-	
-	$("#assignBack").click(function(){
-		$("#accountsRight").find("option:selected").each(function(){
-			var newOption = $("<option/>").text($(this).text()).val($(this).val());
-			$("#accountsLeft").append(newOption);
-		});
-		$("#accountsRight").find("option:selected").remove();
-		setSelectedAccountsVal();
-	});
-	
-	function setSelectedAccountsVal(){
-		var selectedAccounts = [];
-		$("#accountsRight option").each(function(index){
-			selectedAccounts[index] = $(this).val();
-		})
-		//console.log(selectedAccounts);
-		$("#selectedAccounts").val(selectedAccounts);
-	}
-})
-
-
-</script>
-
 <fieldset>
    <legend class="section">User Details</legend>
    
