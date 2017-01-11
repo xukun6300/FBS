@@ -43,6 +43,14 @@
     <bean id="accountCrud" class="sg.com.fbs.web.ui.controller.account.AccountCRUD"/>
     <bean id="accountValidator" class="sg.com.fbs.web.ui.controller.account.AccountValidator"/>
     
+    <!-- Budget Config -->
+    <bean class="sg.com.fbs.web.ui.controller.budgetconfig.BudgetConfigController" scope="request"/>
+    <bean id="budgetConfigDao" class="sg.com.fbs.services.budgetconfig.dao.BudgetConfigDao"/>
+    <bean id="budgetConfigManager" class="sg.com.fbs.services.budgetconfig.mgr.BudgetConfigManager"/>
+    <bean id="budgetConfigManagerBD" class="sg.com.fbs.services.budgetconfig.mgr.BudgetConfigManagerBD"/>
+    <bean id="budgetConfigCrud" class="sg.com.fbs.web.ui.controller.budgetconfig.BudgetConfigCRUD"/>
+    <bean id="budgetConfigValidator" class="sg.com.fbs.web.ui.controller.budgetconfig.BudgetConfigValidator"/>
+    
     <mvc:interceptors>
       <mvc:interceptor>
         <mvc:mapping path="/**"/>

@@ -148,6 +148,13 @@
     </definition>
     
     
+    <!-- Budget Config Module -->
+    <definition name="budgetconfig/configNewBudgeting" extends="base.definition">
+        <put-attribute name="title" value="Config Budget"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/budgetconfig/configNewBudgeting.jsp"/>
+    </definition>
+    
+    
     
     
     <!-- Exception page -->

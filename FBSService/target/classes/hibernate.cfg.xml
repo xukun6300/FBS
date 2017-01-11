@@ -33,12 +33,11 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         <!-- Security -->
         <mapping resource="hbm/fbs-user.hbm.xml"/>
         <mapping resource="hbm/fbs-security-question.hbm.xml"/>
-        
-        
         <mapping resource="hbm/fbs-auditlog.hbm.xml"/>
         <mapping resource="hbm/fbs-activity.hbm.xml"/>
         <mapping resource="hbm/fbs-mastercode.hbm.xml"/>
         <mapping resource="hbm/fbs-account.hbm.xml"/>
+        <mapping resource="hbm/fbs-budget-config.hbm.xml"/>
   </session-factory>
 
 </hibernate-configuration>

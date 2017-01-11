@@ -26,18 +26,6 @@ import sg.com.fbs.web.ui.form.system.security.uam.UserSearchForm;
  * @Created May 5, 2016 $
  * 
  */
-/**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
-
- * @Author Frank Xu Kun $
- * @Created May 11, 2016 $
- * 
- */
-/**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
-
- * @Author Frank Xu Kun $
- * @Created May 13, 2016 $
- * 
- */
 public class AccountController extends BaseWebController{
 
 	@Autowired
