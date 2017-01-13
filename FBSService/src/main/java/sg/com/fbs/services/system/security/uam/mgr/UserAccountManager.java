@@ -7,14 +7,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Resource;
-
 import org.apache.commons.lang.StringUtils;
 import org.joda.time.DateTime;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import com.sun.tools.classfile.Annotation.element_value;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.businfra.facade.ServiceLocator;

@@ -50,46 +50,46 @@ public final class loginTemplate_jsp extends org.apache.jasper.runtime.HttpJspBa
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
-      out.write("<html lang=\"en\">\r\n");
-      out.write("<head>\r\n");
-      out.write("<meta charset=\"utf-8\">\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html lang=\"en\">\n");
+      out.write("<head>\n");
+      out.write("<meta charset=\"utf-8\">\n");
       out.write("<title>");
       if (_jspx_meth_tiles_005finsertAttribute_005f0(_jspx_page_context))
         return;
-      out.write("</title>\r\n");
-      out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n");
-      out.write("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\">\r\n");
-      out.write("<meta name=\"description\" content=\"\">\r\n");
-      out.write("<meta name=\"author\" content=\"\">\r\n");
-      out.write("<meta http-equiv=\"Cache-Control\" content=\"no-cache, no-store, must-revalidate\" />\r\n");
-      out.write("<meta http-equiv=\"Expires\" content=\"0\" />\r\n");
-      out.write("\r\n");
-      out.write("</head>\r\n");
-      out.write("<body>\r\n");
-      out.write("\t<div class=\"container\">\r\n");
-      out.write("\t\t<div class=\"page-layout\">\r\n");
+      out.write("</title>\n");
+      out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+      out.write("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\">\n");
+      out.write("<meta name=\"description\" content=\"\">\n");
+      out.write("<meta name=\"author\" content=\"\">\n");
+      out.write("<meta http-equiv=\"Cache-Control\" content=\"no-cache, no-store, must-revalidate\" />\n");
+      out.write("<meta http-equiv=\"Expires\" content=\"0\" />\n");
+      out.write("\n");
+      out.write("</head>\n");
+      out.write("<body>\n");
+      out.write("\t<div class=\"container\">\n");
+      out.write("\t\t<div class=\"page-layout\">\n");
       out.write("\t\t\t");
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t\t");
       if (_jspx_meth_tiles_005finsertAttribute_005f1(_jspx_page_context))
         return;
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t\t");
       if (_jspx_meth_tiles_005finsertAttribute_005f2(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t</div>\r\n");
-      out.write("</body>\r\n");
+      out.write("\n");
+      out.write("\t\t</div>\n");
+      out.write("\t</div>\n");
+      out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

@@ -101,26 +101,26 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       if (_jspx_meth_c_005fset_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("<script>\r\n");
+      out.write("\n");
+      out.write("<script>\n");
       out.write("   var jsBaseURL = '");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("';\r\n");
-      out.write("</script>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("   <fieldset>\r\n");
-      out.write("      <legend class=\"section\">User Account Management</legend>\r\n");
+      out.write("';\n");
+      out.write("</script>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("   <fieldset>\n");
+      out.write("      <legend class=\"section\">User Account Management</legend>\n");
       out.write("         ");
       //  form:form
       org.springframework.web.servlet.tags.form.FormTag _jspx_th_form_005fform_005f0 = (org.springframework.web.servlet.tags.form.FormTag) _005fjspx_005ftagPool_005fform_005fform_0026_005fmethod_005fcommandName_005fclass_005faction.get(org.springframework.web.servlet.tags.form.FormTag.class);
@@ -139,7 +139,7 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
         int _jspx_eval_form_005fform_005f0 = _jspx_th_form_005fform_005f0.doStartTag();
         if (_jspx_eval_form_005fform_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
           do {
-            out.write("\r\n");
+            out.write("\n");
             out.write("           ");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f0 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
@@ -165,115 +165,115 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
               _jspx_th_form_005ferrors_005f0.doFinally();
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f0);
             }
-            out.write("\r\n");
-            out.write("           <div class=\"clearfix\">\r\n");
-            out.write("               <table class=\"ftable\">\r\n");
-            out.write("                  <tr>\r\n");
-            out.write("                    <!-- User name field -->\r\n");
-            out.write("\t\t\t\t\t<td style=\"width: 200px;\">\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\r\n");
+            out.write("\n");
+            out.write("           <div class=\"clearfix\">\n");
+            out.write("               <table class=\"ftable\">\n");
+            out.write("                  <tr>\n");
+            out.write("                    <!-- User name field -->\n");
+            out.write("\t\t\t\t\t<td style=\"width: 200px;\">\n");
+            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\n");
             out.write("\t\t\t\t\t\t\t<label class=\"control-label\" for=\"name\">");
             if (_jspx_meth_spring_005fmessage_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</label>\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t\t</td>\r\n");
-            out.write("\t\t\t\t\t<td style=\"width: 50px;\">\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\r\n");
+            out.write("</label>\n");
+            out.write("\t\t\t\t\t\t</div>\n");
+            out.write("\t\t\t\t\t</td>\n");
+            out.write("\t\t\t\t\t<td style=\"width: 50px;\">\n");
+            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\n");
             out.write("\t\t\t\t\t\t\t<label class=\"control-label\" for=\"name\">");
             if (_jspx_meth_spring_005fmessage_005f1(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</label>\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t\t</td>\r\n");
-            out.write("\t\t\t\t\t<td style=\"width:250px;\">\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"controls\">\r\n");
+            out.write("</label>\n");
+            out.write("\t\t\t\t\t\t</div>\n");
+            out.write("\t\t\t\t\t</td>\n");
+            out.write("\t\t\t\t\t<td style=\"width:250px;\">\n");
+            out.write("\t\t\t\t\t\t<div class=\"controls\">\n");
             out.write("\t\t\t\t\t\t\t");
             if (_jspx_meth_form_005finput_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("\t\t\t\t\t\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t        </td>\r\n");
-            out.write("\t\t\t        <!-- User name field -->\r\n");
-            out.write("\t\t\t        \r\n");
-            out.write("\t\t\t        <!-- Email address field -->\r\n");
-            out.write("\t\t\t        <td style=\"width: 200px;\">\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\r\n");
+            out.write("\t\t\t\t\t\n");
+            out.write("\t\t\t\t\t\t</div>\n");
+            out.write("\t\t\t        </td>\n");
+            out.write("\t\t\t        <!-- User name field -->\n");
+            out.write("\t\t\t        \n");
+            out.write("\t\t\t        <!-- Email address field -->\n");
+            out.write("\t\t\t        <td style=\"width: 200px;\">\n");
+            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\n");
             out.write("\t\t\t\t\t\t\t<label class=\"control-label\" for=\"email\">");
             if (_jspx_meth_spring_005fmessage_005f2(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</label>\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t\t</td>\r\n");
-            out.write("\t\t\t\t\t<td style=\"width: 50px;\">\r\n");
-            out.write("\t\t\t\t\t\t\r\n");
-            out.write("\t\t\t\t\t</td>\r\n");
-            out.write("\t\t\t\t\t<td style=\"width:250px;\">\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"controls\">\r\n");
+            out.write("</label>\n");
+            out.write("\t\t\t\t\t\t</div>\n");
+            out.write("\t\t\t\t\t</td>\n");
+            out.write("\t\t\t\t\t<td style=\"width: 50px;\">\n");
+            out.write("\t\t\t\t\t\t\n");
+            out.write("\t\t\t\t\t</td>\n");
+            out.write("\t\t\t\t\t<td style=\"width:250px;\">\n");
+            out.write("\t\t\t\t\t\t<div class=\"controls\">\n");
             out.write("\t\t\t\t\t\t\t");
             if (_jspx_meth_form_005finput_005f1(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("\t\t\t\t\t\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t        </td>\r\n");
-            out.write("\t\t\t\t\t<!-- Email address field -->\r\n");
-            out.write("\t\t\t\t  </tr>\r\n");
-            out.write("\t\t\t\t  \r\n");
-            out.write("\t\t\t\t  <tr>\r\n");
-            out.write("                    <!-- Account status field -->\r\n");
-            out.write("\t\t\t\t\t<td style=\"width: 200px;\">\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\r\n");
+            out.write("\t\t\t\t\t\n");
+            out.write("\t\t\t\t\t\t</div>\n");
+            out.write("\t\t\t        </td>\n");
+            out.write("\t\t\t\t\t<!-- Email address field -->\n");
+            out.write("\t\t\t\t  </tr>\n");
+            out.write("\t\t\t\t  \n");
+            out.write("\t\t\t\t  <tr>\n");
+            out.write("                    <!-- Account status field -->\n");
+            out.write("\t\t\t\t\t<td style=\"width: 200px;\">\n");
+            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\n");
             out.write("\t\t\t\t\t\t\t<label class=\"control-label\" for=\"accountStatus\">");
             if (_jspx_meth_spring_005fmessage_005f3(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</label>\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t\t</td>\r\n");
-            out.write("\t\t\t\t\t<td style=\"width: 50px;\">\r\n");
-            out.write("\t\t\t\t\t\t\r\n");
-            out.write("\t\t\t\t\t</td>\r\n");
-            out.write("\t\t\t\t\t<td style=\"width:250px;\">\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"controls\">\r\n");
+            out.write("</label>\n");
+            out.write("\t\t\t\t\t\t</div>\n");
+            out.write("\t\t\t\t\t</td>\n");
+            out.write("\t\t\t\t\t<td style=\"width: 50px;\">\n");
+            out.write("\t\t\t\t\t\t\n");
+            out.write("\t\t\t\t\t</td>\n");
+            out.write("\t\t\t\t\t<td style=\"width:250px;\">\n");
+            out.write("\t\t\t\t\t\t<div class=\"controls\">\n");
             out.write("\t\t\t\t\t\t\t");
             if (_jspx_meth_form_005fselect_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("\t\t\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t        </td>\r\n");
-            out.write("\t\t\t        <!-- Account status field -->\r\n");
-            out.write("\t\t\t        \r\n");
-            out.write("\t\t\t        <!-- User role field -->\r\n");
-            out.write("\t\t\t        <td style=\"width: 200px;\">\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\r\n");
+            out.write("\t\t\n");
+            out.write("\t\t\t\t\t\t</div>\n");
+            out.write("\t\t\t        </td>\n");
+            out.write("\t\t\t        <!-- Account status field -->\n");
+            out.write("\t\t\t        \n");
+            out.write("\t\t\t        <!-- User role field -->\n");
+            out.write("\t\t\t        <td style=\"width: 200px;\">\n");
+            out.write("\t\t\t\t\t\t<div class=\"pull-left inline-control\">\n");
             out.write("\t\t\t\t\t\t\t<label class=\"control-label\" for=\"userRole\">");
             if (_jspx_meth_spring_005fmessage_005f4(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</label>\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t\t\t</td>\r\n");
-            out.write("\t\t\t\t\t<td style=\"width: 50px;\">\r\n");
-            out.write("\t\t\t\t\t\t\r\n");
-            out.write("\t\t\t\t\t</td>\r\n");
-            out.write("\t\t\t\t\t<td style=\"width:250px;\">\r\n");
-            out.write("\t\t\t\t\t\t<div class=\"controls\">\r\n");
+            out.write("</label>\n");
+            out.write("\t\t\t\t\t\t</div>\n");
+            out.write("\t\t\t\t\t</td>\n");
+            out.write("\t\t\t\t\t<td style=\"width: 50px;\">\n");
+            out.write("\t\t\t\t\t\t\n");
+            out.write("\t\t\t\t\t</td>\n");
+            out.write("\t\t\t\t\t<td style=\"width:250px;\">\n");
+            out.write("\t\t\t\t\t\t<div class=\"controls\">\n");
             out.write("\t\t\t\t\t     \t");
-            out.write("\t\t\t\r\n");
+            out.write("\t\t\t\n");
             out.write("\t\t\t\t\t\t\t");
             if (_jspx_meth_form_005fselect_005f1(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("\t \t\t\t\r\n");
-            out.write("\t\t\t\t\t\t</div>\r\n");
-            out.write("\t\t\t        </td>\r\n");
-            out.write("\t\t\t\t\t<!-- User role field -->\r\n");
-            out.write("\t\t\t\t  </tr>\r\n");
-            out.write("\t\t\t\t  \r\n");
-            out.write("\t\t\t\t  <tr>\r\n");
-            out.write("\t\t\t\t     <td colspan=\"6\">\r\n");
-            out.write("\t\t\t\t        <button id=\"btnSearch\" name=\"btnSearch\" class=\"bt\" type=\"submit\">Search</button>\r\n");
-            out.write("\t\t\t\t     </td>\r\n");
-            out.write("\t\t\t\t  </tr>\r\n");
-            out.write("               </table>          \r\n");
-            out.write("           </div>\r\n");
+            out.write("\t \t\t\t\n");
+            out.write("\t\t\t\t\t\t</div>\n");
+            out.write("\t\t\t        </td>\n");
+            out.write("\t\t\t\t\t<!-- User role field -->\n");
+            out.write("\t\t\t\t  </tr>\n");
+            out.write("\t\t\t\t  \n");
+            out.write("\t\t\t\t  <tr>\n");
+            out.write("\t\t\t\t     <td colspan=\"6\">\n");
+            out.write("\t\t\t\t        <button id=\"btnSearch\" name=\"btnSearch\" class=\"bt\" type=\"submit\">Search</button>\n");
+            out.write("\t\t\t\t     </td>\n");
+            out.write("\t\t\t\t  </tr>\n");
+            out.write("               </table>          \n");
+            out.write("           </div>\n");
             out.write("         ");
             int evalDoAfterBody = _jspx_th_form_005fform_005f0.doAfterBody();
             if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -291,17 +291,17 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
         _jspx_th_form_005fform_005f0.doFinally();
         _005fjspx_005ftagPool_005fform_005fform_0026_005fmethod_005fcommandName_005fclass_005faction.reuse(_jspx_th_form_005fform_005f0);
       }
-      out.write("\t\r\n");
-      out.write("         \r\n");
+      out.write("\t\n");
+      out.write("         \n");
       out.write("         ");
       if (_jspx_meth_netui_005fgrid_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("   </fieldset>\t\t\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("   </fieldset>\t\t\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -528,11 +528,11 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
       int _jspx_eval_form_005fselect_005f0 = _jspx_th_form_005fselect_005f0.doStartTag();
       if (_jspx_eval_form_005fselect_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\r\n");
+          out.write("\n");
           out.write("\t\t\t\t\t\t\t    ");
           if (_jspx_meth_form_005foptions_005f0(_jspx_th_form_005fselect_005f0, _jspx_page_context, _jspx_push_body_count_form_005fselect_005f0))
             return true;
-          out.write(" \r\n");
+          out.write(" \n");
           out.write("\t\t\t\t\t\t\t");
           int evalDoAfterBody = _jspx_th_form_005fselect_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -626,9 +626,9 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
       int _jspx_eval_form_005fselect_005f1 = _jspx_th_form_005fselect_005f1.doStartTag();
       if (_jspx_eval_form_005fselect_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\r\n");
+          out.write("\n");
           out.write("\t\t\t\t\t\t\t   ");
-          out.write("\r\n");
+          out.write("\n");
           out.write("\t\t\t\t\t\t\t");
           int evalDoAfterBody = _jspx_th_form_005fselect_005f1.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -669,50 +669,50 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
         _jspx_th_netui_005fgrid_005f0.doInitBody();
       }
       do {
-        out.write("\r\n");
+        out.write("\n");
         out.write("            ");
         if (_jspx_meth_netui_005fgridPaging_005f0(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
-        out.write("            <table id=\"usersTable\" class=\"table ftable table-bordered table-hover table-condensed\">\r\n");
-        out.write("               <thead>\r\n");
-        out.write("                  <tr>\r\n");
+        out.write("\n");
+        out.write("            <table id=\"usersTable\" class=\"table ftable table-bordered table-hover table-condensed\">\n");
+        out.write("               <thead>\n");
+        out.write("                  <tr>\n");
         out.write("                     <th>");
         if (_jspx_meth_spring_005fmessage_005f5(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
-        out.write("</th>\r\n");
+        out.write("</th>\n");
         out.write("                     <th class=\"nowrap\">");
         if (_jspx_meth_netui_005fgridSorting_005f0(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
-        out.write("</th>\r\n");
+        out.write("</th>\n");
         out.write("                     <th class=\"nowrap\">");
         if (_jspx_meth_netui_005fgridSorting_005f1(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
-        out.write("</th>\r\n");
+        out.write("</th>\n");
         out.write("                     ");
-        out.write("\r\n");
+        out.write("\n");
         out.write("                     <th class=\"nowrap\">");
         if (_jspx_meth_netui_005fgridSorting_005f2(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
-        out.write("</th>   <!-- name is property of User.java -->\r\n");
+        out.write("</th>   <!-- name is property of User.java -->\n");
         out.write("                     <th class=\"nowrap\">");
         if (_jspx_meth_netui_005fgridSorting_005f3(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
-        out.write("</th>\r\n");
+        out.write("</th>\n");
         out.write("                     <th class=\"nowrap\">");
         if (_jspx_meth_netui_005fgridSorting_005f4(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
-        out.write("</th>\r\n");
-        out.write("                     <th class=\"nowrap\"></th>\r\n");
-        out.write("                  </tr>\r\n");
-        out.write("               </thead>\r\n");
-        out.write("               <tbody>\r\n");
+        out.write("</th>\n");
+        out.write("                     <th class=\"nowrap\"></th>\n");
+        out.write("                  </tr>\n");
+        out.write("               </thead>\n");
+        out.write("               <tbody>\n");
         out.write("                  ");
         if (_jspx_meth_netui_005fgridRows_005f0(_jspx_th_netui_005fgrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
-        out.write("               </tbody>\r\n");
-        out.write("            </table>\r\n");
+        out.write("\n");
+        out.write("               </tbody>\n");
+        out.write("            </table>\n");
         out.write("         ");
         int evalDoAfterBody = _jspx_th_netui_005fgrid_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -897,12 +897,12 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
         _jspx_th_netui_005fgridRows_005f0.doInitBody();
       }
       do {
-        out.write("\r\n");
-        out.write("                     <tr>\r\n");
+        out.write("\n");
+        out.write("                     <tr>\n");
         out.write("                        <td>");
         if (_jspx_meth_netui_005fgridCurrentRowNum_005f0(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;
-        out.write("</td>\r\n");
+        out.write("</td>\n");
         out.write("                        <td><a href='showUserDetails.action?id=");
         if (_jspx_meth_netui_005fgridRowElement_005f0(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;
@@ -910,30 +910,30 @@ public final class userSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write('>');
         if (_jspx_meth_netui_005fgridRowElement_005f1(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;
-        out.write("</a></td>\r\n");
+        out.write("</a></td>\n");
         out.write("                        <td>");
         if (_jspx_meth_netui_005fgridRowElement_005f2(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;
-        out.write("</td>\r\n");
+        out.write("</td>\n");
         out.write("                        ");
-        out.write("\r\n");
+        out.write("\n");
         out.write("                        <td>");
         if (_jspx_meth_netui_005fgridRowElement_005f3(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;
-        out.write("</td>   <!-- name is property of pojo request class -->\r\n");
+        out.write("</td>   <!-- name is property of pojo request class -->\n");
         out.write("                        <td>");
         if (_jspx_meth_netui_005fgridRowElement_005f4(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;
-        out.write("</td>\r\n");
+        out.write("</td>\n");
         out.write("                        <td>");
         if (_jspx_meth_netui_005fgridRowElement_005f5(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;
-        out.write("</td>\r\n");
+        out.write("</td>\n");
         out.write("                        <td>");
         if (_jspx_meth_netui_005fupdateTag_005f0(_jspx_th_netui_005fgridRows_005f0, _jspx_page_context))
           return true;
-        out.write("</td>\r\n");
-        out.write("                     </tr>\r\n");
+        out.write("</td>\n");
+        out.write("                     </tr>\n");
         out.write("                  ");
         int evalDoAfterBody = _jspx_th_netui_005fgridRows_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

@@ -54,27 +54,27 @@ public final class uncaughtException_jsp extends org.apache.jasper.runtime.HttpJ
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\r\n");
-      out.write("    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n");
-      out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
-      out.write("<head>\r\n");
-      out.write("<title>Internal Server Error</title>\r\n");
-      out.write("</head>\r\n");
-      out.write("<body>\r\n");
-      out.write("\t<div class=\"alert alert-danger\" role=\"alert\">\r\n");
-      out.write("\t\t<h1>Internal Server Error</h1>\r\n");
-      out.write("\t\t<p>Sorry, there is a problem with the page you are trying to reach and it cannot be displayed.</p>\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n");
+      out.write("    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
+      out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n");
+      out.write("<head>\n");
+      out.write("<title>Internal Server Error</title>\n");
+      out.write("</head>\n");
+      out.write("<body>\n");
+      out.write("\t<div class=\"alert alert-danger\" role=\"alert\">\n");
+      out.write("\t\t<h1>Internal Server Error</h1>\n");
+      out.write("\t\t<p>Sorry, there is a problem with the page you are trying to reach and it cannot be displayed.</p>\n");
       out.write("\t\t<p>Go to <a href=\"");
       if (_jspx_meth_c_005furl_005f0(_jspx_page_context))
         return;
-      out.write("\">Home</a> page</p>\r\n");
-      out.write("\t</div>\r\n");
-      out.write("</body>\r\n");
-      out.write("</html>\r\n");
+      out.write("\">Home</a> page</p>\n");
+      out.write("\t</div>\n");
+      out.write("</body>\n");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

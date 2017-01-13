@@ -69,32 +69,32 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       if (_jspx_meth_c_005fset_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<style>\r\n");
-      out.write("table td{\r\n");
-      out.write("padding-left : 20px;\r\n");
-      out.write("}\r\n");
-      out.write("\r\n");
-      out.write("table tr{\r\n");
-      out.write("margin:20px;\r\n");
-      out.write("padding : 20px\r\n");
-      out.write("}\r\n");
-      out.write("\r\n");
-      out.write("</style>\r\n");
-      out.write("\r\n");
-      out.write("<fieldset>\r\n");
-      out.write("   <legend class=\"section\">User Details</legend>\r\n");
-      out.write("   \r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<style>\n");
+      out.write("table td{\n");
+      out.write("padding-left : 20px;\n");
+      out.write("}\n");
+      out.write("\n");
+      out.write("table tr{\n");
+      out.write("margin:20px;\n");
+      out.write("padding : 20px\n");
+      out.write("}\n");
+      out.write("\n");
+      out.write("</style>\n");
+      out.write("\n");
+      out.write("<fieldset>\n");
+      out.write("   <legend class=\"section\">User Details</legend>\n");
+      out.write("   \n");
       out.write("   ");
       //  form:form
       org.springframework.web.servlet.tags.form.FormTag _jspx_th_form_005fform_005f0 = (org.springframework.web.servlet.tags.form.FormTag) _005fjspx_005ftagPool_005fform_005fform_0026_005fmethod_005fid_005fcommandName_005fclass_005faction.get(org.springframework.web.servlet.tags.form.FormTag.class);
@@ -115,7 +115,7 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
         int _jspx_eval_form_005fform_005f0 = _jspx_th_form_005fform_005f0.doStartTag();
         if (_jspx_eval_form_005fform_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
           do {
-            out.write("\r\n");
+            out.write("\n");
             out.write("       ");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f0 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
@@ -141,141 +141,141 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
               _jspx_th_form_005ferrors_005f0.doFinally();
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f0);
             }
-            out.write("\r\n");
-            out.write("       \r\n");
-            out.write("       <div class=\"clearfix\">\r\n");
-            out.write("           <fieldset>\r\n");
-            out.write("               <table style=\"margin-left:20px; width:100%\">\r\n");
-            out.write("                  <tr>\r\n");
+            out.write("\n");
+            out.write("       \n");
+            out.write("       <div class=\"clearfix\">\n");
+            out.write("           <fieldset>\n");
+            out.write("               <table style=\"margin-left:20px; width:100%\">\n");
+            out.write("                  <tr>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f1(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f2(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f3(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
-            out.write("                  </tr>\r\n");
-            out.write("                  <tr>\r\n");
+            out.write("</td>\n");
+            out.write("                  </tr>\n");
+            out.write("                  <tr>\n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td> \r\n");
+            out.write("</td> \n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.salutation}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td> \r\n");
+            out.write("</td> \n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.programme}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.userRole}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td>\r\n");
-            out.write("                  </tr>\r\n");
-            out.write("                  <tr style=\"line-height:25px\">\r\n");
-            out.write("                   \t<td>&nbsp</td>\r\n");
-            out.write("                   \t<td></td>\r\n");
-            out.write("                   \t<td>&nbsp</td>\r\n");
-            out.write("                   \t<td></td>\r\n");
-            out.write("\t              </tr>\r\n");
-            out.write("                  <tr>\r\n");
+            out.write("</td>\n");
+            out.write("                  </tr>\n");
+            out.write("                  <tr style=\"line-height:25px\">\n");
+            out.write("                   \t<td>&nbsp</td>\n");
+            out.write("                   \t<td></td>\n");
+            out.write("                   \t<td>&nbsp</td>\n");
+            out.write("                   \t<td></td>\n");
+            out.write("\t              </tr>\n");
+            out.write("                  <tr>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f4(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f5(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f6(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f7(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
-            out.write("                  </tr>\r\n");
-            out.write("                  <tr>\r\n");
+            out.write("</td>\n");
+            out.write("                  </tr>\n");
+            out.write("                  <tr>\n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.email}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td> \r\n");
+            out.write("</td> \n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.accountStatus}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td> \r\n");
+            out.write("</td> \n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.dateOfBirth}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.gender}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td>\r\n");
-            out.write("                  </tr>\r\n");
-            out.write("                  \r\n");
-            out.write("                  <tr style=\"line-height:25px\">\r\n");
-            out.write("                   \t<td>&nbsp</td>\r\n");
-            out.write("                   \t<td></td>\r\n");
-            out.write("                   \t<td>&nbsp</td>\r\n");
-            out.write("                   \t<td></td>\r\n");
-            out.write("\t              </tr>\r\n");
-            out.write("\t              \r\n");
-            out.write("\t              <tr>\r\n");
+            out.write("</td>\n");
+            out.write("                  </tr>\n");
+            out.write("                  \n");
+            out.write("                  <tr style=\"line-height:25px\">\n");
+            out.write("                   \t<td>&nbsp</td>\n");
+            out.write("                   \t<td></td>\n");
+            out.write("                   \t<td>&nbsp</td>\n");
+            out.write("                   \t<td></td>\n");
+            out.write("\t              </tr>\n");
+            out.write("\t              \n");
+            out.write("\t              <tr>\n");
             out.write("\t                <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f8(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f9(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f10(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td width=\"25%\" style=\"font-weight:bold\">");
             if (_jspx_meth_spring_005fmessage_005f11(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("</td>\r\n");
-            out.write("                  </tr>\r\n");
-            out.write("                  <tr>\r\n");
+            out.write("</td>\n");
+            out.write("                  </tr>\n");
+            out.write("                  <tr>\n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.officeTel}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td>\r\n");
+            out.write("</td>\n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.mobileNum}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td> \r\n");
+            out.write("</td> \n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.lastSuccessLoginDate}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td> \r\n");
+            out.write("</td> \n");
             out.write("                    <td>");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${command.lastFailedLoginDate}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-            out.write("</td>   \r\n");
-            out.write("                  </tr>\r\n");
-            out.write("               </table>\r\n");
-            out.write("             \r\n");
-            out.write("           <br>\r\n");
-            out.write("           <div style=\"margin-left:40px\">\r\n");
-            out.write("               <label class=\"bold\" style=\"font-size:14px\">Accounts</label>\r\n");
+            out.write("</td>   \n");
+            out.write("                  </tr>\n");
+            out.write("               </table>\n");
+            out.write("             \n");
+            out.write("           <br>\n");
+            out.write("           <div style=\"margin-left:40px\">\n");
+            out.write("               <label class=\"bold\" style=\"font-size:14px\">Accounts</label>\n");
             out.write("\t           ");
             if (_jspx_meth_c_005fforEach_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("\r\n");
-            out.write("           \r\n");
-            out.write("           </div>\r\n");
-            out.write("           \r\n");
-            out.write("           \r\n");
+            out.write("\n");
+            out.write("           \n");
+            out.write("           </div>\n");
+            out.write("           \n");
+            out.write("           \n");
             out.write("           ");
             if (_jspx_meth_form_005fhidden_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("\r\n");
-            out.write("           </fieldset>\r\n");
-            out.write("       \r\n");
-            out.write("       </div>\r\n");
+            out.write("\n");
+            out.write("           </fieldset>\n");
+            out.write("       \n");
+            out.write("       </div>\n");
             out.write("   ");
             int evalDoAfterBody = _jspx_th_form_005fform_005f0.doAfterBody();
             if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -293,8 +293,8 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
         _jspx_th_form_005fform_005f0.doFinally();
         _005fjspx_005ftagPool_005fform_005fform_0026_005fmethod_005fid_005fcommandName_005fclass_005faction.reuse(_jspx_th_form_005fform_005f0);
       }
-      out.write("\r\n");
-      out.write("</fieldset>\r\n");
+      out.write("\n");
+      out.write("</fieldset>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -669,10 +669,10 @@ public final class userDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       int _jspx_eval_c_005fforEach_005f0 = _jspx_th_c_005fforEach_005f0.doStartTag();
       if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\r\n");
+          out.write("\n");
           out.write("\t               ");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${selectedAccount}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("<br><br>\r\n");
+          out.write("<br><br>\n");
           out.write("\t           ");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
