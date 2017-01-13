@@ -12,8 +12,6 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.joda.time.DateTime;
 import org.springframework.security.core.GrantedAuthority;
 
-import com.sun.tools.classfile.StackMap_attribute.stack_map_frame;
-
 import sg.com.fbs.model.business.pojo.BaseLogPojo;
 import sg.com.fbs.model.system.datalog.DataLogIF;
 import sg.com.fbs.model.system.transactionlog.TransactionLogIF;

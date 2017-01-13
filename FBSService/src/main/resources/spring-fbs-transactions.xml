@@ -36,7 +36,7 @@
 </bean> -->		
 
 <!-- For DB2 -->
-<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
   <property name="driverClassName">
      <value>com.ibm.db2.jcc.DB2Driver</value>
   </property>
@@ -49,8 +49,23 @@
   <property name="password">
      <value>sp@ntuc1234</value>
   </property>
-</bean>	
+</bean>	 -->
 
+<!-- For MySql -->
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+  <property name="driverClassName">
+     <value>com.mysql.jdbc.Driver</value>
+  </property>
+  <property name="url">
+     <value>jdbc:mysql://localhost:3306/FBS</value>
+  </property>
+  <property name="username">
+     <value>root</value>
+  </property>
+  <property name="password">
+     <value>xukun1988929</value>
+  </property>
+</bean>	
 
 <!-- For Spring Hibernate Integration -->
 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
