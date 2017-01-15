@@ -15,9 +15,9 @@
        <table class="table ftable table-bordered table-hover table-condensed">
          <thead>
            <tr>
-              <th><spring:message code="fbs.common.account.ui.label.budget.config.fy"/></th>
-              <th><spring:message code="fbs.common.account.ui.label.budget.config.budgeting.start.date"/></th>
-              <th><spring:message code="fbs.common.account.ui.label.budget.config.budgeting.end.date"/></th>
+              <th><spring:message code="fbs.common.budgetconfig.ui.label.fy"/></th>
+              <th><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.start.date"/></th>
+              <th><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.end.date"/></th>
            </tr>
          </thead>
          <tbody>
@@ -31,10 +31,48 @@
          </tbody>
        </table>
 	 </netui:grid>
+	<br><br>
+	<hr>
 	
-	
-	<form:form method="POST" commandName="command" action="saveNewBudgeting.action" class="clearfix" id="newBudgetingForm">
-	
+	<form:form method="POST" commandName="command" action="saveNewBudgeting.action" class="clearfix form-horizontal" id="newBudgetingForm">
+	   <div class="clearfix">
+	      <div class="control-group inline-control">
+	          <label class="control-label" for="budgetStartDate"><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.start.date" /></label>
+			  <div class="controls">
+				 <netui:dateinput id="budgetStartDate" path="budgetStartDate" cssClass="input-medium" maxlength="10" placeholder="dd/MM/yyyy" />
+				 <button id="budgetStartDateBtn" type="button" class="btn">
+					 <i class=" icon-calendar"></i>
+				 </button>				 
+			  </div>
+	      </div>
+	    
+	     <div class="control-group inline-control">
+	          <label class="control-label" for="budgetCutOffDate"><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.cutoff.date" /></label>
+			  <div class="controls">
+				 <netui:dateinput id="budgetCutOffDate" path="budgetCutOffDate" cssClass="input-medium" maxlength="10" placeholder="dd/MM/yyyy" />
+				 <button id="budgetCutOffDateBtn" type="button" class="btn">
+					 <i class=" icon-calendar"></i>
+				 </button>				 
+			  </div>
+	      </div>
+	      
+	      <div class="control-group inline-control">
+	          <label class="control-label" for="endDate"><spring:message code="fbs.common.budgetconfig.ui.label.budget.for.fy" /></label>
+			  <div class="controls">
+				  ${command.budgetForFY}
+			  </div>
+	      </div>
+	      
+	       <div style="margin-left:25px">	
+			 <button id="btnSearch" name="btnSearch" class="bt bt1" type="submit">Search</button>
+			 <button id="btnReset" name="btnReset" class="bt bt1" type="reset">Reset</button>
+		   </div>
+	    </div>
 	</form:form>
 	
 </fieldset>
+
+<script type="text/javascript">
+	$('#budgetStartDate').myDatePicker('#budgetStartDateBtn');
+	$('#budgetCutOffDate').myDatePicker('#budgetCutOffDateBtn');	
+</script>

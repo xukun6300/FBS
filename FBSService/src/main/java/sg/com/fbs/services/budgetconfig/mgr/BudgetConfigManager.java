@@ -1,5 +1,7 @@
 package sg.com.fbs.services.budgetconfig.mgr;
 
+import java.util.Calendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
@@ -33,6 +35,21 @@ public class BudgetConfigManager extends CommonFacade{
 		}
 	}
 	
+	public Integer getBudgetForFY() throws BudgetConfigException{
+		Calendar calendar = Calendar.getInstance();
+		Integer currentYear = calendar.get(Calendar.YEAR);
+		try {
+			BudgetConfig currentYearBgtCfg = (BudgetConfig) budgetConfigDao.findObject(BudgetConfig.class, BudgetConfig.BUDGET_CONFIG_FY, currentYear, BudgetConfig.ACT_IND, "Y");
+	        if(currentYearBgtCfg!=null){
+	        	return currentYear++;
+	        }else {
+				return currentYear;
+			}
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new BudgetConfigException(e.getMessageCode(), e);
+		}
+	}
 	
 	
 }

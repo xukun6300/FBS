@@ -30,6 +30,8 @@ public class ConfigNewBudgetingForm extends BusinessQueryWebForm{
 	
 	private DateTime budgetCutOffDate;
 	
+	private int budgetForFY;
+	
 	public void setBudgetCutOffDate(DateTime budgetCutOffDate) {
 		this.budgetCutOffDate = budgetCutOffDate;
 	}
@@ -44,6 +46,14 @@ public class ConfigNewBudgetingForm extends BusinessQueryWebForm{
 	
 	public DateTime getBudgetStartDate() {
 		return budgetStartDate;
+	}
+	
+	public void setBudgetForFY(int budgetForFY) {
+		this.budgetForFY = budgetForFY;
+	}
+	
+	public int getBudgetForFY() {
+		return budgetForFY;
 	}
 	
 	@Override

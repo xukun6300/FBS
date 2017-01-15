@@ -31,6 +31,7 @@ public class BudgetConfigCRUD implements WebCRUDIF{
 		try {
 			if(form instanceof ConfigNewBudgetingForm){
 				ConfigNewBudgetingForm configNewBudgetingForm = (ConfigNewBudgetingForm) form;
+				configNewBudgetingForm.setBudgetForFY(budgetConfigManagerBD.getBudgetForFY());
 				response = budgetConfigManagerBD.searchBudgetConfig(configNewBudgetingForm.getSearchCriteria(request));
 			}
 			

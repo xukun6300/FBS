@@ -57,14 +57,11 @@
 		      
 		      <li role="presentation" class="dropdown">
 		        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">
-		          Menu4 <span class="caret"></span>
+		          Budget Configuration <span class="caret"></span>
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
-		          <li><a href="#">Action</a></li>
-		          <li><a href="#">Another action</a></li>
-		          <li><a href="#">Something else here</a></li>
-		        <!--   <li class="divider"></li> -->
-		          <li><a href="#">Separated link</a></li>
+		          <li><a href="${contextPath}/budgetconfig/showConfigNewBudgeting.action">Config New Budget</a></li>
+		          <li><a href="${contextPath}/budgetconfig/showConfigWorkingBudget.action">Config Working Budget</a></li>		  
 		        </ul>
 		      </li>    
 		    </ul>

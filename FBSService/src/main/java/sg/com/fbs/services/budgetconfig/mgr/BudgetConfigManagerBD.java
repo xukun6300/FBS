@@ -29,4 +29,13 @@ public class BudgetConfigManagerBD extends BusinessDelegate{
 		}
 	}
 	
+	public Integer getBudgetForFY() throws BudgetConfigException{
+		try {
+			Object obj = budgetConfigManager.getBudgetForFY();
+			return (Integer) obj;
+		} catch (ApplicationCoreException e) {
+			throw new BudgetConfigException(e.getMessageCode(), e);
+		}
+	}
+	
 }
