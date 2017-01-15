@@ -71,36 +71,35 @@ public final class userUncaughtException_jsp extends org.apache.jasper.runtime.H
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!DOCTYPE html> \r\n");
-      out.write("<html lang=\"en\">\r\n");
-      out.write("<head>\r\n");
-      out.write("\t<meta charset=\"utf-8\">\r\n");
-      out.write("\t<title>Error</title>\r\n");
-      out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n");
-      out.write("    <meta name=\"description\" content=\"\">\r\n");
-      out.write("    <meta name=\"author\" content=\"\">\r\n");
-      out.write("    \r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html> \n");
+      out.write("<html lang=\"en\">\n");
+      out.write("<head>\n");
+      out.write("\t<meta charset=\"utf-8\">\n");
+      out.write("\t<title>Error</title>\n");
+      out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+      out.write("    <meta name=\"description\" content=\"\">\n");
+      out.write("    <meta name=\"author\" content=\"\">\n");
+      out.write("    \n");
       out.write("    ");
       if (_jspx_meth_c_005fimport_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("</head>\r\n");
-      out.write("<body>\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("</head>\n");
+      out.write("<body>\n");
+      out.write("\n");
       out.write("\t");
       if (_jspx_meth_c_005fset_005f0(_jspx_page_context))
         return;
-      out.write('\r');
       out.write('\n');
       out.write('	');
       //  c:set
@@ -117,39 +116,39 @@ public final class userUncaughtException_jsp extends org.apache.jasper.runtime.H
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f1);
-      out.write("\r\n");
-      out.write("\t\r\n");
-      out.write("\t<div class=\"container-fluid\">\r\n");
-      out.write("\t\t<div class=\"row-fluid\">\r\n");
-      out.write("\t\t\t<div class=\"block-center span12\">\r\n");
-      out.write("\t\t\t\t<div class=\"alert alert-error\">\r\n");
-      out.write("\t\t\t\t\t<span class=\"label label-important\"> \r\n");
-      out.write("\t\t\t\t\t\t<div>\r\n");
+      out.write("\n");
+      out.write("\t\n");
+      out.write("\t<div class=\"container-fluid\">\n");
+      out.write("\t\t<div class=\"row-fluid\">\n");
+      out.write("\t\t\t<div class=\"block-center span12\">\n");
+      out.write("\t\t\t\t<div class=\"alert alert-error\">\n");
+      out.write("\t\t\t\t\t<span class=\"label label-important\"> \n");
+      out.write("\t\t\t\t\t\t<div>\n");
       out.write("\t\t\t\t\t\t\tAn error has occurred at ");
       if (_jspx_meth_c_005fout_005f0(_jspx_page_context))
         return;
-      out.write(" on \r\n");
+      out.write(" on \n");
       out.write("\t\t\t\t\t\t\t");
       if (_jspx_meth_fmt_005fformatDate_005f0(_jspx_page_context))
         return;
-      out.write(".\r\n");
-      out.write("\t\t\t\t\t\t\t<div/> \r\n");
-      out.write("\t\t\t\t\t\t\tPlease take a screen shot of this message and contact the system administrator.\r\n");
+      out.write(".\n");
+      out.write("\t\t\t\t\t\t\t<div/> \n");
+      out.write("\t\t\t\t\t\t\tPlease take a screen shot of this message and contact the system administrator.\n");
       out.write("\t\t\t\t\t\t\t");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${exception }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("\r\n");
+      out.write("\n");
       out.write("\t\t\t\t\t\t\t");
       if (_jspx_meth_c_005fforEach_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\t\t\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t\t</span>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
-      out.write("\t\t\t</div>\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t</div>\r\n");
-      out.write("\r\n");
-      out.write("</body>\r\n");
+      out.write("\n");
+      out.write("\t\t\t\t\t\t</div>\n");
+      out.write("\t\t\t\t\t</span>\n");
+      out.write("\t\t\t\t</div>\n");
+      out.write("\t\t\t</div>\n");
+      out.write("\t\t</div>\n");
+      out.write("\t</div>\n");
+      out.write("\n");
+      out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -268,11 +267,11 @@ public final class userUncaughtException_jsp extends org.apache.jasper.runtime.H
       int _jspx_eval_c_005fforEach_005f0 = _jspx_th_c_005fforEach_005f0.doStartTag();
       if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\r\n");
+          out.write("\n");
           out.write("    ");
           if (_jspx_meth_c_005fout_005f1(_jspx_th_c_005fforEach_005f0, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f0))
             return true;
-          out.write("<br/>\r\n");
+          out.write("<br/>\n");
           out.write("  ");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

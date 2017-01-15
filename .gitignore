@@ -60,3 +60,15 @@ FBSWeb/target/classes/sg/com/fbs/web/ui/form/system/security/uam/RegisterUserFor
 *.class
 FBSService/target/classes/sg/com/fbs/services/security/password/AbstractCryptoProvider.class
 FBSService/target/classes/sg/com/fbs/services/security/password/AbstractCryptoProvider.class
+
+*.class
+
+*.class
+
+*.class
+
+FBSWebPortal/target/tomcat/work/localEngine/localhost/FBSWebPortal/org/apache/jsp/WEB_002dINF/jsp/layout/menu_jsp.class
+
+*.class
+
+*.class
