@@ -41,9 +41,9 @@ public class BudgetConfigManagerBD extends BusinessDelegate{
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest) throws BudgetConfigException{
+	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest, CriteriaIF criteria) throws BudgetConfigException{
 		try {
-			Object obj = budgetConfigManager.run(budgetConfigRequest);
+			Object obj = budgetConfigManager.run(budgetConfigRequest, criteria);
 			return (IResponseCRUD) obj;
 		} catch (ApplicationCoreException e) {
 			throw new BudgetConfigException(e.getMessageCode(), e);

@@ -72,3 +72,7 @@ FBSWebPortal/target/tomcat/work/localEngine/localhost/FBSWebPortal/org/apache/js
 *.class
 
 *.class
+
+*.log
+
+*.log

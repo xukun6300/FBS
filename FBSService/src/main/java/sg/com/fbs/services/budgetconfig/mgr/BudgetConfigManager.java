@@ -54,16 +54,23 @@ public class BudgetConfigManager extends CommonFacade{
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest) throws BudgetConfigException{
-		IResponseCRUD response = new ResponseCRUD();
+	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest, CriteriaIF criteria) throws BudgetConfigException{
 		BudgetConfig budgetConfig = new BudgetConfig();
 		if(budgetConfigRequest!=null){
 			budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetConfigFY());
 			budgetConfig.setBudgetingStartDt(budgetConfigRequest.getBudgetStartDate());
 			budgetConfig.setBudgetingEndDt(budgetConfigRequest.getBudgetCutOffDate());
 		}
-		response.setCrudResult(budgetConfigDao.saveOrUpdate(budgetConfig));
-		return response;
+		budgetConfigDao.saveOrUpdate(budgetConfig);
+		budgetConfigDao.getSession().flush();
+		try {
+			//after save new budget config, need to show the list again
+			IResponseCRUD response = budgetConfigDao.search(BudgetConfig.class, criteria);
+			return response;
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new BudgetConfigException(e.getMessageCode(), e);
+		}
 	}
 	
 	

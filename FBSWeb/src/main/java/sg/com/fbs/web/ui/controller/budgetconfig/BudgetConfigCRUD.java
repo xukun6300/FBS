@@ -58,8 +58,11 @@ public class BudgetConfigCRUD implements WebCRUDIF{
 		
 		try {
 			if(pojoRequest instanceof BudgetConfigRequest){
-				BudgetConfigRequest budgetConfigRequest = (BudgetConfigRequest) pojoRequest;
-				response = budgetConfigManagerBD.saveNewBudgeting(budgetConfigRequest);
+				if(form instanceof ConfigNewBudgetingForm){
+					ConfigNewBudgetingForm configNewBudgetingForm = (ConfigNewBudgetingForm) form;
+					BudgetConfigRequest budgetConfigRequest = (BudgetConfigRequest) pojoRequest;
+					response = budgetConfigManagerBD.saveNewBudgeting(budgetConfigRequest,configNewBudgetingForm.getSearchCriteria(request));
+				}
 			}
 			
 		} catch (BudgetConfigException e) {
