@@ -63,8 +63,8 @@
 			  </div>
 	      </div>
 	      
-	       <div style="margin-left:25px">	
-			 <button id="btnSearch" name="btnSearch" class="bt bt1" type="submit">Search</button>
+	       <div style="margin-left:185px">	
+			 <button id="btnSearch" name="btnSearch" class="bt bt1" type="submit">Save</button>
 			 <button id="btnReset" name="btnReset" class="bt bt1" type="reset">Reset</button>
 		   </div>
 	    </div>

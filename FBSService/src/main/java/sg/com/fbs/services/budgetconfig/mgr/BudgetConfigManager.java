@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
 import sg.com.fbs.model.budgetconfig.BudgetConfig;
+import sg.com.fbs.model.budgetconfig.BudgetConfigRequest;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
+import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.budgetconfig.dao.BudgetConfigDao;
 import sg.com.fbs.services.budgetconfig.exception.BudgetConfigException;
 
@@ -49,6 +51,19 @@ public class BudgetConfigManager extends CommonFacade{
 			e.printStackTrace();
 			throw new BudgetConfigException(e.getMessageCode(), e);
 		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest) throws BudgetConfigException{
+		IResponseCRUD response = new ResponseCRUD();
+		BudgetConfig budgetConfig = new BudgetConfig();
+		if(budgetConfigRequest!=null){
+			budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetConfigFY());
+			budgetConfig.setBudgetingStartDt(budgetConfigRequest.getBudgetStartDate());
+			budgetConfig.setBudgetingEndDt(budgetConfigRequest.getBudgetCutOffDate());
+		}
+		response.setCrudResult(budgetConfigDao.saveOrUpdate(budgetConfig));
+		return response;
 	}
 	
 	

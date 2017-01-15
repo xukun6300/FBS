@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
+import sg.com.fbs.model.budgetconfig.BudgetConfig;
+import sg.com.fbs.model.budgetconfig.BudgetConfigRequest;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.budgetconfig.exception.BudgetConfigException;
@@ -22,7 +24,7 @@ public class BudgetConfigManagerBD extends BusinessDelegate{
 	@SuppressWarnings("rawtypes")
 	public IResponseCRUD searchBudgetConfig(CriteriaIF criteria) throws BudgetConfigException{
 		try {
-			Object obj = budgetConfigManager.searchBudgetConfig(criteria);
+			Object obj = budgetConfigManager.run(criteria);
 			return (IResponseCRUD) obj;
 		} catch (ApplicationCoreException e) {
 			throw new BudgetConfigException(e.getMessageCode(), e);
@@ -31,8 +33,18 @@ public class BudgetConfigManagerBD extends BusinessDelegate{
 	
 	public Integer getBudgetForFY() throws BudgetConfigException{
 		try {
-			Object obj = budgetConfigManager.getBudgetForFY();
+			Object obj = budgetConfigManager.run();
 			return (Integer) obj;
+		} catch (ApplicationCoreException e) {
+			throw new BudgetConfigException(e.getMessageCode(), e);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest) throws BudgetConfigException{
+		try {
+			Object obj = budgetConfigManager.run(budgetConfigRequest);
+			return (IResponseCRUD) obj;
 		} catch (ApplicationCoreException e) {
 			throw new BudgetConfigException(e.getMessageCode(), e);
 		}

@@ -61,6 +61,16 @@ public class BudgetConfigController extends BaseWebController{
 		return mvc;
 	}
 	
+	public ModelAndView saveNewBudgeting(HttpServletRequest request, HttpServletResponse response){
+		ConfigNewBudgetingForm configNewBudgetingForm = new ConfigNewBudgetingForm();
+		BudgetConfigRequest budgetConfigRequest = new BudgetConfigRequest();
+		setCrudMode(WebCRUDEnum.INSERT_MODE);
+		setCRUDOperation(budgetConfigCrud);
+		setValidationErrorPage(BudgetConfigWebEnum.SHOW_CONFIG_NEW_BUDGETING_JSP.toString());
+		Mvc mvc = new Mvc(configNewBudgetingForm, BudgetConfigWebEnum.SHOW_CONFIG_NEW_BUDGETING_JSP.toString(), budgetConfigRequest);
+		return mvc;
+	}
+	
 	
 	public ModelAndView showConfigWorkingBudget(HttpServletRequest request, HttpServletResponse response){
 		

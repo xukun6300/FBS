@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import sg.com.fbs.core.techinfra.exception.CRUDException;
 import sg.com.fbs.core.techinfra.web.WebCRUDIF;
+import sg.com.fbs.model.budgetconfig.BudgetConfigRequest;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.budgetconfig.exception.BudgetConfigException;
@@ -53,8 +54,19 @@ public class BudgetConfigCRUD implements WebCRUDIF{
 	@Override
 	public IResponseCRUD<?> insert(BasePojoRequest pojoRequest, Object form, HttpServletRequest request)
 			throws CRUDException {
-		// TODO Auto-generated method stub
-		return null;
+		IResponseCRUD<?> response = null;
+		
+		try {
+			if(pojoRequest instanceof BudgetConfigRequest){
+				BudgetConfigRequest budgetConfigRequest = (BudgetConfigRequest) pojoRequest;
+				response = budgetConfigManagerBD.saveNewBudgeting(budgetConfigRequest);
+			}
+			
+		} catch (BudgetConfigException e) {
+			throw new CRUDException(e.getMessageCode(), e);
+		}
+		
+		return response;
 	}
 
 	@Override
