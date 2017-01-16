@@ -21,8 +21,7 @@ import sg.com.fbs.web.ui.form.budgetconfig.ConfigNewBudgetingForm;
  */
 public class BudgetConfigCRUD implements WebCRUDIF{
 
-	@Autowired
-	private BudgetConfigManagerBD budgetConfigManagerBD;
+	private BudgetConfigManagerBD budgetConfigManagerBD = new BudgetConfigManagerBD();
 	
 	@Override
 	public IResponseCRUD<?> runQuery(BasePojoRequest pojoRequest, Object form, HttpServletRequest request)
@@ -32,7 +31,7 @@ public class BudgetConfigCRUD implements WebCRUDIF{
 		try {
 			if(form instanceof ConfigNewBudgetingForm){
 				ConfigNewBudgetingForm configNewBudgetingForm = (ConfigNewBudgetingForm) form;
-				configNewBudgetingForm.setBudgetForFY(budgetConfigManagerBD.getBudgetForFY());
+				//configNewBudgetingForm.setBudgetForFY(budgetConfigManagerBD.getBudgetForFY());
 				response = budgetConfigManagerBD.searchBudgetConfig(configNewBudgetingForm.getSearchCriteria(request));
 			}
 			

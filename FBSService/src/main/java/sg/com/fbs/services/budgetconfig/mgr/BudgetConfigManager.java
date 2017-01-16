@@ -1,16 +1,14 @@
 package sg.com.fbs.services.budgetconfig.mgr;
 
 import java.util.Calendar;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
+import java.util.LinkedHashMap;
+import java.util.Map;
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
 import sg.com.fbs.model.budgetconfig.BudgetConfig;
 import sg.com.fbs.model.budgetconfig.BudgetConfigRequest;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
-import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.services.budgetconfig.dao.BudgetConfigDao;
 import sg.com.fbs.services.budgetconfig.exception.BudgetConfigException;
 
@@ -22,8 +20,7 @@ import sg.com.fbs.services.budgetconfig.exception.BudgetConfigException;
  */
 public class BudgetConfigManager extends CommonFacade{
 
-	@Autowired
-	private BudgetConfigDao budgetConfigDao;
+	private BudgetConfigDao budgetConfigDao = new BudgetConfigDao();
 	
 	
 	@SuppressWarnings("rawtypes")
@@ -51,6 +48,16 @@ public class BudgetConfigManager extends CommonFacade{
 			e.printStackTrace();
 			throw new BudgetConfigException(e.getMessageCode(), e);
 		}
+	}
+	
+	public Map<String, String> getBudgetForFYs(){
+		Map<String, String> resultMap = new LinkedHashMap<String, String>();
+		Calendar calendar = Calendar.getInstance();
+		Integer currentFy = calendar.get(Calendar.YEAR);
+		resultMap.put(String.valueOf(currentFy), String.valueOf(currentFy));
+		Integer nextFy = ++currentFy;
+		resultMap.put(String.valueOf(nextFy), String.valueOf(nextFy));				
+		return resultMap;
 	}
 	
 	@SuppressWarnings("rawtypes")

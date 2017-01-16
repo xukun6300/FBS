@@ -56,7 +56,7 @@ public class UserAccountManagementController extends BaseWebController {
 		String[] views = {
 				UserAccountManagementWebEnum.SHOW_REGISTER_USER_JSP.toString(),
 				UserAccountManagementWebEnum.USER_SEARCH_JSP.toString()
-				};
+		};
 		
 		for (String view : views) {
 			map.put(view, comboInitializer);

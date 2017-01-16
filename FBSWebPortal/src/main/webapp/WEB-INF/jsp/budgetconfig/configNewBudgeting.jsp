@@ -58,8 +58,8 @@
 	      
 	      <div class="control-group inline-control">
 	          <label class="control-label" for="endDate"><spring:message code="fbs.common.budgetconfig.ui.label.budget.for.fy" /></label>
-			  <div class="controls">
-				  ${command.budgetForFY}
+			  <div class="controls">			  
+			     <form:radiobuttons path="budgetForFY" items="${budgetForFYs}"></form:radiobuttons>
 			  </div>
 	      </div>
 	      

@@ -1,6 +1,7 @@
 package sg.com.fbs.web.ui.controller.budgetconfig;
 
 import sg.com.fbs.core.techinfra.web.WebDropDownListIF;
+import sg.com.fbs.web.ui.form.budgetconfig.ConfigNewBudgetingForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -31,4 +32,24 @@ public enum BudgetConfigWebEnum implements WebDropDownListIF{
 		}
 	},
 	
+	PLEASE_SELECT {
+		@Override
+		public String toString() {
+			return "Please Select";
+		}
+	},
+	
+	DEFAULT_VALUE {
+		@Override
+		public String toString() {
+			return "-1";
+		}
+	},
+	
+	BUDGET_FOR_FYS {
+		@Override
+		public String toString() {
+			return ConfigNewBudgetingForm.BUDGET_FOR_FYS;
+		}
+	},
 }

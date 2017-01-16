@@ -1,5 +1,7 @@
 package sg.com.fbs.services.budgetconfig.mgr;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
@@ -18,8 +20,7 @@ import sg.com.fbs.services.budgetconfig.exception.BudgetConfigException;
  */
 public class BudgetConfigManagerBD extends BusinessDelegate{
 
-	@Autowired
-	private BudgetConfigManager budgetConfigManager;
+	private BudgetConfigManager budgetConfigManager = new BudgetConfigManager();
 	
 	@SuppressWarnings("rawtypes")
 	public IResponseCRUD searchBudgetConfig(CriteriaIF criteria) throws BudgetConfigException{
@@ -40,6 +41,17 @@ public class BudgetConfigManagerBD extends BusinessDelegate{
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
+	public Map<String, String> getBudgetForFYs() throws BudgetConfigException{
+		try {
+			Object obj = budgetConfigManager.run();
+			return (Map<String, String>) obj;
+		} catch (ApplicationCoreException e) {
+			throw new BudgetConfigException(e.getMessageCode(), e);
+		}
+		
+	}
+	
 	@SuppressWarnings("rawtypes")
 	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest, CriteriaIF criteria) throws BudgetConfigException{
 		try {
@@ -49,5 +61,7 @@ public class BudgetConfigManagerBD extends BusinessDelegate{
 			throw new BudgetConfigException(e.getMessageCode(), e);
 		}
 	}
+	
+	
 	
 }

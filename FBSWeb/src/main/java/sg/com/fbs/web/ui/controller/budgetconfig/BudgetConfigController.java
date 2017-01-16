@@ -10,6 +10,7 @@ import org.springframework.validation.Validator;
 import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.fbs.core.techinfra.web.BaseWebController;
+import sg.com.fbs.core.techinfra.web.DefaultRefDataSource;
 import sg.com.fbs.core.techinfra.web.Mvc;
 import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
 import sg.com.fbs.model.budgetconfig.BudgetConfigRequest;
@@ -23,11 +24,9 @@ import sg.com.fbs.web.ui.form.budgetconfig.ConfigNewBudgetingForm;
  */
 public class BudgetConfigController extends BaseWebController{
 
-	@Autowired
-	private BudgetConfigCRUD budgetConfigCrud;
-	
-	@Autowired
-	private BudgetConfigValidator budgetConfigValidator;
+	private BudgetConfigCRUD budgetConfigCrud = new BudgetConfigCRUD();
+
+	private BudgetConfigValidator budgetConfigValidator = new BudgetConfigValidator();
 	
 	@Override
 	public String getModuleWebContext() {
@@ -36,8 +35,19 @@ public class BudgetConfigController extends BaseWebController{
 
 	@Override
 	public void preLoad(Map<String, Object> map, HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		BudgetConfigWebEnum[] comboInitializer ={
+				BudgetConfigWebEnum.BUDGET_FOR_FYS			
+		};
 		
+		String[] views = {
+				BudgetConfigWebEnum.SHOW_CONFIG_NEW_BUDGETING_JSP.toString()
+		};
+		
+		for (String view : views) {
+			map.put(view, comboInitializer);
+		}
+		
+		map.put(DefaultRefDataSource.WEB_LIST_DATA_SOURCE, new BudgetConfigRefDataSource());
 	}
 
 	@Override

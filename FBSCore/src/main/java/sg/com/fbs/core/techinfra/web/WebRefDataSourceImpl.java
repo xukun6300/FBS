@@ -33,6 +33,7 @@ public class WebRefDataSourceImpl {
 		} catch (IllegalAccessException e) {
 			throw new ApplicationCoreException(e);
 		} catch (InvocationTargetException e) {
+			e.getCause().printStackTrace();
 			logger.warn("Invalid method on the web data source during population.");
 		}
  		

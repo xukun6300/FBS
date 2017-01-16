@@ -24,6 +24,8 @@ import sg.com.fbs.model.system.persistence.query.Order;
 public class ConfigNewBudgetingForm extends BusinessQueryWebForm{
 
 	private static final long serialVersionUID = 1L;
+	
+	public static final String BUDGET_FOR_FYS="budgetForFYs";
 
 	
 	private DateTime budgetStartDate;
