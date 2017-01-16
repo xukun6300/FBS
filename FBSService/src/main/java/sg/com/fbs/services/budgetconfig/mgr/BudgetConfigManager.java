@@ -54,9 +54,9 @@ public class BudgetConfigManager extends CommonFacade{
 		Map<String, String> resultMap = new LinkedHashMap<String, String>();
 		Calendar calendar = Calendar.getInstance();
 		Integer currentFy = calendar.get(Calendar.YEAR);
-		resultMap.put(String.valueOf(currentFy), String.valueOf(currentFy));
+		resultMap.put(String.valueOf(currentFy), String.valueOf(currentFy)+" (Current FY)");
 		Integer nextFy = ++currentFy;
-		resultMap.put(String.valueOf(nextFy), String.valueOf(nextFy));				
+		resultMap.put(String.valueOf(nextFy), String.valueOf(nextFy)+" (Next FY)");				
 		return resultMap;
 	}
 	
