@@ -22,7 +22,7 @@ public class BudgetConfigRequest extends BasePojoRequest{
 	
 	private DateTime workingBudgetEndDate;
 	
-	private int budgetConfigFY;
+	private int budgetForFY;
 	
 	private long budgetSnapshotId;
 	
@@ -58,12 +58,12 @@ public class BudgetConfigRequest extends BasePojoRequest{
 		this.workingBudgetEndDate = workingBudgetEndDate;
 	}
 
-	public int getBudgetConfigFY() {
-		return budgetConfigFY;
+	public int getBudgetForFY() {
+		return budgetForFY;
 	}
-
-	public void setBudgetConfigFY(int budgetConfigFY) {
-		this.budgetConfigFY = budgetConfigFY;
+	
+	public void setBudgetForFY(int budgetForFY) {
+		this.budgetForFY = budgetForFY;
 	}
 
 	public long getBudgetSnapshotId() {

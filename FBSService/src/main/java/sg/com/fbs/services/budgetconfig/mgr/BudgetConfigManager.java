@@ -64,7 +64,7 @@ public class BudgetConfigManager extends CommonFacade{
 	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest, CriteriaIF criteria) throws BudgetConfigException{
 		BudgetConfig budgetConfig = new BudgetConfig();
 		if(budgetConfigRequest!=null){
-			budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetConfigFY());
+			budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetForFY());
 			budgetConfig.setBudgetingStartDt(budgetConfigRequest.getBudgetStartDate());
 			budgetConfig.setBudgetingEndDt(budgetConfigRequest.getBudgetCutOffDate());
 		}
