@@ -76,7 +76,7 @@ public class ConfigNewBudgetingForm extends BusinessQueryWebForm{
 		}
 		
 		criteria.setOrder(orders);
-		criteria.setFetchAll(true);
+		criteria.setFetchAll(true); 
 		criteria.setRequestedPage(super.getRequestedPage());
 		return criteria;
 	}
