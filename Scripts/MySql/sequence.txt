@@ -1,0 +1,49 @@
+CREATE TABLE SEQUENCE_DATA(
+    SEQUENCE_NAME varchar(100) NOT NULL,
+    SEQUENCE_INCREMENT int(11) unsigned NOT NULL DEFAULT 1,
+    SEQUENCE_MIN_VALUE int(11) unsigned NOT NULL DEFAULT 1,
+    SEQUENCE_MAX_VALUE bigint(20) unsigned NOT NULL DEFAULT 18446744073709551615,
+    SEQUENCE_CUR_VALUE bigint(20) unsigned DEFAULT 1,
+    SEQUENCE_CYCLE boolean NOT NULL DEFAULT FALSE,
+    PRIMARY KEY (SEQUENCE_NAME)
+);
+
+
+DELIMITER $$
+ 
+CREATE FUNCTION nextval (seq_name varchar(100))
+RETURNS bigint(20) NOT DETERMINISTIC
+BEGIN
+    DECLARE cur_val bigint(20);
+ 
+    SELECT
+        sequence_cur_value INTO cur_val
+    FROM
+        sequence_data
+    WHERE
+        sequence_name = seq_name
+    ;
+ 
+    IF cur_val IS NOT NULL THEN
+        UPDATE
+            sequence_data
+        SET
+            sequence_cur_value = IF (
+                (sequence_cur_value + sequence_increment) > sequence_max_value,
+                IF (
+                    sequence_cycle = TRUE,
+                    sequence_min_value,
+                    NULL
+                ),
+                sequence_cur_value + sequence_increment
+            )
+        WHERE
+            sequence_name = seq_name
+        ;
+    END IF;
+ 
+    RETURN cur_val;
+END$$
+
+
+SELECT nextval('sq_my_sequence') as next_sequence;

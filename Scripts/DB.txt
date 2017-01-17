@@ -6,3 +6,7 @@ pwd: Xukun1988
 host name: localhost
 port: 1521
 service name :FBS
+
+
+MySql: username:root
+       password:xukun1988929
