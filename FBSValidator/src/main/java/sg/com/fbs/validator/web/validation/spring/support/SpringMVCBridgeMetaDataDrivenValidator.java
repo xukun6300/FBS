@@ -150,7 +150,7 @@ public class SpringMVCBridgeMetaDataDrivenValidator implements Validator {
 		return false;
 	}
 	
-	private List<PropertyDescriptor> getFieldsToValidate(Object object){
+    private List<PropertyDescriptor> getFieldsToValidate(Object object){
 		List<PropertyDescriptor> properties;
 		BeanInfo beanInfo = null;
 		try {
@@ -159,7 +159,7 @@ public class SpringMVCBridgeMetaDataDrivenValidator implements Validator {
 			throw new RuntimeException(e);
 		}
 		
-		PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
+		PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();//All class properties and super class properties
 		properties = new ArrayList<PropertyDescriptor>(propertyDescriptors.length);
 		for(PropertyDescriptor pd : propertyDescriptors){
 			if(!pd.getName().equals("class")){

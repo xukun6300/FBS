@@ -16,6 +16,15 @@
 .form-horizontal .controls {
     margin-left: 265px;
 }
+
+/*to hide date picker left and right navi arrow*/
+.ui-datepicker-prev {
+    display:none;
+}
+
+.ui-datepicker-next {
+    display:none;
+}
 </style>
 
 <fieldset>
@@ -86,8 +95,16 @@
 
 <script type="text/javascript">
 	$('#budgetStartDate').myDatePicker('#budgetStartDateBtn');
-	$('#budgetCutOffDate').myDatePicker('#budgetCutOffDateBtn');	
-	
+	//$('#budgetCutOffDate').myDatePicker('#budgetCutOffDateBtn');	
+	 var today=new Date();
+	 $('#budgetCutOffDate').fixedYearDatePicker('#budgetCutOffDateBtn', new Date(today.getFullYear()+2, 7, 1));	
+	/* $(document).ready(function () {
+	    var today=new Date();
+	    $("#budgetCutOffDate").datepicker({
+	        dateFormat: 'dd-mm-yy',
+	        changeMonth: true,
+	        changeYear: false
+	    }).datepicker("setDate", new Date(today.getFullYear()+2, today.getMonth(), today.getDate())); }); */
 </script>
 
 
