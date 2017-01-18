@@ -8,6 +8,16 @@
 
 <c:set var="conextPath" value="${pageContext.request.contextPath}"/>
 
+<style>
+.form-horizontal .control-label {
+    width: 260px;
+}
+
+.form-horizontal .controls {
+    margin-left: 265px;
+}
+</style>
+
 <fieldset>
 	<legend class="section">Configure New Budgeting For Next FY</legend>
 	
@@ -36,23 +46,25 @@
 	
 	<form:form method="POST" commandName="command" action="saveNewBudgeting.action" class="clearfix form-horizontal" id="newBudgetingForm">
 	   <div class="clearfix">
-	      <div class="control-group inline-control">
+	      <div class="control-group inline-control required">
 	          <label class="control-label" for="budgetStartDate"><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.start.date" /></label>
 			  <div class="controls">
 				 <netui:dateinput id="budgetStartDate" path="budgetStartDate" cssClass="input-medium" maxlength="10" placeholder="dd/MM/yyyy" />
 				 <button id="budgetStartDateBtn" type="button" class="btn">
 					 <i class=" icon-calendar"></i>
-				 </button>				 
+				 </button>
+				 <form:errors path="budgetStartDate" cssClass="mandatory" element="div"/>				 
 			  </div>
 	      </div>
 	    
-	     <div class="control-group inline-control">
+	     <div class="control-group inline-control required">
 	          <label class="control-label" for="budgetCutOffDate"><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.cutoff.date" /></label>
 			  <div class="controls">
 				 <netui:dateinput id="budgetCutOffDate" path="budgetCutOffDate" cssClass="input-medium" maxlength="10" placeholder="dd/MM/yyyy" />
 				 <button id="budgetCutOffDateBtn" type="button" class="btn">
 					 <i class=" icon-calendar"></i>
 				 </button>				 
+				 <form:errors path="budgetCutOffDate" cssClass="mandatory" element="div"/>
 			  </div>
 	      </div>
 	      
@@ -63,8 +75,8 @@
 			  </div>
 	      </div>
 	      
-	       <div style="margin-left:185px">	
-			 <button id="btnSearch" name="btnSearch" class="bt bt1" type="submit">Save</button>
+	       <div style="margin-left:285px">	
+			 <button id="btnSave" name="btnSave" class="bt bt1" type="submit">Save</button>
 			 <button id="btnReset" name="btnReset" class="bt bt1" type="reset">Reset</button>
 		   </div>
 	    </div>
@@ -75,4 +87,16 @@
 <script type="text/javascript">
 	$('#budgetStartDate').myDatePicker('#budgetStartDateBtn');
 	$('#budgetCutOffDate').myDatePicker('#budgetCutOffDateBtn');	
+	
 </script>
+
+
+
+
+
+
+
+
+
+
+

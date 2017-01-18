@@ -40,7 +40,7 @@ public class BudgetConfigManager extends CommonFacade{
 		try {
 			BudgetConfig currentYearBgtCfg = (BudgetConfig) budgetConfigDao.findObject(BudgetConfig.class, BudgetConfig.BUDGET_CONFIG_FY, currentYear, BudgetConfig.ACT_IND, "Y");
 	        if(currentYearBgtCfg!=null){
-	        	return currentYear++;
+	        	return ++currentYear;
 	        }else {
 				return currentYear;
 			}
