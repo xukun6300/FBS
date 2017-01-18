@@ -14,6 +14,7 @@ import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
 import sg.com.fbs.model.system.persistence.query.CriterionIF;
 import sg.com.fbs.model.system.persistence.query.Order;
+import sg.com.fbs.validator.annotations.validation.Required;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -34,6 +35,9 @@ public class ConfigNewBudgetingForm extends BusinessQueryWebForm{
 	
 	private int budgetForFY;
 	
+	@Required(detailMessage="{fbs.common.errors.required}",
+			  summaryMessage="{fbs.common.errors.required}",
+			  labelFields="fbs.common.budgetconfig.ui.label.budgeting.cutoff.date")
 	public void setBudgetCutOffDate(DateTime budgetCutOffDate) {
 		this.budgetCutOffDate = budgetCutOffDate;
 	}
@@ -42,6 +46,9 @@ public class ConfigNewBudgetingForm extends BusinessQueryWebForm{
 		return budgetCutOffDate;
 	}
 	
+	@Required(detailMessage="{fbs.common.errors.required}",
+			  summaryMessage="{fbs.common.errors.required}",
+			  labelFields="fbs.common.budgetconfig.ui.label.budgeting.start.date")
 	public void setBudgetStartDate(DateTime budgetStartDate) {
 		this.budgetStartDate = budgetStartDate;
 	}
