@@ -29,9 +29,15 @@
 
 <fieldset>
     <c:if test="${command.crudResponse.moreQueryResults.successMsg}">
-       <div class="alert alert-success alert-custom" id="deleteSuccessMsg">
+       <div class="alert alert-success alert-custom" id="saveSuccessMsg">
          <button data-dismiss="alert" class="close" type="button">×</button>
          New Budgeting for Financial Year <strong>${command.crudResponse.moreQueryResults.financialYear}</strong> Saved Successfully      
+       </div>
+    </c:if>
+    <c:if test="${command.crudResponse.moreQueryResults.errorMsg}">
+       <div class="alert alert-danger alert-custom" id="saveErrorMsg">
+         <button data-dismiss="alert" class="close" type="button">×</button>
+         System Error Happens When Save New Budgeting Configuration
        </div>
     </c:if>
 	<legend class="section">Configure New Budgeting For Next FY</legend>
@@ -106,11 +112,11 @@
 		 var nextFy = currentFy+1;
 	     	     
 		 if($("input[name=budgetForFY][value="+currentFy+"]").is(":checked")){
-			 
+			 alert('1');
 			 $('#budgetStartDate').budgetConfigDatePicker('#budgetStartDateBtn', new Date(currentFy, 7, 1), new Date());
 			 $('#budgetCutOffDate').budgetConfigDatePicker('#budgetCutOffDateBtn', new Date(currentFy, 7, 1),budgetStartDt);	
 		 }else if($("input[name=budgetForFY][value="+nextFy+"]").is(":checked")){
-			 
+			 alert('2');
 			 $('#budgetStartDate').budgetConfigDatePicker('#budgetStartDateBtn', new Date(nextFy, 7, 1), new Date());
 			 $('#budgetCutOffDate').budgetConfigDatePicker('#budgetCutOffDateBtn', new Date(nextFy, 7, 1), budgetStartDt);	
 		 } 
@@ -124,6 +130,11 @@
 			 $('#budgetCutOffDate').val("");
 			 toggleBudgetDateByFY(new Date());
 		 });		
+		 
+		 $("#btnReset").click(function(){
+			 toggleBudgetDateByFY(new Date());
+		 });
+		 
 		 
 		 $("#budgetStartDate").change(function(){
 			 var budgetStartDtStr = $('#budgetStartDate').val();	     

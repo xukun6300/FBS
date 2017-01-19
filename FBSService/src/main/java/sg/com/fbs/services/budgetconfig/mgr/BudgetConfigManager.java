@@ -44,7 +44,7 @@ public class BudgetConfigManager extends CommonFacade{
 		Calendar calendar = Calendar.getInstance();
 		Integer currentYear = calendar.get(Calendar.YEAR);
 		try {
-			BudgetConfig currentYearBgtCfg = (BudgetConfig) budgetConfigDao.findObject(BudgetConfig.class, BudgetConfig.BUDGET_CONFIG_FY, currentYear, BudgetConfig.ACT_IND, ActiveStatusEnum.YES.toString());
+			BudgetConfig currentYearBgtCfg = budgetConfigDao.getBudgetConfigByFy(currentYear);
 	        if(currentYearBgtCfg!=null){
 	        	return ++currentYear;
 	        }else {
@@ -60,7 +60,7 @@ public class BudgetConfigManager extends CommonFacade{
 		Map<String, String> resultMap = new LinkedHashMap<String, String>();
 		Integer currentFy = DateUtil.getCurrentYear();	
 		try {
-			BudgetConfig currentYearBgtCfg = (BudgetConfig) budgetConfigDao.findObject(BudgetConfig.class, BudgetConfig.BUDGET_CONFIG_FY, currentFy, BudgetConfig.ACT_IND, ActiveStatusEnum.YES.toString());
+			BudgetConfig currentYearBgtCfg = budgetConfigDao.getBudgetConfigByFy(currentFy);
 		    if(currentYearBgtCfg!=null){
 		    	DateTime budgetStartDt = currentYearBgtCfg.getBudgetingStartDt();
 		    	//If budget stage already started, cannot change budget period anymore.
@@ -81,21 +81,30 @@ public class BudgetConfigManager extends CommonFacade{
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest, CriteriaIF criteria) throws BudgetConfigException{
-		BudgetConfig budgetConfig = new BudgetConfig();
-		if(budgetConfigRequest!=null){
-			budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetForFY());
-			budgetConfig.setBudgetingStartDt(budgetConfigRequest.getBudgetStartDate());
-			budgetConfig.setBudgetingEndDt(budgetConfigRequest.getBudgetCutOffDate());
-		}
-		budgetConfigDao.saveOrUpdate(budgetConfig);
-		budgetConfigDao.getSession().flush();
 		try {
-			//after save new budget config, need to show the list again
-			IResponseCRUD response = budgetConfigDao.search(BudgetConfig.class, criteria);
-			
+			IResponseCRUD response = null;
 			Map<String, Object> moreQueryResult = new HashMap<String, Object>();
-			moreQueryResult.put("successMsg", true);
-			moreQueryResult.put("financialYear", budgetConfigRequest!=null?budgetConfigRequest.getBudgetForFY():"");
+			if(budgetConfigRequest!=null){
+				BudgetConfig budgetConfig = budgetConfigDao.getBudgetConfigByFy(budgetConfigRequest.getBudgetForFY());
+				if(budgetConfig==null){
+					budgetConfig = new BudgetConfig();
+				}
+				budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetForFY());
+				budgetConfig.setBudgetingStartDt(budgetConfigRequest.getBudgetStartDate());
+				budgetConfig.setBudgetingEndDt(budgetConfigRequest.getBudgetCutOffDate());
+				budgetConfigDao.saveOrUpdate(budgetConfig);
+				budgetConfigDao.getSession().flush();
+				
+				//after save new budget config, need to show the list again
+				response = budgetConfigDao.search(BudgetConfig.class, criteria);
+				
+				moreQueryResult.put("successMsg", true);
+				moreQueryResult.put("financialYear", budgetConfigRequest!=null ? budgetConfigRequest.getBudgetForFY() : "");
+				
+			}else{
+				moreQueryResult.put("errorMsg", true);
+			}
+		    
 			response.setMoreQueryResult(moreQueryResult);
 			return response;
 		} catch (DataAccessObjectException e) {
