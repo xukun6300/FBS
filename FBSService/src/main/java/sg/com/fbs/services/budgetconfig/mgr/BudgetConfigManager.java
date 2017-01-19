@@ -3,10 +3,15 @@ package sg.com.fbs.services.budgetconfig.mgr;
 import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import org.joda.time.DateTime;
+
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.core.techinfra.util.DateUtil;
 import sg.com.fbs.model.budgetconfig.BudgetConfig;
 import sg.com.fbs.model.budgetconfig.BudgetConfigRequest;
+import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.budgetconfig.dao.BudgetConfigDao;
@@ -38,7 +43,7 @@ public class BudgetConfigManager extends CommonFacade{
 		Calendar calendar = Calendar.getInstance();
 		Integer currentYear = calendar.get(Calendar.YEAR);
 		try {
-			BudgetConfig currentYearBgtCfg = (BudgetConfig) budgetConfigDao.findObject(BudgetConfig.class, BudgetConfig.BUDGET_CONFIG_FY, currentYear, BudgetConfig.ACT_IND, "Y");
+			BudgetConfig currentYearBgtCfg = (BudgetConfig) budgetConfigDao.findObject(BudgetConfig.class, BudgetConfig.BUDGET_CONFIG_FY, currentYear, BudgetConfig.ACT_IND, ActiveStatusEnum.YES.toString());
 	        if(currentYearBgtCfg!=null){
 	        	return ++currentYear;
 	        }else {
@@ -50,11 +55,24 @@ public class BudgetConfigManager extends CommonFacade{
 		}
 	}
 	
-	public Map<String, String> getBudgetForFYs(){
+	public Map<String, String> getBudgetForFYs() throws BudgetConfigException{
 		Map<String, String> resultMap = new LinkedHashMap<String, String>();
-		Calendar calendar = Calendar.getInstance();
-		Integer currentFy = calendar.get(Calendar.YEAR);
-		resultMap.put(String.valueOf(currentFy), String.valueOf(currentFy)+" (Current FY)");
+		Integer currentFy = DateUtil.getCurrentYear();	
+		try {
+			BudgetConfig currentYearBgtCfg = (BudgetConfig) budgetConfigDao.findObject(BudgetConfig.class, BudgetConfig.BUDGET_CONFIG_FY, currentFy, BudgetConfig.ACT_IND, ActiveStatusEnum.YES.toString());
+		    if(currentYearBgtCfg!=null){
+		    	DateTime budgetStartDt = currentYearBgtCfg.getBudgetingStartDt();
+		    	//If budget stage already started, cannot change budget period anymore.
+		    	if(budgetStartDt.isAfterNow()){ 
+		    		resultMap.put(String.valueOf(currentFy), String.valueOf(currentFy)+" (Current FY)");
+		    	}
+		    }else{
+		    	resultMap.put(String.valueOf(currentFy), String.valueOf(currentFy)+" (Current FY)");
+		    }
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new BudgetConfigException(e.getMessageCode(), e);
+		}
 		Integer nextFy = ++currentFy;
 		resultMap.put(String.valueOf(nextFy), String.valueOf(nextFy)+" (Next FY)");				
 		return resultMap;

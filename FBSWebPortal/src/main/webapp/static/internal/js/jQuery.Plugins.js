@@ -57,9 +57,12 @@ $.fn.dobDatePicker = function(btnName) {
     }
 };
 
-$.fn.fixedYearDatePicker = function(btnName, defaultDate) {
-var _self = this; //date input field
+$.fn.budgetConfigDatePicker = function(btnName, defaultBudgetDate, defaultMinDate) {
 	
+    var _self = this; //date input field
+    //need to destroy before change datepicker setting on the fly...
+    _self.datepicker('destroy');
+    
 	if(btnName!=null&& btnName!=''){
 		$(btnName).click(function(){
 			$(_self).datepicker('show');
@@ -70,7 +73,8 @@ var _self = this; //date input field
 		dateFormat:'dd/mm/yy',
 		changeMonth:true,
 		changeYear:false,
-		defaultDate:defaultDate,
+		defaultDate:defaultBudgetDate,
+		minDate: defaultMinDate,
 		fixFocusIE:false,
 		
 		// to fix IE after click 'today', the date picker not close issue

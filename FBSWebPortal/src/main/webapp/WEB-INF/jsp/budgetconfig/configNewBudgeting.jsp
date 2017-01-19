@@ -94,17 +94,51 @@
 </fieldset>
 
 <script type="text/javascript">
-	$('#budgetStartDate').myDatePicker('#budgetStartDateBtn');
-	//$('#budgetCutOffDate').myDatePicker('#budgetCutOffDateBtn');	
-	 var today=new Date();
-	 $('#budgetCutOffDate').fixedYearDatePicker('#budgetCutOffDateBtn', new Date(today.getFullYear()+2, 7, 1));	
-	/* $(document).ready(function () {
-	    var today=new Date();
-	    $("#budgetCutOffDate").datepicker({
-	        dateFormat: 'dd-mm-yy',
-	        changeMonth: true,
-	        changeYear: false
-	    }).datepicker("setDate", new Date(today.getFullYear()+2, today.getMonth(), today.getDate())); }); */
+ 
+	 function toggleBudgetDateByFY(budgetStartDt){
+		 var currentFy=new Date().getFullYear();
+		 var nextFy = currentFy+1;
+	     	     
+		 if($("input[name=budgetForFY][value="+currentFy+"]").is(":checked")){
+			 
+			 $('#budgetStartDate').budgetConfigDatePicker('#budgetStartDateBtn', new Date(currentFy, 7, 1), new Date());
+			 $('#budgetCutOffDate').budgetConfigDatePicker('#budgetCutOffDateBtn', new Date(currentFy, 7, 1),budgetStartDt);	
+		 }else if($("input[name=budgetForFY][value="+nextFy+"]").is(":checked")){
+			 
+			 $('#budgetStartDate').budgetConfigDatePicker('#budgetStartDateBtn', new Date(nextFy, 7, 1), new Date());
+			 $('#budgetCutOffDate').budgetConfigDatePicker('#budgetCutOffDateBtn', new Date(nextFy, 7, 1), budgetStartDt);	
+		 } 
+	 } 
+	
+	 $(document).ready(function(){
+		 toggleBudgetDateByFY(new Date());
+		 
+		 $("input[name=budgetForFY]").change(function(){
+			 $('#budgetStartDate').val("");
+			 $('#budgetCutOffDate').val("");
+			 toggleBudgetDateByFY(new Date());
+		 });		
+		 
+		 $("#budgetStartDate").change(function(){
+			 var budgetStartDtStr = $('#budgetStartDate').val();	     
+		     var startDate = budgetStartDtStr.split("/"); 
+		     var budgetStartDt = new Date(startDate[2],startDate[1]-1,startDate[0]);
+		     toggleBudgetDateByFY(budgetStartDt);
+		     
+		     //clear cut-off date if user change start date to some value greater that cut-off date
+		     if($('#budgetCutOffDate').val()){
+		    	 var budgetCutOffDtStr = $('#budgetCutOffDate').val();	     
+			     var cutOffDate = budgetCutOffDtStr.split("/"); 
+			     var budgetCutOffDt = new Date(cutOffDate[2],cutOffDate[1]-1,cutOffDate[0]);
+			     
+			     if(budgetStartDt>budgetCutOffDt){
+			    	 $('#budgetCutOffDate').val("");
+			     }
+		     }
+		 });
+		 
+	 });
+	 
 </script>
 
 
