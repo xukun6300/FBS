@@ -29,7 +29,7 @@
 				</div>
 				
 				<div class="control-group">
-					<label class="control-label" style="width:100px;font-weight: bold"><spring:message code="fbs.common.codemaintenance.ui.label.code.value.description"/></label>
+					<label class="control-label" style="width:100px;font-weight: bold"><spring:message code="fbs.common.codemaintenance.ui.label.description"/></label>
 					<label class="control-label" style="width:auto;text-align:left;padding-left:20px">${command.description}</label>
 				</div>
 				

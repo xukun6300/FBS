@@ -77,7 +77,7 @@ $(document).ready(function(){
 					<thead>
 						<tr>
 							<th><spring:message code="fbs.common.ui.label.pagination.sn"/></th>
-							<th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.code.value.description" name="description"/></th>
+							<th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.description" name="description"/></th>
 							<th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.code.value" name="codeValue"/></th>
 							<th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.effective.date" name="effectiveDate"/></th>
                             <th class="nowrap"><netui:gridSorting displayName="fbs.common.codemaintenance.ui.label.expiry.date" name="expiryDate"/></th>

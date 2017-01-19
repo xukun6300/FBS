@@ -38,8 +38,7 @@ public class BudgetConfigCRUD implements WebCRUDIF{
 		} catch (BudgetConfigException e) {
 			throw new CRUDException(e.getMessageCode(), e);
 		}
-		
-		
+	
 		return response;
 	}
 
@@ -60,6 +59,10 @@ public class BudgetConfigCRUD implements WebCRUDIF{
 				if(form instanceof ConfigNewBudgetingForm){
 					ConfigNewBudgetingForm configNewBudgetingForm = (ConfigNewBudgetingForm) form;
 					BudgetConfigRequest budgetConfigRequest = (BudgetConfigRequest) pojoRequest;
+					//clear form user input
+					configNewBudgetingForm.setBudgetStartDate(null);
+					configNewBudgetingForm.setBudgetCutOffDate(null);
+					configNewBudgetingForm.setBudgetForFY(budgetConfigManagerBD.getBudgetForFY());
 					response = budgetConfigManagerBD.saveNewBudgeting(budgetConfigRequest,configNewBudgetingForm.getSearchCriteria(request));
 				}
 			}

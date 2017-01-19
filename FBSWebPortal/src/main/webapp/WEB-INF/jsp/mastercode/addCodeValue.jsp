@@ -39,7 +39,7 @@
          </c:choose>
          
          <div class="control-group required">
-             <label class="control-label" for="description"><spring:message code="fbs.common.codemaintenance.ui.label.code.value.description"/></label>
+             <label class="control-label" for="description"><spring:message code="fbs.common.codemaintenance.ui.label.description"/></label>
              <div class="controls">
                 <form:input path="description" id="description" class="input-xlarge" maxlength="255"/>
                 <form:errors path="description" cssClass="mandatory" element="div"/>

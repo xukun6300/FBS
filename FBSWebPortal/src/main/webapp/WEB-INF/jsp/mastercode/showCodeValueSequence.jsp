@@ -39,7 +39,7 @@
 				<thead>
 					<tr>
 						<th><spring:message code="fbs.common.ui.label.pagination.sn"/></th>
-						<th class="nowrap"><spring:message code="fbs.common.codemaintenance.ui.label.code.value.description" /></th>
+						<th class="nowrap"><spring:message code="fbs.common.codemaintenance.ui.label.description" /></th>
 						<th class="nowrap"><spring:message code="fbs.common.codemaintenance.ui.label.code.value" /></th>
 						<th class="nowrap"><spring:message code="fbs.common.codemaintenance.ui.label.effective.date" /></th>
                         <th class="nowrap"><spring:message code="fbs.common.codemaintenance.ui.label.expiry.date" /></th>
