@@ -37,7 +37,7 @@ public class ConfigNewBudgetingForm extends BusinessQueryWebForm{
 	
 	@Required(detailMessage="{fbs.common.errors.required}",
 			  summaryMessage="{fbs.common.errors.required}",
-			  labelFields="fbs.common.budgetconfig.ui.label.budgeting.cutoff.date")
+			  labelFields="fbs.common.budgetconfig.ui.label.budgeting.date.cutoff")
 	public void setBudgetCutOffDate(DateTime budgetCutOffDate) {
 		this.budgetCutOffDate = budgetCutOffDate;
 	}
@@ -48,7 +48,7 @@ public class ConfigNewBudgetingForm extends BusinessQueryWebForm{
 	
 	@Required(detailMessage="{fbs.common.errors.required}",
 			  summaryMessage="{fbs.common.errors.required}",
-			  labelFields="fbs.common.budgetconfig.ui.label.budgeting.start.date")
+			  labelFields="fbs.common.budgetconfig.ui.label.budgeting.date.start")
 	public void setBudgetStartDate(DateTime budgetStartDate) {
 		this.budgetStartDate = budgetStartDate;
 	}

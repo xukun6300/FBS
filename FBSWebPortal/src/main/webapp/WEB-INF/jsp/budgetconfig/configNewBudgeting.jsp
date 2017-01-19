@@ -28,6 +28,12 @@
 </style>
 
 <fieldset>
+    <c:if test="${command.crudResponse.moreQueryResults.successMsg}">
+       <div class="alert alert-success alert-custom" id="deleteSuccessMsg">
+         <button data-dismiss="alert" class="close" type="button">×</button>
+         New Budgeting for Financial Year <strong>${command.crudResponse.moreQueryResults.financialYear}</strong> Saved Successfully      
+       </div>
+    </c:if>
 	<legend class="section">Configure New Budgeting For Next FY</legend>
 	
 	 <netui:grid queryFormName="command" action="showConfigNewBudgeting.action">
@@ -56,7 +62,7 @@
 	<form:form method="POST" commandName="command" action="saveNewBudgeting.action" class="clearfix form-horizontal" id="newBudgetingForm">
 	   <div class="clearfix">
 	      <div class="control-group inline-control required">
-	          <label class="control-label" for="budgetStartDate"><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.start.date" /></label>
+	          <label class="control-label" for="budgetStartDate"><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.date.start" /></label>
 			  <div class="controls">
 				 <netui:dateinput id="budgetStartDate" path="budgetStartDate" cssClass="input-medium" maxlength="10" placeholder="dd/MM/yyyy" />
 				 <button id="budgetStartDateBtn" type="button" class="btn">
@@ -67,7 +73,7 @@
 	      </div>
 	    
 	     <div class="control-group inline-control required">
-	          <label class="control-label" for="budgetCutOffDate"><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.cutoff.date" /></label>
+	          <label class="control-label" for="budgetCutOffDate"><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.date.cutoff" /></label>
 			  <div class="controls">
 				 <netui:dateinput id="budgetCutOffDate" path="budgetCutOffDate" cssClass="input-medium" maxlength="10" placeholder="dd/MM/yyyy" />
 				 <button id="budgetCutOffDateBtn" type="button" class="btn">

@@ -35,7 +35,7 @@ $(document).ready(function(){
 
 <fieldset>
     <c:if test="${command.crudResponse.moreQueryResults.successMsg}">
-       <div class="alert alert-success" id="deleteSuccessMsg">
+       <div class="alert alert-success alert-custom" id="deleteSuccessMsg">
          <button data-dismiss="alert" class="close" type="button">×</button>
          You have successfully deleted code value <strong>${command.crudResponse.moreQueryResults.deletedCodeValue}</strong>       
        </div>

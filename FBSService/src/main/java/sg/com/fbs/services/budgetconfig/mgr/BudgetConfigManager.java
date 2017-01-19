@@ -1,6 +1,7 @@
 package sg.com.fbs.services.budgetconfig.mgr;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -78,7 +79,7 @@ public class BudgetConfigManager extends CommonFacade{
 		return resultMap;
 	}
 	
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public IResponseCRUD saveNewBudgeting(BudgetConfigRequest budgetConfigRequest, CriteriaIF criteria) throws BudgetConfigException{
 		BudgetConfig budgetConfig = new BudgetConfig();
 		if(budgetConfigRequest!=null){
@@ -91,6 +92,11 @@ public class BudgetConfigManager extends CommonFacade{
 		try {
 			//after save new budget config, need to show the list again
 			IResponseCRUD response = budgetConfigDao.search(BudgetConfig.class, criteria);
+			
+			Map<String, Object> moreQueryResult = new HashMap<String, Object>();
+			moreQueryResult.put("successMsg", true);
+			moreQueryResult.put("financialYear", budgetConfigRequest!=null?budgetConfigRequest.getBudgetForFY():"");
+			response.setMoreQueryResult(moreQueryResult);
 			return response;
 		} catch (DataAccessObjectException e) {
 			e.printStackTrace();
