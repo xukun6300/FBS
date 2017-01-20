@@ -88,12 +88,16 @@ public class BudgetConfigManager extends CommonFacade{
 				BudgetConfig budgetConfig = budgetConfigDao.getBudgetConfigByFy(budgetConfigRequest.getBudgetForFY());
 				if(budgetConfig==null){
 					budgetConfig = new BudgetConfig();
+					budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetForFY());
+					budgetConfig.setBudgetingStartDt(budgetConfigRequest.getBudgetStartDate());
+					budgetConfig.setBudgetingEndDt(budgetConfigRequest.getBudgetCutOffDate());
+					budgetConfigDao.insert(budgetConfig);
+				}else {
+					budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetForFY());
+					budgetConfig.setBudgetingStartDt(budgetConfigRequest.getBudgetStartDate());
+					budgetConfig.setBudgetingEndDt(budgetConfigRequest.getBudgetCutOffDate());
+					budgetConfigDao.update(budgetConfig);
 				}
-				budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetForFY());
-				budgetConfig.setBudgetingStartDt(budgetConfigRequest.getBudgetStartDate());
-				budgetConfig.setBudgetingEndDt(budgetConfigRequest.getBudgetCutOffDate());
-				budgetConfig.setModifyon(new DateTime());
-				budgetConfigDao.saveOrUpdate(budgetConfig);
 				budgetConfigDao.getSession().flush();
 				
 				//after save new budget config, need to show the list again

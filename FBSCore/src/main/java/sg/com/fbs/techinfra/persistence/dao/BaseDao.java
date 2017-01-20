@@ -49,13 +49,15 @@ public class BaseDao extends AbstractBaseDao{
 	
 	@Override
 	public Object insert(Object object) throws DataAccessObjectException {
-		logger.debug("----------insert dao----------");
+		((BasePojo) object).setCreatedby(PrincipalSecUtil.getUserId());
+		((BasePojo) object).setCreateon(new DateTime());
 		getSession().save(object);
 		return object;
 	}
 
 	public Object insert(String entityName, Object object) throws DataAccessObjectException{
-		logger.debug("----------insert dao----------");
+		((BasePojo) object).setCreatedby(PrincipalSecUtil.getUserId());
+		((BasePojo) object).setCreateon(new DateTime());
 		getSession().save(entityName, object);
 		return object;
 	}
@@ -66,6 +68,8 @@ public class BaseDao extends AbstractBaseDao{
 	 */
 	public Object[] insertBatch(Object[] objs) {
 		for (int i = 0; i < objs.length; i++) {
+			((BasePojo) objs[i]).setCreatedby(PrincipalSecUtil.getUserId());
+			((BasePojo) objs[i]).setCreateon(new DateTime());
 			getSession().save(objs[i]);
 
 			if (i != 0 && i % 50 == 0) {
@@ -202,12 +206,16 @@ public class BaseDao extends AbstractBaseDao{
 	@Override
 	public Object merge(Object object) {
 		long id = ((BasePojo)object).getId();
+		((BasePojo) object).setModifiedby(PrincipalSecUtil.getUserId());
+		((BasePojo) object).setModifyon(new DateTime());
 		getSession().merge(object);
 		return object;
 	}
 	
 	public Object merge(String entityName, Object object) {
 		long id = ((BasePojo)object).getId();
+		((BasePojo) object).setModifiedby(PrincipalSecUtil.getUserId());
+		((BasePojo) object).setModifyon(new DateTime());
 		getSession().merge(entityName, object);
 		return object;
 	}
@@ -215,6 +223,8 @@ public class BaseDao extends AbstractBaseDao{
 	@Override
 	public Object saveOrUpdate(Object object) {
 		if(object instanceof BasePojo){
+			((BasePojo) object).setModifiedby(PrincipalSecUtil.getUserId());
+			((BasePojo) object).setModifyon(new DateTime());
 			getSession().saveOrUpdate(object);
 		}
 		return object;
@@ -222,6 +232,8 @@ public class BaseDao extends AbstractBaseDao{
 
 	public Object saveOrUpdate(String entityName, Object object) {
 		if(object instanceof BasePojo){
+			((BasePojo) object).setModifiedby(PrincipalSecUtil.getUserId());
+			((BasePojo) object).setModifyon(new DateTime());
 			getSession().saveOrUpdate(entityName, object);
 		}
 		return object;
