@@ -8,6 +8,8 @@ import java.util.Map;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.log4j.Logger;
+
+import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.CriterionIF;
 import sg.com.fbs.model.system.persistence.query.OrderIF;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
@@ -151,7 +153,11 @@ public class GridDataContext {
 	}
 	
 	public long getCurrentPage(){
-		long currentPage = result.getCriteria().getRequestedPage();
+		long currentPage= 0L;
+		CriteriaIF criteria = result.getCriteria();
+		if(criteria!=null){
+		     currentPage = criteria.getRequestedPage();
+		}
 		if (currentPage<0){
 			throw new IllegalArgumentException("Illegal Current Page");
 		}

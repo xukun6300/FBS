@@ -40,6 +40,8 @@ public abstract class BaseWebFormBean implements BaseWebFormIF,Serializable{
 	private IResponseCRUD crudResponse;
 	
 	private String activeStatus = "Y";
+	
+	private String action;
 
 	public long getId() {
 		return id;
@@ -113,6 +115,14 @@ public abstract class BaseWebFormBean implements BaseWebFormIF,Serializable{
 	
 	public String getResultQualifierName(){
 		return "queryResult.results";
+	}
+	
+	public void setAction(String action) {
+		this.action = action;
+	}
+	
+	public String getAction() {
+		return action;
 	}
 	
 	public abstract CriteriaIF getSearchCriteria(HttpServletRequest request);

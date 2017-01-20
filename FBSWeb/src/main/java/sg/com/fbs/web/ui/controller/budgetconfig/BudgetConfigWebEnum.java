@@ -52,4 +52,18 @@ public enum BudgetConfigWebEnum implements WebDropDownListIF{
 			return ConfigNewBudgetingForm.BUDGET_FOR_FYS;
 		}
 	},
+	
+	ACTION_SHOW_CONFIG_NEW_BUDGET {
+		@Override
+		public String toString() {
+			return "showConfigNewBudgeting";
+		}
+	},
+	
+	ACTION_SAVE_NEW_BUDGETING {
+		@Override
+		public String toString() {
+			return "saveNewBudgeting";
+		}
+	},
 }

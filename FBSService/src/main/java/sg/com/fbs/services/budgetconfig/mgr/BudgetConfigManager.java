@@ -92,6 +92,7 @@ public class BudgetConfigManager extends CommonFacade{
 				budgetConfig.setBudgetConfigFY(budgetConfigRequest.getBudgetForFY());
 				budgetConfig.setBudgetingStartDt(budgetConfigRequest.getBudgetStartDate());
 				budgetConfig.setBudgetingEndDt(budgetConfigRequest.getBudgetCutOffDate());
+				budgetConfig.setModifyon(new DateTime());
 				budgetConfigDao.saveOrUpdate(budgetConfig);
 				budgetConfigDao.getSession().flush();
 				

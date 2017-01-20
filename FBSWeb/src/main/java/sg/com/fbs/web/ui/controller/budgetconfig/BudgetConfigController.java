@@ -63,6 +63,7 @@ public class BudgetConfigController extends BaseWebController{
 
 	public ModelAndView showConfigNewBudgeting(HttpServletRequest request, HttpServletResponse response){
 		ConfigNewBudgetingForm configNewBudgetingForm = new ConfigNewBudgetingForm();
+		configNewBudgetingForm.setAction(BudgetConfigWebEnum.ACTION_SHOW_CONFIG_NEW_BUDGET.toString());
 		BudgetConfigRequest budgetConfigRequest = new BudgetConfigRequest();
 		setCrudMode(WebCRUDEnum.QUERY_MODE);
 		setCRUDOperation(budgetConfigCrud);
@@ -73,6 +74,7 @@ public class BudgetConfigController extends BaseWebController{
 	
 	public ModelAndView saveNewBudgeting(HttpServletRequest request, HttpServletResponse response){
 		ConfigNewBudgetingForm configNewBudgetingForm = new ConfigNewBudgetingForm();
+		configNewBudgetingForm.setAction(BudgetConfigWebEnum.ACTION_SAVE_NEW_BUDGETING.toString());
 		BudgetConfigRequest budgetConfigRequest = new BudgetConfigRequest();
 		setCrudMode(WebCRUDEnum.INSERT_MODE);
 		setCRUDOperation(budgetConfigCrud);
