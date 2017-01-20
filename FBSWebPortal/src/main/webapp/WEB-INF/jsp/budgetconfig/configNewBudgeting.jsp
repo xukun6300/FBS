@@ -94,6 +94,7 @@
 			  <div class="controls control-radio-checkbox">			  
 			     <form:radiobuttons path="budgetForFY" items="${budgetForFYs}"></form:radiobuttons>
 			  </div>
+			  <form:errors path="budgetForFY" cssClass="mandatory" element="div"/>
 	      </div>
 	      
 	       <div style="margin-left:285px">	
@@ -106,17 +107,15 @@
 </fieldset>
 
 <script type="text/javascript">
- 
-	 function toggleBudgetDateByFY(budgetStartDt){
+
+	function toggleBudgetDateByFY(budgetStartDt){
 		 var currentFy=new Date().getFullYear();
 		 var nextFy = currentFy+1;
 	     	     
 		 if($("input[name=budgetForFY][value="+currentFy+"]").is(":checked")){
-			 alert('1');
 			 $('#budgetStartDate').budgetConfigDatePicker('#budgetStartDateBtn', new Date(currentFy, 7, 1), new Date());
 			 $('#budgetCutOffDate').budgetConfigDatePicker('#budgetCutOffDateBtn', new Date(currentFy, 7, 1),budgetStartDt);	
 		 }else if($("input[name=budgetForFY][value="+nextFy+"]").is(":checked")){
-			 alert('2');
 			 $('#budgetStartDate').budgetConfigDatePicker('#budgetStartDateBtn', new Date(nextFy, 7, 1), new Date());
 			 $('#budgetCutOffDate').budgetConfigDatePicker('#budgetCutOffDateBtn', new Date(nextFy, 7, 1), budgetStartDt);	
 		 } 
@@ -131,7 +130,9 @@
 			 toggleBudgetDateByFY(new Date());
 		 });		
 		 
-		 $("#btnReset").click(function(){
+		 $("#btnReset").click(function(event){
+			 event.preventDefault();
+		     $(this).closest('form').get(0).reset();
 			 toggleBudgetDateByFY(new Date());
 		 });
 		 
@@ -154,7 +155,7 @@
 		     }
 		 });
 		 
-	 });
+	 }); 
 	 
 </script>
 
