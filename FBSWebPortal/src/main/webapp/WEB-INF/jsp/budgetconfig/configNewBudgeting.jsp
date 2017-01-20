@@ -67,6 +67,14 @@
 	
 	<form:form method="POST" commandName="command" action="saveNewBudgeting.action" class="clearfix form-horizontal" id="newBudgetingForm">
 	   <div class="clearfix">
+	      <div class="control-group inline-control">
+	          <label class="control-label" for="endDate"><spring:message code="fbs.common.budgetconfig.ui.label.budget.for.fy" /></label>
+			  <div class="controls control-radio-checkbox">			  
+			     <form:radiobuttons path="budgetForFY" items="${budgetForFYs}"></form:radiobuttons>
+			  </div>
+			  <form:errors path="budgetForFY" cssClass="mandatory" element="div"/>
+	      </div>
+	   
 	      <div class="control-group inline-control required">
 	          <label class="control-label" for="budgetStartDate"><spring:message code="fbs.common.budgetconfig.ui.label.budgeting.date.start" /></label>
 			  <div class="controls">
@@ -88,15 +96,7 @@
 				 <form:errors path="budgetCutOffDate" cssClass="mandatory" element="div"/>
 			  </div>
 	      </div>
-	      
-	      <div class="control-group inline-control">
-	          <label class="control-label" for="endDate"><spring:message code="fbs.common.budgetconfig.ui.label.budget.for.fy" /></label>
-			  <div class="controls control-radio-checkbox">			  
-			     <form:radiobuttons path="budgetForFY" items="${budgetForFYs}"></form:radiobuttons>
-			  </div>
-			  <form:errors path="budgetForFY" cssClass="mandatory" element="div"/>
-	      </div>
-	      
+
 	       <div style="margin-left:285px">	
 			 <button id="btnSave" name="btnSave" class="bt bt1" type="submit">Save</button>
 			 <button id="btnReset" name="btnReset" class="bt bt1" type="reset">Reset</button>

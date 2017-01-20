@@ -203,6 +203,11 @@ public class BaseDao extends AbstractBaseDao{
 		return list;
 	}
 
+	/**
+	 *  update existing values, however this method create a copy from the passed entity object and return it. 
+	 *  The returned object is part of persistent context and tracked for any changes, 
+	 *  passed object is not tracked. 
+	 */
 	@Override
 	public Object merge(Object object) {
 		long id = ((BasePojo)object).getId();
