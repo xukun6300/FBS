@@ -64,6 +64,15 @@
 		          <li><a href="${contextPath}/budgetconfig/showConfigWorkingBudget.action">Config Working Budget</a></li>		  
 		        </ul>
 		      </li>    
+		      
+		      <li role="presentation" class="dropdown">
+		        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">
+		          Budgeting <span class="caret"></span>
+		        </a>
+		        <ul class="dropdown-menu" role="menu">
+		          <li><a href="${contextPath}/budgeting/planBudget.action">Plan Budget</a></li>	  
+		        </ul>
+		      </li>
 		    </ul>
 			
 	<!-- menu end -->
