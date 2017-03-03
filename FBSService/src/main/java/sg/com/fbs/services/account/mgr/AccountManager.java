@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -292,19 +293,36 @@ public class AccountManager extends CommonFacade{
 		return null;
 	}
 	
-	public List<String> getAccountCodesByUser(){
-		long userid = PrincipalSecUtil.getUserId();
-		if(userid!=0L){
-			CriteriaIF criteria = new Criteria();
-			List<CriterionIF> criterions = new ArrayList<CriterionIF>();
-			criterions.add(new Criterion(UserAccountMapping.USER_ID, RestrictionType.EQUAL, userid));
-			criterions.add(new Criterion(UserAccountMapping.ACT_IND, RestrictionType.EQUAL, ActiveStatusEnum.YES.toString()));
-			criteria.setCriterion(criterions.toArray(new CriterionIF[criterions.size()]));
-			criteria.setFetchAll(true);
-			
+	@SuppressWarnings("unchecked")
+	public List<String> getAccountCodesByUser() throws AccountException{
+		try {
+			List<String> accountCodes = new ArrayList<String>();
+			long userid = PrincipalSecUtil.getUserId();
+			if(userid!=0L){
+				CriteriaIF criteria = new Criteria();
+				List<CriterionIF> criterions = new ArrayList<CriterionIF>();
+				criterions.add(new Criterion(UserAccountMapping.USER_ID, RestrictionType.EQUAL, userid));
+				criterions.add(new Criterion(UserAccountMapping.ACT_IND, RestrictionType.EQUAL, ActiveStatusEnum.YES.toString()));
+				criteria.setCriterion(criterions.toArray(new CriterionIF[criterions.size()]));
+				criteria.setFetchAll(true);
+				IResponseCRUD<UserAccountMapping> responseCRUD = accountDao.search(UserAccountMapping.class, criteria);
+				Collection<UserAccountMapping> userAccountMappings = responseCRUD.getQueryResult();
+				
+				for(Iterator<UserAccountMapping> iterator =userAccountMappings.iterator(); iterator.hasNext();){
+					accountCodes.add(iterator.next().getAccountCode());
+				}
+				
+				return accountCodes;
+			}
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new AccountException(e.getMessageCode(), e);
 		}
+		
 		return null;
 	}
+	
+	
 	
 }
 
