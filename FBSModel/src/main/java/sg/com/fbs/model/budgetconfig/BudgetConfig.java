@@ -15,6 +15,10 @@ public class BudgetConfig extends BaseLogPojo{
 	private static final long serialVersionUID = 4228928425063887430L;
 	
 	public static final String BUDGET_CONFIG_FY = "budgetConfigFY";
+	
+	public static final String BUDGETING_START_DATE = "budgetingStartDt";
+	
+	public static final String BUDGETING_END_DATE = "budgetingEndDt";
 
 	private Long budgetConfigId;
 	

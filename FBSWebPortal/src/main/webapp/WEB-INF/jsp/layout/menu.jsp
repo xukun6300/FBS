@@ -70,7 +70,7 @@
 		          Budgeting <span class="caret"></span>
 		        </a>
 		        <ul class="dropdown-menu" role="menu">
-		          <li><a href="${contextPath}/budgeting/planBudget.action">Plan Budget</a></li>	  
+		          <li><a href="${contextPath}/budgeting/viewPlanBudget.action">Plan Budget</a></li>	  
 		        </ul>
 		      </li>
 		    </ul>

@@ -51,6 +51,9 @@
     <bean id="budgetConfigCrud" class="sg.com.fbs.web.ui.controller.budgetconfig.BudgetConfigCRUD"/>
     <bean id="budgetConfigValidator" class="sg.com.fbs.web.ui.controller.budgetconfig.BudgetConfigValidator"/>
     
+    <!-- Budgeting -->
+    <bean class="sg.com.fbs.web.ui.controller.budgeting.BudgetingController" scope="request"/>
+    
     <mvc:interceptors>
       <mvc:interceptor>
         <mvc:mapping path="/**"/>

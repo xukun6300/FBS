@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import sg.com.fbs.model.budgeting.LineItem;
 import sg.com.fbs.model.business.pojo.BaseLogPojo;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -39,6 +40,8 @@ public class Account extends BaseLogPojo{
 	
 	private List<AccountStructure> acctStructures = new ArrayList<AccountStructure>();
 
+	private List<LineItem> lineItems = new ArrayList<LineItem>();
+	
 	public String getAccountCode() {
 		return accountCode;
 	}
@@ -87,4 +90,11 @@ public class Account extends BaseLogPojo{
 		this.acctStructures = acctStructures;
 	}
 
+	public void setLineItems(List<LineItem> lineItems) {
+		this.lineItems = lineItems;
+	}
+	
+	public List<LineItem> getLineItems() {
+		return lineItems;
+	}
 }

@@ -9,6 +9,10 @@ import org.springframework.validation.Validator;
 import org.springframework.web.servlet.ModelAndView;
 
 import sg.com.fbs.core.techinfra.web.BaseWebController;
+import sg.com.fbs.core.techinfra.web.Mvc;
+import sg.com.fbs.core.techinfra.web.WebCRUDEnum;
+import sg.com.fbs.model.budgeting.PlanBudgetRequest;
+import sg.com.fbs.web.ui.form.budgeting.PlanBudgetForm;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
 
@@ -18,10 +22,11 @@ import sg.com.fbs.core.techinfra.web.BaseWebController;
  */
 public class BudgetingController extends BaseWebController{
 
+	private BudgetingCRUD budgetingCRUD = new BudgetingCRUD();
+	
 	@Override
 	public String getModuleWebContext() {
-		// TODO Auto-generated method stub
-		return null;
+		return BudgetingWebEnum.BUDGETING_PLACEHOLDER.toString();
 	}
 
 	@Override
@@ -42,10 +47,25 @@ public class BudgetingController extends BaseWebController{
 		return null;
 	}
 	
-	public ModelAndView planBudget(HttpServletRequest request, HttpServletResponse response){
-		
-		
-		return null;
+	public ModelAndView viewPlanBudget(HttpServletRequest request, HttpServletResponse response){
+		PlanBudgetForm planBudgetForm = new PlanBudgetForm();
+		PlanBudgetRequest planBudgetRequest = new PlanBudgetRequest();
+		setCrudMode(WebCRUDEnum.QUERY_MODE);
+		setCRUDOperation(budgetingCRUD);
+		setValidationErrorPage(BudgetingWebEnum.SHOW_PLAN_BUDGET_JSP.toString());
+		Mvc mvc = new Mvc(planBudgetForm, BudgetingWebEnum.SHOW_PLAN_BUDGET_JSP.toString(), planBudgetRequest);
+		return mvc;
 	}
 
+    public ModelAndView savePlanBudget(HttpServletRequest request, HttpServletResponse response){
+		PlanBudgetForm planBudgetForm = new PlanBudgetForm();
+		PlanBudgetRequest planBudgetRequest = new PlanBudgetRequest();
+		setCrudMode(WebCRUDEnum.INSERT_MODE);
+		setCRUDOperation(budgetingCRUD);
+		setValidationErrorPage(BudgetingWebEnum.SHOW_PLAN_BUDGET_JSP.toString());
+		Mvc mvc = new Mvc(planBudgetForm, BudgetingWebEnum.SHOW_PLAN_BUDGET_JSP.toString(), planBudgetRequest);
+		return mvc;
+	}
 }
+
+

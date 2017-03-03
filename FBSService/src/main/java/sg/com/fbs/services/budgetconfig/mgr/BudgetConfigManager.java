@@ -118,6 +118,9 @@ public class BudgetConfigManager extends CommonFacade{
 		}
 	}
 	
+	public BudgetConfig getBudgetConfigForNow(){
+		
+	}
 	
 }
 
