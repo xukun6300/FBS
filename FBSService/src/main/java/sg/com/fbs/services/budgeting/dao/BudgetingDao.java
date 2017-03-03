@@ -8,6 +8,6 @@ import sg.com.fbs.techinfra.persistence.dao.BaseDao;
  * @Created Mar 3, 2017 3:04:35 PM $
  * 
  */
-public class BudgetDao extends BaseDao{
+public class BudgetingDao extends BaseDao{
 
 }

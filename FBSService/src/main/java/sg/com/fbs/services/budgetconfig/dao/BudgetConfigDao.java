@@ -36,6 +36,7 @@ public class BudgetConfigDao extends BaseDao{
 		List<CriterionIF> criterions = new ArrayList<CriterionIF>();
 		criterions.add(new Criterion(BudgetConfig.BUDGETING_START_DATE, RestrictionType.LESS_OR_EQUAL, date));
 		criterions.add(new Criterion(BudgetConfig.BUDGETING_END_DATE, RestrictionType.GREATER_OR_EQUAL, date));
+		criterions.add(new Criterion(BudgetConfig.ACT_IND, RestrictionType.EQUAL, ActiveStatusEnum.YES.toString()));
 		criteria.setCriterion(criterions.toArray(new CriterionIF[criterions.size()]));
 		criteria.setFetchAll(true);
 		

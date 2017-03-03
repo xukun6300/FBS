@@ -12,6 +12,8 @@ public class UserAccountMapping extends BaseLogPojo{
 
 	private static final long serialVersionUID = -3824212909934706113L;
 
+	public static final String USER_ID = "user.userId";
+	
 	private User user;
 	
 	private String accountCode;

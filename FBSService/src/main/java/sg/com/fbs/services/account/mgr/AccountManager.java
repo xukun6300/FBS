@@ -1,6 +1,7 @@
 package sg.com.fbs.services.account.mgr;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -16,19 +17,25 @@ import com.google.gson.reflect.TypeToken;
 
 import sg.com.fbs.core.businfra.facade.CommonFacade;
 import sg.com.fbs.core.techinfra.persistence.exception.DataAccessObjectException;
+import sg.com.fbs.core.techinfra.security.util.PrincipalSecUtil;
 import sg.com.fbs.core.techinfra.util.DateUtil;
 import sg.com.fbs.model.account.Account;
 import sg.com.fbs.model.account.AccountRequest;
 import sg.com.fbs.model.account.AccountStructure;
+import sg.com.fbs.model.budgetconfig.BudgetConfig;
 import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
 import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.query.Criterion;
+import sg.com.fbs.model.system.persistence.query.CriterionIF;
 import sg.com.fbs.model.system.persistence.query.Order;
+import sg.com.fbs.model.system.persistence.query.RestrictionType;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
+import sg.com.fbs.model.system.security.UserAccountMapping;
 import sg.com.fbs.services.account.dao.AccountDao;
 import sg.com.fbs.services.account.exception.AccountException;
+import sg.com.fbs.services.budgetconfig.mgr.BudgetConfigManager;
 import sg.com.fbs.services.business.financialyear.FinancialYearUtil;
 
 /**Copyright (c) 2015 Financial & Budgeting System All Rights Reserved.
@@ -38,6 +45,8 @@ import sg.com.fbs.services.business.financialyear.FinancialYearUtil;
  * 
  */
 public class AccountManager extends CommonFacade{
+	
+	private BudgetConfigManager budgetConfigManager = new BudgetConfigManager();
 	
 	@Autowired
 	private AccountDao accountDao;
@@ -266,6 +275,35 @@ public class AccountManager extends CommonFacade{
 		} catch (DataAccessObjectException e) {
 			throw new AccountException(e.getMessageCode(), e);
 		}
+	}
+	
+	public List<Account> getAccountsForBudgetingByUser(){
+		long userid = PrincipalSecUtil.getUserId();
+		BudgetConfig budgetConfig = budgetConfigManager.getBudgetConfigForNow();
+		if(budgetConfig!=null){
+			Integer budgetingFY = budgetConfig.getBudgetConfigFY();
+			
+			CriteriaIF criteria = new Criteria();
+			List<CriterionIF> criterions = new ArrayList<CriterionIF>();
+			//criterions.add(new Criterion(Account.ACCOUNT_CODE, RestrictionType.IN, ));
+		}
+		
+		
+		return null;
+	}
+	
+	public List<String> getAccountCodesByUser(){
+		long userid = PrincipalSecUtil.getUserId();
+		if(userid!=0L){
+			CriteriaIF criteria = new Criteria();
+			List<CriterionIF> criterions = new ArrayList<CriterionIF>();
+			criterions.add(new Criterion(UserAccountMapping.USER_ID, RestrictionType.EQUAL, userid));
+			criterions.add(new Criterion(UserAccountMapping.ACT_IND, RestrictionType.EQUAL, ActiveStatusEnum.YES.toString()));
+			criteria.setCriterion(criterions.toArray(new CriterionIF[criterions.size()]));
+			criteria.setFetchAll(true);
+			
+		}
+		return null;
 	}
 	
 }
