@@ -773,7 +773,7 @@ public final class addCodeValue_jsp extends org.apache.jasper.runtime.HttpJspBas
     _jspx_th_spring_005fmessage_005f2.setPageContext(_jspx_page_context);
     _jspx_th_spring_005fmessage_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
     // /WEB-INF/jsp/mastercode/addCodeValue.jsp(42,60) name = code type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_spring_005fmessage_005f2.setCode("fbs.common.codemaintenance.ui.label.code.value.description");
+    _jspx_th_spring_005fmessage_005f2.setCode("fbs.common.codemaintenance.ui.label.description");
     int[] _jspx_push_body_count_spring_005fmessage_005f2 = new int[] { 0 };
     try {
       int _jspx_eval_spring_005fmessage_005f2 = _jspx_th_spring_005fmessage_005f2.doStartTag();
