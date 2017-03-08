@@ -2,6 +2,7 @@ package sg.com.fbs.services.budgeting.mgr;
 
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
+import sg.com.fbs.model.budgeting.PlanBudgetRequest;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.budgeting.exception.BudgetingException;
 
@@ -16,9 +17,9 @@ public class BudgetingManagerBD extends BusinessDelegate{
 	private BudgetingManager budgetingManager = new BudgetingManager();
 	
 	@SuppressWarnings("rawtypes")
-	public IResponseCRUD showPlanBudgetForUser() throws BudgetingException{
+	public IResponseCRUD loadPlanBudget(PlanBudgetRequest planBudgetRequest) throws BudgetingException{
 		try {
-			Object obj = budgetingManager.run();
+			Object obj = budgetingManager.run(planBudgetRequest);
 			return (IResponseCRUD) obj;
 		} catch (ApplicationCoreException e) {
 			throw new BudgetingException(e.getMessageCode(), e);

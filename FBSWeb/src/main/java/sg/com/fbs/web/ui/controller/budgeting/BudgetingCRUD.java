@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import sg.com.fbs.core.techinfra.exception.CRUDException;
 import sg.com.fbs.core.techinfra.web.WebCRUDIF;
 import sg.com.fbs.model.account.Account;
+import sg.com.fbs.model.budgeting.PlanBudgetRequest;
 import sg.com.fbs.model.business.pojo.BasePojoRequest;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.budgeting.exception.BudgetingException;
@@ -31,11 +32,9 @@ public class BudgetingCRUD implements WebCRUDIF{
 		try {
 			if(form instanceof PlanBudgetForm){
 				PlanBudgetForm planBudgetForm = (PlanBudgetForm) form;
-				response = budgetingManagerBD.showPlanBudgetForUser();
-				Collection<Account> accounts = (Collection<Account>) response.getQueryResult();
-				for (Account account : accounts) {
-					System.out.println(account.getAccountCode());
-				}
+				PlanBudgetRequest planBudgetRequest = (PlanBudgetRequest) pojoRequest;
+				response = budgetingManagerBD.loadPlanBudget(planBudgetRequest);
+				
 			}
 		} catch (BudgetingException e) {
 			throw new CRUDException(e.getMessageCode(), e);
