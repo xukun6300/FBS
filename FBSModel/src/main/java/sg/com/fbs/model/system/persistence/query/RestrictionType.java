@@ -12,7 +12,7 @@ public class RestrictionType implements Serializable{
 	public static final RestrictionType GREATER_OR_EQUAL = new RestrictionType(RestrictionTypeIF.GREATER_OR_EQUAL);
 	public static final RestrictionType LESS_OR_EQUAL = new RestrictionType(RestrictionTypeIF.LESS_OR_EQUAL);
 	public static final RestrictionType NOT_EQUAL = new RestrictionType(RestrictionTypeIF.NOT_EQUAL);
-	public static final RestrictionType IN = new RestrictionType(RestrictionTypeIF.NOT_EQUAL);
+	public static final RestrictionType IN = new RestrictionType(RestrictionTypeIF.IN);
 	public static final RestrictionType LIKE = new RestrictionType(RestrictionTypeIF.LIKE);	
 	public static final RestrictionType IS = new RestrictionType(RestrictionTypeIF.IS);
 	public static final RestrictionType IS_NOT_NULL = new RestrictionType(RestrictionTypeIF.IS_NOT_NULL);

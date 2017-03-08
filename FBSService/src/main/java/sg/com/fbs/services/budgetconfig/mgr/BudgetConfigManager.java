@@ -1,8 +1,11 @@
 package sg.com.fbs.services.budgetconfig.mgr;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.joda.time.DateTime;
@@ -13,7 +16,11 @@ import sg.com.fbs.core.techinfra.util.DateUtil;
 import sg.com.fbs.model.budgetconfig.BudgetConfig;
 import sg.com.fbs.model.budgetconfig.BudgetConfigRequest;
 import sg.com.fbs.model.domain.enumeration.ActiveStatusEnum;
+import sg.com.fbs.model.system.persistence.query.Criteria;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
+import sg.com.fbs.model.system.persistence.query.Criterion;
+import sg.com.fbs.model.system.persistence.query.CriterionIF;
+import sg.com.fbs.model.system.persistence.query.RestrictionType;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.budgetconfig.dao.BudgetConfigDao;
 import sg.com.fbs.services.budgetconfig.exception.BudgetConfigException;
@@ -118,9 +125,30 @@ public class BudgetConfigManager extends CommonFacade{
 		}
 	}
 	
-	public BudgetConfig getBudgetConfigForNow(){
+	@SuppressWarnings("unchecked")
+	public BudgetConfig getBudgetConfigForNow() throws BudgetConfigException{
+		try {
+			CriteriaIF criteria = new Criteria();
+			List<CriterionIF> criterions = new ArrayList<CriterionIF>();
+			criterions.add(new Criterion(BudgetConfig.ACT_IND, RestrictionType.EQUAL, ActiveStatusEnum.YES.toString()));
+			criterions.add(new Criterion(BudgetConfig.BUDGETING_START_DATE, RestrictionType.LESS_OR_EQUAL, DateTime.now()));
+			criterions.add(new Criterion(BudgetConfig.BUDGETING_END_DATE, RestrictionType.GREATER_OR_EQUAL, DateTime.now()));
+			criteria.setCriterion(criterions.toArray(new CriterionIF[criterions.size()]));
+			criteria.setFetchAll(true);
+			IResponseCRUD<BudgetConfig> response = budgetConfigDao.search(BudgetConfig.class, criteria);
+			Collection<BudgetConfig> budgetConfigs = response.getQueryResult();
+			
+			if (budgetConfigs!=null && budgetConfigs.iterator().hasNext()) {
+				return budgetConfigs.iterator().next();
+			}
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new BudgetConfigException(e.getMessageCode(), e);
+		}
 		
+		return null;
 	}
+	
 	
 }
 

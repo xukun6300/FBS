@@ -28,12 +28,8 @@ import sg.com.fbs.web.ui.form.system.security.uam.UserSearchForm;
  */
 public class AccountController extends BaseWebController{
 
-	@Autowired
-	private AccountCRUD accountCrud;
-	
-	@Autowired
-	private AccountValidator accountValidator;
-	
+	private AccountCRUD accountCrud = new AccountCRUD();
+
 	@Override
 	public String getModuleWebContext() {
 		return AccountWebEnum.ACCOUNT_JSP_PLACEHOLDER.toString();
@@ -64,7 +60,7 @@ public class AccountController extends BaseWebController{
 
 	@Override
 	public Validator getCustomValidator() {
-		return accountValidator;
+		return new AccountValidator();
 	}
 	
 	

@@ -21,8 +21,7 @@ import sg.com.fbs.services.account.exception.AccountException;
  */
 public class AccountManagerBD extends BusinessDelegate {
 
-	@Autowired
-	private AccountManager accountManager;
+	private AccountManager accountManager = new AccountManager();
 	
 	@SuppressWarnings("rawtypes")
 	public ResponseCRUD saveAccount(AccountRequest accountRequest) throws AccountException{

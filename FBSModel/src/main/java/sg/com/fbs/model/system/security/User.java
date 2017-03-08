@@ -38,7 +38,7 @@ public class User extends BaseLogPojo implements UserDetailsIF, TransactionLogIF
 	
 	public static final String LAST_FAILED_LOGIN_DATE = "lastFailedLoginDate";
 	
-	private long userId;
+	//private long userId;
 
 	private String password;
 
@@ -85,13 +85,13 @@ public class User extends BaseLogPojo implements UserDetailsIF, TransactionLogIF
 	}
 	
 	public long getUserId() {
-		return userId;
+		return id;
 	}
 
-	public void setUserId(long userId) {
+	/*public void setUserId(long userId) {
 		this.userId = userId;
 	}
-
+*/
 	public String getPassword() {
 		return password;
 	}

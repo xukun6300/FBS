@@ -31,9 +31,8 @@ public class AccountCRUD implements WebCRUDIF{
 	public static final String YES = "Yes";
 	
 	public static final String NO = "No";
-	
-	@Autowired
-	private AccountManagerBD accountManagerBD;
+
+	private AccountManagerBD accountManagerBD = new AccountManagerBD();
 	
 	@SuppressWarnings("unchecked")
 	@Override

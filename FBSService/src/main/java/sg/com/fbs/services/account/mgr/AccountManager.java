@@ -36,6 +36,7 @@ import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
 import sg.com.fbs.model.system.security.UserAccountMapping;
 import sg.com.fbs.services.account.dao.AccountDao;
 import sg.com.fbs.services.account.exception.AccountException;
+import sg.com.fbs.services.budgetconfig.exception.BudgetConfigException;
 import sg.com.fbs.services.budgetconfig.mgr.BudgetConfigManager;
 import sg.com.fbs.services.business.financialyear.FinancialYearUtil;
 
@@ -49,8 +50,7 @@ public class AccountManager extends CommonFacade{
 	
 	private BudgetConfigManager budgetConfigManager = new BudgetConfigManager();
 	
-	@Autowired
-	private AccountDao accountDao;
+	private AccountDao accountDao = new AccountDao();
 	
 	@SuppressWarnings("rawtypes")
 	public Boolean checkAccountCodeExist(String accountCode) throws AccountException{
@@ -278,25 +278,53 @@ public class AccountManager extends CommonFacade{
 		}
 	}
 	
-	public List<Account> getAccountsForBudgetingByUser(){
-		long userid = PrincipalSecUtil.getUserId();
-		BudgetConfig budgetConfig = budgetConfigManager.getBudgetConfigForNow();
-		if(budgetConfig!=null){
-			Integer budgetingFY = budgetConfig.getBudgetConfigFY();
-			
-			CriteriaIF criteria = new Criteria();
-			List<CriterionIF> criterions = new ArrayList<CriterionIF>();
-			//criterions.add(new Criterion(Account.ACCOUNT_CODE, RestrictionType.IN, ));
+	/**
+	 * Get a list of accounts for logged in user for current budgeting phase.
+	 * @return
+	 * @throws AccountException
+	 * @throws  
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Account> getAccountsForBudgetingByUser() throws AccountException {
+		List<Account> accounts = new ArrayList<Account>();
+		try {						
+			BudgetConfig budgetConfig = budgetConfigManager.getBudgetConfigForNow();
+			if(budgetConfig!=null){
+				Integer budgetingFY = budgetConfig.getBudgetConfigFY();
+				List<String> accoutCodeList = getAccountCodesByUser();
+				CriteriaIF criteria = new Criteria();
+				List<CriterionIF> criterions = new ArrayList<CriterionIF>();
+				criterions.add(new Criterion(Account.ACT_IND, RestrictionType.EQUAL, ActiveStatusEnum.YES.toString()));
+				criterions.add(new Criterion(Account.ACCOUNT_CODE, RestrictionType.IN, accoutCodeList.toArray(new String[accoutCodeList.size()])));
+				criterions.add(new Criterion(Account.FINANCIAL_YEAR, RestrictionType.EQUAL, budgetingFY));
+				
+				criteria.setCriterion(criterions.toArray(new CriterionIF[criterions.size()]));
+				criteria.setFetchAll(true);
+				IResponseCRUD<Account> response = accountDao.search(Account.class, criteria);
+				accounts = new ArrayList<Account>(response.getQueryResult());
+			}
+				
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new AccountException(e.getMessageCode(), e);
+		} catch (BudgetConfigException e) {
+			e.printStackTrace();
+			throw new AccountException(e.getMessageCode(), e);
 		}
-		
-		
-		return null;
+			
+		return accounts;
 	}
 	
+	/**
+	 * Get a list of account code for logged in user
+	 * @return
+	 * @throws AccountException
+	 */
 	@SuppressWarnings("unchecked")
 	public List<String> getAccountCodesByUser() throws AccountException{
-		try {
-			List<String> accountCodes = new ArrayList<String>();
+		List<String> accountCodes = new ArrayList<String>();
+		
+		try {			
 			long userid = PrincipalSecUtil.getUserId();
 			if(userid!=0L){
 				CriteriaIF criteria = new Criteria();
@@ -317,9 +345,8 @@ public class AccountManager extends CommonFacade{
 		} catch (DataAccessObjectException e) {
 			e.printStackTrace();
 			throw new AccountException(e.getMessageCode(), e);
-		}
-		
-		return null;
+		}		
+		return accountCodes;
 	}
 	
 	

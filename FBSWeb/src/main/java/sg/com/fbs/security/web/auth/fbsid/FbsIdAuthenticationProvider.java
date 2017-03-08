@@ -44,7 +44,7 @@ public class FbsIdAuthenticationProvider implements AuthenticationProvider{
 		UserAccountManagerBD userAccountManagerBD = new UserAccountManagerBD();
 		try {
 			user = userAccountManagerBD.getUserByLoginId(username);
-			user.setUserId(user.getId());
+			//user.setUserId(user.getId());
 		} catch (UserAccountManagementException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
