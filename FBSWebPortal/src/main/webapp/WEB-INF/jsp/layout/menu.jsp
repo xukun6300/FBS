@@ -12,7 +12,7 @@
 	<div class="container_new">
 	  <!-- <a class="brand" href="#">Biz</a> -->
 	  <div class="btn-group pull-right">
-		<a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+		<a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="margin-top:-4px;">
 		  <i class="icon-user icon-white"></i><security:username/>   <!-- Display User Name -->
 		  <span class="caret"></span>
 		</a>
