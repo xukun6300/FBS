@@ -147,7 +147,7 @@
                     <td><netui:gridRowElement name="financialYear"/></td>    
                     <td><netui:gridRowElement name="createon" format="dd MMM yyyy"/></td>    
                     <td>
-                      <button type="button" class="btn btn-danger" title="Delete" name="deleteAccount" account-id="<netui:gridRowElement name="id"/>">
+                      <button type="button" class="btn-icon btn-danger" title="Delete" name="deleteAccount" account-id="<netui:gridRowElement name="id"/>">
 						  <i class="icon-remove icon-white"></i>
 					  </button>		
                     </td>               

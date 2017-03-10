@@ -3823,3 +3823,9 @@ div .font-buttons {
 .control-group .control-group-label{
 	margin-left: 20px;
 }
+
+.control-label-long{
+	width: 260px !important;
+    margin-right: 20px !important;
+}
+

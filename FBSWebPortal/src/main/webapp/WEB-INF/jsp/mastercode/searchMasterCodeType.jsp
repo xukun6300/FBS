@@ -148,7 +148,7 @@ $(document).ready(function(){
 						<td class="nowrap export-ignore">
 						    <netui:updateTag name="id" keyName="id" uri="listCodeValuesDetails.action?searchInactiveMasterCodes=${command.searchInactiveMasterCodes}" />
 							<c:if test="${masterTyperow.deletable}">								
-								<button type="button" class="btn btn-danger" title="Delete" name="deleteCodeKey" code-key-id="${masterTyperow.id}">
+								<button type="button" class="btn-icon btn-danger" title="Delete" name="deleteCodeKey" code-key-id="${masterTyperow.id}">
 									<i class="icon-remove icon-white"></i>
 								</button>
 							</c:if>

@@ -112,7 +112,7 @@ td label.non-edit-mode {
 	                             </c:choose>	                   
 		                      </td>
 				              <td class="edit-mode">
-				                   <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
+				                   <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 				              </td>
 		                    </tr>
                        
@@ -151,7 +151,7 @@ td label.non-edit-mode {
 		                          
 		                      </td>
 				              <td class="edit-mode">
-				                   <button class="btn btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
+				                   <button class="btn-icon btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
 				              </td>
 		                    </tr>
                           

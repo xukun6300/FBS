@@ -66,7 +66,7 @@
 	              <td>300</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>	              
 	              <td>
-	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
+	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -74,7 +74,7 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>	              
 	              <td>
-	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
+	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -82,7 +82,7 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	             
 	              <td>
-	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
+	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -90,7 +90,7 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>              
 	              <td>
-	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
+	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -98,7 +98,7 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	              
 	              <td>
-	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
+	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -106,7 +106,7 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	              
 	              <td>
-	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
+	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 	            <tr>
@@ -114,7 +114,7 @@
 	              <td>100</td>
 	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	              
 	              <td>
-	              <button class="btn btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
+	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
 	            </tr>
 

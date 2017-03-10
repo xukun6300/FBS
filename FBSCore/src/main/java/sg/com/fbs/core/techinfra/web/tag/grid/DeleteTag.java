@@ -19,7 +19,7 @@ public class DeleteTag extends ActionTag{
 	}
 
 	public String getButtonClass() {
-		return "btn btn-danger";
+		return "btn-icon btn-danger";
 	}
 
 	public String getIconClass() {

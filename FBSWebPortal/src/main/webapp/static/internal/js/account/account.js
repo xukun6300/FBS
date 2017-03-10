@@ -72,7 +72,7 @@ function retainTable(){
 				     "<td>"+ item['columnName'] +"</td>" +
 				     "<td>"+ item['columnSize'] +"</td>" +
 				     "<td>"+ optionStr +"</td>" +				     
-				     "<td><button class=\"btn btn-danger deleteRow\" disabled><i class=\"icon-remove icon-white\"></i></button></td>"+
+				     "<td><button class=\"btn-icon btn-danger deleteRow\" disabled><i class=\"icon-remove icon-white\"></i></button></td>"+
 				     "</tr>";
 			}else{
 				var optionStr = "";
@@ -89,7 +89,7 @@ function retainTable(){
 				     "<td><input class=\"input\" type=\"text\" maxlength=\"100\" value=\""+item['columnName']+"\"></td>" +
 				     "<td><input class=\"input\" type=\"text\" maxlength=\"100\" value=\""+item['columnSize']+"\"></td>" +
 				     "<td><select class=\"input-small\">"+ optionStr + "</select></td>" +				    
-				     "<td><button class=\"btn btn-danger deleteRow\"><i class=\"icon-remove icon-white\"></i></button></td>"+
+				     "<td><button class=\"btn-icon btn-danger deleteRow\"><i class=\"icon-remove icon-white\"></i></button></td>"+
 				     "</tr>";
 			}
 				
@@ -123,7 +123,7 @@ function addNewRow(){
 			     "<td><input class=\"input\" type=\"text\" maxlength=\"100\"></td>" +
 			     "<td><input class=\"input\" type=\"text\" maxlength=\"100\"></td>" +
 			     "<td><select class=\"input-small\"><option value=\"T\">Text</option><option value=\"N\">Numeric</option><option value=\"D\">Date</option></select></td>" +			     
-			     "<td><button class=\"btn btn-danger deleteRow\"><i class=\"icon-remove icon-white\"></i></button></td>"+
+			     "<td><button class=\"btn-icon btn-danger deleteRow\"><i class=\"icon-remove icon-white\"></i></button></td>"+
 			     "</tr>";
 	$("#accountTb tbody").append(newRow);
 }

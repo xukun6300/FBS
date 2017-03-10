@@ -22,7 +22,7 @@ public class UpdateTag extends ActionTag{
 	
 	@Override
 	public String getButtonClass() {
-		return "btn btn-inverse";
+		return "btn-icon btn-inverse";
 	}
 	
 	@Override

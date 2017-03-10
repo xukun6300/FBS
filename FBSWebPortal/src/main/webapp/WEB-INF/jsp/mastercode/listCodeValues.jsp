@@ -98,7 +98,7 @@ $(document).ready(function(){
 							<c:if test="${codeValueRow.deletable}">						
 								<netui:updateTag  name="id" keyName="id" uri="showUpdateCodeValue.action?searchInactiveMasterCodes=${command.searchInactiveMasterCodes}" />
 								<%-- <netui:deleteTag  name="id" keyName="id" uri="showDeleteCodeValue.action?codeTypeId=${command.id}" /> --%>
-								<button type="button" class="btn btn-danger" title="Delete" name="deleteCodeValue" code-id="${codeValueRow.id}" >
+								<button type="button" class="btn-icon btn-danger" title="Delete" name="deleteCodeValue" code-id="${codeValueRow.id}" >
 									<i class="icon-remove icon-white"></i>
 								</button>		
 							</c:if>						

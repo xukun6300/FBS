@@ -5,3 +5,4 @@
 <link rel="stylesheet" href="<spring:url value="/static/external/bootstrap/css/bootstrap-responsive.css"/>"/>
 <link rel="stylesheet" href="<spring:url value="/static/internal/css/style.css"/>"/> 
 <link rel="stylesheet" href="<spring:url value="/static/internal/css/basic.css"/>"/>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->

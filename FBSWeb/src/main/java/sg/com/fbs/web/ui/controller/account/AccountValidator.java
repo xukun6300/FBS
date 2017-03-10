@@ -25,8 +25,7 @@ import sg.com.fbs.web.ui.form.account.AccountSearchForm;
  */
 public class AccountValidator implements Validator{
 
-	@Autowired
-	private AccountManagerBD accountManagerBD;
+	private AccountManagerBD accountManagerBD = new AccountManagerBD();
 	
 	@Override
 	public boolean supports(Class<?> arg0) {
