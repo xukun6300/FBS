@@ -7,7 +7,18 @@
 <%@ taglib prefix="netui" uri="/tags/netui" %>
 
 <c:set var="conextPath" value="${pageContext.request.contextPath}"/>
+<style type="text/css">
+.acct-title{
+    margin-left: 40px;
+    width: 40%;
+    text-align:left;
+}
 
+.icon-right{
+    float:right;
+}
+
+</style>
 <fieldset>
 		
 <form:form method="POST" commandName="command" action="savePlanBudget.action" class="clearfix form-horizontal" id="planBudgetForm">
@@ -21,17 +32,25 @@
 			</div>
 	      </div>
 
-			<p>
-				<a class="btn btn-primary" data-toggle="collapse"
-					href="#collapseExample" aria-expanded="false"
-					aria-controls="collapseExample"> Link with href </a>
-
+	      <c:forEach items="${command.accounts}" var="account">	        
+	        <p>
+				<button class="btn btn-primary acct-title" data-toggle="collapse" href="#${account.accountCode}" aria-expanded="false" 
+				aria-controls="collapseExample">${account.accountDesc} <i class="icon-minus icon-white icon-right"></i></button>
 			</p>
-			<div class="collapse" id="collapseExample">
-  <div class="card card-block">
-    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  </div>
-</div>
+			<!-- in means open by default -->
+			<div class="collapse in" id="${account.accountCode}">
+				<div class="card card-block">
+				    Anim pariatur cliche
+					reprehenderit, enim eiusmod high life accusamus terry richardson ad
+					squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+					anderson cred nesciunt sapiente ea proident.
+				</div>
+			</div>
+			<br>
+			<br>
+	      </c:forEach>
+
+			
 
 		</div>
 	</form:form>

@@ -47,6 +47,7 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         <mapping resource="hbm/fbs-mastercode.hbm.xml"/>
         <mapping resource="hbm/fbs-account.hbm.xml"/>
         <mapping resource="hbm/fbs-budget-config.hbm.xml"/>
+        <mapping resource="hbm/fbs-budgeting.hbm.xml"/>
   </session-factory>
 
 </hibernate-configuration>

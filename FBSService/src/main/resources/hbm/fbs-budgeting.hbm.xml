@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true" default-lazy="true">
+
+  <class name="sg.com.fbs.model.budgeting.LineItem" table="LINEITEM_TB">
+     <id name="id" column="LINEITEMID">
+        <generator class="sg.com.fbs.core.techinfra.persistence.dao.SequenceGeneratorYYYYMMDD">
+           <param name="sequence">LINEITEM_SEQ</param>
+        </generator>
+     </id>
+     <many-to-one name="account" class="sg.com.fbs.model.account.Account" column="ACCOUNTID" cascade="save-update" not-found="ignore"/>
+     <property name="column1" column="COLUMN1" />
+     <property name="column2" column="COLUMN2" />
+     <property name="column3" column="COLUMN3" />
+     <property name="column4" column="COLUMN4" />
+     <property name="column5" column="COLUMN5" />
+     <property name="column6" column="COLUMN6" />
+     <property name="column7" column="COLUMN7" />
+     <property name="column8" column="COLUMN8" />
+     <property name="column9" column="COLUMN9" />
+     <property name="column10" column="COLUMN10" />
+     <property name="column11" column="COLUMN11" />
+     <property name="column12" column="COLUMN12" />
+     <property name="column13" column="COLUMN13" />
+     <property name="column14" column="COLUMN14" />
+     <property name="column15" column="COLUMN15" />
+     <property name="column16" column="COLUMN16" />
+     <property name="column17" column="COLUMN17" />
+     <property name="column18" column="COLUMN18" />
+     <property name="column19" column="COLUMN19" />
+     <property name="column20" column="COLUMN20" />
+     <property name="modifiedby" column="MODIFIEDBY" />
+     <property name="modifyon" column="DATEMODIFIED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime"/>    
+     <property name="createdby" column="CREATEDBY" update="false"/>
+     <property name="createon" column="DATECREATED" type="org.jadira.usertype.dateandtime.joda.PersistentDateTime" update="false"/>
+     <property name="activeStatus" column="ACTIVE_IND" not-null="true"/> 
+  </class>
+
+</hibernate-mapping>
