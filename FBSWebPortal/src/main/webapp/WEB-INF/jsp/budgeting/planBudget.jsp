@@ -18,7 +18,14 @@
     float:right;
 }
 
+.acct-table{
+    margin:0%;
+    width:100%;
+}
+
 </style>
+<script type="text/javascript" src="<spring:url value="/static/internal/js/budgeting/budgeting.js" />"></script>
+
 <fieldset>
 		
 <form:form method="POST" commandName="command" action="savePlanBudget.action" class="clearfix form-horizontal" id="planBudgetForm">
@@ -40,10 +47,23 @@
 			<!-- in means open by default -->
 			<div class="collapse in" id="${account.accountCode}">
 				<div class="card card-block">
-				    Anim pariatur cliche
-					reprehenderit, enim eiusmod high life accusamus terry richardson ad
-					squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-					anderson cred nesciunt sapiente ea proident.
+				   <table class="table ftable table-bordered table-hover table-condensed acct-table" id="acctTb_${account.accountCode}" column-size="${fn:length(account.acctStructures)}">
+					   <thead>
+	                      <tr>
+	                        <c:forEach items="${account.acctStructures}" var="acctColumn">
+	                           <th width="${acctColumn.columnSize}" column-type="${acctColumn.columnType}">${acctColumn.columnName}</th>                            
+	                        </c:forEach>                      
+	                      </tr>
+	                    </thead>
+	                    <tbody>
+	                       <tr>
+	                       
+	                       </tr>
+	                    </tbody>
+				   </table>
+				   <div>
+						<button type="button" class="btn btn-primary" id="addNewRow_${account.accountCode}"><i class="icon-plus icon-white"></i> Add Row</button>						
+				   </div>
 				</div>
 			</div>
 			<br>
