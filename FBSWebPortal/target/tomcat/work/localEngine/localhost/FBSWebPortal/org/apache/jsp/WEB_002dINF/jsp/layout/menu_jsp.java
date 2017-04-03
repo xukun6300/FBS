@@ -81,7 +81,7 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<div class=\"container_new\">\r\n");
       out.write("\t  <!-- <a class=\"brand\" href=\"#\">Biz</a> -->\r\n");
       out.write("\t  <div class=\"btn-group pull-right\">\r\n");
-      out.write("\t\t<a class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\r\n");
+      out.write("\t\t<a class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" style=\"margin-top:-4px;\">\r\n");
       out.write("\t\t  <i class=\"icon-user icon-white\"></i>");
       if (_jspx_meth_security_005fusername_005f0(_jspx_page_context))
         return;

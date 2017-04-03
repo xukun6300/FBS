@@ -81,7 +81,7 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
-      out.write(" <div class=\"container\" style=\"max-width: 1200px;\">\r\n");
+      out.write(" <div class=\"container\">  <!-- style=\"max-width: 1200px;\" -->\r\n");
       out.write("\t");
       if (_jspx_meth_tiles_005finsertAttribute_005f1(_jspx_page_context))
         return;

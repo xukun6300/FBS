@@ -44,18 +44,18 @@
     </dependency> -->
     
     <!-- Manual add db2jcc4-10.1.jar to local .m2/repository/com/ibm/db2/jcc -->
-    <!-- <dependency>
+    <dependency>
 	    <groupId>com.ibm.db2.jcc</groupId>
 	    <artifactId>db2jcc4</artifactId>
 	    <version>10.1</version>
-	</dependency>-->
+	</dependency>
     
     <!-- MySQL database driver -->
-	<dependency>
+	<!-- <dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
 		<version>5.1.9</version>
-	</dependency>    
+	</dependency> -->    
         
         
     <dependency>
