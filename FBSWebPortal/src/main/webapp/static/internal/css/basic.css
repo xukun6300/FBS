@@ -64,7 +64,7 @@ hr{
 }
 
 .container{ 
-	width:1200px;
+	width:1500px;
 	background:#fff;
 	border:1px solid #ddd;
 
@@ -3338,7 +3338,7 @@ background: url(../img/icon_advise.png) no-repeat 16px center #DE9719 ;
 fieldset legend.section {
  
 	color:#4691b8;
-	width:1150px;
+	width:1450px;
 	font-size:25px;
 	margin:5px 0px 20px 20px;
 	padding:0;
@@ -3835,7 +3835,7 @@ div .font-buttons {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 1.25rem;
-    width:90%;
+    width:94%;
     margin-left: auto;
     margin-right: auto;
 }

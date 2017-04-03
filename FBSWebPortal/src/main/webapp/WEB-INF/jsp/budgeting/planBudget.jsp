@@ -9,8 +9,8 @@
 <c:set var="conextPath" value="${pageContext.request.contextPath}"/>
 <style type="text/css">
 .acct-title{
-    margin-left: 40px;
-    width: 40%;
+    margin-left: 25px;
+    width: 30%;
     text-align:left;
 }
 
@@ -52,7 +52,12 @@
 	                      <tr>
 	                        <c:forEach items="${account.acctStructures}" var="acctColumn">
 	                           <th width="${acctColumn.columnSize}" column-type="${acctColumn.columnType}">${acctColumn.columnName}</th>                            
-	                        </c:forEach>                      
+	                        </c:forEach>
+	                        <th width="100">Forecast</th>
+	                        <th width="100">Current FY Approved</th>
+	                        <th width="100">Current FY Spent</th>
+	                        <th width="100">Put Up By</th> 
+	                        <th width="100">Approval Status</th>                     
 	                      </tr>
 	                    </thead>
 	                    <tbody>
