@@ -35,7 +35,9 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 	    <property name="transaction.auto_close_session">false</property>
 		<property name="transaction.flush_before_completion">true</property>
 		
-	
+		<!-- to solve DB store UTC time issue -->
+	    <property name="jadira.usertype.databaseZone">Asia/Singapore</property>
+        <property name="jadira.usertype.javaZone">Asia/Singapore</property>
 
         <!-- Security -->
         <mapping resource="hbm/fbs-user.hbm.xml"/>
@@ -45,6 +47,7 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         <mapping resource="hbm/fbs-mastercode.hbm.xml"/>
         <mapping resource="hbm/fbs-account.hbm.xml"/>
         <mapping resource="hbm/fbs-budget-config.hbm.xml"/>
+        <mapping resource="hbm/fbs-budgeting.hbm.xml"/>
   </session-factory>
 
 </hibernate-configuration>
