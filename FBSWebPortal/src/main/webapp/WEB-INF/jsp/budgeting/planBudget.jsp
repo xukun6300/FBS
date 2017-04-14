@@ -23,6 +23,10 @@
     width:100%;
 }
 
+.acct-table th{
+    font-size:13px;
+}
+
 </style>
 <script type="text/javascript" src="<spring:url value="/static/internal/js/budgeting/budgeting.js" />"></script>
 
@@ -39,7 +43,7 @@
 			</div>
 	      </div>
 
-	      <c:forEach items="${command.accounts}" var="account">	        
+	      <c:forEach items="${command.accounts}" var="account" varStatus="index">	        
 	        <p>
 				<button class="btn btn-primary acct-title" data-toggle="collapse" href="#${account.accountCode}" aria-expanded="false" 
 				aria-controls="collapseExample">${account.accountDesc} <i class="icon-minus icon-white icon-right"></i></button>
@@ -47,7 +51,8 @@
 			<!-- in means open by default -->
 			<div class="collapse in" id="${account.accountCode}">
 				<div class="card card-block">
-				   <table class="table ftable table-bordered table-hover table-condensed acct-table" id="acctTb_${account.accountCode}" column-size="${fn:length(account.acctStructures)}">
+				   <table class="table ftable table-bordered table-hover table-condensed acct-table" id="acctTb_${account.accountCode}" index="${index.index}"
+				   column-size="${fn:length(account.acctStructures)}">
 					   <thead>
 	                      <tr>
 	                        <c:forEach items="${account.acctStructures}" var="acctColumn">
@@ -57,13 +62,12 @@
 	                        <th width="100">Current FY Approved</th>
 	                        <th width="100">Current FY Spent</th>
 	                        <th width="100">Put Up By</th> 
-	                        <th width="100">Approval Status</th>                     
+	                        <th width="100">Approval Status</th>  
+	                        <th width="100">Action</th>                   
 	                      </tr>
 	                    </thead>
 	                    <tbody>
-	                       <tr>
-	                       
-	                       </tr>
+	                     
 	                    </tbody>
 				   </table>
 				   <div>
