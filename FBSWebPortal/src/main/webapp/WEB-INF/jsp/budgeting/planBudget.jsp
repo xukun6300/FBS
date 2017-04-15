@@ -58,12 +58,12 @@
 	                        <c:forEach items="${account.acctStructures}" var="acctColumn">
 	                           <th width="${acctColumn.columnSize}" column-type="${acctColumn.columnType}">${acctColumn.columnName}</th>                            
 	                        </c:forEach>
-	                        <th width="100">Forecast</th>
-	                        <th width="100">Current FY Approved</th>
-	                        <th width="100">Current FY Spent</th>
-	                        <th width="100">Put Up By</th> 
-	                        <th width="100">Approval Status</th>  
-	                        <th width="100">Action</th>                   
+	                        <th width="100" column-name="forcast">Forecast</th>
+	                        <th width="100" column-name="currApproved">Current FY Approved</th>
+	                        <th width="100" column-name="currSpent">Current FY Spent</th>
+	                        <th width="100" column-name="putupby">Put Up By</th> 
+	                        <th width="100" column-name="approveStatus">Approval Status</th>  
+	                        <th width="100" column-name="action">Action</th>                   
 	                      </tr>
 	                    </thead>
 	                    <tbody>

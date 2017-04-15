@@ -24,9 +24,12 @@ $(document).ready(function(){
 				 }else{
 					 newRow += "<td><input type=\"text\" id=\""+cellId+"\" class=\"input\" style=\"width:"+ inputWidth +"px\"/></td>"; 
 				 }
-			 }else{
+				 				 
+			 }else if($(this).attr("column-name")==='action'){
 				 //non user input field
-				 newRow += "<td></td>";
+				 newRow += "<td><button type=\"button\" class=\"btn-icon btn-success save-lineitem\"><i class=\"icon-check icon-white\"></i></button></td>";
+			 }else{
+				 newRow += "<td></td>"; 
 			 }
 			 
 		 });
@@ -35,5 +38,35 @@ $(document).ready(function(){
 		 $("#acctTb_"+acctCode+" tbody").append(newRow);
 		 $(".date-field").myDatePicker();
 	});
-})
+	
+	//use event delegation: 
+	//rows are added to DOM after DOM ready so event will not fire on newly added rows
+	$(".acct-table").on('click','.save-lineitem', saveLineItem);	
+
+});
+
+function saveLineItem(){
+	var tds = $(this).closest("tr").find("td");
+	tds.each(function(){
+		
+	});
+}
+
+
+function constructLineItemJSON(){
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
