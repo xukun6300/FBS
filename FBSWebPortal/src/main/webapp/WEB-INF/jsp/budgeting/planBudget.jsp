@@ -51,7 +51,7 @@
 			<!-- in means open by default -->
 			<div class="collapse in" id="${account.accountCode}">
 				<div class="card card-block">
-				   <table class="table ftable table-bordered table-hover table-condensed acct-table" id="acctTb_${account.accountCode}" index="${index.index}"
+				   <table class="table ftable table-bordered table-hover table-condensed acct-table" account-id="${account.id}" id="acctTb_${account.accountCode}" index="${index.index}"
 				   column-size="${fn:length(account.acctStructures)}">
 					   <thead>
 	                      <tr>

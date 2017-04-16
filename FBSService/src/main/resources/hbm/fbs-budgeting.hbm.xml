@@ -10,7 +10,7 @@
            <param name="sequence">LINEITEM_SEQ</param>
         </generator>
      </id>
-     <many-to-one name="account" class="sg.com.fbs.model.account.Account" column="ACCOUNTID" cascade="save-update" not-found="ignore"/>
+     <many-to-one name="account" class="sg.com.fbs.model.account.Account" column="ACCOUNTID" not-found="ignore"/>  <!-- no cascade -->
      <property name="column1" column="COLUMN1" />
      <property name="column2" column="COLUMN2" />
      <property name="column3" column="COLUMN3" />

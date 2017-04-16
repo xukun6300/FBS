@@ -2,6 +2,7 @@ package sg.com.fbs.services.budgeting.mgr;
 
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
+import sg.com.fbs.model.budgeting.LineItem;
 import sg.com.fbs.model.budgeting.PlanBudgetRequest;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.services.budgeting.exception.BudgetingException;
@@ -23,7 +24,16 @@ public class BudgetingManagerBD extends BusinessDelegate{
 			return (IResponseCRUD) obj;
 		} catch (ApplicationCoreException e) {
 			throw new BudgetingException(e.getMessageCode(), e);
-		}
-		
+		}		
 	}
+	
+
+	public void saveLineItem(LineItem lineItem) throws BudgetingException{
+		try {
+			budgetingManager.run(lineItem);
+		} catch (ApplicationCoreException e) {
+			throw new BudgetingException(e.getMessageCode(), e);
+		}		
+	}
+
 }

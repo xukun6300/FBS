@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
+	var jsBaseURL = '${pageContext.request.contextPath}';
+	
 	$("button[id^='addNewRow_']").click(function() {
 		 var acctCode = this.id.replace('addNewRow_','');
          
@@ -47,16 +48,59 @@ $(document).ready(function(){
 
 function saveLineItem(){
 	var tds = $(this).closest("tr").find("td");
-	tds.each(function(){
-		
-	});
-}
-
-
-function constructLineItemJSON(){
+	var ths = $(this).closest("table").find("th");
 	
+	var lineitemJSON = {};
+	
+	var accountJSON = {};
+	accountJSON['id'] = $(this).closest("table").attr("account-id");
+	lineitemJSON['account']=accountJSON;
+	
+	tds.each(function(index, value){
+		var columnType = ths.eq(index).attr("column-type");
+		if(columnType!==undefined){
+			var key= 'column'+(index+1);
+			lineitemJSON[key] = $.trim(tds.eq(index).find("input").val());			
+		}
+	});
+	console.log('lineitemJSON:'+JSON.stringify(lineitemJSON));
+	
+	var jsonInput = {json:JSON.stringify(lineitemJSON)};
+	$.ajax({
+		type : 'POST',
+		url : jsBaseURL + '/budgetingAjax/saveLineItem.action',
+		dataType : 'json',
+		data : jsonInput,
+		cache : false
+		}).done(function(respData, textStatus, XMLHttpRequest) {
+			try {
+				if (isMissing(respData.data)) {
+					alert('Unable to Save Lineitem');
+					return;
+				}
+				if(respData.data == 'Y'){
+					//$('#radioDiv').show();
+				}else{
+					//$('#radioDiv').hide();
+				}
+
+			} catch (err) {
+				alert('Unable to Save Lineitem');
+			}
+		}).fail(function(jqXHR, textStatus) {
+			alert('Unable to Save Lineitem Due to Communication Error Please Try Again '+textStatus);
+		});
 }
 
+function isMissing(variable) {
+    if('undefined' == $.type(variable)) {
+        return true;
+    } else if('null' == $.type(variable)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 
