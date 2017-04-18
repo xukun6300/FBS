@@ -30,11 +30,10 @@ $(document).ready(function(){
 				 }
 				 				 
 			 }else if($(this).attr("column-name")==='action'){
-				 //non user input field
-				 
+				 //non user input field				 
 				 newRow += "<td><button type=\"button\" class=\"btn-icon btn-success save-lineitem\" title=\"Save\"><i class=\"icon-check icon-white\"></i></button>" +
 				 		"<button style=\"display:none;\" type=\"button\" class=\"btn-icon btn-inverse edit-lineitem\" title=\"Update\"> <i class=\"icon-edit icon-white\"></i></button>" +
-				 		"<button style=\"display:none;\"class=\"btn-icon btn-danger delete-lineitem\" title=\"Delete\"><i class=\"icon-remove icon-white\"></i></button></td>";
+				 		"&nbsp;<button style=\"display:none;\"class=\"btn-icon btn-danger delete-lineitem\" title=\"Delete\"><i class=\"icon-remove icon-white\"></i></button></td>";
 			 }else{
 				 newRow += "<td></td>"; 
 			 }
@@ -52,6 +51,36 @@ $(document).ready(function(){
 	$(".acct-table").on('click','.edit-lineitem', editLineItem);
 	$(".acct-table").on('click','.delete-lineitem', deleteLineItem);
 });
+
+function deleteLineItem(){
+	
+}
+
+function editLineItem(){
+	var tds = $(this).closest("tr").find("td");
+	var ths = $(this).closest("table").find("th");
+	var tb = $(this).closest("table");	
+	var saveBtn = $(this).closest("td").find(".save-lineitem");
+	var editBtn = $(this).closest("td").find(".edit-lineitem");
+	var deleteBtn = $(this).closest("td").find(".delete-lineitem");
+	
+	var acctCode = tb.attr("id").replace('acctTb_','');	
+	
+	tds.each(function(index, value){
+		var columnType = ths.eq(index).attr("column-type");
+		if(columnType!==undefined){
+			var inputField = tds.eq(index).find("input");
+			var inputId = inputField.attr("id");
+			var labelId = inputId.replace("input", "label");
+			$("#"+labelId).hide();
+			inputField.show();
+			$("#alert_success_"+acctCode).hide();
+			saveBtn.show();
+			editBtn.hide();
+			deleteBtn.hide();
+		}
+	});
+}
 
 function saveLineItem(){
 	var tds = $(this).closest("tr").find("td");
@@ -99,6 +128,7 @@ function saveLineItem(){
 							var inputId = inputField.attr("id");
 							var labelId = inputId.replace("input", "label");
 							$("#"+labelId).text($.trim(inputField.val()));
+							$("#"+labelId).show();
 							inputField.hide();
 							$("#alert_success_"+acctCode).show();
 							saveBtn.hide();

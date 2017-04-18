@@ -68,7 +68,7 @@
 	                        <th width="100" column-name="currSpent">Current FY Spent</th>
 	                        <th width="100" column-name="putupby">Put Up By</th> 
 	                        <th width="100" column-name="approveStatus">Approval Status</th>  
-	                        <th width="200" column-name="action">Action</th>                   
+	                        <th width="160" column-name="action">Action</th>                   
 	                      </tr>
 	                    </thead>
 	                    <tbody>
