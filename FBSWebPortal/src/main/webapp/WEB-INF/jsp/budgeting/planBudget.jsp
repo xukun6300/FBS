@@ -51,6 +51,11 @@
 			<!-- in means open by default -->
 			<div class="collapse in" id="${account.accountCode}">
 				<div class="card card-block">
+				  <div class="alert alert-success alert-dismissible" id="alert_success_${account.accountCode}" role="alert" style="display:none;"> 
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> 
+				    Line Item Saved Successfully.
+				  </div>
+				
 				   <table class="table ftable table-bordered table-hover table-condensed acct-table" account-id="${account.id}" id="acctTb_${account.accountCode}" index="${index.index}"
 				   column-size="${fn:length(account.acctStructures)}">
 					   <thead>
@@ -63,7 +68,7 @@
 	                        <th width="100" column-name="currSpent">Current FY Spent</th>
 	                        <th width="100" column-name="putupby">Put Up By</th> 
 	                        <th width="100" column-name="approveStatus">Approval Status</th>  
-	                        <th width="100" column-name="action">Action</th>                   
+	                        <th width="200" column-name="action">Action</th>                   
 	                      </tr>
 	                    </thead>
 	                    <tbody>
