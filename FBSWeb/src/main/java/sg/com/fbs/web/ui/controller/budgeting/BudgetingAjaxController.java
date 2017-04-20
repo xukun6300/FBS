@@ -38,15 +38,16 @@ public class BudgetingAjaxController {
 		LineItem lineItem = gson.fromJson(json, lineitemType);
 		JSONResponse jsonResponse = new JSONResponse();
 		try {
-			budgetingManagerBD.saveLineItem(lineItem);
-			jsonResponse.setData(true);
+			LineItem savedLineitem = budgetingManagerBD.saveLineItem(lineItem);
+			System.out.println("savedLineitem"+savedLineitem.getId());
+			jsonResponse.setData(savedLineitem.getId());
 			jsonResponse.setErrorCode(0);
 			String result = gson.toJson(jsonResponse);
 			System.out.println(result);
 			return result;
 		} catch (BudgetingException e) {
 			e.printStackTrace();
-			jsonResponse.setData(false);
+			jsonResponse.setData(null);
 			jsonResponse.setErrorCode(1);
 			String result = gson.toJson(jsonResponse);
 			return result;

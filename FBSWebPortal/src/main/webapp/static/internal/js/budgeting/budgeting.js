@@ -86,6 +86,7 @@ function saveLineItem(){
 	var tds = $(this).closest("tr").find("td");
 	var ths = $(this).closest("table").find("th");
 	var tb = $(this).closest("table");	
+	var tr = $(this).closest("tr");
 	var saveBtn = $(this).closest("td").find(".save-lineitem");
 	var editBtn = $(this).closest("td").find(".edit-lineitem");
 	var deleteBtn = $(this).closest("td").find(".delete-lineitem");
@@ -96,6 +97,7 @@ function saveLineItem(){
 	var accountJSON = {};
 	accountJSON['id'] = $(this).closest("table").attr("account-id");
 	lineitemJSON['account']=accountJSON;
+	lineitemJSON['id']=tr.attr("lineitem-id");
 	
 	tds.each(function(index, value){
 		var columnType = ths.eq(index).attr("column-type");
@@ -119,7 +121,9 @@ function saveLineItem(){
 					alert('Unable to Save Lineitem');
 					return;
 				}
-				if(respData.data){
+				if(respData.data){					
+					
+					tr.attr("lineitem-id",respData.data);
 					
 					tds.each(function(index, value){
 						var columnType = ths.eq(index).attr("column-type");

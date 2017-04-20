@@ -57,13 +57,8 @@ public class BudgetingManager extends CommonFacade{
 	}
 	
 	
-	public void saveLineItem(LineItem lineItem) throws BudgetingException{
-		try {
-			budgetingDao.insert(lineItem);
-		} catch (DataAccessObjectException e) {
-			e.printStackTrace();
-			throw new BudgetingException(e.getMessageCode(), e);
-		}
+	public LineItem saveLineItem(LineItem lineItem) throws BudgetingException{
+		return (LineItem) budgetingDao.saveOrUpdate(lineItem);
 	}
 	
 	

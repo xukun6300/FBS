@@ -28,9 +28,9 @@ public class BudgetingManagerBD extends BusinessDelegate{
 	}
 	
 
-	public void saveLineItem(LineItem lineItem) throws BudgetingException{
+	public LineItem saveLineItem(LineItem lineItem) throws BudgetingException{
 		try {
-			budgetingManager.run(lineItem);
+			return (LineItem) budgetingManager.run(lineItem);
 		} catch (ApplicationCoreException e) {
 			throw new BudgetingException(e.getMessageCode(), e);
 		}		
