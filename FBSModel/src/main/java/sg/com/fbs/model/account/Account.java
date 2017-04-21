@@ -40,7 +40,7 @@ public class Account extends BaseLogPojo{
 	
 	private List<AccountStructure> acctStructures = new ArrayList<AccountStructure>();
 
-	private List<LineItem> lineItems = new ArrayList<LineItem>();
+	private Set<LineItem> lineItems;
 	
 	public String getAccountCode() {
 		return accountCode;
@@ -90,11 +90,11 @@ public class Account extends BaseLogPojo{
 		this.acctStructures = acctStructures;
 	}
 
-	public void setLineItems(List<LineItem> lineItems) {
+	public void setLineItems(Set<LineItem> lineItems) {
 		this.lineItems = lineItems;
 	}
 	
-	public List<LineItem> getLineItems() {
+	public Set<LineItem> getLineItems() {
 		return lineItems;
 	}
 }

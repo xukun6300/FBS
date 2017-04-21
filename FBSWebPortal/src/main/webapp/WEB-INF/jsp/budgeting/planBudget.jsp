@@ -72,7 +72,22 @@
 	                      </tr>
 	                    </thead>
 	                    <tbody>
-	                     
+	                        <c:forEach items="${account.lineItems}" var="lineitem">
+	                          <tr>
+	                            <c:forEach items="${account.acctStructures}" varStatus="lineitemIndex"> 
+	                               <c:set var="lineitemColumn" value="column${lineitemIndex.index+1}"/>
+	                               <td>${lineitem[lineitemColumn]}</td>                            
+	                            </c:forEach> 
+	                            <td></td>
+		                        <td></td>
+		                        <td></td>
+		                        <td></td>
+		                        <td></td>
+		                        <td></td>
+	                            </tr>
+	                                                 
+	                        </c:forEach>
+	                        
 	                    </tbody>
 				   </table>
 				   <div>
