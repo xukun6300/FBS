@@ -63,7 +63,7 @@ function editLineItem(){
 	var saveBtn = $(this).closest("td").find(".save-lineitem");
 	var editBtn = $(this).closest("td").find(".edit-lineitem");
 	var deleteBtn = $(this).closest("td").find(".delete-lineitem");
-	
+
 	var acctCode = tb.attr("id").replace('acctTb_','');	
 	
 	tds.each(function(index, value){
@@ -71,6 +71,24 @@ function editLineItem(){
 		if(columnType!==undefined){
 			var inputField = tds.eq(index).find("input");
 			var inputId = inputField.attr("id");
+			if(inputId===undefined){
+				var inputWidth = ths.eq(index).attr("width")-40;
+				 
+				 var rowNum = $("#acctTb_"+acctCode+" tbody tr").length;
+				 
+				 var inputIdNew = "input_"+acctCode+"_"+rowNum+"_"+index;
+				 var labelIdNew = "label_"+acctCode+"_"+rowNum+"_"+index;
+				 $(this).find("label").attr("id",labelIdNew);
+				 $(this).find("input").attr("id",inputIdNew);	
+				 $(this).find("input").attr("style","width:"+inputWidth+"px");
+				 $(this).find("input").val($(this).find("label").text());
+				 if(columnType==='D'){					 
+					 $(this).find("input").attr("class","date-field");
+				 }else{
+					 $(this).find("input").attr("class","input"); 
+				 }
+				 inputId = inputField.attr("id");
+			}
 			var labelId = inputId.replace("input", "label");
 			$("#"+labelId).hide();
 			inputField.show();
@@ -80,6 +98,7 @@ function editLineItem(){
 			deleteBtn.hide();
 		}
 	});
+	$(".date-field").myDatePicker();
 }
 
 function saveLineItem(){

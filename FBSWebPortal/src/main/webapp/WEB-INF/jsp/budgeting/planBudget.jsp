@@ -73,17 +73,24 @@
 	                    </thead>
 	                    <tbody>
 	                        <c:forEach items="${account.lineItems}" var="lineitem">
-	                          <tr>
+	                          <tr lineitem-id="${lineitem.id}">
 	                            <c:forEach items="${account.acctStructures}" varStatus="lineitemIndex"> 
 	                               <c:set var="lineitemColumn" value="column${lineitemIndex.index+1}"/>
-	                               <td>${lineitem[lineitemColumn]}</td>                            
+	                               <td>
+	                               <label>${lineitem[lineitemColumn]}</label>
+	                               <input type="text" style="display:none;">
+	                               </td>                            
 	                            </c:forEach> 
 	                            <td></td>
 		                        <td></td>
 		                        <td></td>
 		                        <td></td>
 		                        <td></td>
-		                        <td></td>
+		                        <td>		                          
+		                          <button type="button" class="btn-icon btn-success save-lineitem" title="Save" style="display:none;"><i class="icon-check icon-white"></i></button>
+		                          <button style="" type="button" class="btn-icon btn-inverse edit-lineitem" title="Update" > <i class="icon-edit icon-white"></i></button>&nbsp;
+		                          <button style="" class="btn-icon btn-danger delete-lineitem" title="Delete" ><i class="icon-remove icon-white"></i></button>
+		                        </td>
 	                            </tr>
 	                                                 
 	                        </c:forEach>
