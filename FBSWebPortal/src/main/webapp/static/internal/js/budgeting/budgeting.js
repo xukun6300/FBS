@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var jsBaseURL = '${pageContext.request.contextPath}';
+	//var jsBaseURL = '${pageContext.request.contextPath}';
 	
 	$("button[id^='addNewRow_']").click(function() {
 		 var acctCode = this.id.replace('addNewRow_','');
@@ -33,7 +33,7 @@ $(document).ready(function(){
 				 //non user input field				 
 				 newRow += "<td><button type=\"button\" class=\"btn-icon btn-success save-lineitem\" title=\"Save\"><i class=\"icon-check icon-white\"></i></button>" +
 				 		"<button style=\"display:none;\" type=\"button\" class=\"btn-icon btn-inverse edit-lineitem\" title=\"Update\"> <i class=\"icon-edit icon-white\"></i></button>" +
-				 		"&nbsp;<button style=\"display:none;\"class=\"btn-icon btn-danger delete-lineitem\" title=\"Delete\"><i class=\"icon-remove icon-white\"></i></button></td>";
+				 		"&nbsp;<button style=\"display:none;\" type=\"button\" class=\"btn-icon btn-danger delete-lineitem\" title=\"Delete\"><i class=\"icon-remove icon-white\"></i></button></td>";
 			 }else{
 				 newRow += "<td></td>"; 
 			 }
@@ -50,11 +50,51 @@ $(document).ready(function(){
 	$(".acct-table").on('click','.save-lineitem', saveLineItem);	
 	$(".acct-table").on('click','.edit-lineitem', editLineItem);
 	$(".acct-table").on('click','.delete-lineitem', deleteLineItem);
+	
+	$("#deleteLineitemDialogCloseBtn").click(function(){
+		$('#deleteLineitemDialog').modal('hide');
+	});
+
+	$("#deleteLineitemDialogDeleteBtn").click(function(){
+
+		var lineitemId = $('#deleteLineitemDialog').attr('lineitem-id');
+		$.ajax({
+			type : 'POST',
+			url : jsBaseURL + '/budgetingAjax/deleteLineItem.action',
+			dataType : 'json',
+			data : {"lineitemId":lineitemId},
+			cache : false
+		}).done(function(respData, textStatus, XMLHttpRequest) {
+			try {
+				if (isMissing(respData.data)) {
+					alert('Unable to Save Lineitem');
+					return;
+				}
+				if(respData.data){								
+					$("#alert_success_"+acctCode).show();
+				}else{
+					alert('Unable to Save Lineitem');
+				}
+
+			} catch (err) {
+				alert('Unable to Save Lineitem');
+			}
+		}).fail(function(jqXHR, textStatus) {
+			alert('Unable to Save Lineitem Due to Communication Error Please Try Again '+textStatus);
+		});
+	});
 });
 
 function deleteLineItem(){
-	
+	var lineitemId = $(this).closest("tr").attr("lineitem-id");
+	$('#deleteLineitemDialog').attr('lineitem-id',lineitemId);		
+	$('#deleteLineitemDialog').modal({
+        keyboard: false ,
+    	backdrop: true,	    	
+    }) ;
 }
+
+
 
 function editLineItem(){
 	var tds = $(this).closest("tr").find("td");

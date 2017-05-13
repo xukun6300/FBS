@@ -61,6 +61,16 @@ public class BudgetingManager extends CommonFacade{
 		return (LineItem) budgetingDao.saveOrUpdate(lineItem);
 	}
 	
+	public LineItem deleteLineItem(Long lineItemId) throws BudgetingException{
+		LineItem lineItem = (LineItem) budgetingDao.getByPrimaryKey(LineItem.class, lineItemId);
+		try {
+			return (LineItem) budgetingDao.softDelete(lineItem);
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new BudgetingException(e.getMessageCode(), e);
+		}
+	}
+	
 	
 }
 

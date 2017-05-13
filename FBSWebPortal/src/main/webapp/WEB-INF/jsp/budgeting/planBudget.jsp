@@ -89,7 +89,7 @@
 		                        <td>		                          
 		                          <button type="button" class="btn-icon btn-success save-lineitem" title="Save" style="display:none;"><i class="icon-check icon-white"></i></button>
 		                          <button style="" type="button" class="btn-icon btn-inverse edit-lineitem" title="Update" > <i class="icon-edit icon-white"></i></button>&nbsp;
-		                          <button style="" class="btn-icon btn-danger delete-lineitem" title="Delete" ><i class="icon-remove icon-white"></i></button>
+		                          <button style="" type="button" class="btn-icon btn-danger delete-lineitem" title="Delete" ><i class="icon-remove icon-white"></i></button>
 		                        </td>
 	                            </tr>
 	                                                 
@@ -112,3 +112,20 @@
 	</form:form>
 	
 </fieldset>
+
+<div id="deleteLineitemDialog" style="width: 630px; height: 180px;" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Delete Lineitem" aria-hidden="true">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
+		<h3 style="width:330px;font-family:Arial;font-size:16px;font-weight:bold;font-style:normal;text-decoration:none;color:#EB9B07;">Delete Lineitem</h3>
+	</div>
+	<div class="modal-body" style="max-height:800px;width:600px;height:60px;">	
+		Are you sure you want to delete lineitem?
+	</div>
+	<div class="modal-footer" style="width:600px;height:30px;">
+		<a class="bt bt-pane b1" id="deleteLineitemDialogDeleteBtn">Delete</a>
+		<a class="bt" id="deleteLineitemDialogCloseBtn">Close</a>
+	</div>
+</div> 
+
+
+

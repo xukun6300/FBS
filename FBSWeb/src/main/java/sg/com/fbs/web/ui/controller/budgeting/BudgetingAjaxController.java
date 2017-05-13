@@ -51,8 +51,28 @@ public class BudgetingAjaxController {
 			jsonResponse.setErrorCode(1);
 			String result = gson.toJson(jsonResponse);
 			return result;
-		}
-		
+		}		
+	}
+	
+	@RequestMapping(value="/deleteLineItem", method=RequestMethod.POST)
+	public @ResponseBody String deleteLineItem(@RequestParam(value="lineitemId", required=true) Long lineItemId){
+		JSONResponse jsonResponse = new JSONResponse();
+		Gson gson = new Gson();
+		try {
+			LineItem deletedLineitem = budgetingManagerBD.deleteLineItem(lineItemId);
+			jsonResponse.setData(true);
+			jsonResponse.setErrorCode(0);
+			String result = gson.toJson(jsonResponse);
+			System.out.println(result);
+			return result;
+		} catch (BudgetingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			jsonResponse.setData(null);
+			jsonResponse.setErrorCode(1);
+			String result = gson.toJson(jsonResponse);
+			return result;
+		}		
 	}
 	
 }

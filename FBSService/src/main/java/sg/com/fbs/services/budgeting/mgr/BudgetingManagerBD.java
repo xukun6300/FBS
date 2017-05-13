@@ -36,4 +36,11 @@ public class BudgetingManagerBD extends BusinessDelegate{
 		}		
 	}
 
+	public LineItem deleteLineItem(Long lineItemId) throws BudgetingException{
+		try {
+			return (LineItem) budgetingManager.run(lineItemId);
+		} catch (ApplicationCoreException e) {
+			throw new BudgetingException(e.getMessageCode(), e);
+		}		
+	}
 }
