@@ -21,7 +21,7 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		
 		<!-- For MySql -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">xukun1988929</property>
+        <property name="hibernate.connection.password">xukun1988</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/FBS</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>

@@ -9,4 +9,5 @@ service name :FBS
 
 
 MySql: username:root
-       password:xukun1988929
+       password:xukun1988929 (accenture laptop)
+       password:xukun1988 (macbook)
