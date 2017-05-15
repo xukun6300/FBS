@@ -54,45 +54,43 @@ public final class main_005fnomenu_jsp extends org.apache.jasper.runtime.HttpJsp
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
-      out.write("<html lang=\"en\">\r\n");
-      out.write("<head>\r\n");
-      out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n");
+      out.write("<html lang=\"en\">\n");
+      out.write("<head>\n");
+      out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n");
       out.write("<title>");
       if (_jspx_meth_tiles_005finsertAttribute_005f0(_jspx_page_context))
         return;
-      out.write("</title>\r\n");
-      out.write("<!-- inlcude all css files and js files here  -->\r\n");
+      out.write("</title>\n");
+      out.write("<!-- inlcude all css files and js files here  -->\n");
       if (_jspx_meth_c_005fimport_005f0(_jspx_page_context))
         return;
-      out.write('\r');
       out.write('\n');
       if (_jspx_meth_c_005fimport_005f1(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("</head>\r\n");
-      out.write("<body>\r\n");
-      out.write(" <div class=\"container\" style=\"max-width: 1200px;\">\r\n");
+      out.write("\n");
+      out.write("</head>\n");
+      out.write("<body>\n");
+      out.write(" <div class=\"container\" style=\"max-width: 1200px;\">\n");
       out.write("\t");
       if (_jspx_meth_tiles_005finsertAttribute_005f1(_jspx_page_context))
         return;
-      out.write('\r');
       out.write('\n');
       out.write('	');
       if (_jspx_meth_tiles_005finsertAttribute_005f2(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write(" </div>\r\n");
-      out.write("</body>\r\n");
+      out.write("\n");
+      out.write(" </div>\n");
+      out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

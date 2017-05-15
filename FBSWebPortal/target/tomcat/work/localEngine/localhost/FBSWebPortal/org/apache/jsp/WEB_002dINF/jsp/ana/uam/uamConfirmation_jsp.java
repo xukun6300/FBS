@@ -62,35 +62,35 @@ public final class uamConfirmation_jsp extends org.apache.jasper.runtime.HttpJsp
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<div class=\"container-fluid\">\r\n");
-      out.write("\t<div class=\"row-fluid\">\r\n");
-      out.write("\t\t<div class=\"block-center span12\">\r\n");
-      out.write("\t\t   <h1>Confirmation Page</h1>\r\n");
-      out.write("\t\t   <hr/>\r\n");
-      out.write("\t\t   \r\n");
-      out.write("\t\t   <div class=\"alert alert-success\">\r\n");
-      out.write("\t\t      <button type=\"button\" class=\"close\" data-dismiss=\"alert\"></button>\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<div class=\"container-fluid\">\n");
+      out.write("\t<div class=\"row-fluid\">\n");
+      out.write("\t\t<div class=\"block-center span12\">\n");
+      out.write("\t\t   <h1>Confirmation Page</h1>\n");
+      out.write("\t\t   <hr/>\n");
+      out.write("\t\t   \n");
+      out.write("\t\t   <div class=\"alert alert-success\">\n");
+      out.write("\t\t      <button type=\"button\" class=\"close\" data-dismiss=\"alert\"></button>\n");
       out.write("\t\t      <h4>");
       if (_jspx_meth_spring_005fmessage_005f0(_jspx_page_context))
         return;
-      out.write("</h4>  \r\n");
-      out.write("\t\t   </div>\r\n");
-      out.write("\t\t   \r\n");
+      out.write("</h4>  \n");
+      out.write("\t\t   </div>\n");
+      out.write("\t\t   \n");
       out.write("\t\t   <button id=\"btnBack\" name=\"btnBack\" class=\"bt\" type=\"button\" onclick=\"javascript:location.href='");
       if (_jspx_meth_c_005furl_005f0(_jspx_page_context))
         return;
-      out.write("'\">Go Back To Home</button>\r\n");
-      out.write("\t\t\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t</div>\r\n");
+      out.write("'\">Go Back To Home</button>\n");
+      out.write("\t\t\n");
+      out.write("\t\t</div>\n");
+      out.write("\t</div>\n");
       out.write("</div>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
