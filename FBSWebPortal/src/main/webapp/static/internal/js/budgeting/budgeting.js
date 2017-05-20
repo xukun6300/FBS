@@ -22,11 +22,11 @@ $(document).ready(function(){
 				 
 				 var inputId = "input_"+acctCode+"_"+rowNum+"_"+index;
 				 var labelId = "label_"+acctCode+"_"+rowNum+"_"+index;
-				 
-				 if($(this).attr("column-type")==='D'){
-					 newRow += "<td><label id=\""+labelId+"\"></label><input type=\"text\" id=\""+inputId+"\" class=\"date-field\" style=\"width:"+ inputWidth +"px\"/></td>";				
+				 var columnType = $(this).attr("column-type");
+				 if(columnType==='D'){
+					 newRow += "<td><label id=\""+labelId+"\"></label><input type=\"text\" id=\""+inputId+"\" cell-type=\""+columnType+"\" class=\"date-field\" style=\"width:"+ inputWidth +"px\"/></td>";				
 				 }else{
-					 newRow += "<td><label id=\""+labelId+"\"></label><input type=\"text\" id=\""+inputId+"\" class=\"input\" style=\"width:"+ inputWidth +"px\"/></td>"; 
+					 newRow += "<td><label id=\""+labelId+"\"></label><input type=\"text\" id=\""+inputId+"\" cell-type=\""+columnType+"\" class=\"input\" style=\"width:"+ inputWidth +"px\"/></td>"; 
 				 }
 				 				 
 			 }else if($(this).attr("column-name")==='action'){
@@ -50,6 +50,11 @@ $(document).ready(function(){
 	$(".acct-table").on('click','.save-lineitem', saveLineItem);	
 	$(".acct-table").on('click','.edit-lineitem', editLineItem);
 	$(".acct-table").on('click','.delete-lineitem', deleteLineItem);
+
+	//validate numeric input field
+	$("body").delegate("input[cell-type='N']", "keydown", function(e) {
+		$(this).keydown(numericOnly(e));
+	});
 	
 	$("#deleteLineitemDialogCloseBtn").click(function(){
 		$('#deleteLineitemDialog').modal('hide');
@@ -58,6 +63,7 @@ $(document).ready(function(){
 	$("#deleteLineitemDialogDeleteBtn").click(function(){
 
 		var lineitemId = $('#deleteLineitemDialog').attr('lineitem-id');
+		var acctCode = $('#deleteLineitemDialog').attr('acctCode');
 		$.ajax({
 			type : 'POST',
 			url : jsBaseURL + '/budgetingAjax/deleteLineItem.action',
@@ -67,17 +73,20 @@ $(document).ready(function(){
 		}).done(function(respData, textStatus, XMLHttpRequest) {
 			try {
 				if (isMissing(respData.data)) {
-					alert('Unable to Save Lineitem');
+					alert('Unable to Delete Lineitem');
 					return;
 				}
 				if(respData.data){								
-					$("#alert_success_"+acctCode).show();
+					$("#alert_delete_success_"+acctCode).show();
+					$("#alert_save_success_"+acctCode).hide();
+					$('#deleteLineitemDialog').modal('hide');
+					$("tr[lineitem-id='"+lineitemId+"']").hide();
 				}else{
-					alert('Unable to Save Lineitem');
+					alert('Unable to Delete Lineitem');
 				}
 
 			} catch (err) {
-				alert('Unable to Save Lineitem');
+				alert('Unable to Delete Lineitem');
 			}
 		}).fail(function(jqXHR, textStatus) {
 			alert('Unable to Save Lineitem Due to Communication Error Please Try Again '+textStatus);
@@ -87,13 +96,14 @@ $(document).ready(function(){
 
 function deleteLineItem(){
 	var lineitemId = $(this).closest("tr").attr("lineitem-id");
-	$('#deleteLineitemDialog').attr('lineitem-id',lineitemId);		
+	var acctCode = $(this).closest("table").attr("id").replace('acctTb_','');	
+	$('#deleteLineitemDialog').attr('lineitem-id',lineitemId);	
+	$('#deleteLineitemDialog').attr('acctCode',acctCode);
 	$('#deleteLineitemDialog').modal({
         keyboard: false ,
     	backdrop: true,	    	
     }) ;
 }
-
 
 
 function editLineItem(){
@@ -114,12 +124,13 @@ function editLineItem(){
 			if(inputId===undefined){
 				var inputWidth = ths.eq(index).attr("width")-40;
 				 
-				 var rowNum = $("#acctTb_"+acctCode+" tbody tr").length;
-				 
+				 //var rowNum = $("#acctTb_"+acctCode+" tbody tr").length;
+				 var rowNum = $(this).parent().index();
 				 var inputIdNew = "input_"+acctCode+"_"+rowNum+"_"+index;
 				 var labelIdNew = "label_"+acctCode+"_"+rowNum+"_"+index;
 				 $(this).find("label").attr("id",labelIdNew);
 				 $(this).find("input").attr("id",inputIdNew);	
+				 $(this).find("input").attr("cell-type",columnType);	
 				 $(this).find("input").attr("style","width:"+inputWidth+"px");
 				 $(this).find("input").val($(this).find("label").text());
 				 if(columnType==='D'){					 
@@ -129,10 +140,12 @@ function editLineItem(){
 				 }
 				 inputId = inputField.attr("id");
 			}
+			
 			var labelId = inputId.replace("input", "label");
 			$("#"+labelId).hide();
 			inputField.show();
-			$("#alert_success_"+acctCode).hide();
+			$("#alert_save_success_"+acctCode).hide();
+			$("#alert_delete_success_"+acctCode).hide();
 			saveBtn.show();
 			editBtn.hide();
 			deleteBtn.hide();
@@ -193,7 +206,8 @@ function saveLineItem(){
 							$("#"+labelId).text($.trim(inputField.val()));
 							$("#"+labelId).show();
 							inputField.hide();
-							$("#alert_success_"+acctCode).show();
+							$("#alert_save_success_"+acctCode).show();
+							$("#alert_delete_success_"+acctCode).hide();
 							saveBtn.hide();
 							editBtn.show();
 							deleteBtn.show();
@@ -223,7 +237,21 @@ function isMissing(variable) {
 }
 
 
-
+function numericOnly(e) {
+    // Allow: backspace, delete, tab, escape, enter and .
+    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+         // Allow: Ctrl+A, Command+A
+        (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) || 
+         // Allow: home, end, left, right, down, up
+        (e.keyCode >= 35 && e.keyCode <= 40)) {
+             // let it happen, don't do anything
+             return;
+    }
+    // Ensure that it is a number and stop the keypress
+    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+        e.preventDefault();
+    }
+}
 
 
 
