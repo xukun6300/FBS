@@ -349,7 +349,17 @@ public class AccountManager extends CommonFacade{
 		return accountCodes;
 	}
 	
-	
+	@SuppressWarnings("unchecked")
+	public List<AccountStructure> getAccountStructuresByAccount(Account account) throws AccountException{
+		try {
+			List<AccountStructure> accountStructures = (List<AccountStructure>) accountDao.find(AccountStructure.class, AccountStructure.ACT_IND, 
+					ActiveStatusEnum.YES.toString(), AccountStructure.ACCT_ID, account.getId());
+	        return accountStructures;
+		} catch (DataAccessObjectException e) {
+			e.printStackTrace();
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
 	
 }
 

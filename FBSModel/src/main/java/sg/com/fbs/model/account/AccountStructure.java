@@ -12,6 +12,8 @@ public class AccountStructure extends BaseLogPojo{
 
 	private static final long serialVersionUID = -7145608437246771389L;
 	
+	public static final String ACCT_ID = "account.id";
+	
 	private Account account;
 	
 	private String columnName;

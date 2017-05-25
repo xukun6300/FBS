@@ -1,12 +1,15 @@
 package sg.com.fbs.services.account.mgr;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import sg.com.fbs.core.businfra.businessdelegate.BusinessDelegate;
 import sg.com.fbs.core.techinfra.exception.ApplicationCoreException;
+import sg.com.fbs.model.account.Account;
 import sg.com.fbs.model.account.AccountRequest;
+import sg.com.fbs.model.account.AccountStructure;
 import sg.com.fbs.model.system.persistence.query.CriteriaIF;
 import sg.com.fbs.model.system.persistence.response.IResponseCRUD;
 import sg.com.fbs.model.system.persistence.response.ResponseCRUD;
@@ -95,6 +98,15 @@ public class AccountManagerBD extends BusinessDelegate {
 		try {
 			Object object = new AccountManager().run();
             return (Map<String, String>)object;
+		} catch (ApplicationCoreException e) {
+			throw new AccountException(e.getMessageCode(), e);
+		}
+	}
+	
+	public List<AccountStructure> getAccountStructuresByAccount(Account account) throws AccountException{
+		try {
+			Object object = new AccountManager().run(account);
+            return (List<AccountStructure>)object;
 		} catch (ApplicationCoreException e) {
 			throw new AccountException(e.getMessageCode(), e);
 		}

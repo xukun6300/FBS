@@ -59,6 +59,9 @@
 				    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> 
 				    Line Item Deleted Successfully.
 				  </div>
+				  <div class="alert alert-danger alert-dismissible" id="alert_danger_${account.accountCode}" role="alert" style="display:none;"> 
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> 
+				  </div>
 				   <table class="table ftable table-bordered table-hover table-condensed acct-table" account-id="${account.id}" id="acctTb_${account.accountCode}" index="${index.index}"
 				   column-size="${fn:length(account.acctStructures)}">
 					   <thead>

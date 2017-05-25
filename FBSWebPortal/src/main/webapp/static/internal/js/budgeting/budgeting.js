@@ -24,7 +24,7 @@ $(document).ready(function(){
 				 var labelId = "label_"+acctCode+"_"+rowNum+"_"+index;
 				 var columnType = $(this).attr("column-type");
 				 if(columnType==='D'){
-					 newRow += "<td><label id=\""+labelId+"\"></label><input type=\"text\" id=\""+inputId+"\" cell-type=\""+columnType+"\" class=\"date-field\" style=\"width:"+ inputWidth +"px\"/></td>";				
+					 newRow += "<td><label id=\""+labelId+"\"></label><input type=\"text\" readonly=\"true\" id=\""+inputId+"\" cell-type=\""+columnType+"\" class=\"date-field\" style=\"width:"+ inputWidth +"px\"/></td>";				
 				 }else{
 					 newRow += "<td><label id=\""+labelId+"\"></label><input type=\"text\" id=\""+inputId+"\" cell-type=\""+columnType+"\" class=\"input\" style=\"width:"+ inputWidth +"px\"/></td>"; 
 				 }
@@ -53,7 +53,7 @@ $(document).ready(function(){
 
 	//validate numeric input field
 	$("body").delegate("input[cell-type='N']", "keydown", function(e) {
-		$(this).keydown(numericOnly(e));
+		//$(this).keydown(numericOnly(e));
 	});
 	
 	$("#deleteLineitemDialogCloseBtn").click(function(){
@@ -135,6 +135,7 @@ function editLineItem(){
 				 $(this).find("input").val($(this).find("label").text());
 				 if(columnType==='D'){					 
 					 $(this).find("input").attr("class","date-field");
+					// $(this).find("input").attr("readonly",true);
 				 }else{
 					 $(this).find("input").attr("class","input"); 
 				 }
@@ -189,10 +190,10 @@ function saveLineItem(){
 		cache : false
 		}).done(function(respData, textStatus, XMLHttpRequest) {
 			try {
-				if (isMissing(respData.data)) {
-					alert('Unable to Save Lineitem');
-					return;
-				}
+//				if (isMissing(respData.data)) {
+//					alert('Unable to Save Lineitem');
+//					return;
+//				}
 				if(respData.data){					
 					
 					tr.attr("lineitem-id",respData.data);
@@ -215,7 +216,11 @@ function saveLineItem(){
 					});
 					
 				}else{
-					alert('Unable to Save Lineitem');
+					$("#alert_danger_"+acctCode).append(respData.errorMessage);
+					$("#alert_danger_"+acctCode).show();
+					$("html, body").delay(2000).animate({
+					      scrollTop: $("#alert_danger_"+acctCode).offset().top 
+					  }, 50);
 				}
 
 			} catch (err) {
