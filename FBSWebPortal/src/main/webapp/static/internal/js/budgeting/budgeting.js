@@ -71,28 +71,43 @@ $(document).ready(function(){
 			data : {"lineitemId":lineitemId},
 			cache : false
 		}).done(function(respData, textStatus, XMLHttpRequest) {
-			try {
 				if (isMissing(respData.data)) {
 					alert('Unable to Delete Lineitem');
 					return;
 				}
-				if(respData.data){								
-					$("#alert_delete_success_"+acctCode).show();
-					$("#alert_save_success_"+acctCode).hide();
+				if(respData.data){							
+					var alertMessage = createAlertMessage('alert-success', 'Line Item Deleted Successfully.', acctCode);
+					$("#"+acctCode+" .card.card-block").prepend($(alertMessage));
 					$('#deleteLineitemDialog').modal('hide');
 					$("tr[lineitem-id='"+lineitemId+"']").hide();
+					$("html, body").delay(0).animate({
+					      scrollTop: $("#"+acctCode+" .card.card-block").offset().top 
+					}, 800);
 				}else{
-					alert('Unable to Delete Lineitem');
+					var alertMessage = createAlertMessage('alert-danger', 'Unable to Delete Lineitem.', acctCode);
+					$("#"+acctCode+" .card.card-block").prepend($(alertMessage));
 				}
-
-			} catch (err) {
-				alert('Unable to Delete Lineitem');
-			}
 		}).fail(function(jqXHR, textStatus) {
 			alert('Unable to Save Lineitem Due to Communication Error Please Try Again '+textStatus);
 		});
 	});
+	
+	function createAlertMessage(alertType, alertMessage, accountCode){
+		$("#"+accountCode+" .card.card-block .alert").remove();
+		var alert = "<div class=\"alert " + alertType + " alert-dismissible "+ accountCode +"\" role=\"alert\"> <button type=\"button\" class=\"close\" " +
+				"data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>" +alertMessage+
+				"</div>";
+		return alert;
+	}
 });
+
+function createAlertMessage(alertType, alertMessage, accountCode){
+	$("#"+accountCode+" .card.card-block .alert").remove();
+	var alert = "<div class=\"alert " + alertType + " alert-dismissible "+ accountCode +"\" role=\"alert\"> <button type=\"button\" class=\"close\" " +
+			"data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>" +alertMessage+
+			"</div>";
+	return alert;
+}
 
 function deleteLineItem(){
 	var lineitemId = $(this).closest("tr").attr("lineitem-id");
@@ -145,8 +160,8 @@ function editLineItem(){
 			var labelId = inputId.replace("input", "label");
 			$("#"+labelId).hide();
 			inputField.show();
-			$("#alert_save_success_"+acctCode).hide();
-			$("#alert_delete_success_"+acctCode).hide();
+			var alertMessage = createAlertMessage('alert-success', 'Line Item Saved Successfully.', acctCode);
+			$("#"+acctCode+" .card.card-block").prepend($(alertMessage));
 			saveBtn.show();
 			editBtn.hide();
 			deleteBtn.hide();
@@ -189,11 +204,7 @@ function saveLineItem(){
 		data : jsonInput,
 		cache : false
 		}).done(function(respData, textStatus, XMLHttpRequest) {
-			try {
-//				if (isMissing(respData.data)) {
-//					alert('Unable to Save Lineitem');
-//					return;
-//				}
+		
 				if(respData.data){					
 					
 					tr.attr("lineitem-id",respData.data);
@@ -207,25 +218,26 @@ function saveLineItem(){
 							$("#"+labelId).text($.trim(inputField.val()));
 							$("#"+labelId).show();
 							inputField.hide();
-							$("#alert_save_success_"+acctCode).show();
-							$("#alert_delete_success_"+acctCode).hide();
+							var alertMessage = createAlertMessage('alert-success', 'Line Item Saved Successfully.', acctCode);
+							$("#"+acctCode+" .card.card-block").prepend($(alertMessage));
 							saveBtn.hide();
 							editBtn.show();
 							deleteBtn.show();
+							$("html, body").delay(0).animate({
+							      scrollTop: $("#"+acctCode+" .card.card-block").offset().top 
+							}, 800);
 						}
 					});
 					
 				}else{
-					$("#alert_danger_"+acctCode).append(respData.errorMessage);
-					$("#alert_danger_"+acctCode).show();
-					$("html, body").delay(2000).animate({
-					      scrollTop: $("#alert_danger_"+acctCode).offset().top 
-					  }, 50);
+					var alertMessage = createAlertMessage('alert-danger', respData.errorMessage, acctCode);
+					$("#"+acctCode+" .card.card-block").prepend($(alertMessage));
+					$("html, body").delay(0).animate({
+					      scrollTop: $("#"+acctCode+" .card.card-block").offset().top 
+					}, 800);
 				}
 
-			} catch (err) {
-				alert('Unable to Save Lineitem');
-			}
+			
 		}).fail(function(jqXHR, textStatus) {
 			alert('Unable to Save Lineitem Due to Communication Error Please Try Again '+textStatus);
 		});

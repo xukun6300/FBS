@@ -53,14 +53,15 @@
 				<div class="card card-block">
 				  <div class="alert alert-success alert-dismissible" id="alert_save_success_${account.accountCode}" role="alert" style="display:none;"> 
 				    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> 
-				    Line Item Saved Successfully.
+				    <div class="alert-messgae"></div>Line Item Saved Successfully.
 				  </div>
 				  <div class="alert alert-success alert-dismissible" id="alert_delete_success_${account.accountCode}" role="alert" style="display:none;"> 
 				    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> 
-				    Line Item Deleted Successfully.
+				    <div class="alert-messgae"></div>Line Item Deleted Successfully.
 				  </div>
 				  <div class="alert alert-danger alert-dismissible" id="alert_danger_${account.accountCode}" role="alert" style="display:none;"> 
-				    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> 
+				    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+				    <div class="alert-messgae"></div>
 				  </div>
 				   <table class="table ftable table-bordered table-hover table-condensed acct-table" account-id="${account.id}" id="acctTb_${account.accountCode}" index="${index.index}"
 				   column-size="${fn:length(account.acctStructures)}">

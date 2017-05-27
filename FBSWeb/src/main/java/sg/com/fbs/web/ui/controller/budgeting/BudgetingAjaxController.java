@@ -54,7 +54,8 @@ public class BudgetingAjaxController {
 		try {
 			List<AccountStructure> accountStructures = accountManagerBD.getAccountStructuresByAccount(lineItem.getAccount());
 			for (int i = 0; i < accountStructures.size(); i++) {
-				String getterName = "getColumn" + (++i);
+				int j = i;
+				String getterName = "getColumn" + (++j);
 				String value = (String) lineItem.getClass().getMethod(getterName).invoke(lineItem);
 				String columnType = accountStructures.get(i).getColumnType();
 				String columnName = accountStructures.get(i).getColumnName();
@@ -67,6 +68,7 @@ public class BudgetingAjaxController {
                         try {
                         	dateFormat.parse(value);
 						} catch (ParseException e) {
+							e.printStackTrace();
 							errorMessage = errorMessage.concat(columnName+" Should Be Date Value.<br>");
 						}
 				}
