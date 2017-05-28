@@ -714,6 +714,11 @@ fieldset.design-mode .control-group-over {
 	margin-right: 4px;
 }
 
+.control-radio-checkbox.control-in-table {
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
 .control-radio-checkbox span {
 	margin-right: 12px;
 }

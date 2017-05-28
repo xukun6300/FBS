@@ -57,6 +57,7 @@
                    <th><spring:message code="fbs.common.account.ui.label.account.column.name"/></th>
                    <th><spring:message code="fbs.common.account.ui.label.account.column.size"/></th>                  
                    <th><spring:message code="fbs.common.account.ui.label.account.column.type"/></th>
+                   <th><spring:message code="fbs.common.account.ui.label.account.column.nullable"/></th>
                    <th><spring:message code="fbs.common.ui.label.delete"/></th>
                 </tr>
              </thead>             
@@ -64,7 +65,13 @@
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.item.desc"/></td>
 	              <td>300</td>
-	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>	              
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>	    
+	              <td>
+	                 <div class="controls control-radio-checkbox control-in-table"> 
+                      <input type="radio" value="Y" name="nullable-row1" id="nullable-row1-yes" checked="checked"/><label for="nullable-row1-yes">Yes</label>
+                      <input type="radio" value="N" name="nullable-row1" id="nullable-row1-no"/><label for="nullable-row1-no">No</label>
+                     </div>
+	              </td>          
 	              <td>
 	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
@@ -72,7 +79,13 @@
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.workings"/></td>
 	              <td>100</td>
-	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>	              
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.text"/></td>
+	              <td>
+	                 <div class="controls control-radio-checkbox control-in-table"> 
+                      <input type="radio" value="Y" name="nullable-row2" id="nullable-row2-yes" checked="checked"/><label for="nullable-row2-yes">Yes</label>
+                      <input type="radio" value="N" name="nullable-row2" id="nullable-row2-no"/><label for="nullable-row2-no">No</label>
+                      </div>
+	              </td>	              
 	              <td>
 	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
@@ -80,7 +93,13 @@
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.amount"/></td>
 	              <td>100</td>
-	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	             
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	    
+	              <td>
+	                 <div class="controls control-radio-checkbox control-in-table"> 
+                      <input type="radio" value="Y" name="nullable-row3" id="nullable-row3-yes" checked="checked"/><label for="nullable-row3-yes">Yes</label>
+                      <input type="radio" value="N" name="nullable-row3" id="nullable-row3-no"/><label for="nullable-row3-no">No</label>
+                      </div>
+	              </td>         
 	              <td>
 	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
@@ -88,7 +107,13 @@
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.q1"/></td>
 	              <td>100</td>
-	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>              
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>     
+	              <td>
+	              <div class="controls control-radio-checkbox control-in-table"> 
+                      <input type="radio" value="Y" name="nullable-row4" id="nullable-row4-yes" checked="checked"/><label for="nullable-row4-yes">Yes</label>
+                      <input type="radio" value="N" name="nullable-row4" id="nullable-row4-no"/><label for="nullable-row4-no">No</label>
+                      </div>
+	              </td>         
 	              <td>
 	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
@@ -96,7 +121,13 @@
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.q2"/></td>
 	              <td>100</td>
-	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	              
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	      
+	              <td>
+	              <div class="controls control-radio-checkbox control-in-table"> 
+                      <input type="radio" value="Y" name="nullable-row5" id="nullable-row5-yes" checked="checked"/><label for="nullable-row5-yes">Yes</label>
+                      <input type="radio" value="N" name="nullable-row5" id="nullable-row5-no"/><label for="nullable-row5-no">No</label>
+                      </div>
+	              </td>        
 	              <td>
 	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
@@ -104,7 +135,13 @@
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.q3"/></td>
 	              <td>100</td>
-	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	              
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	  
+	              <td>
+	              <div class="controls control-radio-checkbox control-in-table"> 
+                      <input type="radio" value="Y" name="nullable-row6" id="nullable-row6-yes" checked="checked"/><label for="nullable-row6-yes">Yes</label>
+                      <input type="radio" value="N" name="nullable-row6" id="nullable-row6-no"/><label for="nullable-row6-no">No</label>
+                      </div>
+	              </td>            
 	              <td>
 	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>
@@ -112,7 +149,13 @@
 	            <tr>
 	              <td><spring:message code="fbs.common.account.ui.label.account.q4"/></td>
 	              <td>100</td>
-	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	              
+	              <td><spring:message code="fbs.common.account.ui.label.account.column.type.numeric"/></td>	 
+	              <td>
+	              <div class="controls control-radio-checkbox control-in-table"> 
+                      <input type="radio" value="Y" name="nullable-row7" id="nullable-row7-yes" checked="checked"/><label for="nullable-row7-yes">Yes</label>
+                      <input type="radio" value="N" name="nullable-row7" id="nullable-row7-no"/><label for="nullable-row7-no">No</label>
+                      </div>
+	              </td>             
 	              <td>
 	              <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
 	              </td>

@@ -131,7 +131,8 @@ function addNewRow(){
 function saveAccount(){
 	var json = constructAcctStructureJSON();
 	$("#acctStructureJson").val(JSON.stringify(json));
-	$('#accountForm').submit();	
+	console.log(JSON.stringify(json));
+    $('#accountForm').submit();	
 }
 
 function updateAccount(){
@@ -167,7 +168,7 @@ function constructAcctStructureJSON(){
 			obj['columnType'] = $.trim($(this).find('td:eq(2) select').val()); //json obj key will map to AccountStructure.java attributes, coz it will be deserialized to java obj 
 			obj['defaultColumn'] = 'N';
 		}
-		
+		obj['nullable'] = $(this).find('td:eq(3) input:checked').val();
 		obj['sequence'] = ++i;
 		json.push(obj);
 	});

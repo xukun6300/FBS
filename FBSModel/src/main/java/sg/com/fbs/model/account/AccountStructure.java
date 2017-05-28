@@ -26,6 +26,16 @@ public class AccountStructure extends BaseLogPojo{
 	
 	private String defaultColumn;
 	
+	private String nullable;
+	
+	public void setNullable(String nullable) {
+		this.nullable = nullable;
+	}
+	
+	public String getNullable() {
+		return nullable;
+	}
+	
 	public void setDefaultColumn(String defaultColumn) {
 		this.defaultColumn = defaultColumn;
 	}
