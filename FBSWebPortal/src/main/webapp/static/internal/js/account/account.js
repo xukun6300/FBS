@@ -6,9 +6,7 @@ $(document).ready(function(){
 	$("#accountTb").on('click','.arrow-up', moveRowUp);	
 	$("#accountTb").on('click','.arrow-down', moveRowDown);
 	$("#accountTb").on('click','.deleteRow', deleteRow);
-	
-	//$(".arrow-up").click(moveRowUp);
-	//$(".arrow-down").click(moveRowDown);
+
 	$("#addNewRow").click(addNewRow);
 	$("#saveAccount").click(saveAccount);
 
@@ -48,6 +46,7 @@ $(document).ready(function(){
 	});
 });
 
+//retain table when submit form failed because of validation
 function retainTable(){
 	var tableJsonStr = $("#acctStructureJson").val();	
 	try{
@@ -118,11 +117,25 @@ function deleteRow(){
 	row.remove();
 }
 
+
 function addNewRow(){
+	var rowNum = $("#accountTb tr").length;
+	//to handle delete some rows and then add new rows, row num will be wrong.
+	$("#accountTb").find('tbody tr').each(function(i, val){
+		var radioBtnId = $(this).find('td:eq(3) input:eq(0)').attr("id");
+		if(radioBtnId.indexOf(rowNum)!=-1){
+			rowNum++;
+		}
+	});
+	
 	var newRow = "<tr>" +
 			     "<td><input class=\"input\" type=\"text\" maxlength=\"100\"></td>" +
 			     "<td><input class=\"input\" type=\"text\" maxlength=\"100\"></td>" +
-			     "<td><select class=\"input-small\"><option value=\"T\">Text</option><option value=\"N\">Numeric</option><option value=\"D\">Date</option></select></td>" +			     
+			     "<td><select class=\"input-small\"><option value=\"T\">Text</option><option value=\"N\">Numeric</option><option value=\"D\">Date</option></select></td>" +		
+			     "<td><div class=\"controls control-radio-checkbox control-in-table\"> " +
+			     "<input type=\"radio\" value=\"Y\" name=\"nullable-row"+rowNum+"\" id=\"nullable-row"+rowNum+"-yes\" checked=\"checked\"><label for=\"nullable-row"+rowNum+"-yes\">Yes</label>" +
+			     "<input type=\"radio\" value=\"N\" name=\"nullable-row"+rowNum+"\" id=\"nullable-row"+rowNum+"-no\"><label for=\"nullable-row"+rowNum+"-no\">No</label>"+
+			     "</div></td>"+
 			     "<td><button class=\"btn-icon btn-danger deleteRow\"><i class=\"icon-remove icon-white\"></i></button></td>"+
 			     "</tr>";
 	$("#accountTb tbody").append(newRow);
@@ -174,10 +187,6 @@ function constructAcctStructureJSON(){
 	});
 	return json;
 }
-
-
-
-
 
 
 
