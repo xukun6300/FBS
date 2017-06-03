@@ -52,7 +52,15 @@ function retainTable(){
 	try{
 		var jsonObj = JSON.parse(tableJsonStr); //opposite operation for JSON.stringify
 		$("#accountTb tbody").empty();
-
+		
+		var rowNum = $("#accountTb tr").length;
+		//to handle delete some rows and then add new rows, row num will be wrong.
+		$("#accountTb").find('tbody tr').each(function(i, val){
+			var radioBtnId = $(this).find('td:eq(3) input:eq(0)').attr("id");
+			if(radioBtnId.indexOf(rowNum)!=-1){
+				rowNum++;
+			}
+		});
 		$.each(jsonObj, function(i, item){
 			var row = "";
 			if(item['defaultColumn']==='Y'){
@@ -70,7 +78,11 @@ function retainTable(){
 				row+="<tr>" +
 				     "<td>"+ item['columnName'] +"</td>" +
 				     "<td>"+ item['columnSize'] +"</td>" +
-				     "<td>"+ optionStr +"</td>" +				     
+				     "<td>"+ optionStr +"</td>" +	
+				     "<td><div class=\"controls control-radio-checkbox control-in-table\"> " +
+				     "<input type=\"radio\" value=\"Y\" name=\"nullable-row"+rowNum+"\" id=\"nullable-row"+rowNum+"-yes\" checked=\"checked\"><label for=\"nullable-row"+rowNum+"-yes\">Yes</label>" +
+				     "<input type=\"radio\" value=\"N\" name=\"nullable-row"+rowNum+"\" id=\"nullable-row"+rowNum+"-no\"><label for=\"nullable-row"+rowNum+"-no\">No</label>"+
+				     "</div></td>"+
 				     "<td><button class=\"btn-icon btn-danger deleteRow\" disabled><i class=\"icon-remove icon-white\"></i></button></td>"+
 				     "</tr>";
 			}else{
@@ -87,7 +99,11 @@ function retainTable(){
 				row+="<tr>" +
 				     "<td><input class=\"input\" type=\"text\" maxlength=\"100\" value=\""+item['columnName']+"\"></td>" +
 				     "<td><input class=\"input\" type=\"text\" maxlength=\"100\" value=\""+item['columnSize']+"\"></td>" +
-				     "<td><select class=\"input-small\">"+ optionStr + "</select></td>" +				    
+				     "<td><select class=\"input-small\">"+ optionStr + "</select></td>" +	
+				     "<td><div class=\"controls control-radio-checkbox control-in-table\"> " +
+				     "<input type=\"radio\" value=\"Y\" name=\"nullable-row"+rowNum+"\" id=\"nullable-row"+rowNum+"-yes\" checked=\"checked\"><label for=\"nullable-row"+rowNum+"-yes\">Yes</label>" +
+				     "<input type=\"radio\" value=\"N\" name=\"nullable-row"+rowNum+"\" id=\"nullable-row"+rowNum+"-no\"><label for=\"nullable-row"+rowNum+"-no\">No</label>"+
+				     "</div></td>"+
 				     "<td><button class=\"btn-icon btn-danger deleteRow\"><i class=\"icon-remove icon-white\"></i></button></td>"+
 				     "</tr>";
 			}

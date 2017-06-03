@@ -84,11 +84,12 @@ td label.non-edit-mode {
                    <th><spring:message code="fbs.common.account.ui.label.account.column.name"/></th>
                    <th><spring:message code="fbs.common.account.ui.label.account.column.size"/></th>                  
                    <th><spring:message code="fbs.common.account.ui.label.account.column.type"/></th>
+                   <th><spring:message code="fbs.common.account.ui.label.account.column.nullable"/></th>
                    <th class="edit-mode"><spring:message code="fbs.common.ui.label.delete"/></th>                   
                 </tr>
              </thead>             
              <tbody>
-                 <c:forEach items="${command.acctStructures}" var="acctStructure">
+                 <c:forEach items="${command.acctStructures}" var="acctStructure" varStatus="index">
                     <c:choose>
                        <c:when test="${acctStructure.defaultColumn=='Y'}">
                            <tr>
@@ -110,6 +111,24 @@ td label.non-edit-mode {
 		                               Date
 		                            </c:otherwise>
 	                             </c:choose>	                   
+		                      </td>
+		                      <td>
+		                         <c:choose>
+		                            <c:when test="${acctStructure.nullable=='Y'}">
+		                               <label class="non-edit-mode">Yes</label>
+		                               <div class="controls control-radio-checkbox control-in-table edit-mode"> 
+					                      <input type="radio" value="Y" name="nullable-row${index.index}" id="nullable-row${index.index}-yes" checked="checked"/><label for="nullable-row${index.index}-yes">Yes</label>
+					                      <input type="radio" value="N" name="nullable-row${index.index}" id="nullable-row${index.index}-no"/><label for="nullable-row${index.index}-no">No</label>
+					                   </div>
+		                            </c:when>		                   
+		                            <c:otherwise>
+		                               <label class="non-edit-mode">No</label>
+		                               <div class="controls control-radio-checkbox control-in-table edit-mode"> 
+					                      <input type="radio" value="Y" name="nullable-row${index.index}" id="nullable-row${index.index}-yes"/><label for="nullable-row${index.index}-yes">Yes</label>
+					                      <input type="radio" value="N" name="nullable-row${index.index}" id="nullable-row${index.index}-no" checked="checked"/><label for="nullable-row${index.index}-no">No</label>
+					                   </div>
+		                            </c:otherwise>
+	                             </c:choose>
 		                      </td>
 				              <td class="edit-mode">
 				                   <button class="btn-icon btn-danger deleteRow" disabled><i class="icon-remove icon-white"></i></button>
@@ -149,6 +168,24 @@ td label.non-edit-mode {
 		                         </select>
 		                         
 		                          
+		                      </td>
+		                      <td>
+		                        <c:choose>
+		                            <c:when test="${acctStructure.nullable=='Y'}">
+		                               <label class="non-edit-mode">Yes</label>
+		                               <div class="controls control-radio-checkbox control-in-table edit-mode"> 
+					                      <input type="radio" value="Y" name="nullable-row${index.index}" id="nullable-row${index.index}-yes" checked="checked"/><label for="nullable-row${index.index}-yes">Yes</label>
+					                      <input type="radio" value="N" name="nullable-row${index.index}" id="nullable-row${index.index}-no"/><label for="nullable-row${index.index}-no">No</label>
+					                   </div>
+		                            </c:when>		                   
+		                            <c:otherwise>
+		                               <label class="non-edit-mode">No</label>
+		                               <div class="controls control-radio-checkbox control-in-table edit-mode"> 
+					                      <input type="radio" value="Y" name="nullable-row${index.index}" id="nullable-row${index.index}-yes"/><label for="nullable-row${index.index}-yes">Yes</label>
+					                      <input type="radio" value="N" name="nullable-row${index.index}" id="nullable-row${index.index}-no" checked="checked"/><label for="nullable-row${index.index}-no">No</label>
+					                   </div>
+		                            </c:otherwise>
+	                             </c:choose>
 		                      </td>
 				              <td class="edit-mode">
 				                   <button class="btn-icon btn-danger deleteRow"><i class="icon-remove icon-white"></i></button>
